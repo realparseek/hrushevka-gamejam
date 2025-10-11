@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7ta5dnsw5ugk"]
+
+[ext_resource type="Material" uid="uid://bymsl8ipnbpy8" path="res://materials/walls.material" id="1_wvfle"]
+[ext_resource type="PackedScene" uid="uid://ce1vqv5d4yabf" path="res://prefabs/player.tscn" id="2_etyrx"]
+
+[sub_resource type="Environment" id="Environment_etyrx"]
+
+[node name="basement" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_etyrx")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05955586, -1.5)
+use_collision = true
+size = Vector3(3, 0.12640381, 4)
+material = ExtResource("1_wvfle")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0595558, -1.5)
+use_collision = true
+size = Vector3(3, 0.12640381, 4)
+material = ExtResource("1_wvfle")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5467529, 0.996354, -1.5)
+use_collision = true
+size = Vector3(0.09350586, 2, 4)
+material = ExtResource("1_wvfle")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.4532471, 0.996354, -1.5)
+use_collision = true
+size = Vector3(0.09350586, 2, 4)
+material = ExtResource("1_wvfle")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.04675293, 0.996354, -3.5)
+use_collision = true
+size = Vector3(0.09350586, 2, 3)
+material = ExtResource("1_wvfle")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.04675293, 0.996354, 0.5)
+use_collision = true
+size = Vector3(0.09350586, 2, 3)
+material = ExtResource("1_wvfle")
+
+[node name="player" parent="." instance=ExtResource("2_etyrx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39000285, 0.65034497, -1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.811542, -1)

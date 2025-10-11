@@ -1,0 +1,269 @@
+[gd_scene load_steps=21 format=3 uid="uid://ce1vqv5d4yabf"]
+
+[ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="2_r66lb"]
+[ext_resource type="Script" uid="uid://bcr667wqyxp0q" path="res://scripts/states/camera/shaking.gd" id="3_1txc5"]
+[ext_resource type="Script" uid="uid://ckkxjpdw8x357" path="res://scripts/states/player/looking_to_front.gd" id="3_r66lb"]
+[ext_resource type="Script" uid="uid://dl756vc4iheby" path="res://scripts/states/player/looking_to_right.gd" id="4_1txc5"]
+[ext_resource type="Script" uid="uid://dtnu2twuj6vua" path="res://scripts/states/player/looking_to_back.gd" id="5_ht1c8"]
+[ext_resource type="Script" uid="uid://bxi73ljp0bwdf" path="res://scripts/states/player/looking_states.gd" id="6_g2jcq"]
+
+[sub_resource type="GDScript" id="GDScript_72ieh"]
+script/source = "extends CharacterBody3D
+
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dohe"]
+size = Vector2(160, 900.5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1txc5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_etyrx"]
+radius = 0.21
+height = 1.0
+
+[sub_resource type="Animation" id="Animation_ht1c8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rgeog"]
+resource_name = "from_back_to_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.8666667, 1),
+"transitions": PackedFloat32Array(1, 1, 0.39229214, 1),
+"update": 0,
+"values": [Vector3(0, -1.0471976, 0), Vector3(0, -1.0646509, 0), Vector3(0, 0.017453292, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g2jcq"]
+resource_name = "from_front_to_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.8666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5882496, 0), Vector3(0, -0.017453292, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kbsxf"]
+resource_name = "from_right_to_back"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.86, 1),
+"transitions": PackedFloat32Array(1, 1, 0.18301074, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.017453292, 0), Vector3(0, -1.0646509, 0), Vector3(0, -1.0471976, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1txc5"]
+resource_name = "from_right_to_front"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.8666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.043109633, 0), Vector3(0, 1.5882496, 0), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ht1c8"]
+_data = {
+&"RESET": SubResource("Animation_ht1c8"),
+&"from_back_to_right": SubResource("Animation_rgeog"),
+&"from_front_to_right": SubResource("Animation_g2jcq"),
+&"from_right_to_back": SubResource("Animation_kbsxf"),
+&"from_right_to_front": SubResource("Animation_1txc5")
+}
+
+[sub_resource type="Animation" id="Animation_r66lb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.37680537, -0.0017216206)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4dohe"]
+resource_name = "shaking"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6399999, 1.63, 2.29, 2.9799998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.37680537, -0.0017216206), Vector3(0.020898283, 0.36687773, -0.0017216206), Vector3(-0.025803918, 0.3719996, -0.0017216206), Vector3(0.008311443, 0.37835053, -0.0017216206), Vector3(0, 0.37680537, -0.0017216206)]
+}
+
+[sub_resource type="Animation" id="Animation_u51tk"]
+resource_name = "shaking2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.004834456, 0.0065276083, 3.1558073e-05), Vector3(0.0052359877, -0.015707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1txc5"]
+_data = {
+&"RESET": SubResource("Animation_r66lb"),
+&"shaking": SubResource("Animation_4dohe"),
+&"shaking2": SubResource("Animation_u51tk")
+}
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = SubResource("GDScript_72ieh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="turn_from_right_to_front" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/turn_from_right_to_front"]
+position = Vector2(79, 450)
+shape = SubResource("RectangleShape2D_4dohe")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer/turn_from_right_to_front"]
+position = Vector2(79.49999, 445.50003)
+scale = Vector2(113.00001, 844.99994)
+mesh = SubResource("QuadMesh_1txc5")
+
+[node name="turn_from_right_to_back" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/turn_from_right_to_back"]
+position = Vector2(1520, 450)
+shape = SubResource("RectangleShape2D_4dohe")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer/turn_from_right_to_back"]
+position = Vector2(1522, 450)
+scale = Vector2(117.50001, 844.99994)
+mesh = SubResource("QuadMesh_1txc5")
+
+[node name="turn_from_front_to_right" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/turn_from_front_to_right"]
+position = Vector2(1520, 450)
+shape = SubResource("RectangleShape2D_4dohe")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer/turn_from_front_to_right"]
+position = Vector2(1522, 450)
+scale = Vector2(117.50001, 844.99994)
+mesh = SubResource("QuadMesh_1txc5")
+
+[node name="turn_from_back_to_right" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/turn_from_back_to_right"]
+position = Vector2(79, 450)
+shape = SubResource("RectangleShape2D_4dohe")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CanvasLayer/turn_from_back_to_right"]
+position = Vector2(79.49999, 445.50003)
+scale = Vector2(113.00001, 844.99994)
+mesh = SubResource("QuadMesh_1txc5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_etyrx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ht1c8")
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.37680537, -0.0017216206)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_1txc5")
+}
+
+[node name="CameraStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_r66lb")
+initial_state = NodePath("Shaking")
+
+[node name="Shaking" type="Node" parent="CameraStateMachine"]
+script = ExtResource("3_1txc5")
+
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_r66lb")
+initial_state = NodePath("LookingToRight")
+
+[node name="LookingToFront" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("player_looking_state", "turn_right")]
+script = ExtResource("3_r66lb")
+player_looking_state = NodePath("../../PlayerLookingState")
+turn_right = NodePath("../../CanvasLayer/turn_from_front_to_right")
+
+[node name="LookingToRight" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("player_looking_state", "turn_left", "turn_right")]
+script = ExtResource("4_1txc5")
+player_looking_state = NodePath("../../PlayerLookingState")
+turn_left = NodePath("../../CanvasLayer/turn_from_right_to_front")
+turn_right = NodePath("../../CanvasLayer/turn_from_right_to_back")
+
+[node name="LookingToBack" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("player_looking_state", "turn_left")]
+script = ExtResource("5_ht1c8")
+player_looking_state = NodePath("../../PlayerLookingState")
+turn_left = NodePath("../../CanvasLayer/turn_from_back_to_right")
+
+[node name="PlayerLookingState" type="Node" parent="."]
+script = ExtResource("6_g2jcq")
