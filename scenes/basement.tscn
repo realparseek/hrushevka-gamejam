@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7ta5dnsw5ugk"]
+[gd_scene load_steps=5 format=3 uid="uid://c7ta5dnsw5ugk"]
 
 [ext_resource type="Material" uid="uid://bymsl8ipnbpy8" path="res://materials/walls.material" id="1_wvfle"]
 [ext_resource type="PackedScene" uid="uid://ce1vqv5d4yabf" path="res://prefabs/player.tscn" id="2_etyrx"]
+[ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="3_wy1pe"]
 
 [sub_resource type="Environment" id="Environment_etyrx"]
 
@@ -51,3 +52,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39000285, 0.65034497, -1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.811542, -1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wy1pe")
+volume_db = -40.0
+autoplay = true
+bus = &"Ambient"
