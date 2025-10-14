@@ -18,7 +18,7 @@ void fragment() {
 	
 	float dither_offset = (ps1_dither[index] / 8.0);
 	
-	vec3 quantized_color = floor((screen_color* 255.0) / 8.0+dither_offset) / 31.0;
+	vec3 quantized_color = floor((screen_color* 255.0) / 8.0) / 31.0;
 	COLOR = vec4(quantized_color, 1);
 }
 
