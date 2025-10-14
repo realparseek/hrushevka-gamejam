@@ -1,15 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7ta5dnsw5ugk"]
+[gd_scene load_steps=7 format=3 uid="uid://c7ta5dnsw5ugk"]
 
 [ext_resource type="Material" uid="uid://bymsl8ipnbpy8" path="res://materials/walls.material" id="1_wvfle"]
 [ext_resource type="PackedScene" uid="uid://ce1vqv5d4yabf" path="res://prefabs/player.tscn" id="2_etyrx"]
 [ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="3_wy1pe"]
+[ext_resource type="Shader" uid="uid://iouphtxhkil3" path="res://shaders/ps1_post_proccess.gdshader" id="4_hc2hy"]
 
-[sub_resource type="Environment" id="Environment_etyrx"]
+[sub_resource type="Environment" id="Environment_hc2hy"]
+background_mode = 3
+tonemap_mode = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wiqa1"]
+shader = ExtResource("4_hc2hy")
+shader_parameter/viewport_size = Vector2(1600, 900)
+shader_parameter/virtual_resolution = Vector2(640, 480)
 
 [node name="basement" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_etyrx")
+environment = SubResource("Environment_hc2hy")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05955586, -1.5)
@@ -51,10 +59,22 @@ material = ExtResource("1_wvfle")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39000285, 0.65034497, -1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.811542, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01855886, 1.7548112, -2.8766043)
+light_color = Color(1, 1, 0.95686275, 1)
+light_cull_mask = 4294966273
+omni_shadow_mode = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wy1pe")
 volume_db = -40.0
 autoplay = true
 bus = &"Ambient"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wiqa1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
