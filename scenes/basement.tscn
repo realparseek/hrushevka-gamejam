@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7ta5dnsw5ugk"]
+[gd_scene load_steps=10 format=3 uid="uid://c7ta5dnsw5ugk"]
 
+[ext_resource type="Script" uid="uid://brkx2lbhwje1k" path="res://scripts/radio.gd" id="1_wiqa1"]
 [ext_resource type="Material" uid="uid://bymsl8ipnbpy8" path="res://materials/walls.material" id="1_wvfle"]
 [ext_resource type="PackedScene" uid="uid://ce1vqv5d4yabf" path="res://prefabs/player.tscn" id="2_etyrx"]
 [ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="3_wy1pe"]
@@ -16,7 +17,9 @@ fog_enabled = true
 fog_mode = 1
 fog_density = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wiqa1"]
+[sub_resource type="AudioStream" id="AudioStream_1ctny"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hc2hy"]
 shader = ExtResource("4_hc2hy")
 shader_parameter/viewport_size = Vector2(1600, 900)
 shader_parameter/virtual_resolution = Vector2(640, 480)
@@ -25,6 +28,19 @@ shader_parameter/virtual_resolution = Vector2(640, 480)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hc2hy")
+
+[node name="radiotest" type="AudioStreamPlayer3D" parent="WorldEnvironment"]
+auto_translate_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0248238, -3.2681212)
+stream = SubResource("AudioStream_1ctny")
+volume_db = -30.0
+autoplay = true
+max_distance = 3.0
+bus = &"radio"
+emission_angle_degrees = 47.6
+emission_angle_filter_attenuation_db = -4.5
+doppler_tracking = 2
+script = ExtResource("1_wiqa1")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05955586, -1.5)
@@ -72,16 +88,16 @@ light_cull_mask = 4294966273
 omni_range = 4.0
 omni_shadow_mode = 0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wy1pe")
-volume_db = -40.0
+volume_db = -50.0
 autoplay = true
 bus = &"Ambient"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_wiqa1")
+material = SubResource("ShaderMaterial_hc2hy")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
