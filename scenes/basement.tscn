@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ce1vqv5d4yabf" path="res://prefabs/player.tscn" id="2_etyrx"]
 [ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="3_wy1pe"]
 [ext_resource type="Script" uid="uid://ccyjlfticbtrc" path="res://scripts/omni_light_3d.gd" id="4_1ctny"]
-[ext_resource type="Shader" uid="uid://iouphtxhkil3" path="res://shaders/ps1_post_proccess.gdshader" id="4_hc2hy"]
+[ext_resource type="Shader" uid="uid://doxte1xpnc2aw" path="res://shader_test/test_shader.gdshader" id="6_1ctny"]
 
 [sub_resource type="Sky" id="Sky_hc2hy"]
 
@@ -23,13 +23,16 @@ fog_density = 1.0
 
 [sub_resource type="AudioStream" id="AudioStream_1ctny"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hc2hy"]
-shader = ExtResource("4_hc2hy")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kmq6a"]
+shader = ExtResource("6_1ctny")
 shader_parameter/viewport_size = Vector2(1600, 900)
-shader_parameter/virtual_resolution = Vector2(640, 480)
-shader_parameter/shadow_smoothness = 0.8
+shader_parameter/virtual_resolution = Vector2(320, 240)
+shader_parameter/shadow_smoothness = 0.7
 shader_parameter/color_depth = 64
-shader_parameter/dither_strength = 0.02
+shader_parameter/dither_strength = 0.01
+shader_parameter/scanline_strength = 0.3
+shader_parameter/vignette_strength = 0.3
+shader_parameter/chroma_aberration = 0.0002
 
 [node name="basement" type="Node3D"]
 
@@ -108,8 +111,8 @@ bus = &"Ambient"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_hc2hy")
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_kmq6a")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
