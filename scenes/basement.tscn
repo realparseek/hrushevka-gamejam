@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7ta5dnsw5ugk"]
+[gd_scene load_steps=11 format=3 uid="uid://c7ta5dnsw5ugk"]
 
 [ext_resource type="Script" uid="uid://brkx2lbhwje1k" path="res://scripts/radio.gd" id="1_wiqa1"]
 [ext_resource type="Material" uid="uid://bymsl8ipnbpy8" path="res://materials/walls.material" id="1_wvfle"]
 [ext_resource type="PackedScene" uid="uid://ce1vqv5d4yabf" path="res://prefabs/player.tscn" id="2_etyrx"]
 [ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="3_wy1pe"]
+[ext_resource type="Script" uid="uid://ccyjlfticbtrc" path="res://scripts/omni_light_3d.gd" id="4_1ctny"]
 [ext_resource type="Shader" uid="uid://iouphtxhkil3" path="res://shaders/ps1_post_proccess.gdshader" id="4_hc2hy"]
 
 [sub_resource type="Sky" id="Sky_hc2hy"]
@@ -12,8 +13,11 @@
 background_mode = 2
 sky = SubResource("Sky_hc2hy")
 tonemap_mode = 3
-tonemap_exposure = 0.52
-fog_enabled = true
+tonemap_exposure = 0.5
+glow_enabled = true
+glow_mix = 0.7
+glow_bloom = 0.3
+glow_blend_mode = 4
 fog_mode = 1
 fog_density = 1.0
 
@@ -23,6 +27,9 @@ fog_density = 1.0
 shader = ExtResource("4_hc2hy")
 shader_parameter/viewport_size = Vector2(1600, 900)
 shader_parameter/virtual_resolution = Vector2(640, 480)
+shader_parameter/shadow_smoothness = 0.8
+shader_parameter/color_depth = 64
+shader_parameter/dither_strength = 0.02
 
 [node name="basement" type="Node3D"]
 
@@ -82,11 +89,16 @@ material = ExtResource("1_wvfle")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39000285, 0.65034497, -1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17835933, 1.8515661, -2.8396056)
-light_color = Color(1, 1, 0.95686275, 1)
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17835933, 1.5914046, -2.96133)
+light_color = Color(0.98039216, 0.9019608, 0.7254902, 1)
+light_energy = 1.5
+light_indirect_energy = 3.0
 light_cull_mask = 4294966273
-omni_range = 4.0
-omni_shadow_mode = 0
+shadow_enabled = true
+shadow_opacity = 0.6
+omni_range = 3.0
+script = ExtResource("4_1ctny")
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wy1pe")

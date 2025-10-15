@@ -1,23 +1,50 @@
-shader_type canvas_item;
-uniform sampler2D screen_texture: hint_screen_texture,repeat_disable,filter_nearest;
-uniform vec2 viewport_size = vec2(1600,900);
-uniform vec2 virtual_resolution =vec2(640,480);
-const float ps1_dither[16] = float [16](
-	-4.0, 0.0, -3.0, 1.0,
-	2.0, -2.0, 3.0, -1.0,
-	-3.0, 1.0, -4.0, 0.0,
-	3.0, -1.0, 2.0, -2.0
-);
-void fragment() {
-	vec3 screen_color = texture(screen_texture, UV).rgb;
+shader_type spatial;
+render_mode blend_mix,
+	cull_disabled,
+	depth_prepass_alpha,
+	shadows_disabled,
+	specular_disabled,
+	vertex_lighting;
 
-	vec2 virtual_pos = floor(FRAGCOORD.xy * (virtual_resolution / viewport_size));
-	int x = int(mod(virtual_pos.x, 4.0));
-	int y = int(mod (virtual_pos.y, 4.0));
-	int index = y * 4 + x;
+uniform bool affine_mapping = false;
+uniform sampler2D albedo : source_color, filter_nearest;
+uniform float alpha_scissor : hint_range(0, 1) = 0.5;
+uniform float jitter: hint_range(0, 1) = 0.25;
+uniform ivec2 resolution = ivec2(320, 240);
 
-	float dither_offset = (ps1_dither[index] / 8.0);
+vec4 snap_to_position(vec4 base_position)
+{
+	vec4 snapped_position = base_position;
+	snapped_position.xyz = base_position.xyz / base_position.w;
+	
+	vec2 snap_resulotion = floor(vec2(resolution) * (1.0 - jitter));
+	snapped_position.x = floor(snap_resulotion.x * snapped_position.x) / snap_resulotion.x;
+	snapped_position.y = floor(snap_resulotion.y * snapped_position.y) / snap_resulotion.y;
+	
+	snapped_position.xyz *= base_position.w;
+	return snapped_position;
+}
 
-	vec3 quantized_color = floor((screen_color* 255.0) / 8.0) / 31.0;
-	COLOR = vec4(quantized_color, 1);
+void vertex()
+{
+	vec4 snapped_position = snap_to_position(PROJECTION_MATRIX * MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	if (affine_mapping)
+	{
+		POSITION = snapped_position;
+		POSITION /= abs(POSITION.w);
+	}
+	else
+	{
+		POSITION = snapped_position;
+	}
+}
+
+void fragment()
+{
+	vec4 color_base = COLOR;
+	vec4 texture_color = texture(albedo, UV);
+
+	ALBEDO = (color_base * texture_color).rgb;
+	ALPHA = texture_color.a * color_base.a;
+	ALPHA_SCISSOR_THRESHOLD = alpha_scissor;
 }

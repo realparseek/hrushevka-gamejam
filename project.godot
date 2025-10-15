@@ -42,8 +42,3 @@ texture={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=3
-lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
-lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=3
-lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=3

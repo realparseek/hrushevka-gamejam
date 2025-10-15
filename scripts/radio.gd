@@ -11,10 +11,8 @@ var current_track_index = 0
 var radio_playing = false
 
 func _ready():
-	# Выбираем случайный трек при запуске
 	select_random_track()
 	
-	# Подключаем сигнал окончания трека
 	self.finished.connect(_on_track_finished)
 	play_current_track()
 
