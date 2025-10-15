@@ -2,7 +2,7 @@ shader_type canvas_item;
 uniform sampler2D screen_texture: hint_screen_texture,repeat_disable,filter_nearest;
 uniform vec2 viewport_size = vec2(1600,900);
 uniform vec2 virtual_resolution = vec2(640,480);
-uniform float shadow_smoothness = 0.7;
+uniform float shadow_smoothness = 0.5;
 uniform int color_depth = 64;
 uniform float dither_strength = 0.01; // Сила
 

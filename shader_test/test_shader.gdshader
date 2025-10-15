@@ -2,12 +2,12 @@ shader_type canvas_item;
 
 uniform sampler2D screen_texture: hint_screen_texture, repeat_disable, filter_nearest;
 uniform vec2 viewport_size = vec2(1600, 900);
-uniform vec2 virtual_resolution = vec2(640, 480);
+uniform vec2 virtual_resolution = vec2(320, 240);
 uniform float shadow_smoothness = 0.5;
-uniform int color_depth = 64;
-uniform float dither_strength = 0.01;
+uniform int color_depth = 32;
+uniform float dither_strength = 0.02;
 
-// CRT эффекты 
+// CRT эффекты
 uniform float scanline_strength = 0.3;
 uniform float vignette_strength = 0.3;
 uniform float chroma_aberration = 0.0002;
@@ -19,6 +19,7 @@ const float ps1_dither[16] = float [16](
 	3.0, -1.0, 2.0, -2.0
 );
 
+// Квантование с плавными переходами
 vec3 smooth_quantize(vec3 color, int levels) {
     float step = 1.0 / float(levels - 1);
     vec3 quantized = floor(color / step + 0.5) * step;
@@ -29,13 +30,12 @@ vec3 smooth_quantize(vec3 color, int levels) {
     return mix(color, quantized, blend);
 }
 
-// Определение теней
 bool is_shadow_color(vec3 color) {
     float brightness = dot(color, vec3(0.299, 0.587, 0.114));
     return brightness < 0.3;
 }
 
-// CRT эффекты (применяются ПОСЛЕ основного шейдера)
+// CRT эффекты
 vec3 apply_scanlines(vec3 color, vec2 uv) {
     float scanline = sin(uv.y * viewport_size.y * 3.14159) * 0.3 + 0.7;
     scanline = mix(1.0, scanline, scanline_strength);
@@ -52,17 +52,16 @@ vec3 apply_chroma_aberration(vec3 original_color, vec2 uv) {
     if (chroma_aberration <= 0.0001) {
         return original_color;
     }
-    
-    // Хроматическая аберрация применяется к уже обработанному цвету
-    vec2 offset = vec2(chroma_aberration, 0.00005);
+
+    vec2 offset = vec2(chroma_aberration, 0.005);
     vec3 color;
-    color.r = original_color.r; 
+    color.r = original_color.r;
     color.g = original_color.g;
     color.b = original_color.b;
-    
+
     color.r = mix(color.r, texture(screen_texture, uv + offset).r, chroma_aberration * 10.0);
     color.b = mix(color.b, texture(screen_texture, uv - offset).b, chroma_aberration * 10.0);
-    
+
     return color;
 }
 
@@ -84,7 +83,7 @@ void fragment() {
 		vec3 smooth_shadow = smooth_quantize(screen_color, color_depth);
 		quantized_color = mix(quantized_color, smooth_shadow, shadow_smoothness);
 
-		// Дизеринг для очень темных теней 
+		// Дизеринг для очень темных теней с минимальной силой
 		if (dot(screen_color, vec3(0.299, 0.587, 0.114)) < 0.2) {
 			quantized_color += dither_offset * dither_strength;
 		}
@@ -104,11 +103,11 @@ void fragment() {
 	if (similarity < 0.95) {
 		final_color = mix(final_color, average, 0.1);
 	}
-	
+
 	// CRT ЭФФЕКТЫ - применяются ПОСЛЕ основного шейдера
-	// Хроматическая аберрация 
+	// Хроматическая аберрация
 	final_color = apply_chroma_aberration(final_color, UV);
-	
+
 	// Сканирующие линии и виньетка
 	final_color = apply_scanlines(final_color, UV);
 	final_color = apply_vignette(final_color, UV);
