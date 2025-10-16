@@ -30,9 +30,10 @@ shader_parameter/virtual_resolution = Vector2(320, 240)
 shader_parameter/shadow_smoothness = 0.7
 shader_parameter/color_depth = 64
 shader_parameter/dither_strength = 0.01
-shader_parameter/scanline_strength = 0.3
 shader_parameter/vignette_strength = 0.3
 shader_parameter/chroma_aberration = 0.0002
+shader_parameter/tv_noise_strength = 0.02
+shader_parameter/tv_noise_speed = 3.0
 
 [node name="basement" type="Node3D"]
 
@@ -116,6 +117,8 @@ material = SubResource("ShaderMaterial_kmq6a")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

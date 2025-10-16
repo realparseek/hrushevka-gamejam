@@ -25,7 +25,6 @@ LookingState="*res://scripts/states/player/looking_states_AL.gd"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
-window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
