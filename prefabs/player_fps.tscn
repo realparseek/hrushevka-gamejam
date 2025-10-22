@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3i24moe7m2ha"]
+
+[ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="1_gm3sv"]
+[ext_resource type="Script" uid="uid://ccucbq3ackvyf" path="res://scripts/states/player/controls_fps.gd" id="1_kgncn"]
+[ext_resource type="Script" uid="uid://bcr667wqyxp0q" path="res://scripts/states/camera/shaking.gd" id="2_kgncn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q4u1k"]
+radius = 0.4
+
+[sub_resource type="Animation" id="Animation_r66lb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.37680537, -0.0017216206)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4dohe"]
+resource_name = "shaking"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6399999, 1.63, 2.29, 2.9799998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.37680537, -0.0017216206), Vector3(0.020898283, 0.36687773, -0.0017216206), Vector3(-0.025803918, 0.3719996, -0.0017216206), Vector3(0.008311443, 0.37835053, -0.0017216206), Vector3(0, 0.37680537, -0.0017216206)]
+}
+
+[sub_resource type="Animation" id="Animation_u51tk"]
+resource_name = "shaking2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.007015103, 0.017872611, 0.00012539052), Vector3(-0.013524125, -0.017943624, 0.00024269041), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1txc5"]
+_data = {
+&"RESET": SubResource("Animation_r66lb"),
+&"shaking": SubResource("Animation_4dohe"),
+&"shaking2": SubResource("Animation_u51tk")
+}
+
+[node name="player_fps" type="CharacterBody3D"]
+script = ExtResource("1_kgncn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_q4u1k")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8331134, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_1txc5")
+}
+
+[node name="CameraStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_gm3sv")
+initial_state = NodePath("Shaking")
+
+[node name="Shaking" type="Node" parent="CameraStateMachine"]
+script = ExtResource("2_kgncn")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
