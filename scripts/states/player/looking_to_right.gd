@@ -14,7 +14,7 @@ func enter() -> void:
 	if player_looking_state.current_looking_state == LookingState.LookingStateEnum.LOOKING_TO_FRONT:
 		anim_player.play("from_front_to_right", -1, 1.75)
 	elif player_looking_state.current_looking_state == LookingState.LookingStateEnum.LOOKING_TO_BACK:
-		anim_player.play("from_back_to_right", -1, 1.75)
+		anim_player.play("from_back_to_right", -1, 2)
 	
 	player_looking_state.current_looking_state = LookingState.LookingStateEnum.LOOKING_TO_RIGHT
 	turn_left.visible = true

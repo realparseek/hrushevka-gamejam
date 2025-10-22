@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ce1vqv5d4yabf"]
+[gd_scene load_steps=22 format=3 uid="uid://ce1vqv5d4yabf"]
 
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="2_r66lb"]
 [ext_resource type="Script" uid="uid://bcr667wqyxp0q" path="res://scripts/states/camera/shaking.gd" id="3_1txc5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dl756vc4iheby" path="res://scripts/states/player/looking_to_right.gd" id="4_1txc5"]
 [ext_resource type="Script" uid="uid://dtnu2twuj6vua" path="res://scripts/states/player/looking_to_back.gd" id="5_ht1c8"]
 [ext_resource type="Script" uid="uid://bxi73ljp0bwdf" path="res://scripts/states/player/looking_states.gd" id="6_g2jcq"]
+[ext_resource type="Script" uid="uid://bqg2qws3i4jx1" path="res://scripts/states/player/controls.gd" id="7_u51tk"]
 
 [sub_resource type="GDScript" id="GDScript_72ieh"]
 script/source = "extends CharacterBody3D
@@ -267,3 +268,6 @@ turn_left = NodePath("../../CanvasLayer/turn_from_back_to_right")
 
 [node name="PlayerLookingState" type="Node" parent="."]
 script = ExtResource("6_g2jcq")
+
+[node name="PlayerControls" type="Node" parent="."]
+script = ExtResource("7_u51tk")

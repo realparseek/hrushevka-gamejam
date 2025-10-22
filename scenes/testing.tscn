@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg2reyvwdy8dl"]
+
+[ext_resource type="PackedScene" uid="uid://2gh21trxtppi" path="res://models/basement/подвал.tscn" id="1_pcu7d"]
+[ext_resource type="PackedScene" uid="uid://d8g0efpeswrc" path="res://prefabs/vorona.tscn" id="2_pcu7d"]
+
+[sub_resource type="Sky" id="Sky_hc2hy"]
+
+[sub_resource type="Environment" id="Environment_nhxv8"]
+background_mode = 2
+sky = SubResource("Sky_hc2hy")
+tonemap_mode = 3
+tonemap_exposure = 0.5
+glow_enabled = true
+glow_mix = 0.7
+glow_bloom = 0.3
+glow_blend_mode = 4
+fog_mode = 1
+fog_density = 1.0
+
+[node name="Testing" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nhxv8")
+
+[node name="подвал" parent="." instance=ExtResource("1_pcu7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00081658363, 0.0032541752, 0.0064816475)
+
+[node name="vorona" parent="." instance=ExtResource("2_pcu7d")]
+transform = Transform3D(-0.82762164, 0, 1.2510165, 0, 1.5, 0, -1.2510165, 0, -0.82762164, -2.6350684, 0, -3.2092087)

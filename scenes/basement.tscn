@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7ta5dnsw5ugk"]
+[gd_scene load_steps=12 format=3 uid="uid://c7ta5dnsw5ugk"]
 
 [ext_resource type="Script" uid="uid://brkx2lbhwje1k" path="res://scripts/radio.gd" id="1_wiqa1"]
 [ext_resource type="Material" uid="uid://bymsl8ipnbpy8" path="res://materials/walls.material" id="1_wvfle"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="3_wy1pe"]
 [ext_resource type="Script" uid="uid://ccyjlfticbtrc" path="res://scripts/omni_light_3d.gd" id="4_1ctny"]
 [ext_resource type="Shader" uid="uid://doxte1xpnc2aw" path="res://shader_test/test_shader.gdshader" id="6_1ctny"]
+[ext_resource type="PackedScene" uid="uid://bbget62605rdj" path="res://models/vorona/vorona.glb" id="7_kmq6a"]
 
 [sub_resource type="Sky" id="Sky_hc2hy"]
 
@@ -94,14 +95,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39000285, 0.65034497, -1)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 process_mode = 3
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17835933, 1.5914046, -2.96133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0035377, 1.5914046, -2.6715078)
 light_color = Color(0.98039216, 0.9019608, 0.7254902, 1)
 light_energy = 1.5
 light_indirect_energy = 3.0
 light_cull_mask = 4294966273
 shadow_enabled = true
 shadow_opacity = 0.6
-omni_range = 3.0
+omni_range = 7.767288
 script = ExtResource("4_1ctny")
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
@@ -122,3 +123,6 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="vorona" parent="." instance=ExtResource("7_kmq6a")]
+transform = Transform3D(0.98830914, 0.10180327, -0.6178846, 0.0397859, 1.1418953, 0.2517776, 0.6249498, -0.23368989, 0.961107, 0.74505174, 0.07392624, -2.590642)

@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func enter() -> void:
 	player_looking_state.current_looking_state = LookingState.LookingStateEnum.LOOKING_TO_BACK
-	anim_player.play("from_right_to_back", -1, 1.75)
+	anim_player.play("from_right_to_back", -1, 2)
 	turn_left.visible = true
 
 func exit() -> void:
