@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bk2hl6m52xp03"]
+[gd_scene load_steps=22 format=4 uid="uid://bk2hl6m52xp03"]
 
 [ext_resource type="Texture2D" uid="uid://pwcmipk7jjbr" path="res://models/vorona/vorona_animated_vorona.png" id="1_20gvs"]
 [ext_resource type="Texture2D" uid="uid://d174w4isa85ae" path="res://models/vorona/vorona_animated_лапы.png" id="2_56okk"]
@@ -136,6 +136,7 @@ shadow_mesh = SubResource("ArrayMesh_v3qfx")
 [sub_resource type="Animation" id="Animation_yto4u"]
 resource_name = "idle"
 length = 1.6666666
+loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -284,6 +285,7 @@ tracks/9/keys = PackedFloat32Array(0, 1, -0.06481929, -0.0041786623, 0.008214713
 [sub_resource type="Animation" id="Animation_3rrie"]
 resource_name = "walk"
 length = 1.6666666
+loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -361,6 +363,25 @@ _data = {
 &"nod": SubResource("Animation_r6f7v"),
 &"walk": SubResource("Animation_3rrie")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cws7d"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_56okk"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mnsxn"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_56okk"]
+graph_offset = Vector2(-199.61911, 102.20857)
+nodes/output/position = Vector2(700, 300)
+nodes/Walking/node = SubResource("AnimationNodeAnimation_mnsxn")
+nodes/Walking/position = Vector2(340, 480)
+nodes/Walk/node = SubResource("AnimationNodeBlend2_56okk")
+nodes/Walk/position = Vector2(500, 200)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_cws7d")
+nodes/Idle/position = Vector2(300, 240)
+node_connections = [&"output", 0, &"Walk", &"Walk", 0, &"Idle", &"Walk", 1, &"Walking"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qo4h8"]
 size = Vector3(0.6850586, 0.7520447, 1.5776978)
@@ -484,6 +505,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_0e6ay")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_56okk")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Walk/blend_amount = 0.0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021728516, 0.31318665, 0.014007568)
 shape = SubResource("BoxShape3D_qo4h8")
@@ -494,12 +520,12 @@ shape = SubResource("BoxShape3D_qo4h8")
 script = ExtResource("3_0rmse")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="VoronaStates" node_paths=PackedStringArray("anim_player")]
+[node name="Idle" type="Node" parent="VoronaStates" node_paths=PackedStringArray("anim_tree")]
 script = ExtResource("4_20gvs")
-anim_player = NodePath("../../AnimationPlayer")
+anim_tree = NodePath("../../AnimationTree")
 
-[node name="Walking" type="Node" parent="VoronaStates" node_paths=PackedStringArray("agent", "anim_player")]
+[node name="Walking" type="Node" parent="VoronaStates" node_paths=PackedStringArray("agent", "anim_tree")]
 script = ExtResource("5_56okk")
 agent = NodePath("../../NavigationAgent3D")
-anim_player = NodePath("../../AnimationPlayer")
+anim_tree = NodePath("../../AnimationTree")
 target3d = Vector3(2, 0, -5)
