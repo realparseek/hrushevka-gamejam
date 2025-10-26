@@ -383,7 +383,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999828, 0.009128875, -0.016145615, -0.011823841, 0.9843874, -0.17561781, 0.014290348, 0.17577851, 0.984326, -1.1175871e-08, 2.7788723, -2.2304448e-07)
 bones/1/enabled = true
 bones/1/position = Vector3(-1.1175871e-08, 2.7788723, -2.2304448e-07)
-bones/1/rotation = Quaternion(0.092318326, 0.0039726836, -0.006545169, 0.9957002)
+bones/1/rotation = Quaternion(0.092318326, 0.0039726803, -0.0065451693, 0.9957002)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
@@ -498,7 +498,8 @@ initial_state = NodePath("Idle")
 script = ExtResource("4_20gvs")
 anim_player = NodePath("../../AnimationPlayer")
 
-[node name="Walking" type="Node" parent="VoronaStates" node_paths=PackedStringArray("agent")]
+[node name="Walking" type="Node" parent="VoronaStates" node_paths=PackedStringArray("agent", "anim_player")]
 script = ExtResource("5_56okk")
 agent = NodePath("../../NavigationAgent3D")
+anim_player = NodePath("../../AnimationPlayer")
 target3d = Vector3(2, 0, -5)

@@ -10,7 +10,7 @@ func enter() -> void:
 	pass
 	
 func exit() -> void:
-	pass
+	anim_player.stop()
 
 func update(delta: float) -> void:
 	float(delta)
