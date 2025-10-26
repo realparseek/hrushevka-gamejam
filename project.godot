@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0.10247887, 0.14015761, 0.21801892, 1)
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 LookingState="*res://scripts/states/player/looking_states_AL.gd"

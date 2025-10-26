@@ -79,6 +79,8 @@ script = ExtResource("1_kgncn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_q4u1k")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+
 [node name="head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8331134, 0)
 
@@ -98,5 +100,3 @@ initial_state = NodePath("Shaking")
 
 [node name="Shaking" type="Node" parent="CameraStateMachine"]
 script = ExtResource("2_kgncn")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
