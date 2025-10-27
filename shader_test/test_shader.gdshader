@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture: hint_screen_texture, repeat_disable, filter_nearest;
-uniform vec2 viewport_size = vec2(1600, 900);
+uniform vec2 viewport_size = vec2(640, 480);
 uniform vec2 virtual_resolution = vec2(640, 480);
 uniform float shadow_smoothness = 0.5;
 uniform int color_depth = 32;
@@ -11,7 +11,7 @@ uniform float dither_strength = 0.02;
 uniform float vignette_strength = 0.1;
 uniform float chroma_aberration = 0.0005;
 
-// Точечная рябь как от ТВ шума
+// Рябь как от ТВ шума
 uniform float tv_noise_strength = 0.02;
 uniform float tv_noise_speed = 3.0;
 
