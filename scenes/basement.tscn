@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmmjrf3uwuomf"]
+[gd_scene load_steps=8 format=3 uid="uid://cmmjrf3uwuomf"]
 
 [ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="3_wy1pe"]
 [ext_resource type="Shader" uid="uid://doxte1xpnc2aw" path="res://shader_test/test_shader.gdshader" id="6_1ctny"]
 [ext_resource type="PackedScene" uid="uid://bk2hl6m52xp03" path="res://prefabs/vorona.tscn" id="6_e0dxi"]
+[ext_resource type="Environment" uid="uid://byswbkpxkpyxw" path="res://basement_environment.tres" id="6_g4j8u"]
 [ext_resource type="PackedScene" uid="uid://2gh21trxtppi" path="res://models/basement/подвал.tscn" id="6_kmq6a"]
 [ext_resource type="PackedScene" uid="uid://d3i24moe7m2ha" path="res://prefabs/player_fps.tscn" id="7_e0dxi"]
 
@@ -50,3 +51,6 @@ headbob_speed = 5.0
 
 [node name="vorona" parent="." instance=ExtResource("6_e0dxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6393504, 0, -5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("6_g4j8u")
