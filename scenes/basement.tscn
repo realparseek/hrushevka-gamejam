@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=120 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="Texture2D" uid="uid://c2od2rjt0lbh5" path="res://models/basement/basement_metal_shelf.png" id="2_g4j8u"]
@@ -7,11 +7,12 @@
 [ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="3_wy1pe"]
 [ext_resource type="Texture2D" uid="uid://bie5vg00fq0qv" path="res://models/basement/basement_window.png" id="4_3idnv"]
 [ext_resource type="Texture2D" uid="uid://sn4et05w5gjj" path="res://models/basement/basement_white_brick2_baked.png" id="5_olx36"]
+[ext_resource type="PackedScene" uid="uid://lwd5retbcq1p" path="res://prefabs/lightbulb.tscn" id="6_2efs0"]
 [ext_resource type="Texture2D" uid="uid://b4r7cvj05wav1" path="res://models/basement/basement_чугун_backed.png" id="6_dvfvt"]
 [ext_resource type="PackedScene" uid="uid://bk2hl6m52xp03" path="res://prefabs/vorona.tscn" id="6_e0dxi"]
-[ext_resource type="Environment" uid="uid://byswbkpxkpyxw" path="res://basement_environment.tres" id="6_g4j8u"]
 [ext_resource type="Texture2D" uid="uid://d1kgucyy1w2ad" path="res://models/basement/basement_door.png" id="7_dqwih"]
 [ext_resource type="PackedScene" uid="uid://d3i24moe7m2ha" path="res://prefabs/player_fps.tscn" id="7_e0dxi"]
+[ext_resource type="PackedScene" uid="uid://blyln63j1gc0h" path="res://prefabs/switch.tscn" id="7_tgdho"]
 [ext_resource type="Texture2D" uid="uid://cvpin51yvtcn" path="res://models/basement/basement_white_ceiling_baked.png" id="8_nvrgk"]
 [ext_resource type="Texture2D" uid="uid://bbvkmaeu3yffd" path="res://models/basement/basement_door4.png" id="9_5j8jl"]
 [ext_resource type="Material" uid="uid://cnfjy5uvcj1s4" path="res://materials/wires.material" id="11_olx36"]
@@ -1520,12 +1521,12 @@ mesh = SubResource("ArrayMesh_4nxar")
 skeleton = NodePath("")
 
 [node name="floor_001" type="MeshInstance3D" parent="NavigationRegion3D/Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012090683, 0, 5.807624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06584695, -0.0131419, 5.807624)
 mesh = SubResource("ArrayMesh_fgghr")
 skeleton = NodePath("")
 
 [node name="floor_002" type="MeshInstance3D" parent="NavigationRegion3D/Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2121043, -0.007519621, 3.8542895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2121043, 5.686283e-05, 3.8542895)
 mesh = SubResource("ArrayMesh_33eyf")
 skeleton = NodePath("")
 
@@ -1685,5 +1686,8 @@ light_energy = 0.448
 omni_range = 1.2316463
 omni_attenuation = -1.069
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("6_g4j8u")
+[node name="lightbulb" parent="." instance=ExtResource("6_2efs0")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -0.60545284, 2.6561303, 2.240904)
+
+[node name="switch" parent="." instance=ExtResource("7_tgdho")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.998238, 1.6154578, -1.7298738)

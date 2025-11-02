@@ -106,7 +106,6 @@ mesh = SubResource("ArrayMesh_gba4x")
 skeleton = NodePath("")
 
 [node name="lightbulb_on" type="MeshInstance3D" parent="."]
-visible = false
 mesh = SubResource("ArrayMesh_kal8p")
 skeleton = NodePath("")
 
@@ -115,7 +114,7 @@ omni_range = 2.5
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_48juk")
-initial_state = NodePath("TurnedOff")
+initial_state = NodePath("TurnedOn")
 
 [node name="TurnedOff" type="Node" parent="StateMachine" node_paths=PackedStringArray("light", "mesh")]
 script = ExtResource("4_j8o86")
