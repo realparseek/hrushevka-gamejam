@@ -9,9 +9,10 @@ extends CharacterBody3D
 
 var headbob_timer : float = 0.0
 var look_sensetivity_mul : float = 0.001
+var head_init_pos : Vector3 = Vector3.ZERO
 
 func _ready() -> void:
-	pass
+	head_init_pos = $head.position
 	
 func _process(delta: float) -> void:
 	_handle_headbob(delta)
@@ -51,7 +52,7 @@ func _handle_gravity() -> void:
 
 func _handle_headbob(delta: float) -> void:
 	if is_on_floor():
-		$head.position.y = sin(headbob_timer)*headbob_size
+		$head.position.y = head_init_pos.y+sin(headbob_timer)*headbob_size
 		headbob_timer += delta*headbob_speed*velocity.length()
 
 func _get_move_speed() -> float:

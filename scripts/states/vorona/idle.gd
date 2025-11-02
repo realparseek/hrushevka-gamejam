@@ -23,8 +23,8 @@ func physics_update(delta: float) -> void:
 	walk_val = lerpf(walk_val, 0.0, blend_weight)
 	update_anim_tree()
 	
-	if cbody_player.global_position.distance_to(cbody.global_position) <= 5.0:
-		Transitioned.emit("walking", self)
+	#if cbody_player.global_position.distance_to(cbody.global_position) <= 5.0:
+		#Transitioned.emit("walking", self)
 	
 	if !cbody.is_on_floor():
 		cbody.velocity.y -= gravity

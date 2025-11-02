@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbkxmucq56n1v"
-path="res://.godot/imported/подвал_чугун_backed.png-51eed9e6df8211a69f2d69433ab9d92f.ctex"
+uid="uid://cbyk0jaaxoiop"
+path="res://.godot/imported/подвал_white_ceiling_baked.png-6bbdc11d0bd2b6aafeb35223733d7733.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "cacd9ea8d6e6a4b84da68c1de5882162"
+"md5": "f80b320111d8d20db99b4f29a1594c1f"
 }
 
 [deps]
 
-source_file="res://models/basement/подвал_чугун_backed.png"
-dest_files=["res://.godot/imported/подвал_чугун_backed.png-51eed9e6df8211a69f2d69433ab9d92f.ctex"]
+source_file="res://models/basement/подвал_white_ceiling_baked.png"
+dest_files=["res://.godot/imported/подвал_white_ceiling_baked.png-6bbdc11d0bd2b6aafeb35223733d7733.ctex"]
 
 [params]
 

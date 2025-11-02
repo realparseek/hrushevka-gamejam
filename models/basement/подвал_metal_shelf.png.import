@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbkxmucq56n1v"
-path="res://.godot/imported/подвал_чугун_backed.png-51eed9e6df8211a69f2d69433ab9d92f.ctex"
+uid="uid://c8217iqqg2val"
+path="res://.godot/imported/подвал_metal_shelf.png-887e06321c4650e12d96699b97f90566.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "cacd9ea8d6e6a4b84da68c1de5882162"
+"md5": "1ca128c0938792eae3645d840fc168c3"
 }
 
 [deps]
 
-source_file="res://models/basement/подвал_чугун_backed.png"
-dest_files=["res://.godot/imported/подвал_чугун_backed.png-51eed9e6df8211a69f2d69433ab9d92f.ctex"]
+source_file="res://models/basement/подвал_metal_shelf.png"
+dest_files=["res://.godot/imported/подвал_metal_shelf.png-887e06321c4650e12d96699b97f90566.ctex"]
 
 [params]
 

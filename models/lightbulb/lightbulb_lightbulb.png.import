@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbkxmucq56n1v"
-path="res://.godot/imported/подвал_чугун_backed.png-51eed9e6df8211a69f2d69433ab9d92f.ctex"
+uid="uid://b80ex7ek0uq1r"
+path="res://.godot/imported/lightbulb_lightbulb.png-22814f92faf0b7bddc2db25fa7c17377.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "cacd9ea8d6e6a4b84da68c1de5882162"
+"md5": "81e09f2078a3f700a2f83c46019541a2"
 }
 
 [deps]
 
-source_file="res://models/basement/подвал_чугун_backed.png"
-dest_files=["res://.godot/imported/подвал_чугун_backed.png-51eed9e6df8211a69f2d69433ab9d92f.ctex"]
+source_file="res://models/lightbulb/lightbulb_lightbulb.png"
+dest_files=["res://.godot/imported/lightbulb_lightbulb.png-22814f92faf0b7bddc2db25fa7c17377.ctex"]
 
 [params]
 

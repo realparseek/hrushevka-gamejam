@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://boa3priehwvl5"
-path="res://.godot/imported/подвал.glb-449a99216532569e447d8c9c7b20c71d.scn"
+uid="uid://tb13r7j58dwa"
+path="res://.godot/imported/lightbulb.glb-681fd932e465317638f0da2e02a2d7d4.scn"
 
 [deps]
 
-source_file="res://models/basement/подвал.glb"
-dest_files=["res://.godot/imported/подвал.glb-449a99216532569e447d8c9c7b20c71d.scn"]
+source_file="res://models/lightbulb/lightbulb.glb"
+dest_files=["res://.godot/imported/lightbulb.glb-681fd932e465317638f0da2e02a2d7d4.scn"]
 
 [params]
 
