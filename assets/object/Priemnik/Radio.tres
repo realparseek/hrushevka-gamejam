@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cku5ja4w5t710"]
+
+[ext_resource type="Texture2D" uid="uid://1onyp6vmigxr" path="res://assets/object/Priemnik/PSX Radio Receiver_Radio Color 256.jpg" id="1_lf5es"]
+
+[resource]
+resource_name = "Radio"
+cull_mode = 2
+albedo_texture = ExtResource("1_lf5es")
+texture_filter = 2
