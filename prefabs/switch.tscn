@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=4 uid="uid://blyln63j1gc0h"]
+[gd_scene load_steps=17 format=4 uid="uid://blyln63j1gc0h"]
 
 [ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="1_q540c"]
 [ext_resource type="Texture2D" uid="uid://cb4st3ds5jedv" path="res://models/switch/switch_электрощиток.png" id="2_atc5g"]
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="3_atc5g"]
+[ext_resource type="Script" uid="uid://bbg8t2i2hexvg" path="res://scripts/states/switch/turned_on.gd" id="4_g3pit"]
+[ext_resource type="Script" uid="uid://fowpdnjcd0tq" path="res://scripts/states/switch/turned_off.gd" id="5_b1ssb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q540c"]
-size = Vector3(0.21881104, 0.39648438, 0.5017395)
+size = Vector3(0.21881104, 0.40570068, 0.5067291)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7w02n"]
 resource_name = "щиток"
@@ -161,7 +163,7 @@ shadow_mesh = SubResource("ArrayMesh_7d5op")
 [node name="switch" type="StaticBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08352661, -0.0126953125, 0.011398315)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08352661, -0.011566162, 0.013893127)
 shape = SubResource("BoxShape3D_q540c")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
@@ -184,9 +186,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03796695, -0.03530559, 0.00
 mesh = SubResource("ArrayMesh_ovu11")
 skeleton = NodePath("")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_atc5g")
+initial_state = NodePath("TurnedOn")
 
-[node name="TurnedOn" type="Node" parent="StateMachine"]
+[node name="TurnedOn" type="Node" parent="StateMachine" node_paths=PackedStringArray("lightsources")]
+script = ExtResource("4_g3pit")
+lightsources = [null]
 
 [node name="TurnedOff" type="Node" parent="StateMachine"]
+script = ExtResource("5_b1ssb")
