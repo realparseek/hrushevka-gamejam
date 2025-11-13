@@ -54,7 +54,7 @@ albedo_color = Color(0.6901961, 0.6901961, 0.6901961, 1)
 albedo_texture = ExtResource("2_apa50")
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
-texture_filter = 0
+texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ih1la"]
 _surfaces = [{
