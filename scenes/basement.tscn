@@ -187,6 +187,7 @@ shadow_mesh = SubResource("ArrayMesh_gihwq")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3ihx"]
 resource_name = "wall"
 cull_mode = 2
+albedo_color = Color(1.353256, 1.353256, 1.353256, 1)
 albedo_texture = ExtResource("3_fqfvj")
 texture_filter = 2
 
@@ -300,6 +301,7 @@ shadow_mesh = SubResource("ArrayMesh_vedag")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uo6ol"]
 resource_name = "white_brick"
 cull_mode = 2
+albedo_color = Color(1.5720325, 1.5720325, 1.5720325, 1)
 albedo_texture = ExtResource("5_olx36")
 texture_filter = 2
 
