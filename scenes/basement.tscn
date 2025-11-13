@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=172 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_jlfbm"]
@@ -18,7 +18,8 @@
 [ext_resource type="SteamAudioMaterial" uid="uid://bljhgad6g2vnm" path="res://addons/godot-steam-audio/materials/concrete_material.tres" id="9_c5vcu"]
 [ext_resource type="Material" uid="uid://cnfjy5uvcj1s4" path="res://materials/wires.material" id="11_olx36"]
 [ext_resource type="SteamAudioMaterial" uid="uid://cqx8833t2v8mo" path="res://addons/godot-steam-audio/materials/metal_material.tres" id="14_c5vcu"]
-[ext_resource type="AudioStream" uid="uid://pnpvs54xfe3" path="res://sound/radio/commuter_train.ogg" id="18_c5vcu"]
+[ext_resource type="AudioStream" uid="uid://dey8o8gi6pt08" path="res://sound/radio/radio.ogg" id="18_v858h"]
+[ext_resource type="Script" uid="uid://cwbt31bgn8jtl" path="res://voronaPOET.gd" id="19_udj7p"]
 [ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="19_v858h"]
 [ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="20_nlhde"]
 [ext_resource type="Texture2D" uid="uid://bocmtrpbba5w" path="res://models/lightbulb/lightbulb_lightbulb_emission.png" id="20_udj7p"]
@@ -38,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://b3pwf027ndice" path="res://prefabs/box.tscn" id="33_v858h"]
 [ext_resource type="PackedScene" uid="uid://cbdym4qfp4k60" path="res://prefabs/tabel.tscn" id="35_n3vph"]
 [ext_resource type="PackedScene" uid="uid://dbig5mdedqxbs" path="res://prefabs/slate.tscn" id="35_v858h"]
+[ext_resource type="Texture2D" uid="uid://dns6a7lsetto0" path="res://textures/pack/nadpis5.png" id="39_yqbbm"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ofwxs"]
 vertices = PackedVector3Array(-1.0538349, 3.9557295, 4.7307625, -0.8038349, 3.9557295, 5.9807625, 0.44616508, 3.9557295, 5.9807625, 0.6961651, 3.9557295, 4.7307625, -7.803835, 3.9557295, -8.7692375, -7.803835, 3.9557295, 4.7307625, 4.696165, 3.9557295, -8.7692375, 4.696165, 3.9557295, 4.7307625, 3.196165, 0.4557296, -5.0192375, 3.446165, 0.4557296, -4.0192375, 4.446165, 0.4557296, -4.0192375, 4.446165, 0.4557296, -7.2692375, -4.303835, 0.4557296, -7.2692375, -4.553835, 0.4557296, -6.0192375, -4.553835, 0.4557296, -5.5192375, -3.303835, 0.4557296, -7.5192375, -4.303835, 0.4557296, -3.0192375, -0.30383492, 0.4557296, -3.2692375, -0.30383492, 0.4557296, -5.0192375, -5.553835, 0.4557296, -6.0192375, -5.803835, 0.4557296, -5.2692375, -0.30383492, 0.4557296, 0.9807625, -0.5538349, 0.4557296, -0.5192375, -4.303835, 0.4557296, -1.0192375, -4.303835, 0.4557296, 2.2307625, -6.053835, 0.4557296, -7.2692375, -6.303835, 0.4557296, -5.0192375, -4.553835, 0.4557296, 2.9807625, -5.553835, 0.4557296, 2.4807625, -5.553835, 0.4557296, 2.9807625, -6.303835, 0.4557296, 3.9807625, -5.803835, 0.4557296, 3.9807625, -6.053835, 0.4557296, -1.0192375, -6.553835, 0.4557296, 1.4807625, -7.303835, 0.4557296, -4.7692375, -7.303835, 0.4557296, 1.2307625, -0.053834915, 0.4557296, -0.7692375, -4.303835, 0.4557296, 3.9807625, 2.196165, 0.4557296, 3.9807625, 2.196165, 0.4557296, 0.9807625, 3.196165, 0.4557296, -3.2692375, 3.196165, 0.4557296, -0.7692375, 3.446165, 0.4557296, 0.7307625, 4.446165, 0.4557296, 3.9807625)
@@ -1229,6 +1231,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_oi04o")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_udj7p"]
+size = Vector3(0.80181885, 2.192749, 2.4154663)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_wxcnq"]
 _surfaces = [{
 "aabb": AABB(-0.17632447, 0.018568693, -11.618241, 3.577273, 0.06120725, 11.72138),
@@ -1735,6 +1740,12 @@ shadow_mesh = SubResource("ArrayMesh_yqbbm")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cqeb"]
 albedo_texture = ExtResource("30_tbks2")
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_n6qi5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmsej"]
+transparency = 1
+albedo_texture = ExtResource("39_yqbbm")
+
 [node name="basement" type="Node3D"]
 
 [node name="SteamAudioConfig" type="SteamAudioConfig" parent="."]
@@ -1805,6 +1816,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28213185, 0.6921057, -8.406
 mesh = SubResource("ArrayMesh_66y5r")
 skeleton = NodePath("")
 
+[node name="SteamAudioGeometry" type="SteamAudioGeometry" parent="NavigationRegion3D/Mesh/буржуйка"]
+material = ExtResource("14_c5vcu")
+
 [node name="дверь_буржуйки" type="MeshInstance3D" parent="NavigationRegion3D/Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28213185, 0.6921057, -8.399324)
 mesh = SubResource("ArrayMesh_fxqdf")
@@ -1851,7 +1865,7 @@ mesh = SubResource("ArrayMesh_pqbjf")
 skeleton = NodePath("")
 
 [node name="SteamAudioGeometry" type="SteamAudioGeometry" parent="NavigationRegion3D/Mesh/Потолок_005"]
-material = ExtResource("9_6lwow")
+material = ExtResource("9_c5vcu")
 
 [node name="Потолок_006" type="MeshInstance3D" parent="NavigationRegion3D/Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.467049, 3.1000001, -8.623684)
@@ -1922,10 +1936,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5436616, 1.3924805, -1.542
 mesh = SubResource("ArrayMesh_xhxay")
 skeleton = NodePath("")
 
-[node name="Cube_015" type="MeshInstance3D" parent="NavigationRegion3D/Mesh"]
+[node name="polka" type="MeshInstance3D" parent="NavigationRegion3D/Mesh"]
 transform = Transform3D(0.9929229, 0, -0.11876048, 0, 1, 0, 0.11876048, 0, 0.9929229, -7.2000184, 1.3951876, -6.5499797)
 mesh = SubResource("ArrayMesh_e6h41")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Mesh/polka"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Mesh/polka/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030852795, -0.2588501, -0.0008277893)
+shape = SubResource("BoxShape3D_udj7p")
+
+[node name="SteamAudioGeometry" type="SteamAudioGeometry" parent="NavigationRegion3D/Mesh/polka/StaticBody3D/CollisionShape3D"]
+material = ExtResource("14_c5vcu")
 
 [node name="BézierCurve_001" type="MeshInstance3D" parent="NavigationRegion3D/Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.447653, 2.7231014, 6.213642)
@@ -2090,15 +2113,15 @@ gravity = 9.8
 [node name="vorona" parent="." instance=ExtResource("6_e0dxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4089556, 0.39440733, -4.573413)
 
-[node name="SteamAudioPlayer" type="SteamAudioPlayer" parent="vorona"]
+[node name="SteamAudioPlayer" type="SteamAudioPlayer" parent="vorona" node_paths=PackedStringArray("audio_player")]
 distance_attenuation = true
 air_absorption = true
 reflection = true
 max_reflection_distance = 1000.0
 transform = Transform3D(-0.9999834, 0, -0.0057770386, 0, 1, 0, 0.0057770386, 0, -0.9999834, 0.0653677, 0.43847418, 0.9076338)
-stream = ExtResource("18_c5vcu")
+stream = ExtResource("18_v858h")
 attenuation_model = 3
-volume_db = -10.0
+volume_db = -15.0
 unit_size = 6.0
 max_db = 0.0
 autoplay = true
@@ -2107,6 +2130,8 @@ panning_strength = 0.0
 playback_type = 1
 emission_angle_degrees = 61.0
 emission_angle_filter_attenuation_db = -10.0
+script = ExtResource("19_udj7p")
+audio_player = NodePath(".")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7846203, 2.2409663, -8.51778)
@@ -2169,7 +2194,6 @@ transform = Transform3D(-0.9999834, 0, -0.0057770386, 0, 1, 0, 0.0057770386, 0, 
 stream = ExtResource("24_v858h")
 attenuation_model = 3
 unit_size = 6.0
-autoplay = true
 max_distance = 10.0
 panning_strength = 0.0
 playback_type = 1
@@ -2375,5 +2399,10 @@ rotation_order = 1
 mesh = SubResource("PlaneMesh_pmsej")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_5cqeb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="trash"]
+transform = Transform3D(-3.4969112e-08, 0.8, -3.4969112e-08, 0, -3.4969112e-08, -0.8, -0.8, -3.4969112e-08, 1.5285484e-15, -4.8311524, 1.3616592, 0.38152218)
+mesh = SubResource("PlaneMesh_n6qi5")
+surface_material_override/0 = SubResource("StandardMaterial3D_pmsej")
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_jlfbm")]

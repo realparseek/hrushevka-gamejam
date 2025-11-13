@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://cbdym4qfp4k60"]
+[gd_scene load_steps=11 format=4 uid="uid://cbdym4qfp4k60"]
 
 [ext_resource type="Material" uid="uid://dc2kfm22krcfs" path="res://assets/object/Models/Tabel/Tabel.res" id="1_a5r6v"]
 [ext_resource type="Material" uid="uid://dec5piuakwtv" path="res://assets/object/Models/Tabel/Tabel.material" id="2_yfv5x"]
+[ext_resource type="SteamAudioMaterial" uid="uid://cqx8833t2v8mo" path="res://addons/godot-steam-audio/materials/metal_material.tres" id="3_yfv5x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qiywd"]
 resource_name = "Tabel"
@@ -79,6 +80,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1m6xq")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_o4jex"]
+size = Vector3(1.5585938, 2.2902832, 1.0307617)
+
 [node name="Tabel" type="Node3D"]
 transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, 0, 0, 0)
 
@@ -93,3 +97,12 @@ transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_jby72")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_yfv5x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.033203132, -0.050415035, -0.015380859)
+shape = SubResource("BoxShape3D_o4jex")
+
+[node name="SteamAudioGeometry" type="SteamAudioGeometry" parent="Cube_001/StaticBody3D/CollisionShape3D"]
+material = ExtResource("3_yfv5x")
