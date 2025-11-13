@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://8bf0ubij0keq"]
+[gd_scene load_steps=4 format=3 uid="uid://8bf0ubij0keq"]
 
 [ext_resource type="Environment" uid="uid://byswbkpxkpyxw" path="res://basement_environment.tres" id="1_x16oa"]
+[ext_resource type="Shader" uid="uid://doxte1xpnc2aw" path="res://shader_test/test_shader.gdshader" id="2_wjtrd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01g3i"]
+shader = ExtResource("2_wjtrd")
+shader_parameter/viewport_size = Vector2(640, 480)
+shader_parameter/virtual_resolution = Vector2(640, 480)
+shader_parameter/shadow_smoothness = 0.5
+shader_parameter/color_depth = 32
+shader_parameter/dither_strength = 0.02
+shader_parameter/vignette_strength = 0.1
+shader_parameter/chroma_aberration = 0.0005
+shader_parameter/tv_noise_strength = 0.02
+shader_parameter/tv_noise_speed = 3.0
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = ExtResource("1_x16oa")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_01g3i")
+offset_right = 640.0
+offset_bottom = 480.0
+mouse_filter = 2
+color = Color(0.24477637, 0.2447764, 0.24477637, 1)
