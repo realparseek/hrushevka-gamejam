@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://b3pwf027ndice"]
+
+[ext_resource type="Texture2D" uid="uid://c23mvburqcy6q" path="res://assets/object/old_retro_junk/box_tex.png" id="1_6w8bi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ly5db"]
+resource_name = "Material.001"
+albedo_color = Color(0.69135684, 0.6913568, 0.69135684, 1)
+albedo_texture = ExtResource("1_6w8bi")
+metallic = 0.5
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_m3rsv"]
+_surfaces = [{
+"aabb": AABB(-0.186826, -0.133689, -0.277185, 0.373652, 0.267378, 0.55437),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAgABAAQAAAADAAUAAAAFAAEAAgAGAAMABgAFAAMABAAGAAIAAQAFAAcAAQAHAAQABwAFAAYABAAHAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD//wAAAAD/////AAAAAAAA/////wAAAAAAAP//AAD///////8AAAAAAAAAAAAA//8AAP//AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hmdbr"]
+_surfaces = [{
+"aabb": AABB(-0.186826, -0.133689, -0.277185, 0.373652, 0.267378, 0.55437),
+"attribute_data": PackedByteArray("4Wv//+6O///ha4RC7o6EQg3lwH8cr8B/DeUAAByvAADha3pC8DV6QuFr///wNf//HK+gyhyv2XfujqDK7o7Zd/A1ekIAAHpC8DX//wAA//8N5cB/HK/Afw3l//8cr///"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8AEAARABIAEgARABMAFAAVABYAFgAVABcA"),
+"material": SubResource("StandardMaterial3D_ly5db"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD//wAA/z//////AAD/PwAA//////8//////////z//////////v///AAD///+/AAD//////78AAAAA////vwAA/////6oqAAAAAP//qioAAP//AACqKgAAAAAAAKoq//8AAAAAqioAAAAAAACqKv//AAD//6oqAAAAAP//qir/////AACqKv//AAAAAKoq////////qir//wAA//+qKgAA//8AAAAAAAAAAAAAAAD/////AAAAAP//AAAAAAAA////f////3////9/////f/////////////////////9U1VTVVNVU1VTVVNVU1VTVVFVUVVRVVFVUVVRVVFVUVaoqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_m3rsv")
+
+[node name="Box" type="Node3D"]
+
+[node name="Box" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_hmdbr")
+skeleton = NodePath("../../..")
