@@ -6,7 +6,7 @@ extends State
 func enter() -> void:
 	for ls in light_sources:
 		ls.Transitioned.emit("turnedoff", ls.get_parent().current_state)
-	environment.environment.ambient_light_color = Color(0.153, 0.153, 0.153)
+	environment.environment.ambient_light_energy = 0.03
 	
 func exit() -> void:
 	pass

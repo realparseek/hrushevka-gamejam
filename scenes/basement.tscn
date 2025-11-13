@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=167 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_jlfbm"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://df4cejvxbmml8" path="res://assets/object/Sewer/Textures/Trash.png" id="23_qu43e"]
 [ext_resource type="Script" uid="uid://bbg8t2i2hexvg" path="res://scripts/states/switch/turned_on.gd" id="23_v858h"]
 [ext_resource type="Script" uid="uid://fowpdnjcd0tq" path="res://scripts/states/switch/turned_off.gd" id="24_udj7p"]
+[ext_resource type="AudioStream" uid="uid://nb5g8u301xpv" path="res://sound/light/switch1.ogg" id="24_v858h"]
 [ext_resource type="PackedScene" uid="uid://dyes22bmvqkbu" path="res://prefabs/truba.tscn" id="28_n3vph"]
 [ext_resource type="Texture2D" uid="uid://dcbiuqi6rw1c1" path="res://textures/plakatverysgnil.png" id="30_tbks2"]
 [ext_resource type="PackedScene" uid="uid://staktu54iogm" path="res://prefabs/shelf.tscn" id="31_n3vph"]
@@ -1505,7 +1506,7 @@ size = Vector3(0.21881104, 0.40570068, 0.5067291)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7w02n"]
 resource_name = "щиток"
 cull_mode = 2
-albedo_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+albedo_color = Color(1.2742168, 1.2742168, 1.2742168, 1)
 albedo_texture = ExtResource("20_nlhde")
 texture_filter = 2
 
@@ -2153,10 +2154,27 @@ script = ExtResource("22_yqbbm")
 light = NodePath("../../OmniLight3D")
 mesh = NodePath("../../lightbulb_off")
 
-[node name="TurnedOn" type="Node" parent="lightbulb/StateMachine" node_paths=PackedStringArray("light", "mesh")]
+[node name="TurnedOn" type="Node" parent="lightbulb/StateMachine" node_paths=PackedStringArray("light", "mesh_on", "mesh_off")]
 script = ExtResource("23_n6qi5")
 light = NodePath("../../OmniLight3D")
-mesh = NodePath("../../lightbulb_on")
+mesh_on = NodePath("../../lightbulb_on")
+mesh_off = NodePath("../../lightbulb_off")
+
+[node name="SteamAudioPlayer" type="SteamAudioPlayer" parent="."]
+distance_attenuation = true
+air_absorption = true
+reflection = true
+max_reflection_distance = 1000.0
+transform = Transform3D(-0.9999834, 0, -0.0057770386, 0, 1, 0, 0.0057770386, 0, -0.9999834, -0.5886804, 2.4851081, 2.2864242)
+stream = ExtResource("24_v858h")
+attenuation_model = 3
+unit_size = 6.0
+autoplay = true
+max_distance = 10.0
+panning_strength = 0.0
+playback_type = 1
+emission_angle_degrees = 61.0
+emission_angle_filter_attenuation_db = -10.0
 
 [node name="lightbulb2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 1.15155, 2.6904466, -5.422721)
@@ -2190,10 +2208,11 @@ script = ExtResource("22_yqbbm")
 light = NodePath("../../OmniLight3D")
 mesh = NodePath("../../lightbulb_off")
 
-[node name="TurnedOn" type="Node" parent="lightbulb2/StateMachine" node_paths=PackedStringArray("light", "mesh")]
+[node name="TurnedOn" type="Node" parent="lightbulb2/StateMachine" node_paths=PackedStringArray("light", "mesh_on", "mesh_off")]
 script = ExtResource("23_n6qi5")
 light = NodePath("../../OmniLight3D")
-mesh = NodePath("../../lightbulb_on")
+mesh_on = NodePath("../../lightbulb_on")
+mesh_off = NodePath("../../lightbulb_off")
 
 [node name="lightbulb3" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.8179326, 2.6904466, -4.924676)
@@ -2227,10 +2246,11 @@ script = ExtResource("22_yqbbm")
 light = NodePath("../../OmniLight3D")
 mesh = NodePath("../../lightbulb_off")
 
-[node name="TurnedOn" type="Node" parent="lightbulb3/StateMachine" node_paths=PackedStringArray("light", "mesh")]
+[node name="TurnedOn" type="Node" parent="lightbulb3/StateMachine" node_paths=PackedStringArray("light", "mesh_on", "mesh_off")]
 script = ExtResource("23_n6qi5")
 light = NodePath("../../OmniLight3D")
-mesh = NodePath("../../lightbulb_on")
+mesh_on = NodePath("../../lightbulb_on")
+mesh_off = NodePath("../../lightbulb_off")
 
 [node name="lightbulb4" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.8142214, 2.657565, 1.4945054)
@@ -2264,10 +2284,12 @@ script = ExtResource("22_yqbbm")
 light = NodePath("../../OmniLight3D")
 mesh = NodePath("../../lightbulb_off")
 
-[node name="TurnedOn" type="Node" parent="lightbulb4/StateMachine" node_paths=PackedStringArray("light", "mesh")]
+[node name="TurnedOn" type="Node" parent="lightbulb4/StateMachine" node_paths=PackedStringArray("light", "mesh_on", "mesh_off", "audio_player")]
 script = ExtResource("23_n6qi5")
 light = NodePath("../../OmniLight3D")
-mesh = NodePath("../../lightbulb_on")
+mesh_on = NodePath("../../lightbulb_on")
+mesh_off = NodePath("../../lightbulb_off")
+audio_player = NodePath("../../../SteamAudioPlayer")
 
 [node name="switch" type="StaticBody3D" parent="."]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.998238, 1.6154578, -1.7298738)
