@@ -15,7 +15,7 @@ func update(delta: float) -> void:
 		Transitioned.emit("turnedoff", self)
 	
 	var env_energy: float = environment.environment.ambient_light_energy
-	env_energy = lerpf(env_energy, 1.0, delta*3)
+	env_energy = lerpf(env_energy, 1.2, delta*3)
 	environment.environment.ambient_light_energy = env_energy
 
 func physics_update(delta: float) -> void:
