@@ -23,6 +23,7 @@ func update(delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
+	float(delta)
 	walk_val = lerpf(walk_val, 1.0, blend_weight)
 	update_anim_tree()
 	
