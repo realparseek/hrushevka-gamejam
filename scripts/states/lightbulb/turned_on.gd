@@ -3,15 +3,12 @@ extends State
 @export var light: OmniLight3D = null
 @export var mesh_on: MeshInstance3D = null
 @export var mesh_off: MeshInstance3D = null
-@export var audio_player: SteamAudioPlayer = null
 
 @onready var enter_blink_timer: float = 1.0
 
 func enter() -> void:
 	light.visible = true
 	enter_blink_timer = 1.0
-	if audio_player:
-		audio_player.play()
 	
 func exit() -> void:
 	mesh_on.visible = false

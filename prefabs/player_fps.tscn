@@ -112,11 +112,43 @@ libraries = {
 &"": SubResource("AnimationLibrary_1txc5")
 }
 
+[node name="canvas" type="CanvasLayer" parent="head/Camera3D"]
+
+[node name="hud" type="Control" parent="head/Camera3D/canvas"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="head/Camera3D/canvas/hud"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -17.5
+offset_right = 21.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CameraStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_gm3sv")
 initial_state = NodePath("Shaking")
 
 [node name="Shaking" type="Node" parent="CameraStateMachine"]
 script = ExtResource("2_kgncn")
-
-[node name="RayCast3D" type="RayCast3D" parent="."]

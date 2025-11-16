@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="1_q540c"]
 [ext_resource type="Texture2D" uid="uid://cb4st3ds5jedv" path="res://models/switch/switch_электрощиток.png" id="2_atc5g"]
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="3_atc5g"]
-[ext_resource type="Script" uid="uid://bbg8t2i2hexvg" path="res://scripts/states/switch/turned_on.gd" id="4_g3pit"]
-[ext_resource type="Script" uid="uid://fowpdnjcd0tq" path="res://scripts/states/switch/turned_off.gd" id="5_b1ssb"]
+[ext_resource type="Script" uid="uid://bbg8t2i2hexvg" path="res://scripts/states/light_switch/turned_on.gd" id="4_g3pit"]
+[ext_resource type="Script" uid="uid://fowpdnjcd0tq" path="res://scripts/states/light_switch/turned_off.gd" id="5_b1ssb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q540c"]
 size = Vector3(0.21881104, 0.40570068, 0.5067291)

@@ -28,8 +28,8 @@
 [ext_resource type="Script" uid="uid://bm426oydcs6ee" path="res://scripts/states/lightbulb/turned_off.gd" id="22_yqbbm"]
 [ext_resource type="Script" uid="uid://dxsyi6twmwt7k" path="res://scripts/states/lightbulb/turned_on.gd" id="23_n6qi5"]
 [ext_resource type="Texture2D" uid="uid://df4cejvxbmml8" path="res://assets/object/Sewer/Textures/Trash.png" id="23_qu43e"]
-[ext_resource type="Script" uid="uid://bbg8t2i2hexvg" path="res://scripts/states/switch/turned_on.gd" id="23_v858h"]
-[ext_resource type="Script" uid="uid://fowpdnjcd0tq" path="res://scripts/states/switch/turned_off.gd" id="24_udj7p"]
+[ext_resource type="Script" uid="uid://bbg8t2i2hexvg" path="res://scripts/states/light_switch/turned_on.gd" id="23_v858h"]
+[ext_resource type="Script" uid="uid://fowpdnjcd0tq" path="res://scripts/states/light_switch/turned_off.gd" id="24_udj7p"]
 [ext_resource type="AudioStream" uid="uid://nb5g8u301xpv" path="res://sound/light/switch1.ogg" id="24_v858h"]
 [ext_resource type="PackedScene" uid="uid://dyes22bmvqkbu" path="res://prefabs/truba.tscn" id="28_n3vph"]
 [ext_resource type="Script" uid="uid://cbtbtr1mdf781" path="res://scripts/interactables/light_switch.gd" id="30_5cqeb"]
@@ -2168,6 +2168,21 @@ light_energy = 0.448
 omni_range = 1.2316463
 omni_attenuation = -1.069
 
+[node name="SteamAudioPlayer" type="SteamAudioPlayer" parent="."]
+distance_attenuation = true
+air_absorption = true
+reflection = true
+max_reflection_distance = 1000.0
+transform = Transform3D(-0.9999834, 0, -0.0057770386, 0, 1, 0, 0.0057770386, 0, -0.9999834, 4.8552804, 1.565509, -1.7159908)
+stream = ExtResource("24_v858h")
+attenuation_model = 3
+unit_size = 6.0
+max_distance = 10.0
+panning_strength = 0.0
+playback_type = 1
+emission_angle_degrees = 61.0
+emission_angle_filter_attenuation_db = -10.0
+
 [node name="lightbulb" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -0.60545284, 2.6561303, 2.240904)
 
@@ -2205,21 +2220,6 @@ script = ExtResource("23_n6qi5")
 light = NodePath("../../OmniLight3D")
 mesh_on = NodePath("../../lightbulb_on")
 mesh_off = NodePath("../../lightbulb_off")
-
-[node name="SteamAudioPlayer" type="SteamAudioPlayer" parent="."]
-distance_attenuation = true
-air_absorption = true
-reflection = true
-max_reflection_distance = 1000.0
-transform = Transform3D(-0.9999834, 0, -0.0057770386, 0, 1, 0, 0.0057770386, 0, -0.9999834, 4.8552804, 1.565509, -1.7159908)
-stream = ExtResource("24_v858h")
-attenuation_model = 3
-unit_size = 6.0
-max_distance = 10.0
-panning_strength = 0.0
-playback_type = 1
-emission_angle_degrees = 61.0
-emission_angle_filter_attenuation_db = -10.0
 
 [node name="lightbulb2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 1.15155, 2.6904466, -5.422721)
@@ -2329,12 +2329,50 @@ script = ExtResource("22_yqbbm")
 light = NodePath("../../OmniLight3D")
 mesh = NodePath("../../lightbulb_off")
 
-[node name="TurnedOn" type="Node" parent="lightbulb4/StateMachine" node_paths=PackedStringArray("light", "mesh_on", "mesh_off", "audio_player")]
+[node name="TurnedOn" type="Node" parent="lightbulb4/StateMachine" node_paths=PackedStringArray("light", "mesh_on", "mesh_off")]
 script = ExtResource("23_n6qi5")
 light = NodePath("../../OmniLight3D")
 mesh_on = NodePath("../../lightbulb_on")
 mesh_off = NodePath("../../lightbulb_off")
-audio_player = NodePath("../../../SteamAudioPlayer")
+
+[node name="lightbulb5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 2.962361, 2.6575649, -1.6982803)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lightbulb5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012054443, -0.005473137, -0.0001707077)
+shape = SubResource("BoxShape3D_p2keb")
+
+[node name="lightbulb_off" type="MeshInstance3D" parent="lightbulb5"]
+visible = false
+mesh = SubResource("ArrayMesh_gba4x")
+skeleton = NodePath("")
+
+[node name="lightbulb_on" type="MeshInstance3D" parent="lightbulb5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023360968, 0, 0)
+mesh = SubResource("ArrayMesh_kal8p")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lightbulb5"]
+light_color = Color(1, 0.92156863, 0.75686276, 1)
+light_energy = 1.2
+light_indirect_energy = 2.0
+omni_range = 4.6
+omni_attenuation = 0.6
+
+[node name="StateMachine" type="Node" parent="lightbulb5" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("22_n3vph")
+initial_state = NodePath("TurnedOn")
+
+[node name="TurnedOff" type="Node" parent="lightbulb5/StateMachine" node_paths=PackedStringArray("light", "mesh")]
+script = ExtResource("22_yqbbm")
+light = NodePath("../../OmniLight3D")
+mesh = NodePath("../../lightbulb_off")
+
+[node name="TurnedOn" type="Node" parent="lightbulb5/StateMachine" node_paths=PackedStringArray("light", "mesh_on", "mesh_off")]
+script = ExtResource("23_n6qi5")
+light = NodePath("../../OmniLight3D")
+mesh_on = NodePath("../../lightbulb_on")
+mesh_off = NodePath("../../lightbulb_off")
 
 [node name="light_switch" type="StaticBody3D" parent="."]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.998238, 1.6154578, -1.7298738)
@@ -2343,6 +2381,7 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="light_switch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08352661, -0.011566162, 0.013893127)
 shape = SubResource("BoxShape3D_q540c")
+debug_color = Color(0, 0.6450201, 0.2754214, 0.41960785)
 
 [node name="Cube" type="MeshInstance3D" parent="light_switch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015895113, -0.013082713, 0.012927311)
@@ -2372,24 +2411,26 @@ skeleton = NodePath("")
 script = ExtResource("22_n3vph")
 initial_state = NodePath("TurnedOn")
 
-[node name="TurnedOn" type="Node" parent="light_switch/StateMachine" node_paths=PackedStringArray("light_sources", "environment")]
+[node name="TurnedOn" type="Node" parent="light_switch/StateMachine" node_paths=PackedStringArray("light_sources", "environment", "audio_player")]
 script = ExtResource("23_v858h")
-light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff")]
+light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff"), NodePath("../../../lightbulb5/StateMachine/TurnedOff")]
 environment = NodePath("../../../WorldEnvironment")
+audio_player = NodePath("../../../SteamAudioPlayer")
 
-[node name="TurnedOff" type="Node" parent="light_switch/StateMachine" node_paths=PackedStringArray("light_sources", "environment")]
+[node name="TurnedOff" type="Node" parent="light_switch/StateMachine" node_paths=PackedStringArray("light_sources", "environment", "audio_player")]
 script = ExtResource("24_udj7p")
-light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff")]
+light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff"), NodePath("../../../lightbulb5/StateMachine/TurnedOff")]
 environment = NodePath("../../../WorldEnvironment")
+audio_player = NodePath("../../../SteamAudioPlayer")
 
 [node name="Interactable" type="Node" parent="light_switch"]
 script = ExtResource("30_5cqeb")
 
-[node name="SwitchOn" type="Node" parent="light_switch/Interactable" node_paths=PackedStringArray("turn_on_state")]
+[node name="TurnOn" type="Node" parent="light_switch/Interactable" node_paths=PackedStringArray("turn_on_state")]
 script = ExtResource("31_8bepd")
 turn_on_state = NodePath("../../StateMachine/TurnedOn")
 
-[node name="SwitchOff" type="Node" parent="light_switch/Interactable"]
+[node name="TurnOff" type="Node" parent="light_switch/Interactable"]
 script = ExtResource("32_j6kc3")
 
 [node name="truba" parent="." instance=ExtResource("28_n3vph")]

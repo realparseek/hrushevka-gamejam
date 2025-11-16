@@ -2,6 +2,7 @@ extends Node
 class_name Interactable
 
 @onready var interactions: Dictionary = {}
+@onready var debug_name: String = '<unnamed>'
 
 func _ready() -> void:
 	for c in get_children():

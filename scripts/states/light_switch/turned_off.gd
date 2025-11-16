@@ -2,8 +2,11 @@ extends State
 
 @export var light_sources: Array[State]
 @export var environment: WorldEnvironment
+@export var audio_player: SteamAudioPlayer
 
 func enter() -> void:
+	if audio_player:
+		audio_player.play()
 	for ls in light_sources:
 		ls.Transitioned.emit("turnedoff", ls.get_parent().current_state)
 	
