@@ -2355,6 +2355,7 @@ mesh = SubResource("ArrayMesh_7321l")
 skeleton = NodePath("")
 
 [node name="outline" type="MeshInstance3D" parent="light_switch/switch"]
+visible = false
 mesh = SubResource("ArrayMesh_pmsej")
 
 [node name="Cube_001" type="MeshInstance3D" parent="light_switch"]
