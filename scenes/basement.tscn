@@ -2125,7 +2125,7 @@ pitch_scale = 0.9
 autoplay = true
 
 [node name="player_fps" parent="." instance=ExtResource("7_e0dxi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543164, 0.9291214, 3.483992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0281415, 0.9291214, -1.0702968)
 look_sensetivity = 6.0
 gravity = 9.8
 

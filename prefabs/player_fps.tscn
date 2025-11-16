@@ -77,6 +77,7 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_q6dji"]
 font_size = 24
+font_color = Color(0.427493, 0.42749307, 0.42749307, 1)
 
 [node name="player_fps" type="CharacterBody3D"]
 script = ExtResource("1_kgncn")
@@ -157,13 +158,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 79.0
-offset_top = -107.0
-offset_right = 210.0
-offset_bottom = 108.0
+offset_left = -95.0
+offset_top = 29.0
+offset_right = 95.0
+offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_q6dji")
+horizontal_alignment = 1
 
 [node name="CameraStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_gm3sv")
