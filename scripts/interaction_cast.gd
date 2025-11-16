@@ -1,5 +1,7 @@
 extends RayCast3D
 
+@export var ints_label: Label
+
 @onready var hovered_obj: Interactable = null
 @onready var hovered_interaction: String = ''
 
@@ -17,6 +19,7 @@ func _unhover_node() -> void:
 		hovered_obj.unhover()
 		hovered_obj = null
 		hovered_interaction = ''
+		ints_label.text = ''
 
 func _hover_node(body: StaticBody3D) -> void:
 	if hovered_obj:
@@ -29,7 +32,8 @@ func _hover_node(body: StaticBody3D) -> void:
 		hovered_obj = n
 		n.hover()
 		hovered_interaction = n.interactions.keys()[0]
-		print('[ ', hovered_obj.debug_name, ', ', hovered_obj.interactions[hovered_interaction].debug_name, ' ]')
+		for i in n.interactions.values():
+			ints_label.text += i.debug_name + '\n'
 
 func _interacte_node() -> void:
 	if hovered_obj and Input.is_action_just_pressed("interact"):
