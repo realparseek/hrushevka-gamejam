@@ -11,9 +11,6 @@ func exit() -> void:
 	pass
 
 func update(delta: float) -> void:
-	if Input.is_action_just_pressed("jump"):
-		Transitioned.emit("turnedoff", self)
-	
 	var env_energy: float = environment.environment.ambient_light_energy
 	env_energy = lerpf(env_energy, 1.2, delta*3)
 	environment.environment.ambient_light_energy = env_energy

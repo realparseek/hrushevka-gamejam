@@ -1,1 +1,4 @@
-extends Node
+extends Interaction
+
+func interacte() -> void:
+	pass

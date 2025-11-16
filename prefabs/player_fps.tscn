@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3i24moe7m2ha"]
+[gd_scene load_steps=10 format=3 uid="uid://d3i24moe7m2ha"]
 
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="1_gm3sv"]
 [ext_resource type="Script" uid="uid://ccucbq3ackvyf" path="res://scripts/states/player/controls_fps.gd" id="1_kgncn"]
 [ext_resource type="Script" uid="uid://bcr667wqyxp0q" path="res://scripts/states/camera/shaking.gd" id="2_kgncn"]
+[ext_resource type="Script" uid="uid://buc61jgtmmyps" path="res://scripts/interaction_cast.gd" id="2_q6dji"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q4u1k"]
 radius = 0.38
@@ -100,6 +101,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72895193, 0)
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 current = true
 
+[node name="interaction_cast" type="RayCast3D" parent="head/Camera3D"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 2
+script = ExtResource("2_q6dji")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D"]
 root_node = NodePath("../../..")
 libraries = {
@@ -112,3 +118,5 @@ initial_state = NodePath("Shaking")
 
 [node name="Shaking" type="Node" parent="CameraStateMachine"]
 script = ExtResource("2_kgncn")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]

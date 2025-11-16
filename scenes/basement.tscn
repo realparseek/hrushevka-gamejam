@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=177 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_jlfbm"]
@@ -32,10 +32,12 @@
 [ext_resource type="Script" uid="uid://fowpdnjcd0tq" path="res://scripts/states/switch/turned_off.gd" id="24_udj7p"]
 [ext_resource type="AudioStream" uid="uid://nb5g8u301xpv" path="res://sound/light/switch1.ogg" id="24_v858h"]
 [ext_resource type="PackedScene" uid="uid://dyes22bmvqkbu" path="res://prefabs/truba.tscn" id="28_n3vph"]
-[ext_resource type="Script" uid="uid://c1l3rxrmcpfsu" path="res://scripts/interactable.gd" id="30_n6qi5"]
+[ext_resource type="Script" uid="uid://cbtbtr1mdf781" path="res://scripts/interactables/light_switch.gd" id="30_5cqeb"]
 [ext_resource type="Texture2D" uid="uid://dcbiuqi6rw1c1" path="res://textures/plakatverysgnil.png" id="30_tbks2"]
+[ext_resource type="Script" uid="uid://b2van2kjdou2u" path="res://scripts/interactions/light_switch/switch_on.gd" id="31_8bepd"]
 [ext_resource type="PackedScene" uid="uid://staktu54iogm" path="res://prefabs/shelf.tscn" id="31_n3vph"]
 [ext_resource type="PackedScene" uid="uid://dlaaotef4kfla" path="res://prefabs/cinder_block.tscn" id="31_v858h"]
+[ext_resource type="Script" uid="uid://vog38sajg6a5" path="res://scripts/interactions/light_switch/switch_off.gd" id="32_j6kc3"]
 [ext_resource type="PackedScene" uid="uid://1fuvur1kkxij" path="res://prefabs/soda.tscn" id="32_n3vph"]
 [ext_resource type="PackedScene" uid="uid://b3pwf027ndice" path="res://prefabs/box.tscn" id="33_v858h"]
 [ext_resource type="PackedScene" uid="uid://cbdym4qfp4k60" path="res://prefabs/tabel.tscn" id="35_n3vph"]
@@ -1586,6 +1588,7 @@ shadow_mesh = SubResource("ArrayMesh_8s8ii")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqbbm"]
 shading_mode = 0
+albedo_color = Color(0.5489629, 0.54896253, 0.54896235, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pmsej"]
 _surfaces = [{
@@ -2208,7 +2211,7 @@ distance_attenuation = true
 air_absorption = true
 reflection = true
 max_reflection_distance = 1000.0
-transform = Transform3D(-0.9999834, 0, -0.0057770386, 0, 1, 0, 0.0057770386, 0, -0.9999834, -0.5886804, 2.4851081, 2.2864242)
+transform = Transform3D(-0.9999834, 0, -0.0057770386, 0, 1, 0, 0.0057770386, 0, -0.9999834, 4.8552804, 1.565509, -1.7159908)
 stream = ExtResource("24_v858h")
 attenuation_model = 3
 unit_size = 6.0
@@ -2333,56 +2336,60 @@ mesh_on = NodePath("../../lightbulb_on")
 mesh_off = NodePath("../../lightbulb_off")
 audio_player = NodePath("../../../SteamAudioPlayer")
 
-[node name="switch" type="StaticBody3D" parent="."]
+[node name="light_switch" type="StaticBody3D" parent="."]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.998238, 1.6154578, -1.7298738)
+collision_layer = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="switch"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="light_switch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08352661, -0.011566162, 0.013893127)
 shape = SubResource("BoxShape3D_q540c")
 
-[node name="Cube" type="MeshInstance3D" parent="switch"]
+[node name="Cube" type="MeshInstance3D" parent="light_switch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015895113, -0.013082713, 0.012927311)
 mesh = SubResource("ArrayMesh_iqi01")
 skeleton = NodePath("")
 
-[node name="switch" type="MeshInstance3D" parent="switch"]
+[node name="switch" type="MeshInstance3D" parent="light_switch"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.05296956, -0.034648262, 0.101389945)
 mesh = SubResource("ArrayMesh_7321l")
 skeleton = NodePath("")
 
-[node name="outline" type="MeshInstance3D" parent="switch/switch"]
+[node name="outline" type="MeshInstance3D" parent="light_switch/switch"]
 mesh = SubResource("ArrayMesh_pmsej")
 
-[node name="Cube_001" type="MeshInstance3D" parent="switch"]
+[node name="Cube_001" type="MeshInstance3D" parent="light_switch"]
 transform = Transform3D(0.97360545, 0.22823767, 0, -0.22823767, 0.97360545, 0, 0, 0, 1, 0.13584536, 0.07194616, 0.01290026)
 mesh = SubResource("ArrayMesh_xhnmd")
 skeleton = NodePath("")
 
-[node name="Cube_004" type="MeshInstance3D" parent="switch"]
+[node name="Cube_004" type="MeshInstance3D" parent="light_switch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03796695, -0.03530559, 0.009597629)
 mesh = SubResource("ArrayMesh_ovu11")
 skeleton = NodePath("")
 
-[node name="StateMachine" type="Node" parent="switch" node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="light_switch" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("22_n3vph")
 initial_state = NodePath("TurnedOn")
 
-[node name="TurnedOn" type="Node" parent="switch/StateMachine" node_paths=PackedStringArray("light_sources", "environment")]
+[node name="TurnedOn" type="Node" parent="light_switch/StateMachine" node_paths=PackedStringArray("light_sources", "environment")]
 script = ExtResource("23_v858h")
 light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff")]
 environment = NodePath("../../../WorldEnvironment")
 
-[node name="TurnedOff" type="Node" parent="switch/StateMachine" node_paths=PackedStringArray("light_sources", "environment")]
+[node name="TurnedOff" type="Node" parent="light_switch/StateMachine" node_paths=PackedStringArray("light_sources", "environment")]
 script = ExtResource("24_udj7p")
 light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff")]
 environment = NodePath("../../../WorldEnvironment")
 
-[node name="Interactable" type="Node" parent="switch"]
-script = ExtResource("30_n6qi5")
+[node name="Interactable" type="Node" parent="light_switch"]
+script = ExtResource("30_5cqeb")
 
-[node name="SwitchOn" type="Node" parent="switch/Interactable"]
+[node name="SwitchOn" type="Node" parent="light_switch/Interactable" node_paths=PackedStringArray("turn_on_state")]
+script = ExtResource("31_8bepd")
+turn_on_state = NodePath("../../StateMachine/TurnedOn")
 
-[node name="SwitchOff" type="Node" parent="switch/Interactable"]
+[node name="SwitchOff" type="Node" parent="light_switch/Interactable"]
+script = ExtResource("32_j6kc3")
 
 [node name="truba" parent="." instance=ExtResource("28_n3vph")]
 
