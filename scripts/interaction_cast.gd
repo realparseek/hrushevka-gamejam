@@ -1,11 +1,13 @@
 extends RayCast3D
 
 @export var ints_label: Label
+@export var crosshair: CenterContainer
 
 @onready var hovered_obj: Interactable = null
 @onready var hovered_interaction: String = ''
 
 func _process(delta: float) -> void:
+	_handle_crosshair(delta)
 	var c: StaticBody3D = get_collider()
 	if !c:
 		_unhover_node()
@@ -38,3 +40,11 @@ func _hover_node(body: StaticBody3D) -> void:
 func _interacte_node() -> void:
 	if hovered_obj and Input.is_action_just_pressed("interact"):
 		hovered_obj.interacte(hovered_interaction)
+
+func _handle_crosshair(delta: float) -> void:
+	if hovered_obj:
+		crosshair.dot_radius = lerpf(crosshair.dot_radius, 3.0, delta*10)
+		crosshair.dot_color = crosshair.dot_color.lerp(Color.GRAY, delta*8)
+	else:
+		crosshair.dot_radius = lerpf(crosshair.dot_radius, 1.0, delta*10)
+		crosshair.dot_color = crosshair.dot_color.lerp(Color.WEB_GRAY, delta*8)
