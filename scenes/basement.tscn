@@ -2430,8 +2430,9 @@ script = ExtResource("30_5cqeb")
 script = ExtResource("31_8bepd")
 turn_on_state = NodePath("../../StateMachine/TurnedOn")
 
-[node name="TurnOff" type="Node" parent="light_switch/Interactable"]
+[node name="TurnOff" type="Node" parent="light_switch/Interactable" node_paths=PackedStringArray("turn_off_state")]
 script = ExtResource("32_j6kc3")
+turn_off_state = NodePath("../../StateMachine/TurnedOff")
 
 [node name="truba" parent="." instance=ExtResource("28_n3vph")]
 
