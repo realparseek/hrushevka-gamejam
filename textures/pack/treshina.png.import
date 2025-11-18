@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqhqchi3gi7lp"
-path.s3tc="res://.godot/imported/Bucket.png-c96327b6501f635bd1dde02073e254e2.s3tc.ctex"
+uid="uid://b1qw4ebiy47g3"
+path="res://.godot/imported/treshina.png-178d7939769471299bd27efdfe933da3.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/object/Models/Bucket/Bucket.png"
-dest_files=["res://.godot/imported/Bucket.png-c96327b6501f635bd1dde02073e254e2.s3tc.ctex"]
+source_file="res://textures/pack/treshina.png"
+dest_files=["res://.godot/imported/treshina.png-178d7939769471299bd27efdfe933da3.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
