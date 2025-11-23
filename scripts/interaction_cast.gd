@@ -4,6 +4,7 @@ extends RayCast3D
 @export var ints_background: ColorRect
 @export var ints_selected: ColorRect
 @export var crosshair: CenterContainer
+@export var viewer: Control
 
 @onready var hovered_obj: Interactable = null
 @onready var hovered_interaction: int = -1
@@ -11,6 +12,8 @@ extends RayCast3D
 
 func _process(delta: float) -> void:
 	_handle_crosshair(delta)
+	_handle_viewer_menu()
+	
 	var c: StaticBody3D = get_collider()
 	if !c:
 		_unhover_node()
@@ -60,6 +63,11 @@ func _handle_crosshair(delta: float) -> void:
 		crosshair.dot_color = crosshair.dot_color.lerp(Color.WEB_GRAY, delta*8)
 
 func _handle_interaction_menu() -> void:
+	if Input.is_action_just_released('MWU'):
+			hovered_interaction = wrap(hovered_interaction-1, 0, hovered_interactions.size())
+	if Input.is_action_just_released('MWD'):
+		hovered_interaction = wrap(hovered_interaction+1, 0, hovered_interactions.size())
+	
 	if !ints_selected.visible or !ints_background.visible:
 		return
 	
@@ -67,12 +75,8 @@ func _handle_interaction_menu() -> void:
 	ints_selected.size.y = (ints_label.label_settings.font_size*1.5 + ints_label.label_settings.line_spacing)
 	ints_selected.position.y = 248.5 + hovered_interaction * (ints_label.label_settings.font_size*1.5 + ints_label.label_settings.line_spacing)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if !event.is_pressed() or hovered_interaction < 0:
-			return
-		
-		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			hovered_interaction = wrap(hovered_interaction-1, 0, hovered_interactions.size())
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			hovered_interaction = wrap(hovered_interaction+1, 0, hovered_interactions.size())
+func _handle_viewer_menu() -> void:
+	if Input.is_action_just_pressed("ui_cancel") and viewer.is_viewing:
+		viewer.exit()
+	if Input.is_action_just_pressed("interact") and !viewer.is_viewing:
+		viewer.enter()

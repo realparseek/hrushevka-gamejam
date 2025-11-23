@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3i24moe7m2ha"]
+[gd_scene load_steps=14 format=3 uid="uid://d3i24moe7m2ha"]
 
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="1_gm3sv"]
 [ext_resource type="Script" uid="uid://ccucbq3ackvyf" path="res://scripts/states/player/controls_fps.gd" id="1_kgncn"]
 [ext_resource type="Script" uid="uid://bcr667wqyxp0q" path="res://scripts/states/camera/shaking.gd" id="2_kgncn"]
 [ext_resource type="Script" uid="uid://buc61jgtmmyps" path="res://scripts/interaction_cast.gd" id="2_q6dji"]
 [ext_resource type="Script" uid="uid://d1ev6p20gimpt" path="res://scripts/crosshair.gd" id="3_m5cbd"]
+[ext_resource type="Script" uid="uid://biiih6n2emqev" path="res://scripts/viewer.gd" id="4_q4u1k"]
+[ext_resource type="Texture2D" uid="uid://c0oim1axos86s" path="res://textures/document0_low.png" id="5_rn80f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q4u1k"]
 radius = 0.38
@@ -83,10 +85,8 @@ font_color = Color(0.427493, 0.42749307, 0.42749307, 1)
 
 [node name="player_fps" type="CharacterBody3D"]
 script = ExtResource("1_kgncn")
-look_sensetivity = null
 walk_speed = 1.3
-sprint_speed = 1.3
-gravity = null
+sprint_speed = 2.0
 headbob_size = 0.03
 headbob_speed = 5.0
 
@@ -107,7 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72895193, 0)
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 current = true
 
-[node name="interaction_cast" type="RayCast3D" parent="head/Camera3D" node_paths=PackedStringArray("ints_label", "ints_background", "ints_selected", "crosshair")]
+[node name="interaction_cast" type="RayCast3D" parent="head/Camera3D" node_paths=PackedStringArray("ints_label", "ints_background", "ints_selected", "crosshair", "viewer")]
 target_position = Vector3(0, 0, -1)
 collision_mask = 2
 script = ExtResource("2_q6dji")
@@ -115,6 +115,7 @@ ints_label = NodePath("../canvas/hud/ints")
 ints_background = NodePath("../canvas/hud/background")
 ints_selected = NodePath("../canvas/hud/selected")
 crosshair = NodePath("../canvas/hud/crosshair")
+viewer = NodePath("../canvas/viewer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D"]
 root_node = NodePath("../../..")
@@ -183,6 +184,7 @@ offset_right = 61.5
 offset_bottom = 93.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.029506553, 0.029506562, 0.029506536, 0.5019608)
 
 [node name="selected" type="ColorRect" parent="head/Camera3D/canvas/hud"]
@@ -198,7 +200,115 @@ offset_right = 61.5
 offset_bottom = 93.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 1, 1, 0.2)
+
+[node name="viewer" type="Control" parent="head/Camera3D/canvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("4_q4u1k")
+
+[node name="texture" type="TextureRect" parent="head/Camera3D/canvas/viewer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -379.0
+offset_right = 290.0
+offset_bottom = 379.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_rn80f")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="background" type="ColorRect" parent="head/Camera3D/canvas/viewer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -384.0
+offset_right = 512.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="text" type="Label" parent="head/Camera3D/canvas/viewer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -116.0
+offset_bottom = 1649.0
+grow_horizontal = 2
+text = "КРАСЛАВСКАЯ ФЕДЕРАЦИЯ
+
+КАПКАНСКАЯ ОБЛАСТЬ
+
+РАСПОРЯЖЕНИЕ
+
+О неотложных мерах по переселению граждан, проживающих на территории Металлургического района г. Капканска, в связи с чрезвычайной ситуацией природного характера
+
+В связи с возникновением чрезвычайной ситуации природного характера, повлекшей за собой выброс в атмосферный воздух неидентифицированного высокотоксичного газа (кодовое обозначение «В-04»), представляющего непосредственную угрозу жизни и здоровью населения, и на основании заключения Межведомственной санитарно-химической комиссии № 42-СХ от «27» апреля 2011 года,
+
+ПОСТАНОВЛЯЮ:
+
+1. Признать необходимым проведение немедленного, планового отселения и последующего переселения граждан, постоянно или временно проживающих на территории Металлургического района муниципального образования «Город Капканск» (далее Зона Отселения).
+
+2. Утвердить границы Зоны Отселения согласно Приложению № 1 к настоящему распоряжению. Установить, что нахождение граждан на территории Зоны Отселения запрещено с «28» апреля 2011 года.
+
+3. Рекомендовать Главному управлению МВД Краславии по Капканской области (тов. В.С. Громов) обеспечить, совместно с воинскими подразделениями, охрану общественного порядка и соблюдение пропускного режима на территории Зоны Отселения.
+
+4. правлению жилищно-коммунального хозяйства (тов. А.И. Сазонов) в трехдневный срок:
+
+4.1. Определить перечень свободного жилого фонда, пригодного для временного размещения переселенцев.
+
+4.2. Организовать предоставление гражданам, подлежащим переселению, жилых помещений маневренного фонда в г. Капканске и прилегающих населенных пунктах.
+
+5. Департаменту здравоохранения (тов. Л.П. Орлова):
+
+5.1. Организовать проведение обязательного медицинского освидетельствования всех граждан, подвергшихся воздействию газа «В-04».
+
+5.2. Обеспечить немедленную госпитализацию лиц с признаками острых и хронических отравлений.
+
+6. Объявить, что отселение является временной мерой. Вопрос о сроках и условиях возвращения, а также о компенсациях утраченного имущества будет рассмотрен специальной комиссией после полной ликвидации угрозы и получения заключения о безопасностит
+
+7. Контроль за исполнением настоящего распоряжения возложи Губернатора Капканской области тов. П.К. Загорского. ителя
+
+ТАЦИЯРРИТОРАНСКОЙ СТИ
+
+И.о. Губернатора
+
+Капканской области
+
+КРАСЛАВ ЕРАЦИЯ КА ACT
+
+Белов"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="CameraStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_gm3sv")
