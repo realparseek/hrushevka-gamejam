@@ -1,4 +1,4 @@
-[gd_scene load_steps=218 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=221 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_jlfbm"]
@@ -56,8 +56,11 @@
 [ext_resource type="Texture2D" uid="uid://b1qw4ebiy47g3" path="res://textures/pack/treshina.png" id="46_fo25u"]
 [ext_resource type="PackedScene" uid="uid://cwnxjshcsint1" path="res://assets/object/Models/Bucket/Bucket.fbx" id="47_b4dhk"]
 [ext_resource type="Texture2D" uid="uid://bv8q5kkm1gkjr" path="res://models/documents/документ_document0.png" id="49_g6vcv"]
+[ext_resource type="PackedScene" uid="uid://olseku10htug" path="res://assets/object/cat_-_ps1_low_poly_rigged.glb" id="50_ovoa2"]
 [ext_resource type="Script" uid="uid://cn1fydsdho0os" path="res://scripts/interactables/document.gd" id="51_u0ecf"]
 [ext_resource type="Script" uid="uid://xjwo28nejjqo" path="res://scripts/interactions/documents/read.gd" id="51_w6jkh"]
+[ext_resource type="PackedScene" uid="uid://2bn8khlej3v" path="res://assets/glb/psx_soviet_panel_building_khrushchyovka.glb" id="54_lju7r"]
+[ext_resource type="PackedScene" uid="uid://d0n05gw81ddq2" path="res://assets/glb/psx_soviet_apartmen.glb" id="55_yg350"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ofwxs"]
 vertices = PackedVector3Array(-1.0538349, 3.9557295, 4.7307625, -0.8038349, 3.9557295, 5.9807625, 0.44616508, 3.9557295, 5.9807625, 0.6961651, 3.9557295, 4.7307625, -7.803835, 3.9557295, -8.7692375, -7.803835, 3.9557295, 4.7307625, 4.696165, 3.9557295, -8.7692375, 4.696165, 3.9557295, 4.7307625, 3.196165, 0.4557296, -5.0192375, 3.446165, 0.4557296, -4.0192375, 4.446165, 0.4557296, -4.0192375, 4.446165, 0.4557296, -7.2692375, -4.303835, 0.4557296, -7.2692375, -4.553835, 0.4557296, -6.0192375, -4.553835, 0.4557296, -5.5192375, -3.303835, 0.4557296, -7.5192375, -4.303835, 0.4557296, -3.0192375, -0.30383492, 0.4557296, -3.2692375, -0.30383492, 0.4557296, -5.0192375, -5.553835, 0.4557296, -6.0192375, -5.803835, 0.4557296, -5.2692375, -0.30383492, 0.4557296, 0.9807625, -0.5538349, 0.4557296, -0.5192375, -4.303835, 0.4557296, -1.0192375, -4.303835, 0.4557296, 2.2307625, -6.053835, 0.4557296, -7.2692375, -6.303835, 0.4557296, -5.0192375, -4.553835, 0.4557296, 2.9807625, -5.553835, 0.4557296, 2.4807625, -5.553835, 0.4557296, 2.9807625, -6.303835, 0.4557296, 3.9807625, -5.803835, 0.4557296, 3.9807625, -6.053835, 0.4557296, -1.0192375, -6.553835, 0.4557296, 1.4807625, -7.303835, 0.4557296, -4.7692375, -7.303835, 0.4557296, 1.2307625, -0.053834915, 0.4557296, -0.7692375, -4.303835, 0.4557296, 3.9807625, 2.196165, 0.4557296, 3.9807625, 2.196165, 0.4557296, 0.9807625, 3.196165, 0.4557296, -3.2692375, 3.196165, 0.4557296, -0.7692375, 3.446165, 0.4557296, 0.7307625, 4.446165, 0.4557296, 3.9807625)
@@ -2064,6 +2067,7 @@ skeleton = NodePath("")
 
 [node name="Plane_002" type="MeshInstance3D" parent="NavigationRegion3D/Mesh"]
 transform = Transform3D(1.7881393e-07, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 1.7881393e-07, -2.6261454, 2.3964393, -8.995498)
+visible = false
 mesh = SubResource("ArrayMesh_wwv1v")
 skeleton = NodePath("")
 
@@ -2965,6 +2969,9 @@ transform = Transform3D(-48.556717, 0, -11.92667, 0, 50, 0, 11.92667, 0, -48.556
 mesh = SubResource("ArrayMesh_w6jkh")
 skeleton = NodePath("")
 
+[node name="Sketchfab_Scene" parent="trash" instance=ExtResource("50_ovoa2")]
+transform = Transform3D(-0.09792759, 0, -0.020253094, 0, 0.1, 0, 0.020253094, 0, -0.09792759, -2.3596487, 0.8404623, 3.8380337)
+
 [node name="document0" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.9238857, 0.8964608, 3.8267663)
 collision_layer = 2
@@ -2990,3 +2997,18 @@ script = ExtResource("51_u0ecf")
 [node name="Read" type="Node" parent="document0/Interactable" node_paths=PackedStringArray("viewer")]
 script = ExtResource("51_w6jkh")
 viewer = NodePath("../../../player_fps/head/Camera3D/canvas/viewer")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("54_lju7r")]
+transform = Transform3D(-0.49143463, 0, -19.993961, 0, 20, 0, 19.993961, 0, -0.49143463, -9.992252, 0.3691063, 93.49549)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("55_yg350")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 135.23697, 0, -47.492706)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("54_lju7r")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 219.01921, -2.2617435, -86.13105)
+
+[node name="Sketchfab_Scene3" parent="Sketchfab_Scene3" instance=ExtResource("54_lju7r")]
+transform = Transform3D(19.999994, 0, 0, 0, 19.999994, 0, 0, 0, 19.999994, 74.627075, -3.7447898, -45.953476)
+
+[node name="Sketchfab_Scene4" parent="." instance=ExtResource("55_yg350")]
+transform = Transform3D(26, 0, 0, 0, 26, 0, 0, 0, 26, 104.587585, 9.536743e-07, -21.773914)
