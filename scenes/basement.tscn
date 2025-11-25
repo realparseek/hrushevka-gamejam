@@ -1,4 +1,4 @@
-[gd_scene load_steps=203 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=218 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_jlfbm"]
@@ -11,26 +11,32 @@
 [ext_resource type="Texture2D" uid="uid://b4r7cvj05wav1" path="res://models/basement/basement_чугун_backed.png" id="6_dvfvt"]
 [ext_resource type="PackedScene" uid="uid://bk2hl6m52xp03" path="res://prefabs/vorona.tscn" id="6_e0dxi"]
 [ext_resource type="Texture2D" uid="uid://d1kgucyy1w2ad" path="res://models/basement/basement_door.png" id="7_dqwih"]
-[ext_resource type="PackedScene" uid="uid://d3i24moe7m2ha" path="res://prefabs/player_fps.tscn" id="7_e0dxi"]
 [ext_resource type="Texture2D" uid="uid://cvpin51yvtcn" path="res://models/basement/basement_white_ceiling_baked.png" id="8_nvrgk"]
 [ext_resource type="Texture2D" uid="uid://bbvkmaeu3yffd" path="res://models/basement/basement_door4.png" id="9_5j8jl"]
 [ext_resource type="SteamAudioMaterial" uid="uid://cexuij8fef5ay" path="res://addons/godot-steam-audio/materials/carpet_material.tres" id="9_6lwow"]
 [ext_resource type="SteamAudioMaterial" uid="uid://bljhgad6g2vnm" path="res://addons/godot-steam-audio/materials/concrete_material.tres" id="9_c5vcu"]
 [ext_resource type="Material" uid="uid://cnfjy5uvcj1s4" path="res://materials/wires.material" id="11_olx36"]
 [ext_resource type="SteamAudioMaterial" uid="uid://cqx8833t2v8mo" path="res://addons/godot-steam-audio/materials/metal_material.tres" id="14_c5vcu"]
+[ext_resource type="Script" uid="uid://ccucbq3ackvyf" path="res://scripts/states/player/controls_fps.gd" id="17_iimqd"]
+[ext_resource type="Script" uid="uid://buc61jgtmmyps" path="res://scripts/interaction_cast.gd" id="18_byyqs"]
 [ext_resource type="AudioStream" uid="uid://dey8o8gi6pt08" path="res://sound/radio/radio.ogg" id="18_v858h"]
+[ext_resource type="Script" uid="uid://d1ev6p20gimpt" path="res://scripts/crosshair.gd" id="19_3jvec"]
 [ext_resource type="Script" path="res://voronaPOET.gd" id="19_udj7p"]
 [ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="19_v858h"]
 [ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="20_nlhde"]
 [ext_resource type="Texture2D" uid="uid://bocmtrpbba5w" path="res://models/lightbulb/lightbulb_lightbulb_emission.png" id="20_udj7p"]
+[ext_resource type="Script" uid="uid://biiih6n2emqev" path="res://scripts/viewer.gd" id="20_uvnnk"]
 [ext_resource type="Texture2D" uid="uid://cb4st3ds5jedv" path="res://models/switch/switch_электрощиток.png" id="21_dwbgt"]
+[ext_resource type="Script" uid="uid://bgqglerkcylxx" path="res://addons/SmoothScroll/smooth_scroll_container.gd" id="22_j1mi2"]
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="22_n3vph"]
 [ext_resource type="Script" uid="uid://bm426oydcs6ee" path="res://scripts/states/lightbulb/turned_off.gd" id="22_yqbbm"]
 [ext_resource type="Script" uid="uid://dxsyi6twmwt7k" path="res://scripts/states/lightbulb/turned_on.gd" id="23_n6qi5"]
+[ext_resource type="Script" uid="uid://b7h0k2h2qwlqv" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="23_pvq3c"]
 [ext_resource type="Texture2D" uid="uid://df4cejvxbmml8" path="res://assets/object/Sewer/Textures/Trash.png" id="23_qu43e"]
 [ext_resource type="Script" uid="uid://bbg8t2i2hexvg" path="res://scripts/states/light_switch/turned_on.gd" id="23_v858h"]
 [ext_resource type="Script" uid="uid://fowpdnjcd0tq" path="res://scripts/states/light_switch/turned_off.gd" id="24_udj7p"]
 [ext_resource type="AudioStream" uid="uid://nb5g8u301xpv" path="res://sound/light/switch1.ogg" id="24_v858h"]
+[ext_resource type="Script" uid="uid://bcr667wqyxp0q" path="res://scripts/states/camera/shaking.gd" id="25_iroi3"]
 [ext_resource type="Material" uid="uid://dcrb61ai8akjl" path="res://materials/outline.material" id="27_uq6x4"]
 [ext_resource type="PackedScene" uid="uid://dyes22bmvqkbu" path="res://prefabs/truba.tscn" id="28_n3vph"]
 [ext_resource type="Script" uid="uid://cbtbtr1mdf781" path="res://scripts/interactables/light_switch.gd" id="30_5cqeb"]
@@ -1429,6 +1435,89 @@ size = Vector3(0.52020836, 2.7740173, 0.4084015)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dvfvt"]
 size = Vector3(3.796434, 2.7740173, 0.3474617)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q4u1k"]
+radius = 0.38
+height = 1.8
+
+[sub_resource type="Animation" id="Animation_r66lb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.37680537, -0.0017216206)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4dohe"]
+resource_name = "shaking"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6399999, 1.63, 2.29, 2.9799998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.37680537, -0.0017216206), Vector3(0.020898283, 0.36687773, -0.0017216206), Vector3(-0.025803918, 0.3719996, -0.0017216206), Vector3(0.008311443, 0.37835053, -0.0017216206), Vector3(0, 0.37680537, -0.0017216206)]
+}
+
+[sub_resource type="Animation" id="Animation_u51tk"]
+resource_name = "shaking2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.007015103, 0.017872611, 0.00012539052), Vector3(-0.013524125, -0.017943624, 0.00024269041), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1txc5"]
+_data = {
+&"RESET": SubResource("Animation_r66lb"),
+&"shaking": SubResource("Animation_4dohe"),
+&"shaking2": SubResource("Animation_u51tk")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_q6dji"]
+line_spacing = 1.0
+font_size = 18
+font_color = Color(0.427493, 0.42749307, 0.42749307, 1)
+
+[sub_resource type="Resource" id="Resource_fmbfy"]
+script = ExtResource("23_pvq3c")
+
+[sub_resource type="Resource" id="Resource_mg6fd"]
+script = ExtResource("23_pvq3c")
+
+[sub_resource type="LabelSettings" id="LabelSettings_rn80f"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_p2keb"]
 size = Vector3(0.1499939, 0.20683098, 0.15645027)
 
@@ -1929,7 +2018,7 @@ _surfaces = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ecf"]
-size = Vector3(0.45404053, 0.01038456, 0.33953857)
+size = Vector3(0.45440292, 0.11542177, 0.36767387)
 
 [node name="basement" type="Node3D"]
 
@@ -2290,10 +2379,208 @@ volume_db = -40.0
 pitch_scale = 0.9
 autoplay = true
 
-[node name="player_fps" parent="." instance=ExtResource("7_e0dxi")]
+[node name="player_fps" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0281415, 0.9291214, -1.0702968)
-look_sensetivity = 6.0
-gravity = 9.8
+script = ExtResource("17_iimqd")
+walk_speed = 1.3
+sprint_speed = 2.0
+headbob_size = 0.03
+headbob_speed = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_fps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03967285, 0)
+shape = SubResource("CapsuleShape3D_q4u1k")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="player_fps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2862208, 0)
+light_color = Color(0.7285397, 0.5974449, 0.48897117, 1)
+light_energy = 1.2
+omni_range = 2.5
+
+[node name="head" type="Node3D" parent="player_fps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72895193, 0)
+
+[node name="Camera3D" type="Camera3D" parent="player_fps/head"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+current = true
+
+[node name="interaction_cast" type="RayCast3D" parent="player_fps/head/Camera3D" node_paths=PackedStringArray("ints_label", "ints_background", "ints_selected", "crosshair", "viewer")]
+target_position = Vector3(0, 0, -1)
+collision_mask = 2
+script = ExtResource("18_byyqs")
+ints_label = NodePath("../canvas/hud/ints")
+ints_background = NodePath("../canvas/hud/background")
+ints_selected = NodePath("../canvas/hud/selected")
+crosshair = NodePath("../canvas/hud/crosshair")
+viewer = NodePath("../canvas/viewer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player_fps/head/Camera3D"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_1txc5")
+}
+
+[node name="canvas" type="CanvasLayer" parent="player_fps/head/Camera3D"]
+
+[node name="hud" type="Control" parent="player_fps/head/Camera3D/canvas"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="crosshair" type="CenterContainer" parent="player_fps/head/Camera3D/canvas/hud"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("19_3jvec")
+dot_radius = 4.0
+
+[node name="ints" type="Label" parent="player_fps/head/Camera3D/canvas/hud"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = 8.5
+offset_right = 61.5
+offset_bottom = 93.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_q6dji")
+horizontal_alignment = 1
+
+[node name="background" type="ColorRect" parent="player_fps/head/Camera3D/canvas/hud"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = 8.5
+offset_right = 61.5
+offset_bottom = 93.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.029506553, 0.029506562, 0.029506536, 0.5019608)
+
+[node name="selected" type="ColorRect" parent="player_fps/head/Camera3D/canvas/hud"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = 8.5
+offset_right = 61.5
+offset_bottom = 93.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.2)
+
+[node name="viewer" type="Control" parent="player_fps/head/Camera3D/canvas" node_paths=PackedStringArray("background", "scroll_cont", "label", "texture")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+script = ExtResource("20_uvnnk")
+background = NodePath("background")
+scroll_cont = NodePath("scroll")
+label = NodePath("scroll/text")
+texture = NodePath("texture")
+
+[node name="texture" type="TextureRect" parent="player_fps/head/Camera3D/canvas/viewer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -235.0
+offset_right = 290.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="background" type="ColorRect" parent="player_fps/head/Camera3D/canvas/viewer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="scroll" type="ScrollContainer" parent="player_fps/head/Camera3D/canvas/viewer"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 630.0
+offset_bottom = 480.0
+mouse_filter = 0
+script = ExtResource("22_j1mi2")
+wheel_scroll_damper = SubResource("Resource_fmbfy")
+dragging_scroll_damper = SubResource("Resource_mg6fd")
+metadata/_custom_type_script = "uid://bgqglerkcylxx"
+
+[node name="text" type="Label" parent="player_fps/head/Camera3D/canvas/viewer/scroll"]
+custom_minimum_size = Vector2(620, 0)
+layout_mode = 2
+mouse_filter = 1
+label_settings = SubResource("LabelSettings_rn80f")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CameraStateMachine" type="Node" parent="player_fps" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("22_n3vph")
+initial_state = NodePath("Shaking")
+
+[node name="Shaking" type="Node" parent="player_fps/CameraStateMachine"]
+script = ExtResource("25_iroi3")
 
 [node name="SteamAudioListener" type="SteamAudioListener" parent="player_fps"]
 
@@ -2693,12 +2980,13 @@ visible = false
 mesh = SubResource("ArrayMesh_u0ecf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="document0"]
-transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, -0.012298584, -0.00013875961, 0.00021350384)
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, -0.0011043549, 0.052379847, 0.010838389)
 shape = SubResource("BoxShape3D_u0ecf")
 debug_color = Color(0, 0.64821124, 0.19761598, 0.41960785)
 
 [node name="Interactable" type="Node" parent="document0"]
 script = ExtResource("51_u0ecf")
 
-[node name="Read" type="Node" parent="document0/Interactable"]
+[node name="Read" type="Node" parent="document0/Interactable" node_paths=PackedStringArray("viewer")]
 script = ExtResource("51_w6jkh")
+viewer = NodePath("../../../player_fps/head/Camera3D/canvas/viewer")

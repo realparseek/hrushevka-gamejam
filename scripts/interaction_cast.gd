@@ -64,7 +64,7 @@ func _handle_crosshair(delta: float) -> void:
 
 func _handle_interaction_menu() -> void:
 	if Input.is_action_just_released('MWU'):
-			hovered_interaction = wrap(hovered_interaction-1, 0, hovered_interactions.size())
+		hovered_interaction = wrap(hovered_interaction-1, 0, hovered_interactions.size())
 	if Input.is_action_just_released('MWD'):
 		hovered_interaction = wrap(hovered_interaction+1, 0, hovered_interactions.size())
 	
@@ -78,5 +78,3 @@ func _handle_interaction_menu() -> void:
 func _handle_viewer_menu() -> void:
 	if Input.is_action_just_pressed("ui_cancel") and viewer.is_viewing:
 		viewer.exit()
-	if Input.is_action_just_pressed("interact") and !viewer.is_viewing:
-		viewer.enter()
