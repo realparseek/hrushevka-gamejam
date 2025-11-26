@@ -30,13 +30,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('ui_cancel'):
 		if event.pressed:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+
+func _input(event: InputEvent) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			rotate_y(-event.relative.x*look_sensetivity*look_sensetivity_mul)
 			$head.rotate_x(-event.relative.y*look_sensetivity*look_sensetivity_mul)
 			$head.rotation.x = clamp($head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-
 
 func _handle_ground_movement() -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

@@ -36,14 +36,14 @@ func _handle_viewing(delta: float) -> void:
 		scroll_cont.visible = false
 	
 func enter() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	is_viewing = true
 	texture.visible = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func exit() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	is_viewing = false
 	if texture.texture:
 		texture.texture = null
 	label.text = ''
-	is_viewing = false
 	texture.visible = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
