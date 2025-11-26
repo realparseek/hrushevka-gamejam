@@ -64,7 +64,7 @@
 [ext_resource type="PackedScene" uid="uid://chu2c0reqif2k" path="res://assets/glb/hammer.glb" id="57_uvnnk"]
 [ext_resource type="Texture2D" uid="uid://cx4si4tvfu26s" path="res://assets/glb/low_poly_90s_electronics_assets_9.png" id="59_j1mi2"]
 [ext_resource type="Texture2D" uid="uid://bimpl2wuj6g52" path="res://assets/glb/low_poly_90s_electronics_assets_14.png" id="60_pvq3c"]
-[ext_resource type="PackedScene" uid="uid://cga412w46kexg" path="res://assets/glb/low_poly_psx_wall_lamp.glb" id="61_iroi3"]
+[ext_resource type="PackedScene" uid="uid://0u571tr54y4j" path="res://prefabs/nastennayalanmpa.tscn" id="61_q40a6"]
 [ext_resource type="Texture2D" uid="uid://ixps1ft18ve8" path="res://assets/glb/ps1_low_poly_-_cigarette_and_lighter_1.png" id="62_gtgrb"]
 [ext_resource type="Texture2D" uid="uid://dmwfw4fn4rrnt" path="res://assets/glb/ps1_low_poly_-_cigarette_and_lighter_2.png" id="63_7vftb"]
 [ext_resource type="PackedScene" uid="uid://dg38fj0douo7i" path="res://assets/glb/lowpoly_propane_tank.glb" id="63_118yq"]
@@ -2639,7 +2639,7 @@ material = ExtResource("9_c5vcu")
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wy1pe")
-volume_db = -40.0
+volume_db = -25.0
 pitch_scale = 0.9
 autoplay = true
 
@@ -2766,15 +2766,9 @@ color = Color(1, 1, 1, 0.2)
 
 [node name="viewer" type="Control" parent="player_fps/head/Camera3D/canvas" node_paths=PackedStringArray("background", "scroll_cont", "label", "texture")]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -240.0
-offset_right = 320.0
-offset_bottom = 240.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -2805,25 +2799,21 @@ stretch_mode = 5
 
 [node name="background" type="ColorRect" parent="player_fps/head/Camera3D/canvas/viewer"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -240.0
-offset_right = 320.0
-offset_bottom = 240.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_behavior_recursive = 1
 color = Color(0, 0, 0, 0.70000005)
 
 [node name="scroll" type="ScrollContainer" parent="player_fps/head/Camera3D/canvas/viewer"]
-layout_mode = 0
-offset_left = 10.0
-offset_right = 630.0
-offset_bottom = 480.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 0
 script = ExtResource("22_j1mi2")
 wheel_scroll_damper = SubResource("Resource_fmbfy")
@@ -2831,9 +2821,9 @@ dragging_scroll_damper = SubResource("Resource_mg6fd")
 metadata/_custom_type_script = "uid://bgqglerkcylxx"
 
 [node name="text" type="Label" parent="player_fps/head/Camera3D/canvas/viewer/scroll"]
-custom_minimum_size = Vector2(620, 0)
+custom_minimum_size = Vector2(640, 480)
 layout_mode = 2
-mouse_filter = 1
+mouse_filter = 0
 label_settings = SubResource("LabelSettings_rn80f")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -3266,8 +3256,8 @@ transform = Transform3D(1, -1.7763568e-15, 0, -2.3092639e-14, 1, 0, 1.110223e-16
 mesh = SubResource("ArrayMesh_7vftb")
 skeleton = NodePath("")
 
-[node name="nastennayalanmpa" parent="trash" instance=ExtResource("61_iroi3")]
-transform = Transform3D(-0.9998766, 0, 0.01570741, 0, 1, 0, -0.01570741, 0, -0.9998766, 0.019730479, 2.3422868, 6.213929)
+[node name="nastennayalanmpa" parent="trash" instance=ExtResource("61_q40a6")]
+transform = Transform3D(-0.99987656, 0, 0.015707472, 0, 1, 0, -0.015707472, 0, -0.99987656, 0.019730479, 2.3422868, 6.213929)
 
 [node name="Cigarette01" type="Node3D" parent="trash"]
 transform = Transform3D(-0.9205048, 0.012954841, -0.39051628, -8.737471e-08, -0.9994502, -0.033155177, -0.3907311, -0.030519472, 0.9199987, -2.7154338, 0.85904527, 3.6819336)

@@ -12,6 +12,7 @@ func _ready() -> void:
 	is_viewing = false
 	scroll_cont.visible = false
 	texture.visible = false
+	background.visible = false
 
 func _process(delta: float) -> void: 
 	_handle_viewing(delta)
@@ -34,11 +35,13 @@ func _handle_viewing(delta: float) -> void:
 	
 	if view_timer == 0.0:
 		scroll_cont.visible = false
+		background.visible = false
 	
 func enter() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	is_viewing = true
 	texture.visible = true
+	background.visible = true
 
 func exit() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
