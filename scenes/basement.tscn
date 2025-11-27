@@ -19,7 +19,7 @@
 [ext_resource type="SteamAudioMaterial" uid="uid://cqx8833t2v8mo" path="res://addons/godot-steam-audio/materials/metal_material.tres" id="14_c5vcu"]
 [ext_resource type="Script" uid="uid://ccucbq3ackvyf" path="res://scripts/states/player/controls_fps.gd" id="17_iimqd"]
 [ext_resource type="Script" uid="uid://buc61jgtmmyps" path="res://scripts/interaction_cast.gd" id="18_byyqs"]
-[ext_resource type="AudioStream" uid="uid://44cw3hpe3h31" path="res://sound/?.ogg" id="18_uj6tj"]
+[ext_resource type="AudioStream" uid="uid://44cw3hpe3h31" path="res://sound/eerie.ogg" id="18_uj6tj"]
 [ext_resource type="AudioStream" uid="uid://dey8o8gi6pt08" path="res://sound/radio/radio.ogg" id="18_v858h"]
 [ext_resource type="Script" uid="uid://d1ev6p20gimpt" path="res://scripts/crosshair.gd" id="19_3jvec"]
 [ext_resource type="Script" uid="uid://cwbt31bgn8jtl" path="res://voronaPOET.gd" id="19_udj7p"]
