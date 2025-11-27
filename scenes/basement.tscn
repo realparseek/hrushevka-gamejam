@@ -1,4 +1,4 @@
-[gd_scene load_steps=273 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=274 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_jlfbm"]
@@ -19,6 +19,7 @@
 [ext_resource type="SteamAudioMaterial" uid="uid://cqx8833t2v8mo" path="res://addons/godot-steam-audio/materials/metal_material.tres" id="14_c5vcu"]
 [ext_resource type="Script" uid="uid://ccucbq3ackvyf" path="res://scripts/states/player/controls_fps.gd" id="17_iimqd"]
 [ext_resource type="Script" uid="uid://buc61jgtmmyps" path="res://scripts/interaction_cast.gd" id="18_byyqs"]
+[ext_resource type="AudioStream" uid="uid://44cw3hpe3h31" path="res://sound/?.ogg" id="18_uj6tj"]
 [ext_resource type="AudioStream" uid="uid://dey8o8gi6pt08" path="res://sound/radio/radio.ogg" id="18_v858h"]
 [ext_resource type="Script" uid="uid://d1ev6p20gimpt" path="res://scripts/crosshair.gd" id="19_3jvec"]
 [ext_resource type="Script" path="res://voronaPOET.gd" id="19_udj7p"]
@@ -2652,6 +2653,10 @@ sprint_speed = 2.0
 headbob_size = 0.03
 headbob_speed = 5.0
 
+[node name="?" type="AudioStreamPlayer" parent="player_fps"]
+stream = ExtResource("18_uj6tj")
+volume_db = -10.0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_fps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03967285, 0)
 shape = SubResource("CapsuleShape3D_q4u1k")
@@ -3315,9 +3320,10 @@ debug_color = Color(0, 0.64821124, 0.19761598, 0.41960785)
 [node name="Interactable" type="Node" parent="document0"]
 script = ExtResource("51_u0ecf")
 
-[node name="Read" type="Node" parent="document0/Interactable" node_paths=PackedStringArray("viewer")]
+[node name="Read" type="Node" parent="document0/Interactable" node_paths=PackedStringArray("viewer", "sound")]
 script = ExtResource("51_w6jkh")
 viewer = NodePath("../../../player_fps/head/Camera3D/canvas/viewer")
+sound = NodePath("../../../player_fps/?")
 
 [node name="zadnik" type="Node3D" parent="."]
 

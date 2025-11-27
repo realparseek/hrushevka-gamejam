@@ -51,7 +51,7 @@ func _hover_node(body: StaticBody3D) -> void:
 		ints_background.visible = true
 
 func _interacte_node() -> void:
-	if hovered_obj and Input.is_action_just_pressed("interact"):
+	if hovered_obj and Input.is_action_just_pressed("interact") and !viewer.is_viewing:
 		hovered_obj.interacte(hovered_interactions[hovered_interaction])
 
 func _handle_crosshair(delta: float) -> void:

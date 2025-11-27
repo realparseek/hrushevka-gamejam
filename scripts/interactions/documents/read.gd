@@ -1,6 +1,7 @@
 extends Interaction
 
 @export var viewer: Control = null
+@export var sound: AudioStreamPlayer = null
 
 @onready var text: String = (
 	'КРАСЛАВСКАЯ ФЕДЕРАЦИЯ\n'
@@ -45,6 +46,8 @@ func _ready() -> void:
 	debug_name = 'Читать'
 
 func interacte() -> void:
+	if !sound.playing:
+		sound.play()
 	texture = load("res://textures/document0_low.png")
 	viewer.texture.texture = texture
 	viewer.label.text = text
