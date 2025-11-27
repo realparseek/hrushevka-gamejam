@@ -1,4 +1,4 @@
-[gd_scene load_steps=282 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=283 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_jlfbm"]
@@ -2316,6 +2316,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0gq6o")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_40r2m"]
+size = Vector3(2.0322266, 2.5298004, 0.33184814)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6re0"]
 resource_name = "board"
 cull_mode = 2
@@ -3521,10 +3524,14 @@ playback_type = 1
 emission_angle_degrees = 61.0
 emission_angle_filter_attenuation_db = -10.0
 
-[node name="board" type="Node3D" parent="."]
+[node name="board3" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.766239, 1.3743926, 0.768583)
 
-[node name="board" type="MeshInstance3D" parent="board"]
-transform = Transform3D(-0.84575737, 0, 0.084820434, 0, 0.85, 0, -0.084820434, 0, -0.84575737, -0.36017552, 0.27856532, 0.26277998)
+[node name="collision" type="CollisionShape3D" parent="board3"]
+transform = Transform3D(-0.84575737, 0, 0.08482041, 0, 0.8500002, 0, -0.08482041, 0, -0.84575737, -0.37690634, -0.24703658, 0.2590828)
+shape = SubResource("BoxShape3D_40r2m")
+
+[node name="board2" type="MeshInstance3D" parent="board3"]
+transform = Transform3D(-0.84575737, 0, 0.084820434, 0, 0.85, 0, -0.084820434, 0, -0.84575737, -0.36017555, 0.2785653, 0.2627802)
 mesh = SubResource("ArrayMesh_rdg2r")
 skeleton = NodePath("")
