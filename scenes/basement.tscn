@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://buc61jgtmmyps" path="res://scripts/interaction_cast.gd" id="18_byyqs"]
 [ext_resource type="AudioStream" uid="uid://dey8o8gi6pt08" path="res://sound/radio/radio.ogg" id="18_v858h"]
 [ext_resource type="Script" uid="uid://d1ev6p20gimpt" path="res://scripts/crosshair.gd" id="19_3jvec"]
-[ext_resource type="Script" uid="uid://cwbt31bgn8jtl" path="res://voronaPOET.gd" id="19_udj7p"]
+[ext_resource type="Script" path="res://voronaPOET.gd" id="19_udj7p"]
 [ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="19_v858h"]
 [ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="20_nlhde"]
 [ext_resource type="Texture2D" uid="uid://bocmtrpbba5w" path="res://models/lightbulb/lightbulb_lightbulb_emission.png" id="20_udj7p"]
@@ -72,7 +72,7 @@
 [ext_resource type="PackedScene" uid="uid://d2v47una22h1a" path="res://assets/glb/ps2_table_lamp.glb" id="65_myhjo"]
 [ext_resource type="PackedScene" uid="uid://1hxxx7h2v0s2" path="res://assets/glb/psx_-_suitcase.glb" id="71_urg31"]
 [ext_resource type="PackedScene" uid="uid://bb66arrly1tmb" path="res://assets/glb/transformator.glb" id="72_gsoxu"]
-[ext_resource type="Script" uid="uid://17w7wthtlc54" path="res://scenes/surround.gd" id="73_renq8"]
+[ext_resource type="Script" path="res://scenes/surround.gd" id="73_renq8"]
 [ext_resource type="AudioStream" uid="uid://c3y787vo7p5uq" path="res://sound/surround/rt_eerie_wind1.ogg" id="73_rvu2m"]
 [ext_resource type="AudioStream" uid="uid://dypf5pltftxh5" path="res://sound/surround/rt_dark_indoor_amb1.ogg" id="74_q40a6"]
 [ext_resource type="AudioStream" uid="uid://csi4rn5t7ytj3" path="res://sound/surround/hit_3.ogg" id="75_wgfj2"]
@@ -2810,9 +2810,12 @@ color = Color(0, 0, 0, 0.70000005)
 
 [node name="scroll" type="ScrollContainer" parent="player_fps/head/Camera3D/canvas/viewer"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
@@ -2824,7 +2827,7 @@ metadata/_custom_type_script = "uid://bgqglerkcylxx"
 [node name="text" type="Label" parent="player_fps/head/Camera3D/canvas/viewer/scroll"]
 custom_minimum_size = Vector2(640, 480)
 layout_mode = 2
-mouse_filter = 0
+mouse_filter = 1
 label_settings = SubResource("LabelSettings_rn80f")
 horizontal_alignment = 1
 vertical_alignment = 1
