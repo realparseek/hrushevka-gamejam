@@ -17,7 +17,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_handle_headbob(delta)
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	_handle_ground_movement()
 	_handle_gravity()
 

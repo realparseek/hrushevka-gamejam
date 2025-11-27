@@ -6,7 +6,7 @@ extends CenterContainer
 func _ready() -> void:
 	queue_redraw()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
