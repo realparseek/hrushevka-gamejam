@@ -1,4 +1,4 @@
-[gd_scene load_steps=276 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=278 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_jlfbm"]
@@ -98,7 +98,7 @@
 [ext_resource type="AudioStream" uid="uid://cw3kir6es88vg" path="res://sound/surround/new_drops1.ogg" id="94_trqyk"]
 [ext_resource type="AudioStream" uid="uid://b2tlg7sfu4omv" path="res://sound/surround/sfx_amb_wind_tat_a_loop.ogg" id="95_00u7k"]
 [ext_resource type="PackedScene" uid="uid://bpfqou0e5r8vc" path="res://assets/glb/ps2_chair.glb" id="97_wgfj2"]
-[ext_resource type="PackedScene" uid="uid://y6bhuwgcqjv3" path="res://prefabs/military_radio.tscn" id="99_5tlrr"]
+[ext_resource type="Material" uid="uid://cku5ja4w5t710" path="res://assets/object/Priemnik/Radio.tres" id="100_40r2m"]
 [ext_resource type="AudioStream" uid="uid://1hdslpf1t6i2" path="res://sound/radio_noise.ogg" id="100_cw1ss"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ofwxs"]
@@ -2283,6 +2283,38 @@ _surfaces = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ecf"]
 size = Vector3(0.45440292, 0.11542177, 0.36767387)
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_0gq6o"]
+_surfaces = [{
+"aabb": AABB(-0.19016589, -0.123773016, -0.19842008, 0.38033178, 0.18811095, 0.39684016),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEABQADAAEABQABAAQABgADAAUAAgADAAYABwAFAAQABwAEAAAABgAFAAcAAgAIAAAABgAJAAIAAgAJAAgABwAKAAYABgAKAAkAAAALAAcAAAAIAAsABwALAAoADAAIAAkACgAMAAkADAANAAgACgAOAAwADgANAAwACgALAA8ACgAPAA4ADwALAAgADgAPAA0ADwAIAA0A"),
+"name": "Radio",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AACv+Bb6AAALBa/46AUAAAAAr/joBQAACwVPB+gFAAALBa/4FvoAAAsFTwcW+gAAAABPB+gFAAAAAE8HFvoAAAAA/////wAAAAD//wAAAAAAAAAAAAAAAAAAAAD//wAA/////wAAAAD///////8AAP//AAAAAAAA//8AAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6e63b"]
+resource_name = "PSX Radio Receiver_Cube_006"
+_surfaces = [{
+"aabb": AABB(-0.19016589, -0.123773016, -0.19842008, 0.38033178, 0.18811095, 0.39684016),
+"attribute_data": PackedByteArray("ltxqxycIascnCGrHltxqx6UCw21/zcI4egLCOKrNw23l1xk27wM3AeXXNwHvAxk2r81wbWEC4DivzeA4YQJwbdwD48C24Zhw3AOYcLbh48BIA9Nw3ODJwEgDycDc4NNwltx1++oBuf4nCHX76gFnxNPiuf4nCGrHltxqx9PiZ8T13BL7Jwhqx/XcascnCBL7Jwh1+/XcEvuW3HX7JwgS+ycIascnCBL7Jwh1+ycIaseW3HX7ltxqx5bcasf13BL7"),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGgAZABsAGAAcABkAGgAbAB0AHgAcABgAHQAbAB8AHgAfABwAHQAfAB4AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
+"material": ExtResource("100_40r2m"),
+"name": "Radio",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("AACv+Bb6/78LBa/46AX/vwAAr/joBf+/CwWv+Bb6/78AAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAAAAP//AAAAAP+//////////7//////AAD/v///AAD///+///8AAP//AIAAAP////8AgP///////wCAAAAAAP//AIAAAAAAAACqKv//AAD//6oq//8AAAAAqioAAAAA//+qKv////8AAFTVAAD/////VNUAAP//AABU1f///////1TVAABPBxb6oMAAAAAAAAAswQAATwfoBXrAAAD//wAA4sAAAAAA//8wwQAAr/joBXrAAACv+Bb6WcAAAP/////fwAsFTwcW+v+/CwWv+OgF/78LBa/4Fvr/vwsFTwfoBf+/AABPB+gFVNULBU8HFvpU1QAATwcW+lTVCwVPB+gFVNUAAK/46AX+fwsFTwfoBf5/AABPB+gF/n8LBa/46AX+fwAATwcW+gAACwWv+Bb6AAAAAK/4Fvr//wsFTwcW+gAAAAD/fwAA/38AAP9/AAD/f////3////9/////f////3//fwAA/38AAP9/AAD/fwAA/3////9/////f////3///6oqVNWqKlTVqipU1aoqVNWqqqqqqqqqqqqqqqqqqqqqq5kp85RvKN+BdAPpa51J8feggu//ln705nXM615xvOL/f/7//3////9//v//f///qqqqqqqqqqqqqqqqqqqqqv9/////f////3////9///+g9aB1oPWgdf///3+g9aB1")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_0gq6o")
+
 [node name="basement" type="Node3D"]
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_jlfbm")]
@@ -3278,7 +3310,7 @@ transform = Transform3D(0.37870774, -0.62782115, 0.32003295, -0.51636624, 2.2571
 transform = Transform3D(-0.4310166, 0, -0.67396194, 0, 0.8, 0, 0.67396194, 0, -0.4310166, 3.0879495, 0.010428429, 4.4310093)
 
 [node name="Telephone" type="Node3D" parent="trash"]
-transform = Transform3D(0.9909832, 0, -0.13398619, 0, 1, 0, 0.13398619, 0, 0.9909832, -6.132999, 0.90563667, 3.273366)
+transform = Transform3D(0.9909832, 0, -0.13398619, 0, 1, 0, 0.13398619, 0, 0.9909832, -6.174611, 0.90563667, 3.0466309)
 
 [node name="Phone" type="Node3D" parent="trash/Telephone"]
 transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, 0.1, 0, -0.1, -4.371139e-09, 0.43027258, -0.2691375, 0)
@@ -3421,15 +3453,20 @@ volume_db = -8.0
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("97_wgfj2")]
 transform = Transform3D(-0.3548496, 0, -1.1463342, 0, 1.2, 0, 1.1463342, 0, -0.3548496, -7.100797, 0.28029552, 3.3250897)
 
-[node name="military_radio" parent="." instance=ExtResource("99_5tlrr")]
-transform = Transform3D(-1.4471052, 0, -0.30057302, 0, 1.499999, 0, 0.3948245, 0, -1.1016558, -7.3239727, 1.0470523, 3.5180335)
+[node name="military_radio" type="Node3D" parent="."]
+transform = Transform3D(-0.9635699, 0, -0.2674568, 0, 1, 0, 0.2674568, 0, -0.9635699, -7.428809, 1.0024743, 3.4973073)
+
+[node name="military_radio" type="MeshInstance3D" parent="military_radio"]
+transform = Transform3D(1.5, 0, 0, 0, 1.1020751, 0, 0, 0, 1.1419238, 0, 0, 0)
+mesh = SubResource("ArrayMesh_6e63b")
+skeleton = NodePath("")
 
 [node name="SteamAudioPlayer" type="SteamAudioPlayer" parent="military_radio"]
 distance_attenuation = true
 air_absorption = true
 reflection = true
 max_reflection_distance = 1000.0
-transform = Transform3D(-0.9999834, 0, -0.0057770386, 0, 1, 0, 0.0057770386, 0, -0.9999834, -0.19753158, -0.013386488, 0.014790793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30369815, -0.0011711121, 0)
 stream = ExtResource("100_cw1ss")
 attenuation_model = 3
 volume_db = -15.0
