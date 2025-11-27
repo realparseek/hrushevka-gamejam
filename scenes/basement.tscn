@@ -1,4 +1,4 @@
-[gd_scene load_steps=274 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=276 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_jlfbm"]
@@ -22,7 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://44cw3hpe3h31" path="res://sound/?.ogg" id="18_uj6tj"]
 [ext_resource type="AudioStream" uid="uid://dey8o8gi6pt08" path="res://sound/radio/radio.ogg" id="18_v858h"]
 [ext_resource type="Script" uid="uid://d1ev6p20gimpt" path="res://scripts/crosshair.gd" id="19_3jvec"]
-[ext_resource type="Script" path="res://voronaPOET.gd" id="19_udj7p"]
+[ext_resource type="Script" uid="uid://cwbt31bgn8jtl" path="res://voronaPOET.gd" id="19_udj7p"]
 [ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="19_v858h"]
 [ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="20_nlhde"]
 [ext_resource type="Texture2D" uid="uid://bocmtrpbba5w" path="res://models/lightbulb/lightbulb_lightbulb_emission.png" id="20_udj7p"]
@@ -98,6 +98,8 @@
 [ext_resource type="AudioStream" uid="uid://cw3kir6es88vg" path="res://sound/surround/new_drops1.ogg" id="94_trqyk"]
 [ext_resource type="AudioStream" uid="uid://b2tlg7sfu4omv" path="res://sound/surround/sfx_amb_wind_tat_a_loop.ogg" id="95_00u7k"]
 [ext_resource type="PackedScene" uid="uid://bpfqou0e5r8vc" path="res://assets/glb/ps2_chair.glb" id="97_wgfj2"]
+[ext_resource type="PackedScene" uid="uid://y6bhuwgcqjv3" path="res://prefabs/military_radio.tscn" id="99_5tlrr"]
+[ext_resource type="AudioStream" uid="uid://1hdslpf1t6i2" path="res://sound/radio_noise.ogg" id="100_cw1ss"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ofwxs"]
 vertices = PackedVector3Array(-1.0538349, 3.9557295, 4.7307625, -0.8038349, 3.9557295, 5.9807625, 0.44616508, 3.9557295, 5.9807625, 0.6961651, 3.9557295, 4.7307625, -7.803835, 3.9557295, -8.7692375, -7.803835, 3.9557295, 4.7307625, 4.696165, 3.9557295, -8.7692375, 4.696165, 3.9557295, 4.7307625, 3.196165, 0.4557296, -5.0192375, 3.446165, 0.4557296, -4.0192375, 4.446165, 0.4557296, -4.0192375, 4.446165, 0.4557296, -7.2692375, -4.303835, 0.4557296, -7.2692375, -4.553835, 0.4557296, -6.0192375, -4.553835, 0.4557296, -5.5192375, -3.303835, 0.4557296, -7.5192375, -4.303835, 0.4557296, -3.0192375, -0.30383492, 0.4557296, -3.2692375, -0.30383492, 0.4557296, -5.0192375, -5.553835, 0.4557296, -6.0192375, -5.803835, 0.4557296, -5.2692375, -0.30383492, 0.4557296, 0.9807625, -0.5538349, 0.4557296, -0.5192375, -4.303835, 0.4557296, -1.0192375, -4.303835, 0.4557296, 2.2307625, -6.053835, 0.4557296, -7.2692375, -6.303835, 0.4557296, -5.0192375, -4.553835, 0.4557296, 2.9807625, -5.553835, 0.4557296, 2.4807625, -5.553835, 0.4557296, 2.9807625, -6.303835, 0.4557296, 3.9807625, -5.803835, 0.4557296, 3.9807625, -6.053835, 0.4557296, -1.0192375, -6.553835, 0.4557296, 1.4807625, -7.303835, 0.4557296, -4.7692375, -7.303835, 0.4557296, 1.2307625, -0.053834915, 0.4557296, -0.7692375, -4.303835, 0.4557296, 3.9807625, 2.196165, 0.4557296, 3.9807625, 2.196165, 0.4557296, 0.9807625, 3.196165, 0.4557296, -3.2692375, 3.196165, 0.4557296, -0.7692375, 3.446165, 0.4557296, 0.7307625, 4.446165, 0.4557296, 3.9807625)
@@ -3086,6 +3088,45 @@ light = NodePath("../../OmniLight3D")
 mesh_on = NodePath("../../lightbulb_on")
 mesh_off = NodePath("../../lightbulb_off")
 
+[node name="lightbulb6" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -2.3180366, 2.6575649, -2.044879)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lightbulb6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012054443, -0.005473137, -0.0001707077)
+shape = SubResource("BoxShape3D_p2keb")
+
+[node name="lightbulb_off" type="MeshInstance3D" parent="lightbulb6"]
+visible = false
+mesh = SubResource("ArrayMesh_gba4x")
+skeleton = NodePath("")
+
+[node name="lightbulb_on" type="MeshInstance3D" parent="lightbulb6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023360968, 0, 0)
+mesh = SubResource("ArrayMesh_kal8p")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lightbulb6"]
+light_color = Color(1, 0.92156863, 0.75686276, 1)
+light_energy = 1.2
+light_indirect_energy = 2.0
+omni_range = 4.6
+omni_attenuation = 0.6
+
+[node name="StateMachine" type="Node" parent="lightbulb6" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("22_n3vph")
+initial_state = NodePath("TurnedOn")
+
+[node name="TurnedOff" type="Node" parent="lightbulb6/StateMachine" node_paths=PackedStringArray("light", "mesh")]
+script = ExtResource("22_yqbbm")
+light = NodePath("../../OmniLight3D")
+mesh = NodePath("../../lightbulb_off")
+
+[node name="TurnedOn" type="Node" parent="lightbulb6/StateMachine" node_paths=PackedStringArray("light", "mesh_on", "mesh_off")]
+script = ExtResource("23_n6qi5")
+light = NodePath("../../OmniLight3D")
+mesh_on = NodePath("../../lightbulb_on")
+mesh_off = NodePath("../../lightbulb_off")
+
 [node name="light_switch" type="StaticBody3D" parent="."]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.998238, 1.6154578, -1.7298738)
 collision_layer = 2
@@ -3125,13 +3166,13 @@ initial_state = NodePath("TurnedOn")
 
 [node name="TurnedOn" type="Node" parent="light_switch/StateMachine" node_paths=PackedStringArray("light_sources", "environment", "audio_player")]
 script = ExtResource("23_v858h")
-light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff"), NodePath("../../../lightbulb5/StateMachine/TurnedOff")]
+light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff"), NodePath("../../../lightbulb5/StateMachine/TurnedOff"), NodePath("../../../lightbulb6/StateMachine/TurnedOff")]
 environment = NodePath("../../../WorldEnvironment")
 audio_player = NodePath("../../../SteamAudioPlayer")
 
 [node name="TurnedOff" type="Node" parent="light_switch/StateMachine" node_paths=PackedStringArray("light_sources", "environment", "audio_player")]
 script = ExtResource("24_udj7p")
-light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff"), NodePath("../../../lightbulb5/StateMachine/TurnedOff")]
+light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff"), NodePath("../../../lightbulb5/StateMachine/TurnedOff"), NodePath("../../../lightbulb6/StateMachine/TurnedOff")]
 environment = NodePath("../../../WorldEnvironment")
 audio_player = NodePath("../../../SteamAudioPlayer")
 
@@ -3299,7 +3340,7 @@ transform = Transform3D(0.6946584, 0, 0.7193398, 0, 1, 0, -0.7193398, 0, 0.69465
 transform = Transform3D(9.999985, 0, 0.017453283, 0, 10, 0, -0.017453283, 0, 9.999985, -7.1212816, 0.8193035, 3.453583)
 
 [node name="document0" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.9238857, 0.8964608, 3.8267663)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.9238857, 0.8704648, 3.8267663)
 collision_layer = 2
 collision_mask = 3
 
@@ -3379,3 +3420,23 @@ volume_db = -8.0
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("97_wgfj2")]
 transform = Transform3D(-0.3548496, 0, -1.1463342, 0, 1.2, 0, 1.1463342, 0, -0.3548496, -7.100797, 0.28029552, 3.3250897)
+
+[node name="military_radio" parent="." instance=ExtResource("99_5tlrr")]
+transform = Transform3D(-1.4471052, 0, -0.30057302, 0, 1.499999, 0, 0.3948245, 0, -1.1016558, -7.3239727, 1.0470523, 3.5180335)
+
+[node name="SteamAudioPlayer" type="SteamAudioPlayer" parent="military_radio"]
+distance_attenuation = true
+air_absorption = true
+reflection = true
+max_reflection_distance = 1000.0
+transform = Transform3D(-0.9999834, 0, -0.0057770386, 0, 1, 0, 0.0057770386, 0, -0.9999834, -0.19753158, -0.013386488, 0.014790793)
+stream = ExtResource("100_cw1ss")
+attenuation_model = 3
+volume_db = -15.0
+unit_size = 6.0
+autoplay = true
+max_distance = 10.0
+panning_strength = 0.0
+playback_type = 1
+emission_angle_degrees = 61.0
+emission_angle_filter_attenuation_db = -10.0
