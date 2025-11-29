@@ -3767,11 +3767,13 @@ transform = Transform3D(-48.556717, 0, -11.92667, 0, 50, 0, 11.92667, 0, -48.556
 mesh = SubResource("ArrayMesh_w6jkh")
 skeleton = NodePath("")
 
-[node name="cat" type="Node3D" parent="trash"]
+[node name="cat" type="Node3D" parent="trash" node_paths=PackedStringArray("player")]
 transform = Transform3D(-0.0979276, 0, -0.020253096, 0, 0.1, 0, 0.020253096, 0, -0.0979276, -2.3348517, 1.1748369, 3.9579318)
+script = ExtResource("58_jhj6i")
+player = NodePath("../../player_fps")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="trash/cat" node_paths=PackedStringArray("player")]
-transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999964, 0, 0, 0)
+[node name="Skeleton3D" type="Skeleton3D" parent="trash/cat"]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.98040205, -0.19700709, 0, 0.19700716, 0.9804017, -4.6566118e-10, -0.26719794, -0.030082367)
 bones/0/name = "_rootJoint"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -3968,8 +3970,6 @@ bones/27/enabled = true
 bones/27/position = Vector3(5.551115e-17, 0.5747857, 0)
 bones/27/rotation = Quaternion(1.3877788e-17, 1.4889251e-23, -1.323489e-23, 1)
 bones/27/scale = Vector3(1, 1, 1)
-script = ExtResource("58_jhj6i")
-player = NodePath("../../../player_fps")
 
 [node name="cat" type="MeshInstance3D" parent="trash/cat/Skeleton3D"]
 mesh = SubResource("ArrayMesh_3kk7p")

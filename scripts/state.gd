@@ -9,10 +9,8 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func update(delta: float) -> void:
-	float(delta)
+func update(_delta: float) -> void:
 	pass
 
-func physics_update(delta: float) -> void:
-	float(delta)
+func physics_update(_delta: float) -> void:
 	pass

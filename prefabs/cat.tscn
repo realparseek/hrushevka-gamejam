@@ -118,10 +118,9 @@ bind/27/bone = -1
 bind/27/pose = Transform3D(100, 0, 0, 0, 100.00001, 0, 0, 0, 100.00001, 0, 0, 0)
 
 [node name="cat" type="Node3D"]
-transform = Transform3D(0.10000001, 0, 0, 0, 0.1, 0, 0, 0, 0.10000001, 0, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
-transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999964, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.09845521, -0.01750918, 0, 0.01750918, 0.09845521, 0, 0, 0)
 bones/0/name = "_rootJoint"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
