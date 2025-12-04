@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://bqu4f73c7t2uw"]
+[gd_scene load_steps=111 format=4 uid="uid://bqu4f73c7t2uw"]
 
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_y053d"]
 [ext_resource type="Texture2D" uid="uid://fkpmli3y84f4" path="res://models/enterence/enterence_wood.png" id="2_t0qnf"]
@@ -1133,6 +1133,9 @@ size = Vector3(11.432739, 5.732666, 0.90966797)
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8u17"]
 size = Vector3(3.7262611, 5.732666, 0.3083496)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqrij"]
+size = Vector3(3.7286, 3.102746, 2.4354248)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wb4f3"]
 radius = 0.38
 height = 1.8
@@ -1519,6 +1522,10 @@ shape = SubResource("BoxShape3D_sdflv")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="enterence"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.1379867, 3.7406006, 3.0042999)
 shape = SubResource("BoxShape3D_m8u17")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="enterence"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.680671, 3.2499814, 3.0173569)
+shape = SubResource("BoxShape3D_xqrij")
 
 [node name="player_fps" type="CharacterBody3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.4212854, 3.8988523, 2.839032)
