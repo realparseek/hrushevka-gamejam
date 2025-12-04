@@ -97,6 +97,7 @@ shadow_mesh = SubResource("ArrayMesh_w27q7")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wa8l"]
 resource_name = "TileFloor"
 cull_mode = 2
+albedo_color = Color(1.1638972, 1.1638972, 1.1638972, 1)
 albedo_texture = ExtResource("3_8siit")
 roughness = 0.5
 texture_filter = 2
@@ -1734,7 +1735,7 @@ pitch_scale = 0.9
 autoplay = true
 
 [node name="lightbulb" type="StaticBody3D" parent="."]
-transform = Transform3D(0.8257736, -0.5640018, -3.7410466e-08, -0.5640018, -0.8257736, -7.901392e-08, 1.3671414e-08, 8.634717e-08, -1, 3.64986, 5.030106, 2.120593)
+transform = Transform3D(0.8257736, -0.5640018, -3.7410466e-08, -0.5640018, -0.8257736, -7.901392e-08, 1.3671414e-08, 8.634717e-08, -1, 3.64986, 5.045169, 2.120593)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lightbulb"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012054443, -0.005473137, -0.0001707077)
@@ -1742,17 +1743,22 @@ shape = SubResource("BoxShape3D_jytqd")
 
 [node name="lightbulb_off" type="MeshInstance3D" parent="lightbulb"]
 visible = false
+layers = 2
 mesh = SubResource("ArrayMesh_j20b7")
 skeleton = NodePath("")
 
 [node name="lightbulb_on" type="MeshInstance3D" parent="lightbulb"]
+layers = 2
 mesh = SubResource("ArrayMesh_xt6bt")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lightbulb"]
+transform = Transform3D(0.99999994, 1.1804885e-15, 1.7763568e-15, 1.180488e-15, 0.99999994, 7.1054274e-15, 0, -3.5527137e-14, 1, 0.03384757, 0.09465885, 0)
 light_color = Color(1, 0.92156863, 0.75686276, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
+shadow_enabled = true
+shadow_caster_mask = 4294967293
 omni_range = 4.6
 omni_attenuation = 0.6
 
@@ -1780,17 +1786,22 @@ shape = SubResource("BoxShape3D_jytqd")
 
 [node name="lightbulb_off" type="MeshInstance3D" parent="lightbulb2"]
 visible = false
+layers = 2
 mesh = SubResource("ArrayMesh_j20b7")
 skeleton = NodePath("")
 
 [node name="lightbulb_on" type="MeshInstance3D" parent="lightbulb2"]
+layers = 2
 mesh = SubResource("ArrayMesh_xt6bt")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lightbulb2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038764954, 0.1574254, 0)
 light_color = Color(1, 0.92156863, 0.75686276, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
+shadow_enabled = true
+shadow_caster_mask = 4294967293
 omni_range = 4.6
 omni_attenuation = 0.6
 
