@@ -97,7 +97,7 @@ shadow_mesh = SubResource("ArrayMesh_w27q7")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wa8l"]
 resource_name = "TileFloor"
 cull_mode = 2
-albedo_color = Color(1.1638972, 1.1638972, 1.1638972, 1)
+albedo_color = Color(1.0358096, 1.0358096, 1.0358096, 1)
 albedo_texture = ExtResource("3_8siit")
 roughness = 0.5
 texture_filter = 2
@@ -1321,7 +1321,7 @@ scene_type = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.93955, 2.8130236, 5.7531047)
 
 [node name="Doorpick_001" type="MeshInstance3D" parent="enterence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.409627, 2.6223512, 2.0579557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4725003, 2.6223512, 2.0579557)
 mesh = SubResource("ArrayMesh_5k8ps")
 skeleton = NodePath("")
 
@@ -1336,7 +1336,7 @@ mesh = SubResource("ArrayMesh_6krox")
 skeleton = NodePath("")
 
 [node name="Cube_003" type="MeshInstance3D" parent="enterence"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9396653, 2.8475327, 3.00425)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9441276, 2.8475327, 3.00425)
 mesh = SubResource("ArrayMesh_hr7c4")
 skeleton = NodePath("")
 
@@ -1536,7 +1536,7 @@ sprint_speed = 2.0
 headbob_size = 0.03
 headbob_speed = 5.0
 
-[node name="?" type="AudioStreamPlayer" parent="player_fps"]
+[node name="eerie" type="AudioStreamPlayer" parent="player_fps"]
 stream = ExtResource("11_jytqd")
 volume_db = -10.0
 
