@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=4 uid="uid://bqu4f73c7t2uw"]
+[gd_scene load_steps=178 format=4 uid="uid://bqu4f73c7t2uw"]
 
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_y053d"]
 [ext_resource type="Texture2D" uid="uid://fkpmli3y84f4" path="res://models/enterence/enterence_wood.png" id="2_t0qnf"]
@@ -46,6 +46,12 @@
 [ext_resource type="PackedScene" uid="uid://i024dw8xdfb1" path="res://assets/test/russian_poster_2.glb" id="44_mn4lv"]
 [ext_resource type="Texture2D" uid="uid://cxam38gx8sjyg" path="res://assets/test/the_object_soviet_newspaper_props_2.png" id="44_rum65"]
 [ext_resource type="ArrayMesh" uid="uid://c3012x4knomfr" path="res://assets/object/old_retro_junk/soda.obj" id="45_bydj2"]
+[ext_resource type="Texture2D" uid="uid://cfen00klmk3w0" path="res://textures/pack/DirtyBlack3.png" id="46_iw817"]
+[ext_resource type="PackedScene" uid="uid://kbv6428bg46k" path="res://assets/test/soviet_era_apartment_building_mailbox.glb" id="47_rum65"]
+[ext_resource type="PackedScene" uid="uid://dpm4h4cia8ica" path="res://assets/test/soviet_medical_kit.glb" id="48_kwtqy"]
+[ext_resource type="PackedScene" uid="uid://b64sdijf3kci" path="res://assets/test/soviet_old_bedside.glb" id="49_ac8ua"]
+[ext_resource type="PackedScene" uid="uid://brejjd0v5sivc" path="res://assets/test/soviet_old_chair.glb" id="50_iw817"]
+[ext_resource type="PackedScene" uid="uid://dtosra4w38wwt" path="res://assets/test/soviet_table (1).glb" id="51_ac8ua"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfqvr"]
 resource_name = "Wood"
@@ -1697,6 +1703,13 @@ albedo_texture = ExtResource("38_avet7")
 [sub_resource type="PlaneMesh" id="PlaneMesh_rum65"]
 material = SubResource("StandardMaterial3D_wqmiu")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7nty"]
+transparency = 1
+albedo_texture = ExtResource("46_iw817")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0eply"]
+material = SubResource("StandardMaterial3D_p7nty")
+
 [node name="enterence" type="Node3D"]
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_y053d")]
@@ -2144,7 +2157,7 @@ skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lightbulb"]
 transform = Transform3D(0.99999994, 1.1804885e-15, 1.7763568e-15, 1.180488e-15, 0.99999994, 7.1054274e-15, 0, -3.5527137e-14, 1, 0.03384757, 0.09465885, 0)
-light_color = Color(1, 0.92156863, 0.75686276, 1)
+light_color = Color(0.7882353, 0.627451, 0.3882353, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
 shadow_enabled = true
@@ -2187,7 +2200,7 @@ skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lightbulb2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038764954, 0.1574254, 0)
-light_color = Color(1, 0.92156863, 0.75686276, 1)
+light_color = Color(0.7882353, 0.627451, 0.3882353, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
 shadow_enabled = true
@@ -2299,6 +2312,16 @@ transform = Transform3D(-34.677563, 61.47194, -17.899622, -39.121258, -4.2298098
 mesh = SubResource("ArrayMesh_rum65")
 skeleton = NodePath("")
 
+[node name="Box_T2" type="MeshInstance3D" parent="musor"]
+transform = Transform3D(62.98696, -0.43424606, 5.6304157e-07, -5.8160856e-07, -2.691182e-06, 62.988457, -0.43424702, -62.986958, -2.6951284e-06, -1.7373155, 3.4986675, 1.4610552)
+mesh = SubResource("ArrayMesh_vti8a")
+skeleton = NodePath("")
+
+[node name="Box_T3" type="MeshInstance3D" parent="musor"]
+transform = Transform3D(-13.112167, 61.608574, 5.6304134e-07, 2.753294e-06, 1.0332208e-08, 62.988457, 61.60858, 13.112166, -2.6951282e-06, -1.336294, 3.0482047, 1.6093693)
+mesh = SubResource("ArrayMesh_vti8a")
+skeleton = NodePath("")
+
 [node name="nadpisi" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="nadpisi"]
@@ -2306,7 +2329,7 @@ transform = Transform3D(1.4, 0, 0, 0, -6.119594e-08, -1.4, 0, 1.4, -6.119594e-08
 mesh = SubResource("PlaneMesh_vidgb")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="nadpisi"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.174771, 2.8364296, 1.5897182)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -1.7778237, 2.8364296, 1.5897182)
 mesh = SubResource("PlaneMesh_txlg3")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="nadpisi"]
@@ -2382,7 +2405,7 @@ mesh = SubResource("ArrayMesh_ac8ua")
 skeleton = NodePath("")
 
 [node name="Sketchfab_Scene" parent="nadpisi" instance=ExtResource("44_mn4lv")]
-transform = Transform3D(-0.79890364, -0.04186877, -6.9938224e-08, -0.04186877, 0.79890364, 0, 6.984237e-08, 3.6602839e-09, -0.8, -1.8982607, 4.3421407, 4.882468)
+transform = Transform3D(-0.79890364, -0.04186877, -6.9938224e-08, -0.04186877, 0.79890364, 0, 6.984237e-08, 3.6602839e-09, -0.8, 0.36333644, 4.460666, 4.877313)
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="nadpisi"]
 transform = Transform3D(0.99995023, -3.6140825e-08, 0.009983063, -0.009983063, -2.458711e-08, 0.99995023, -3.5893574e-08, -1, -2.4946683e-08, 0.4013277, 5.9511375, 4.877179)
@@ -2410,9 +2433,28 @@ transform = Transform3D(-0.7, -1.0569706e-07, -4.6201654e-15, 0, -3.059797e-08, 
 mesh = SubResource("PlaneMesh_avet7")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="nadpisi"]
-transform = Transform3D(-0.49495125, 0.0048118145, 0.49497482, -0.0035101972, 0.6999152, -0.010314138, -0.49498573, -0.009774936, -0.49486718, 5.1800094, 1.6905344, 1.3062289)
+transform = Transform3D(-0.424244, 0.0041244123, 0.42426416, -0.003008741, 0.59992737, -0.008840691, -0.42427352, -0.008378517, -0.4241719, 5.1800094, 1.6905344, 1.3062289)
 mesh = SubResource("PlaneMesh_avet7")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="nadpisi"]
+transform = Transform3D(0.36845908, 0, -0.09294027, 0, 0.38, 0, 0.09294027, 0, 0.36845908, -2.6252422, 3.6151981, 3.7439234)
+mesh = SubResource("PlaneMesh_0eply")
 
 [node name="Soda" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026235461, 2.9709237, 4.515375)
 mesh = ExtResource("45_bydj2")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("47_rum65")]
+transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, -1.9437836, 2.8180656, 4.9974914)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("48_kwtqy")]
+transform = Transform3D(-0.014761952, 0, -0.09890443, 0, 0.1, 0, 0.09890443, 0, -0.014761952, -1.8001466, 3.5099483, 3.8735008)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("49_ac8ua")]
+transform = Transform3D(-0.80792046, 0, -0.39656588, 0, 0.9, 0, 0.39656588, 0, -0.80792046, -1.7763675, 3.4638934, 3.8719256)
+
+[node name="Sketchfab_Scene4" parent="." instance=ExtResource("50_iw817")]
+transform = Transform3D(-0.15328799, -1.2711949e-09, 0.4759231, -2.0215762e-09, 0.5, 6.843839e-10, -0.4759231, -1.7144139e-09, -0.15328799, -1.2245575, 3.2714422, 3.6887894)
+
+[node name="Sketchfab_Scene5" parent="." instance=ExtResource("51_ac8ua")]
+transform = Transform3D(0.020215485, 0, -0.36944735, 0, 0.37, 0, 0.36944735, 0, 0.020215485, -2.6, 2.8345127, 4)
