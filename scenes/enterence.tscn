@@ -1,4 +1,4 @@
-[gd_scene load_steps=214 format=4 uid="uid://bqu4f73c7t2uw"]
+[gd_scene load_steps=235 format=4 uid="uid://bqu4f73c7t2uw"]
 
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_y053d"]
 [ext_resource type="Texture2D" uid="uid://fkpmli3y84f4" path="res://models/enterence/enterence_wood.png" id="2_t0qnf"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://ch84wjxobppad" path="res://textures/pack/dirty3.png" id="36_vidgb"]
 [ext_resource type="Texture2D" uid="uid://df4cejvxbmml8" path="res://assets/object/Sewer/Textures/Trash.png" id="36_vti8a"]
 [ext_resource type="Texture2D" uid="uid://dddfk4q5dhdib" path="res://assets/object/Sewer/Textures/Garbage_bag.png" id="36_wqmiu"]
+[ext_resource type="Texture2D" uid="uid://csloucpl4ny8u" path="res://textures/pack/dirtyy.png" id="37_8lvkg"]
 [ext_resource type="Texture2D" uid="uid://b5mhhu0eu3wpo" path="res://textures/pack/hui3.png" id="37_txlg3"]
 [ext_resource type="Texture2D" uid="uid://d0e0q8fbjkq7i" path="res://textures/pack/dirty4.png" id="38_avet7"]
 [ext_resource type="Texture2D" uid="uid://wpvm8vpluvdu" path="res://assets/test/the_object_soviet_newspaper_props_0.png" id="42_mn4lv"]
@@ -62,8 +63,14 @@
 [ext_resource type="Texture2D" uid="uid://m2cgwkbgweic" path="res://textures/pack/nadpisnew7.png" id="54_ofg0f"]
 [ext_resource type="Texture2D" uid="uid://cx518mr24oorl" path="res://textures/pack/nadpisnew8.png" id="55_ofg0f"]
 [ext_resource type="Texture2D" uid="uid://b443ail6ahjc5" path="res://textures/pack/nadpisnew4.png" id="56_s6ytd"]
-[ext_resource type="Texture2D" uid="uid://ccg2jjcvohruu" path="res://textures/pack/nadpisnew3.png" id="57_fbvy6"]
+[ext_resource type="Texture2D" uid="uid://csdqc37ltsg83" path="res://textures/pack/visjeno2.png" id="57_vymw1"]
 [ext_resource type="Texture2D" uid="uid://e2l02oxhggnl" path="res://textures/pack/nadpisnew5.png" id="58_fbvy6"]
+[ext_resource type="Texture2D" uid="uid://4m8hsn2ta1da" path="res://textures/pack/nadpiss.png" id="59_4ido4"]
+[ext_resource type="Texture2D" uid="uid://dk8ea4268qa7b" path="res://textures/pack/nadpiss3.png" id="60_7d5gt"]
+[ext_resource type="Texture2D" uid="uid://byfflb6t0jfqy" path="res://textures/pack/visjeno.png" id="61_vymw1"]
+[ext_resource type="Texture2D" uid="uid://b04fsttnsu16o" path="res://textures/pack/karakulii6.png" id="62_6egfy"]
+[ext_resource type="Texture2D" uid="uid://cctga3k2w0aw7" path="res://textures/pack/karakuli2.png" id="64_w7277"]
+[ext_resource type="Texture2D" uid="uid://16w8xb3m8mb2" path="res://textures/pack/nadpiss41.png" id="65_et6l7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfqvr"]
 resource_name = "Wood"
@@ -1481,6 +1488,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7onjt")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p12en"]
+transparency = 1
+albedo_texture = ExtResource("37_8lvkg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cn3pe"]
+material = SubResource("StandardMaterial3D_p12en")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wb4f3"]
 transparency = 1
 albedo_texture = ExtResource("34_agem0")
@@ -1794,7 +1808,7 @@ material = SubResource("StandardMaterial3D_4ido4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vymw1"]
 transparency = 1
-albedo_texture = ExtResource("57_fbvy6")
+albedo_texture = ExtResource("57_vymw1")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6egfy"]
 material = SubResource("StandardMaterial3D_vymw1")
@@ -1805,6 +1819,48 @@ albedo_texture = ExtResource("58_fbvy6")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vymw1"]
 material = SubResource("StandardMaterial3D_7d5gt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6egfy"]
+transparency = 1
+albedo_texture = ExtResource("59_4ido4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8lvkg"]
+material = SubResource("StandardMaterial3D_6egfy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lvkg"]
+transparency = 1
+albedo_texture = ExtResource("60_7d5gt")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w7277"]
+material = SubResource("StandardMaterial3D_8lvkg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7277"]
+transparency = 1
+albedo_texture = ExtResource("61_vymw1")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_et6l7"]
+material = SubResource("StandardMaterial3D_w7277")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_et6l7"]
+transparency = 1
+albedo_texture = ExtResource("62_6egfy")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p12en"]
+material = SubResource("StandardMaterial3D_et6l7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cn3pe"]
+transparency = 1
+albedo_texture = ExtResource("64_w7277")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6u3rn"]
+material = SubResource("StandardMaterial3D_cn3pe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6u3rn"]
+transparency = 1
+albedo_texture = ExtResource("65_et6l7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3brgh"]
+material = SubResource("StandardMaterial3D_6u3rn")
 
 [node name="enterence" type="Node3D"]
 
@@ -2418,6 +2474,18 @@ transform = Transform3D(-13.112167, 61.608574, 5.6304134e-07, 2.753294e-06, 1.03
 mesh = SubResource("ArrayMesh_vti8a")
 skeleton = NodePath("")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="musor"]
+transform = Transform3D(0.9838194, 0, 0.17916282, 0.17916282, -4.371139e-08, -0.9838194, 7.8314555e-09, 1, -4.3004114e-08, 4.9312177, 3.9048727, 1.1250226)
+mesh = SubResource("PlaneMesh_cn3pe")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="musor"]
+transform = Transform3D(1.0000001, 0, 0, 0, -4.3711385e-08, 0.9999999, 0, -0.99999994, -4.3711385e-08, 4.842379, 1.9093559, 3.1685035)
+mesh = SubResource("PlaneMesh_cn3pe")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="musor"]
+transform = Transform3D(-0.111364886, 0, 0.99377954, 0, 1, 0, -0.99377954, 0, -0.111364886, 4.907929, 1.6845168, 3.3449154)
+mesh = SubResource("PlaneMesh_cn3pe")
+
 [node name="nadpisi" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="nadpisi"]
@@ -2437,7 +2505,7 @@ transform = Transform3D(0.16034302, 0, 0.5781783, 0, 0.6, 0, -0.5781783, 0, 0.16
 mesh = SubResource("PlaneMesh_3nic5")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="nadpisi"]
-transform = Transform3D(0.1815555, 0, -0.08389042, -0.08389042, -8.742278e-09, -0.1815555, -3.666967e-09, 0.2, -7.936043e-09, 1.9928622, 3.9318733, 1.1238589)
+transform = Transform3D(0.19454223, 0, -0.046403915, -0.046403915, -8.742278e-09, -0.19454223, -2.0283797e-09, 0.2, -8.5037115e-09, 1.880376, 3.9838493, 1.1238589)
 rotation_order = 1
 mesh = SubResource("PlaneMesh_leyei")
 
@@ -2521,11 +2589,11 @@ mesh = SubResource("ArrayMesh_kwtqy")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="nadpisi"]
-transform = Transform3D(-0.9768592, 7.1054274e-15, 0.2138829, 0.21388292, -4.3711402e-08, 0.9768592, 9.3491295e-09, 1.0000001, 4.269987e-08, 3.8589818, 2.5811896, 1.1241342)
+transform = Transform3D(-0.9026679, 7.1054274e-15, 0.43033773, 0.4303378, -4.3711402e-08, 0.9026679, 1.8810674e-08, 1.0000001, 3.945686e-08, 4.0246606, 2.5449145, 1.1241342)
 mesh = SubResource("PlaneMesh_rum65")
 
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="nadpisi"]
-transform = Transform3D(-0.7, -1.0569706e-07, -4.6201654e-15, 0, -3.059797e-08, 0.7, -1.0569706e-07, 0.7, 3.059797e-08, 5.1799316, 1.9783089, 1.1345876)
+transform = Transform3D(-0.7, -1.0569706e-07, -4.6201654e-15, 0, -3.059797e-08, 0.7, -1.0569706e-07, 0.7, 3.059797e-08, 5.1799316, 1.755316, 1.1345876)
 mesh = SubResource("PlaneMesh_avet7")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="nadpisi"]
@@ -2577,12 +2645,36 @@ transform = Transform3D(-0.49028507, -1.7864194e-08, 0.098084405, -0.098084405, 
 mesh = SubResource("PlaneMesh_7d5gt")
 
 [node name="MeshInstance3D25" type="MeshInstance3D" parent="nadpisi"]
-transform = Transform3D(0.39726743, 1.0966801e-09, 0.04667528, 0.04667528, -1.8732623e-08, -0.39726743, 1.0966801e-09, 0.4, -1.8732623e-08, -1.5670093, 3.8553019, 1.1232034)
+transform = Transform3D(0.9498575, 2.7417002e-09, 0.3126832, 0.3126832, -4.6831556e-08, -0.9498575, 1.2039197e-08, 1, -4.5340588e-08, -1.7105274, 4.5313363, 1.1232034)
 mesh = SubResource("PlaneMesh_6egfy")
 
 [node name="MeshInstance3D26" type="MeshInstance3D" parent="nadpisi"]
 transform = Transform3D(2.6226832e-08, -0.31410608, 0.5112117, -9.0597496e-08, -0.5112117, -0.31410608, 0.6, -6.346081e-08, -6.977447e-08, 2.4970493, 5.8819523, 1.9838569)
 mesh = SubResource("PlaneMesh_vymw1")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="nadpisi"]
+transform = Transform3D(-0.5894878, 5.2453665e-08, -0.11182184, 0.11182182, -2.622683e-08, -0.58948785, -5.6422547e-08, -0.59999996, 1.5991557e-08, 4.8624034, 2.9381485, 3.1762347)
+mesh = SubResource("PlaneMesh_8lvkg")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="nadpisi"]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 1.427905, 3.435723, 1.1240995)
+mesh = SubResource("PlaneMesh_w7277")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="nadpisi"]
+transform = Transform3D(0.49919683, 0, -0.028328968, -0.028328968, -2.1855694e-08, -0.49919683, -1.2382986e-09, 0.5, -2.1820586e-08, -1.7306309, 4.9793687, 1.1241139)
+mesh = SubResource("PlaneMesh_et6l7")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="nadpisi"]
+transform = Transform3D(-0.78628135, 5.979553e-08, 0.14751795, 0.14751795, -5.0408875e-08, 0.78628135, 6.806541e-08, 0.8, 3.851831e-08, 2.4553359, 3.0521955, 1.1245266)
+mesh = SubResource("PlaneMesh_p12en")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="nadpisi"]
+transform = Transform3D(-0.28951594, 4.7006807e-08, 0.07861629, -0.07861629, -1.280822e-08, -0.28951594, -4.2007624e-08, -0.3, 2.467895e-08, 2.3550286, 3.635835, 4.8856955)
+mesh = SubResource("PlaneMesh_6u3rn")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="nadpisi"]
+transform = Transform3D(0.4953561, 1.310184e-09, 0.06798769, 0.06798769, -1.9181364e-08, -0.4953561, 1.310184e-09, 0.5, -1.9181364e-08, -4.527384, 3.7878544, 1.1288903)
+mesh = SubResource("PlaneMesh_3brgh")
 
 [node name="Soda" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026235461, 2.9709237, 4.515375)
