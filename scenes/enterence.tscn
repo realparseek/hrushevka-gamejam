@@ -1,4 +1,4 @@
-[gd_scene load_steps=237 format=4 uid="uid://bqu4f73c7t2uw"]
+[gd_scene load_steps=238 format=4 uid="uid://bqu4f73c7t2uw"]
 
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="1_y053d"]
 [ext_resource type="Texture2D" uid="uid://fkpmli3y84f4" path="res://models/enterence/enterence_wood.png" id="2_t0qnf"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="17_mb0k8"]
 [ext_resource type="Script" uid="uid://bcr667wqyxp0q" path="res://scripts/states/camera/shaking.gd" id="18_agem0"]
 [ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="19_8siit"]
+[ext_resource type="AudioStream" uid="uid://cxxrr5wrepik1" path="res://sound/whispers-of-the-breeze_91433 (1) (1).mp3" id="20_et6l7"]
 [ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="20_soj8b"]
 [ext_resource type="Texture2D" uid="uid://bocmtrpbba5w" path="res://models/lightbulb/lightbulb_lightbulb_emission.png" id="21_iic3y"]
 [ext_resource type="Script" uid="uid://bm426oydcs6ee" path="res://scripts/states/lightbulb/turned_off.gd" id="22_sdflv"]
@@ -2294,6 +2295,12 @@ script = ExtResource("18_agem0")
 stream = ExtResource("19_8siit")
 volume_db = -30.0
 pitch_scale = 0.9
+autoplay = true
+
+[node name="music" type="AudioStreamPlayer" parent="ambient"]
+stream = ExtResource("20_et6l7")
+volume_db = -39.0
+pitch_scale = 0.21
 autoplay = true
 
 [node name="lightbulb" type="StaticBody3D" parent="."]

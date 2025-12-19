@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxxrr5wrepik1"
+path="res://.godot/imported/whispers-of-the-breeze_91433 (1) (1).mp3-1b348e9d3b3cbd006b088784e23fd39c.mp3str"
+
+[deps]
+
+source_file="res://sound/whispers-of-the-breeze_91433 (1) (1).mp3"
+dest_files=["res://.godot/imported/whispers-of-the-breeze_91433 (1) (1).mp3-1b348e9d3b3cbd006b088784e23fd39c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
