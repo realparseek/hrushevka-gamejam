@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0ged6fibu13i"
-path="res://.godot/imported/enterence_wall_paint_tiled.png-9e4032d6668d3793f95b3afd8c13545a.ctex"
+uid="uid://b07icb1ql6fcv"
+path="res://.godot/imported/enterance_door4.png-6f58b57704dee04cda530e2476d487de.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "8ef7325266f974889c903fb1c24e391b"
+"md5": "543b04784e103dd6f3e239b8953e8e9f"
 }
 
 [deps]
 
-source_file="res://models/enterence/enterence_wall_paint_tiled.png"
-dest_files=["res://.godot/imported/enterence_wall_paint_tiled.png-9e4032d6668d3793f95b3afd8c13545a.ctex"]
+source_file="res://models/enterance/enterance_door4.png"
+dest_files=["res://.godot/imported/enterance_door4.png-6f58b57704dee04cda530e2476d487de.ctex"]
 
 [params]
 

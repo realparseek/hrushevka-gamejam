@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cspboy6uiq31k"
-path="res://.godot/imported/enterence_floor0.png-97e22082dfdcc90837ca9b4b2a19f85a.ctex"
+uid="uid://cmrwyrvpclv1w"
+path="res://.godot/imported/enterance_walls0w_6.png-a4a9d5b4f53c1207ffe31aace5a02a7f.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "bcac5acbb42690907a9dd3eaba34b530"
+"md5": "d3c417b411aa576c677fde861296eafe"
 }
 
 [deps]
 
-source_file="res://models/enterence/enterence_floor0.png"
-dest_files=["res://.godot/imported/enterence_floor0.png-97e22082dfdcc90837ca9b4b2a19f85a.ctex"]
+source_file="res://models/enterance/enterance_walls0w_6.png"
+dest_files=["res://.godot/imported/enterance_walls0w_6.png-a4a9d5b4f53c1207ffe31aace5a02a7f.ctex"]
 
 [params]
 
