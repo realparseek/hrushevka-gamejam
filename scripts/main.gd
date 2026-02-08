@@ -6,7 +6,7 @@ func _ready() -> void:
 	load_scene('enterence')
 	load_scene('transition')
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	for s in scenes_loading:
 		if ResourceLoader.load_threaded_get_status('res://scenes/' + s + '.tscn') != ResourceLoader.THREAD_LOAD_LOADED:
 			return

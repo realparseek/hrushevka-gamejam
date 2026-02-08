@@ -46,11 +46,11 @@ func _configure_audio_player(player: AudioStreamPlayer3D):
 	player.max_db = max_db
 	player.attenuation_filter_cutoff_hz = attenuation_filter_cutoff_hz
 	player.attenuation_filter_db = attenuation_filter_db
-	player.doppler_tracking = doppler_tracking
+	player.doppler_tracking = doppler_tracking as AudioStreamPlayer3D.DopplerTracking
 	player.emission_angle_degrees = emission_angle_degrees
 	player.emission_angle_filter_attenuation_db = emission_angle_filter_attenuation_db
 	player.max_distance = max_distance
-	player.attenuation_model = attenuation_model
+	player.attenuation_model = attenuation_model as AudioStreamPlayer3D.AttenuationModel
 	player.panning_strength = panning_strength
 	player.unit_size = unit_size
 

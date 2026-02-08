@@ -7,7 +7,7 @@ class_name SceneLoadTrigger
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
-func _on_body_entered(body: Node3D) -> void:
+func _on_body_entered(_body: Node3D) -> void:
 	for s in load_scenes:
 		$'../..'.load_scene(s)
 	for s in unload_scenes:

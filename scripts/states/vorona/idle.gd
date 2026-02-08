@@ -5,7 +5,7 @@ extends State
 @export var blend_weight: float = 0.05
 
 @onready var cbody: CharacterBody3D = $"../.."
-@onready var cbody_player: CharacterBody3D = $"../../../player_fps"
+@onready var cbody_player: CharacterBody3D = $"../../../../player_fps"
 
 @onready var walk_val: float = 0.0
 
@@ -19,7 +19,7 @@ func update(delta: float) -> void:
 	float(delta)
 	pass
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	walk_val = lerpf(walk_val, 0.0, blend_weight)
 	update_anim_tree()
 	

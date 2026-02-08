@@ -3547,6 +3547,10 @@ transform = Transform3D(-0.99698675, 0, 0.0775716, 0, 1, 0, -0.0775716, 0, -0.99
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0029292107, -0.53497314, 0.0045204163)
 shape = SubResource("BoxShape3D_kj3wx")
 
+[node name="board3_board2#SteamAudioGeometry" type="SteamAudioGeometry" parent="board/CollisionShape3D"]
+material = ExtResource("14_c5vcu")
+transform = Transform3D(-0.07757156, 0, 0.99698687, 0, 1, 0, -0.99698687, 0, -0.07757156, -1.7434654, -1.0908118, -7.5395455)
+
 [node name="board" type="MeshInstance3D" parent="board"]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 0, 0)
 mesh = SubResource("ArrayMesh_tl63r")
@@ -3860,10 +3864,6 @@ panning_strength = 0.0
 playback_type = 1
 emission_angle_degrees = 61.0
 emission_angle_filter_attenuation_db = -10.0
-
-[node name="board3_board2#SteamAudioGeometry" type="SteamAudioGeometry" parent="."]
-material = ExtResource("14_c5vcu")
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.529573, -2.3725135, 2.081852)
 
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("111_8j7gd")]
 transform = Transform3D(-0.015897285, 2.1240481e-08, 0.49974728, -0.48697594, 0.11231395, -0.015491031, -0.11225724, -0.48722228, -0.0035709569, 16.087593, -1.9798136, -3.0877323)

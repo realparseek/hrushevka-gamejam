@@ -6,16 +6,16 @@ extends Node
 
 func _ready():
 	
-	#if audio_player == null:
-		#audio_player = get_node("vorona/SteamAudioPlayer")  
+	if audio_player == null:
+		audio_player = $"../SteamAudioPlayer"
 	
   
 	start_random_playback()
 
 func start_random_playback():
-	#if audio_player == null or audio_player.stream == null:
-		#push_error("поток не назначен!")
-	return
+	if audio_player == null or audio_player.stream == null:
+		push_error("поток не назначен!")
+	#return
 	
 
 	var max_start_time = track_length - min_end_buffer
