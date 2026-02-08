@@ -81,6 +81,6 @@ func _get_move_speed() -> float:
 		return walk_speed
 
 func _play_random_walk_sound() -> void:
-	if not walk_audio.playing:
+	#if not walk_audio.playing:
 		walk_audio.stream = walk_sounds[randi_range(0, 3)]
 		walk_audio.play()
