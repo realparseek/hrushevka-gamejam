@@ -9,10 +9,10 @@
 [node name="main" type="Node3D"]
 script = ExtResource("1_j4bwh")
 
-[node name="env" parent="." instance=ExtResource("2_ksmap")]
-
 [node name="steam_audio_config" type="SteamAudioConfig" parent="."]
 scene_type = 0
+
+[node name="env" parent="." instance=ExtResource("2_ksmap")]
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_trceg")
