@@ -22,7 +22,7 @@ autoplay = true
 
 [node name="music" type="AudioStreamPlayer" parent="ambient"]
 stream = ExtResource("13_a8y0u")
-volume_db = -30.0
+volume_db = -35.0
 pitch_scale = 0.21
 autoplay = true
 
