@@ -6,13 +6,21 @@ extends CharacterBody3D
 @export var gravity : float = 9.8
 @export var headbob_size : float = 0.1
 @export var headbob_speed : float = 1.25
+@export var walk_audio: SteamAudioPlayer = null
 
 var headbob_timer : float = 0.0
 var look_sensetivity_mul : float = 0.001
 var head_init_pos : Vector3 = Vector3.ZERO
+var prev_head_y : float = 0.0
+var walk_sounds : Array[Resource]
+var walk_sound_played : bool = false
 
 func _ready() -> void:
 	head_init_pos = $head.position
+	walk_sounds.append(load("res://sound/walk/walk_concrete1.ogg"))
+	walk_sounds.append(load("res://sound/walk/walk_concrete2.ogg"))
+	walk_sounds.append(load("res://sound/walk/walk_concrete3.ogg"))
+	walk_sounds.append(load("res://sound/walk/walk_concrete4.ogg"))
 	
 func _process(delta: float) -> void:
 	_handle_headbob(delta)
@@ -57,6 +65,13 @@ func _handle_gravity() -> void:
 func _handle_headbob(delta: float) -> void:
 	if is_on_floor():
 		$head.position.y = head_init_pos.y+sin(headbob_timer)*headbob_size
+		if sin(headbob_timer) <= -0.95:
+			if not walk_sound_played:
+				_play_random_walk_sound()
+				walk_sound_played = true
+		else:
+			walk_sound_played = false
+			
 		headbob_timer += delta*headbob_speed*velocity.length()
 
 func _get_move_speed() -> float:
@@ -64,3 +79,8 @@ func _get_move_speed() -> float:
 		return sprint_speed
 	else:
 		return walk_speed
+
+func _play_random_walk_sound() -> void:
+	if not walk_audio.playing:
+		walk_audio.stream = walk_sounds[randi_range(0, 3)]
+		walk_audio.play()
