@@ -16,13 +16,13 @@ scene_type = 0
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_trceg")
-volume_db = -30.0
+volume_db = -20.0
 pitch_scale = 0.9
 autoplay = true
 
 [node name="music" type="AudioStreamPlayer" parent="ambient"]
 stream = ExtResource("13_a8y0u")
-volume_db = -39.0
+volume_db = -30.0
 pitch_scale = 0.21
 autoplay = true
 
