@@ -18,9 +18,8 @@ func _process(delta: float) -> void:
 	_handle_headbob(delta)
 	
 func _physics_process(_delta: float) -> void:
-	if not get_parent().current_scene:
+	if not get_parent().scenes_loaded.size():
 		return
-	
 	_handle_ground_movement()
 	_handle_gravity()
 

@@ -1,34 +1,30 @@
 extends Node3D
-
-@onready var current_scene: Resource = null
-@onready var current_scene_node: Node3D = null
-@onready var previous_scene_node: Node3D = null
-@onready var loading_scene: String = ''
-@onready var is_loading: bool = false
+@onready var scenes_loading: Array[String]
+@onready var scenes_loaded: Array[String]
 
 func _ready() -> void:
 	load_scene('enterence')
+	load_scene('transition')
 
 func _process(delta: float) -> void:
-	if is_loading:
-		if ResourceLoader.load_threaded_get_status('res://scenes/' + loading_scene + '.tscn') == ResourceLoader.THREAD_LOAD_LOADED:
+	for s in scenes_loading:
+		if ResourceLoader.load_threaded_get_status('res://scenes/' + s + '.tscn') != ResourceLoader.THREAD_LOAD_LOADED:
 			return
-		#if current_scene:
-			#current_scene_node.queue_free()
-		current_scene = ResourceLoader.load_threaded_get('res://scenes/' + loading_scene + '.tscn')
-		var scene_inst = current_scene.instantiate()
+		var scene: Resource = ResourceLoader.load_threaded_get('res://scenes/' + s + '.tscn')
+		var scene_inst = scene.instantiate()
 		add_child(scene_inst)
-		print('Scene loaded: ' + loading_scene)
-		current_scene_node = get_node(loading_scene)
-		loading_scene = ''
-		is_loading = false
-	else:
-		if current_scene_node.name == 'enterence':
-			if $'enterence/transition_trigger'.has_overlapping_bodies():
-				load_scene('transition')
-			
+		print('Scene loaded: ' + s)
+		scenes_loading.erase(s)
+		scenes_loaded.append(s)
 
-func load_scene(path: String) -> void:
-	ResourceLoader.load_threaded_request('res://scenes/' + path + '.tscn')
-	loading_scene = path
-	is_loading = true
+func load_scene(scene_name: String) -> void:
+	if scene_name in scenes_loaded:
+		return
+	ResourceLoader.load_threaded_request('res://scenes/' + scene_name + '.tscn')
+	scenes_loading.append(scene_name)
+
+func unload_scene(scene_name: String) -> void:
+	if scene_name not in scenes_loaded:
+		return
+	get_node(scene_name).queue_free()
+	scenes_loaded.erase(scene_name)

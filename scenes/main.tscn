@@ -1,307 +1,34 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhu7d5mfju5tc"]
+[gd_scene load_steps=6 format=3 uid="uid://dhu7d5mfju5tc"]
 
 [ext_resource type="Script" uid="uid://do27p8vrteexw" path="res://scripts/main.gd" id="1_j4bwh"]
 [ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="2_ksmap"]
-[ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="18_6nfnn"]
-[ext_resource type="Script" uid="uid://ccucbq3ackvyf" path="res://scripts/states/player/controls_fps.gd" id="69_n756u"]
-[ext_resource type="AudioStream" uid="uid://44cw3hpe3h31" path="res://sound/eerie.ogg" id="70_k33j2"]
-[ext_resource type="Script" uid="uid://buc61jgtmmyps" path="res://scripts/interaction_cast.gd" id="71_2cjf7"]
-[ext_resource type="Script" uid="uid://d1ev6p20gimpt" path="res://scripts/crosshair.gd" id="72_4e8e3"]
-[ext_resource type="Script" uid="uid://biiih6n2emqev" path="res://scripts/viewer.gd" id="73_5gihh"]
-[ext_resource type="Script" uid="uid://bgqglerkcylxx" path="res://addons/SmoothScroll/smooth_scroll_container.gd" id="74_407df"]
-[ext_resource type="Script" uid="uid://b7h0k2h2qwlqv" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="75_4sqen"]
-[ext_resource type="Script" uid="uid://bcr667wqyxp0q" path="res://scripts/states/camera/shaking.gd" id="76_w6a6y"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wb4f3"]
-radius = 0.38
-height = 1.8
-
-[sub_resource type="Animation" id="Animation_r66lb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.37680537, -0.0017216206)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("head/Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_4dohe"]
-resource_name = "shaking"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6399999, 1.63, 2.29, 2.9799998),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0.37680537, -0.0017216206), Vector3(0.020898283, 0.36687773, -0.0017216206), Vector3(-0.025803918, 0.3719996, -0.0017216206), Vector3(0.008311443, 0.37835053, -0.0017216206), Vector3(0, 0.37680537, -0.0017216206)]
-}
-
-[sub_resource type="Animation" id="Animation_u51tk"]
-resource_name = "shaking2"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("head/Camera3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.007015103, 0.017872611, 0.00012539052), Vector3(-0.013524125, -0.017943624, 0.00024269041), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1txc5"]
-_data = {
-&"RESET": SubResource("Animation_r66lb"),
-&"shaking": SubResource("Animation_4dohe"),
-&"shaking2": SubResource("Animation_u51tk")
-}
-
-[sub_resource type="LabelSettings" id="LabelSettings_vidgb"]
-line_spacing = 1.0
-font_size = 18
-font_color = Color(0.427493, 0.42749307, 0.42749307, 1)
-
-[sub_resource type="Resource" id="Resource_txlg3"]
-script = ExtResource("75_4sqen")
-
-[sub_resource type="Resource" id="Resource_avet7"]
-script = ExtResource("75_4sqen")
-
-[sub_resource type="LabelSettings" id="LabelSettings_3nic5"]
+[ext_resource type="PackedScene" uid="uid://d3i24moe7m2ha" path="res://prefabs/player_fps.tscn" id="5_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="12_trceg"]
+[ext_resource type="AudioStream" uid="uid://cxxrr5wrepik1" path="res://sound/whispers-of-the-breeze_91433 (1) (1).mp3" id="13_a8y0u"]
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_j4bwh")
 
 [node name="env" parent="." instance=ExtResource("2_ksmap")]
 
-[node name="player_fps" type="CharacterBody3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.689494, 2.9357793, 2.839032)
-collision_layer = 2
-collision_mask = 3
-script = ExtResource("69_n756u")
-walk_speed = 1.3
-sprint_speed = 2.0
-headbob_size = 0.03
-headbob_speed = 5.0
+[node name="steam_audio_config" type="SteamAudioConfig" parent="."]
+scene_type = 0
 
-[node name="eerie" type="AudioStreamPlayer" parent="player_fps"]
-stream = ExtResource("70_k33j2")
-volume_db = -10.0
+[node name="ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_trceg")
+volume_db = -30.0
+pitch_scale = 0.9
+autoplay = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="player_fps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03967285, 0)
-shape = SubResource("CapsuleShape3D_wb4f3")
+[node name="music" type="AudioStreamPlayer" parent="ambient"]
+stream = ExtResource("13_a8y0u")
+volume_db = -39.0
+pitch_scale = 0.21
+autoplay = true
 
-[node name="OmniLight3D" type="OmniLight3D" parent="player_fps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2862208, 0)
-light_color = Color(0.7285397, 0.5974449, 0.48897117, 1)
-light_energy = 1.2
-omni_range = 2.5
-
-[node name="head" type="Node3D" parent="player_fps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72895193, 0)
-
-[node name="Camera3D" type="Camera3D" parent="player_fps/head"]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
-current = true
-
-[node name="interaction_cast" type="RayCast3D" parent="player_fps/head/Camera3D" node_paths=PackedStringArray("ints_label", "ints_background", "ints_selected", "crosshair", "viewer")]
-visible = false
-target_position = Vector3(0, 0, -1)
-collision_mask = 2
-script = ExtResource("71_2cjf7")
-ints_label = NodePath("../canvas/hud/ints")
-ints_background = NodePath("../canvas/hud/background")
-ints_selected = NodePath("../canvas/hud/selected")
-crosshair = NodePath("../canvas/hud/crosshair")
-viewer = NodePath("../canvas/viewer")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="player_fps/head/Camera3D"]
-root_node = NodePath("../../..")
-libraries = {
-&"": SubResource("AnimationLibrary_1txc5")
-}
-
-[node name="canvas" type="CanvasLayer" parent="player_fps/head/Camera3D"]
-
-[node name="hud" type="Control" parent="player_fps/head/Camera3D/canvas"]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -240.0
-offset_right = 320.0
-offset_bottom = 240.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-
-[node name="crosshair" type="CenterContainer" parent="player_fps/head/Camera3D/canvas/hud"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("72_4e8e3")
-dot_radius = 4.0
-
-[node name="ints" type="Label" parent="player_fps/head/Camera3D/canvas/hud"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.5
-offset_top = 8.5
-offset_right = 61.5
-offset_bottom = 93.5
-grow_horizontal = 2
-grow_vertical = 2
-label_settings = SubResource("LabelSettings_vidgb")
-horizontal_alignment = 1
-
-[node name="background" type="ColorRect" parent="player_fps/head/Camera3D/canvas/hud"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.5
-offset_top = 8.5
-offset_right = 61.5
-offset_bottom = 93.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.029506553, 0.029506562, 0.029506536, 0.5019608)
-
-[node name="selected" type="ColorRect" parent="player_fps/head/Camera3D/canvas/hud"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.5
-offset_top = 8.5
-offset_right = 61.5
-offset_bottom = 93.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(1, 1, 1, 0.2)
-
-[node name="viewer" type="Control" parent="player_fps/head/Camera3D/canvas" node_paths=PackedStringArray("background", "scroll_cont", "label", "texture")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-script = ExtResource("73_5gihh")
-background = NodePath("background")
-scroll_cont = NodePath("scroll")
-label = NodePath("scroll/text")
-texture = NodePath("texture")
-
-[node name="texture" type="TextureRect" parent="player_fps/head/Camera3D/canvas/viewer"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -290.0
-offset_top = -235.0
-offset_right = 290.0
-offset_bottom = 235.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-expand_mode = 3
-stretch_mode = 5
-
-[node name="background" type="ColorRect" parent="player_fps/head/Camera3D/canvas/viewer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_behavior_recursive = 1
-color = Color(0, 0, 0, 0.70000005)
-
-[node name="scroll" type="ScrollContainer" parent="player_fps/head/Camera3D/canvas/viewer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 0
-script = ExtResource("74_407df")
-wheel_scroll_damper = SubResource("Resource_txlg3")
-dragging_scroll_damper = SubResource("Resource_avet7")
-metadata/_custom_type_script = "uid://bgqglerkcylxx"
-
-[node name="text" type="Label" parent="player_fps/head/Camera3D/canvas/viewer/scroll"]
-custom_minimum_size = Vector2(640, 480)
-layout_mode = 2
-size_flags_horizontal = 6
-mouse_filter = 1
-label_settings = SubResource("LabelSettings_3nic5")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="CameraStateMachine" type="Node" parent="player_fps" node_paths=PackedStringArray("initial_state")]
-script = ExtResource("18_6nfnn")
-initial_state = NodePath("Shaking")
-
-[node name="Shaking" type="Node" parent="player_fps/CameraStateMachine"]
-script = ExtResource("76_w6a6y")
-
-[node name="SteamAudioListener" type="SteamAudioListener" parent="player_fps"]
+[node name="player_fps" parent="." instance=ExtResource("5_tbgi4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.166617, 2.9892845, 2.901995)
+collision_layer = 3
 
 [node name="label" type="Label" parent="."]
 offset_right = 209.0

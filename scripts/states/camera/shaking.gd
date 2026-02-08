@@ -1,6 +1,6 @@
 extends State
 
-@onready var cam_anim_player: AnimationPlayer = $"../../head/Camera3D/AnimationPlayer"
+@onready var cam_anim_player: AnimationPlayer = $"../../head/camera/AnimationPlayer"
 
 func enter() -> void:
 	cam_anim_player.play("shaking2")

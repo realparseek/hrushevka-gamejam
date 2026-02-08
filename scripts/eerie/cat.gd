@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var player: CharacterBody3D = null
+@onready var player: CharacterBody3D = $'../../player_fps'
 
 func _physics_process(_delta: float) -> void:
 	var player_pos: Vector3 = player.global_position

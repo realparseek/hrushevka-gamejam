@@ -1,8 +1,9 @@
 extends State
 
 @export var light_sources: Array[State]
-@export var environment: WorldEnvironment
 @export var audio_player: SteamAudioPlayer
+
+@onready var environment: WorldEnvironment = $'../../../../env'
 
 func enter() -> void:
 	if audio_player:

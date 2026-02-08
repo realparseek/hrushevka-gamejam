@@ -1,7 +1,7 @@
 extends Interaction
 
-@export var viewer: Control = null
-@export var sound: AudioStreamPlayer = null
+@onready var viewer: Control = $"../../../../player_fps/head/camera/canvas/viewer"
+@onready var sound: AudioStreamPlayer = $"../../../../player_fps/eerie"
 
 @onready var text: String = (
 	'КРАСЛАВСКАЯ ФЕДЕРАЦИЯ\n'
