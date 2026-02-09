@@ -14,6 +14,7 @@ var head_init_pos : Vector3 = Vector3.ZERO
 var prev_head_y : float = 0.0
 var walk_sounds : Array[Resource]
 var walk_sound_played : bool = false
+var can_walk : bool = false
 
 func _ready() -> void:
 	head_init_pos = $head.position
@@ -26,7 +27,9 @@ func _process(delta: float) -> void:
 	_handle_headbob(delta)
 	
 func _physics_process(_delta: float) -> void:
-	if not get_parent().scenes_loaded.size():
+	if get_parent().scenes_loaded.size() >= 2:
+		can_walk = true
+	if not can_walk:
 		return
 	_handle_ground_movement()
 	_handle_gravity()
