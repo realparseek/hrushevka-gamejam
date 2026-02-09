@@ -251,7 +251,7 @@ func set_audiobus_volume(bus_name, vol_db, fadetime: float = 0, tweenvar: Tween 
 # tween_method always tweens the first value.
 # but the first value in set_bus_volume_db() is bus index, so we provide volume as the first value for tween_method.
 func tweensetvol(vol, bus_index):
-	AudioServer.set_bus_volume_db(bus_index, vol)
+	AudioServer.set_bus_volume_db(min(bus_index, 20), vol)
 
 
 func add_audioeffect(bus_name, effect_type: fx):

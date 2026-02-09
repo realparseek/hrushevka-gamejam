@@ -1,7 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://staktu54iogm"]
 
 [ext_resource type="Texture2D" uid="uid://dscat4gk3kgft" path="res://assets/object/old_retro_junk/shelf_tex.png" id="1_5jqk0"]
-[ext_resource type="SteamAudioMaterial" uid="uid://oyakg0idhulv" path="res://addons/godot-steam-audio/materials/wood_material.tres" id="2_bki71"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bki71"]
 resource_name = "shelf"
@@ -58,6 +57,3 @@ skeleton = NodePath("../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Shelf/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02758789, 1.1123962, 0.00091552734)
 shape = SubResource("BoxShape3D_m43bq")
-
-[node name="SteamAudioGeometry" type="SteamAudioGeometry" parent="Shelf/StaticBody3D/CollisionShape3D"]
-material = ExtResource("2_bki71")

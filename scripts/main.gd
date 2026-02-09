@@ -25,7 +25,7 @@ func load_scene(scene_name: String) -> void:
 		return
 	if scene_name in scenes_loaded:
 		return
-	ResourceLoader.load_threaded_request('res://scenes/' + scene_name + '.tscn', '', true)
+	ResourceLoader.load_threaded_request('res://scenes/' + scene_name + '.tscn', '', false)
 	scenes_loading.append(scene_name)
 	print('Scene loading - ', scene_name)
 

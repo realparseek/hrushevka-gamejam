@@ -30,8 +30,3 @@ collision_layer = 3
 [node name="label" type="Label" parent="."]
 offset_right = 209.0
 offset_bottom = 45.0
-
-[node name="SteamAudioConfig" type="SteamAudioConfig" parent="."]
-scene_type = 0
-max_reflection_duration = 4.0
-max_reflection_sources = 12.0
