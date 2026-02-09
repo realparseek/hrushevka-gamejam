@@ -9,20 +9,17 @@
 [node name="main" type="Node3D"]
 script = ExtResource("1_j4bwh")
 
-[node name="steam_audio_config" type="SteamAudioConfig" parent="."]
-scene_type = 0
-
 [node name="env" parent="." instance=ExtResource("2_ksmap")]
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_trceg")
-volume_db = -20.0
+volume_db = -35.266
 pitch_scale = 0.9
 autoplay = true
 
 [node name="music" type="AudioStreamPlayer" parent="ambient"]
 stream = ExtResource("13_a8y0u")
-volume_db = -35.0
+volume_db = -40.725
 pitch_scale = 0.21
 autoplay = true
 
@@ -33,3 +30,8 @@ collision_layer = 3
 [node name="label" type="Label" parent="."]
 offset_right = 209.0
 offset_bottom = 45.0
+
+[node name="SteamAudioConfig" type="SteamAudioConfig" parent="."]
+scene_type = 0
+max_reflection_duration = 4.0
+max_reflection_sources = 12.0
