@@ -1,4 +1,4 @@
-[gd_scene load_steps=301 format=4 uid="uid://fyioc88ss8v3"]
+[gd_scene load_steps=302 format=4 uid="uid://fyioc88ss8v3"]
 
 [ext_resource type="Texture2D" uid="uid://dgvbw8lu7n0b8" path="res://models/basement/basement_small_closet_baked.png" id="1_e0dxi"]
 [ext_resource type="Texture2D" uid="uid://c2od2rjt0lbh5" path="res://models/basement/basement_metal_shelf.png" id="2_g4j8u"]
@@ -15,7 +15,6 @@
 [ext_resource type="Material" uid="uid://cnfjy5uvcj1s4" path="res://materials/wires.material" id="11_olx36"]
 [ext_resource type="SteamAudioMaterial" uid="uid://cqx8833t2v8mo" path="res://addons/godot-steam-audio/materials/metal_material.tres" id="14_c5vcu"]
 [ext_resource type="AudioStream" uid="uid://dey8o8gi6pt08" path="res://sound/radio/radio.ogg" id="18_v858h"]
-[ext_resource type="Script" uid="uid://cwbt31bgn8jtl" path="res://scripts/voronaPOET.gd" id="19_udj7p"]
 [ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="19_v858h"]
 [ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="20_nlhde"]
 [ext_resource type="Texture2D" uid="uid://bocmtrpbba5w" path="res://models/lightbulb/lightbulb_lightbulb_emission.png" id="20_udj7p"]
@@ -99,7 +98,9 @@
 [ext_resource type="Material" uid="uid://cku5ja4w5t710" path="res://assets/object/Priemnik/Radio.tres" id="100_40r2m"]
 [ext_resource type="AudioStream" uid="uid://bkmwd5e88aupv" path="res://sound/radio/radio_noise-VEED.mp3" id="101_0pfjd"]
 [ext_resource type="Texture2D" uid="uid://bmx5wyrhb0gfi" path="res://models/board/board_board.png" id="101_40r2m"]
+[ext_resource type="AudioStream" uid="uid://dbc3fxmgxmjkr" path="res://sound/radio/amigo.ogg" id="102_0pfjd"]
 [ext_resource type="PackedScene" uid="uid://b06sila5nko2l" path="res://assets/glb/gritty_abandoned_soviet-style_apartment_psx (1).glb" id="103_0pfjd"]
+[ext_resource type="Script" uid="uid://2kedrfijs126" path="res://addons/spatial_audio_3d/spatial_audio_3d.gd" id="103_sg3ro"]
 [ext_resource type="PackedScene" uid="uid://bxyy7wgdx6rq2" path="res://assets/test/russian_first_aid_kit_v3.glb" id="111_8j7gd"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b7hc5"]
@@ -2979,6 +2980,7 @@ air_absorption = true
 reflection = true
 max_reflection_distance = 1000.0
 transform = Transform3D(-0.9999834, 0, -0.0057770386, 0, 1, 0, 0.0057770386, 0, -0.9999834, 0.0653677, 0.43847418, 0.9076338)
+visible = false
 stream = ExtResource("18_v858h")
 attenuation_model = 3
 volume_db = -15.0
@@ -2989,7 +2991,6 @@ panning_strength = 0.0
 playback_type = 1
 emission_angle_degrees = 61.0
 emission_angle_filter_attenuation_db = -10.0
-script = ExtResource("19_udj7p")
 
 [node name="cat" type="Node3D" parent="."]
 transform = Transform3D(-0.0979276, 0, -0.020253096, 0, 0.1, 0, 0.020253096, 0, -0.0979276, 16.411106, -1.1808404, -0.40376917)
@@ -3867,3 +3868,17 @@ emission_angle_filter_attenuation_db = -10.0
 
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("111_8j7gd")]
 transform = Transform3D(-0.015897285, 2.1240481e-08, 0.49974728, -0.48697594, 0.11231395, -0.015491031, -0.11225724, -0.48722228, -0.0035709569, 16.087593, -1.9798136, -3.0877323)
+
+[node name="SpatialAudio3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.12381, -0.5351556, 0.8248782)
+stream = ExtResource("102_0pfjd")
+volume_db = -10.0
+autoplay = true
+max_distance = 30.0
+script = ExtResource("103_sg3ro")
+reverb_fadeintime = 0.19999999999999996
+reverb_fadeouttime = 0.19999999999999996
+bass_proximity = 10
+roomsize_multiplicator = 10.0
+debug = true
+metadata/_custom_type_script = "uid://2kedrfijs126"
