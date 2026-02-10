@@ -26,10 +26,11 @@ func _process(delta: float) -> void:
 	_handle_headbob(delta)
 	
 func _physics_process(_delta: float) -> void:
-	if get_parent().scenes_loaded.size() >= 2:
-		can_walk = true
 	if not can_walk:
-		return
+		if get_parent().scenes_loaded.size() >= 2:
+			can_walk = true
+		else:
+			return
 	_handle_ground_movement()
 	_handle_gravity()
 
