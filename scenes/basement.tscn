@@ -1357,7 +1357,10 @@ shadow_mesh = SubResource("ArrayMesh_sg6bl")
 size = Vector3(12.957962, 0.30469894, 14.343018)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k4avg"]
-size = Vector3(1.6456299, 2.7740173, 0.34838867)
+size = Vector3(0.5227432, 2.7740173, 0.34838867)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wgfj2"]
+size = Vector3(0.19147682, 2.7740173, 0.29144287)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6hckg"]
 size = Vector3(2.9058228, 2.7740173, 0.5024414)
@@ -2142,6 +2145,7 @@ shadow_mesh = SubResource("ArrayMesh_iroi3")
 resource_name = "Brick_Phone"
 cull_mode = 2
 albedo_texture = ExtResource("60_pvq3c")
+texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gtgrb"]
 _surfaces = [{
@@ -2830,8 +2834,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5135751, -0.14192092, -1.0
 shape = SubResource("BoxShape3D_6mx4q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Collisions/Walls" unique_id=516609329]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8699541, 1.3957367, 6.3448963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7249075, 1.3957367, 6.3448963)
 shape = SubResource("BoxShape3D_k4avg")
+
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="NavigationRegion3D/Collisions/Walls" unique_id=1859227469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5358577, 1.3957367, 6.3563404)
+shape = SubResource("BoxShape3D_wgfj2")
 
 [node name="CollisionShape3D16" type="CollisionShape3D" parent="NavigationRegion3D/Collisions/Walls" unique_id=1540345123]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4670243, 1.3957367, 0.22538042)

@@ -19,6 +19,5 @@ func update(delta: float) -> void:
 	env_energy = lerpf(env_energy, 0.07, delta*4)
 	environment.environment.ambient_light_energy = env_energy
 
-func physics_update(delta: float) -> void:
-	float(delta)
+func physics_update(_delta: float) -> void:
 	pass
