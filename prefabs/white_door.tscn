@@ -26,7 +26,7 @@ resource_name = "glass.003"
 transparency = 4
 cull_mode = 2
 albedo_color = Color(0, 0, 0, 0.3529412)
-roughness = 0.05
+roughness = 0.15
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8dd5u"]
 resource_name = "white_door_Cube_002"
@@ -202,4 +202,16 @@ script = ExtResource("7_vnmbo")
 script = ExtResource("8_ommhc")
 
 [node name="Close" type="Node" parent="Interactable" unique_id=230357611]
+script = ExtResource("9_djjbo")
+
+[node name="Close2" type="Node" parent="Interactable" unique_id=1953127706]
+script = ExtResource("9_djjbo")
+
+[node name="Close3" type="Node" parent="Interactable" unique_id=1754973964]
+script = ExtResource("9_djjbo")
+
+[node name="Close4" type="Node" parent="Interactable" unique_id=1767749773]
+script = ExtResource("9_djjbo")
+
+[node name="Close5" type="Node" parent="Interactable" unique_id=2139181606]
 script = ExtResource("9_djjbo")
