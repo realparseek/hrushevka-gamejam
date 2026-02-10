@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cvpin51yvtcn" path="res://models/basement/basement_white_ceiling_baked.png" id="8_nvrgk"]
 [ext_resource type="Material" uid="uid://cnfjy5uvcj1s4" path="res://materials/wires.material" id="11_olx36"]
 [ext_resource type="AudioStream" uid="uid://dey8o8gi6pt08" path="res://sound/radio/radio.ogg" id="12_q40a6"]
+[ext_resource type="AudioStream" uid="uid://nb5g8u301xpv" path="res://sound/light/switch1.ogg" id="14_wgfj2"]
 [ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="19_v858h"]
 [ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="20_nlhde"]
 [ext_resource type="Texture2D" uid="uid://bocmtrpbba5w" path="res://models/lightbulb/lightbulb_lightbulb_emission.png" id="20_udj7p"]
@@ -3365,6 +3366,18 @@ mesh_off = NodePath("../../lightbulb_off")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.259447, -0.7570554, 7.0800896)
 collision_layer = 2
 
+[node name="sound" type="AudioStreamPlayer3D" parent="light_switch" unique_id=1558273754]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.1392436, -0.03623706, 0.014163971)
+stream = ExtResource("14_wgfj2")
+volume_db = -4.0
+unit_size = 2.0
+pitch_scale = 0.8
+autoplay = true
+max_distance = 10.0
+bus = &"RaytracedReverb"
+script = ExtResource("95_rvu2m")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="light_switch" unique_id=1061969182]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08352661, -0.011566162, 0.013893127)
 shape = SubResource("BoxShape3D_2tfhm")
@@ -3398,13 +3411,15 @@ skeleton = NodePath("")
 script = ExtResource("22_n3vph")
 initial_state = NodePath("TurnedOn")
 
-[node name="TurnedOn" type="Node" parent="light_switch/StateMachine" unique_id=2128170358 node_paths=PackedStringArray("light_sources")]
+[node name="TurnedOn" type="Node" parent="light_switch/StateMachine" unique_id=2128170358 node_paths=PackedStringArray("light_sources", "audio_player")]
 script = ExtResource("23_v858h")
 light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff"), NodePath("../../../lightbulb5/StateMachine/TurnedOff"), NodePath("../../../lightbulb6/StateMachine/TurnedOff")]
+audio_player = NodePath("../../sound")
 
-[node name="TurnedOff" type="Node" parent="light_switch/StateMachine" unique_id=769789539 node_paths=PackedStringArray("light_sources")]
+[node name="TurnedOff" type="Node" parent="light_switch/StateMachine" unique_id=769789539 node_paths=PackedStringArray("light_sources", "audio_player")]
 script = ExtResource("24_udj7p")
 light_sources = [NodePath("../../../lightbulb/StateMachine/TurnedOff"), NodePath("../../../lightbulb2/StateMachine/TurnedOff"), NodePath("../../../lightbulb3/StateMachine/TurnedOff"), NodePath("../../../lightbulb4/StateMachine/TurnedOff"), NodePath("../../../lightbulb5/StateMachine/TurnedOff"), NodePath("../../../lightbulb6/StateMachine/TurnedOff")]
+audio_player = NodePath("../../sound")
 
 [node name="Interactable" type="Node" parent="light_switch" unique_id=937554366]
 script = ExtResource("30_5cqeb")

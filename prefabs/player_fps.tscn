@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ccucbq3ackvyf" path="res://scripts/states/player/controls_fps.gd" id="1_vj2l5"]
 [ext_resource type="AudioStream" uid="uid://44cw3hpe3h31" path="res://sound/eerie.ogg" id="2_8p36t"]
 [ext_resource type="Script" uid="uid://buc61jgtmmyps" path="res://scripts/interaction_cast.gd" id="3_fmbfy"]
+[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="3_mg6fd"]
 [ext_resource type="Script" uid="uid://d1ev6p20gimpt" path="res://scripts/crosshair.gd" id="4_mg6fd"]
 [ext_resource type="Script" uid="uid://biiih6n2emqev" path="res://scripts/viewer.gd" id="5_mtwvd"]
 [ext_resource type="Script" uid="uid://bgqglerkcylxx" path="res://addons/SmoothScroll/smooth_scroll_container.gd" id="6_544fb"]
@@ -94,17 +95,31 @@ script = ExtResource("7_4543x")
 
 [sub_resource type="LabelSettings" id="LabelSettings_puy4i"]
 
-[node name="player_fps" type="CharacterBody3D" unique_id=567083369]
+[node name="player_fps" type="CharacterBody3D" unique_id=567083369 node_paths=PackedStringArray("walk_audio")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_vj2l5")
 walk_speed = 1.3
 sprint_speed = 2.0
 headbob_size = 0.05
 headbob_speed = 5.0
+walk_audio = NodePath("walk")
 
 [node name="eerie" type="AudioStreamPlayer" parent="." unique_id=370341611]
 stream = ExtResource("2_8p36t")
 volume_db = -10.0
+
+[node name="walk" type="AudioStreamPlayer3D" parent="." unique_id=837205470]
+transform = Transform3D(0.07036585, 0, 0.9975213, 0, 1, 0, -0.9975213, 0, 0.07036585, 0.01562947, -0.4902997, -0.0021032102)
+volume_db = -21.0
+unit_size = 5.0
+pitch_scale = 0.8
+autoplay = true
+max_distance = 20.0
+bus = &"RaytracedReverb"
+emission_angle_degrees = 58.0
+emission_angle_filter_attenuation_db = -30.0
+script = ExtResource("3_mg6fd")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=342229925]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03967285, 0)

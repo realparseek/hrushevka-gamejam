@@ -6,12 +6,14 @@ extends CharacterBody3D
 @export var gravity : float = 9.8
 @export var headbob_size : float = 0.1
 @export var headbob_speed : float = 1.25
+@export var walk_audio : RaytracedAudioPlayer3D = null
 
 var headbob_timer : float = 0.0
 var look_sensetivity_mul : float = 0.001
 var head_init_pos : Vector3 = Vector3.ZERO
 var prev_head_y : float = 0.0
 var walk_sounds : Array[Resource]
+var cur_walk_sound : int = 0
 var walk_sound_played : bool = false
 var can_walk : bool = false
 
@@ -84,7 +86,7 @@ func _get_move_speed() -> float:
 		return walk_speed
 
 func _play_random_walk_sound() -> void:
-	pass
 	#if not walk_audio.playing:
-		#walk_audio.stream = walk_sounds[randi_range(0, 3)]
-		#walk_audio.play()
+		walk_audio.stream = walk_sounds[cur_walk_sound]
+		walk_audio.play()
+		cur_walk_sound = wrap(cur_walk_sound+1, 0, 4)

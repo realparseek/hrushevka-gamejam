@@ -1,13 +1,13 @@
 extends State
 
 @export var light_sources: Array[State]
-#@export var audio_player: SteamAudioPlayer
+@export var audio_player: RaytracedAudioPlayer3D
 
 @onready var environment: WorldEnvironment = $'../../../../env'
 
 func enter() -> void:
-	#if audio_player:
-		#audio_player.play()
+	if audio_player:
+		audio_player.play()
 	for ls in light_sources:
 		ls.Transitioned.emit("turnedon", ls.get_parent().current_state)
 	
