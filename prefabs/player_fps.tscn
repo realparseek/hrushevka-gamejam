@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3i24moe7m2ha"]
+[gd_scene format=3 uid="uid://d3i24moe7m2ha"]
 
 [ext_resource type="Script" uid="uid://ccucbq3ackvyf" path="res://scripts/states/player/controls_fps.gd" id="1_vj2l5"]
 [ext_resource type="AudioStream" uid="uid://44cw3hpe3h31" path="res://sound/eerie.ogg" id="2_8p36t"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://biiih6n2emqev" path="res://scripts/viewer.gd" id="5_mtwvd"]
 [ext_resource type="Script" uid="uid://bgqglerkcylxx" path="res://addons/SmoothScroll/smooth_scroll_container.gd" id="6_544fb"]
 [ext_resource type="Script" uid="uid://b7h0k2h2qwlqv" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="7_4543x"]
+[ext_resource type="Script" uid="uid://bjpmu5sklv5h8" path="res://addons/raytraced_audio/raytraced_audio_listener.gd" id="8_8p36t"]
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="8_pdoe5"]
 [ext_resource type="Script" uid="uid://bcr667wqyxp0q" path="res://scripts/states/camera/shaking.gd" id="9_6ikbd"]
 
@@ -93,7 +94,7 @@ script = ExtResource("7_4543x")
 
 [sub_resource type="LabelSettings" id="LabelSettings_puy4i"]
 
-[node name="player_fps" type="CharacterBody3D"]
+[node name="player_fps" type="CharacterBody3D" unique_id=567083369]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_vj2l5")
 walk_speed = 1.3
@@ -101,28 +102,28 @@ sprint_speed = 2.0
 headbob_size = 0.05
 headbob_speed = 5.0
 
-[node name="eerie" type="AudioStreamPlayer" parent="."]
+[node name="eerie" type="AudioStreamPlayer" parent="." unique_id=370341611]
 stream = ExtResource("2_8p36t")
 volume_db = -10.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=342229925]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03967285, 0)
 shape = SubResource("CapsuleShape3D_a0uo0")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=457778892]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2862208, 0)
 light_color = Color(0.7285397, 0.5974449, 0.48897117, 1)
 light_energy = 1.2
 omni_range = 2.5
 
-[node name="head" type="Node3D" parent="."]
+[node name="head" type="Node3D" parent="." unique_id=1650658518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72895193, 0)
 
-[node name="camera" type="Camera3D" parent="head"]
+[node name="camera" type="Camera3D" parent="head" unique_id=1212323348]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 current = true
 
-[node name="interaction_cast" type="RayCast3D" parent="head/camera" node_paths=PackedStringArray("ints_label", "ints_background", "ints_selected", "crosshair", "viewer")]
+[node name="interaction_cast" type="RayCast3D" parent="head/camera" unique_id=464719572 node_paths=PackedStringArray("ints_label", "ints_background", "ints_selected", "crosshair", "viewer")]
 target_position = Vector3(0, 0, -1)
 collision_mask = 2
 script = ExtResource("3_fmbfy")
@@ -132,15 +133,13 @@ ints_selected = NodePath("../canvas/hud/selected")
 crosshair = NodePath("../canvas/hud/crosshair")
 viewer = NodePath("../canvas/viewer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="head/camera"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head/camera" unique_id=314275237]
 root_node = NodePath("../../..")
-libraries = {
-&"": SubResource("AnimationLibrary_1txc5")
-}
+libraries/ = SubResource("AnimationLibrary_1txc5")
 
-[node name="canvas" type="CanvasLayer" parent="head/camera"]
+[node name="canvas" type="CanvasLayer" parent="head/camera" unique_id=148951009]
 
-[node name="hud" type="Control" parent="head/camera/canvas"]
+[node name="hud" type="Control" parent="head/camera/canvas" unique_id=135361678]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -157,7 +156,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="crosshair" type="CenterContainer" parent="head/camera/canvas/hud"]
+[node name="crosshair" type="CenterContainer" parent="head/camera/canvas/hud" unique_id=569710928]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -170,7 +169,7 @@ mouse_filter = 2
 script = ExtResource("4_mg6fd")
 dot_radius = 4.0
 
-[node name="ints" type="Label" parent="head/camera/canvas/hud"]
+[node name="ints" type="Label" parent="head/camera/canvas/hud" unique_id=1022186282]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -186,7 +185,7 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_jwrb4")
 horizontal_alignment = 1
 
-[node name="background" type="ColorRect" parent="head/camera/canvas/hud"]
+[node name="background" type="ColorRect" parent="head/camera/canvas/hud" unique_id=54167919]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -202,7 +201,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.029506553, 0.029506562, 0.029506536, 0.5019608)
 
-[node name="selected" type="ColorRect" parent="head/camera/canvas/hud"]
+[node name="selected" type="ColorRect" parent="head/camera/canvas/hud" unique_id=341334935]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -218,7 +217,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0.2)
 
-[node name="viewer" type="Control" parent="head/camera/canvas" node_paths=PackedStringArray("background", "scroll_cont", "label", "texture")]
+[node name="viewer" type="Control" parent="head/camera/canvas" unique_id=1377134726 node_paths=PackedStringArray("background", "scroll_cont", "label", "texture")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -234,7 +233,7 @@ scroll_cont = NodePath("scroll")
 label = NodePath("scroll/text")
 texture = NodePath("texture")
 
-[node name="texture" type="TextureRect" parent="head/camera/canvas/viewer"]
+[node name="texture" type="TextureRect" parent="head/camera/canvas/viewer" unique_id=1339752384]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -251,7 +250,7 @@ mouse_filter = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="background" type="ColorRect" parent="head/camera/canvas/viewer"]
+[node name="background" type="ColorRect" parent="head/camera/canvas/viewer" unique_id=1557572196]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -261,7 +260,7 @@ grow_vertical = 2
 mouse_behavior_recursive = 1
 color = Color(0, 0, 0, 0.70000005)
 
-[node name="scroll" type="ScrollContainer" parent="head/camera/canvas/viewer"]
+[node name="scroll" type="ScrollContainer" parent="head/camera/canvas/viewer" unique_id=1981480949]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -274,7 +273,7 @@ wheel_scroll_damper = SubResource("Resource_6opg6")
 dragging_scroll_damper = SubResource("Resource_32yde")
 metadata/_custom_type_script = "uid://bgqglerkcylxx"
 
-[node name="text" type="Label" parent="head/camera/canvas/viewer/scroll"]
+[node name="text" type="Label" parent="head/camera/canvas/viewer/scroll" unique_id=1407424109]
 custom_minimum_size = Vector2(640, 480)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -284,11 +283,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="AudioListener3D" type="AudioListener3D" parent="head/camera"]
+[node name="RaytracedAudioListener" type="AudioListener3D" parent="head/camera" unique_id=1651777810]
+script = ExtResource("8_8p36t")
+metadata/_custom_type_script = "uid://bjpmu5sklv5h8"
 
-[node name="CameraStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="CameraStateMachine" type="Node" parent="." unique_id=85203314 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("8_pdoe5")
 initial_state = NodePath("Shaking")
 
-[node name="Shaking" type="Node" parent="CameraStateMachine"]
+[node name="Shaking" type="Node" parent="CameraStateMachine" unique_id=1251901183]
 script = ExtResource("9_6ikbd")

@@ -8,18 +8,22 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="gamejam"
 run/main_scene="uid://dhu7d5mfju5tc"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.10247887, 0.14015761, 0.21801892, 1)
 boot_splash/show_image=false
 config/icon="res://resources/icon.svg"
 
 [audio]
 
-buses/default_bus_layout=""
+buses/default_bus_layout="uid://vjp4auad2raf"
 
 [autoload]
 
@@ -43,7 +47,7 @@ project/assembly_name="gamejam"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg")
+enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/raytraced_audio/plugin.cfg")
 
 [importer_defaults]
 
@@ -103,6 +107,11 @@ MWD={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+
+[raytraced_audio]
+
+reverb_bus=&"RaytracedReverb"
+ambient_bus=&"RaytracedAmbient"
 
 [rendering]
 
