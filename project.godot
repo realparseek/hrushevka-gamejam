@@ -15,7 +15,7 @@ run/main_scene="uid://dhu7d5mfju5tc"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.10247887, 0.14015761, 0.21801892, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://resources/icon.svg"
 
 [audio]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dhu7d5mfju5tc"]
 
 [ext_resource type="Script" uid="uid://do27p8vrteexw" path="res://scripts/main.gd" id="1_j4bwh"]
-[ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://world_environment.tscn" id="2_ksmap"]
+[ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://prefabs/world_environment.tscn" id="2_ksmap"]
 [ext_resource type="PackedScene" uid="uid://d3i24moe7m2ha" path="res://prefabs/player_fps.tscn" id="5_tbgi4"]
 [ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="12_trceg"]
 [ext_resource type="AudioStream" uid="uid://cxxrr5wrepik1" path="res://sound/whispers-of-the-breeze_91433 (1) (1).mp3" id="13_a8y0u"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://8bf0ubij0keq"]
 
-[ext_resource type="Environment" uid="uid://byswbkpxkpyxw" path="res://basement_environment.tres" id="1_x16oa"]
+[ext_resource type="Environment" uid="uid://byswbkpxkpyxw" path="res://resources/basement_environment.tres" id="1_x16oa"]
 [ext_resource type="Shader" uid="uid://doxte1xpnc2aw" path="res://shader_test/test_shader.gdshader" id="2_wjtrd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01g3i"]
