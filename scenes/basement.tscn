@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d1kgucyy1w2ad" path="res://models/basement/basement_door.png" id="7_dqwih"]
 [ext_resource type="Texture2D" uid="uid://cvpin51yvtcn" path="res://models/basement/basement_white_ceiling_baked.png" id="8_nvrgk"]
 [ext_resource type="Material" uid="uid://cnfjy5uvcj1s4" path="res://materials/wires.material" id="11_olx36"]
-[ext_resource type="AudioStream" uid="uid://dey8o8gi6pt08" path="res://sound/radio/radio.ogg" id="12_q40a6"]
+[ext_resource type="AudioStream" uid="uid://cpxl03y8wlie5" path="res://sound/limansk.ogg" id="12_uj6tj"]
 [ext_resource type="AudioStream" uid="uid://nb5g8u301xpv" path="res://sound/light/switch1.ogg" id="14_wgfj2"]
 [ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="19_v858h"]
 [ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="20_nlhde"]
@@ -49,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://bt0yvdni6ksvt" path="res://assets/object/cat_-_ps1_low_poly_rigged_0.png" id="57_8j7gd"]
 [ext_resource type="PackedScene" uid="uid://chu2c0reqif2k" path="res://assets/glb/hammer.glb" id="57_uvnnk"]
 [ext_resource type="Script" uid="uid://b8i0mauhe7erq" path="res://scripts/eerie/cat.gd" id="58_jhj6i"]
+[ext_resource type="Script" uid="uid://knik24oln1mt" path="res://scripts/lights/lamp_max_unstable.gd" id="58_uj6tj"]
 [ext_resource type="Texture2D" uid="uid://cx4si4tvfu26s" path="res://assets/glb/low_poly_90s_electronics_assets_9.png" id="59_j1mi2"]
 [ext_resource type="Texture2D" uid="uid://bimpl2wuj6g52" path="res://assets/glb/low_poly_90s_electronics_assets_14.png" id="60_pvq3c"]
 [ext_resource type="PackedScene" uid="uid://0u571tr54y4j" path="res://prefabs/nastennayalanmpa.tscn" id="61_q40a6"]
@@ -91,7 +92,7 @@
 [ext_resource type="AudioStream" uid="uid://cw3kir6es88vg" path="res://sound/surround/new_drops1.ogg" id="94_trqyk"]
 [ext_resource type="AudioStream" uid="uid://b2tlg7sfu4omv" path="res://sound/surround/sfx_amb_wind_tat_a_loop.ogg" id="95_00u7k"]
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="95_rvu2m"]
-[ext_resource type="AudioStream" uid="uid://1hdslpf1t6i2" path="res://sound/radio_noise.ogg" id="95_wgfj2"]
+[ext_resource type="AudioStream" uid="uid://bkmwd5e88aupv" path="res://sound/radio/radio_noise-VEED.mp3" id="97_uj6tj"]
 [ext_resource type="PackedScene" uid="uid://bpfqou0e5r8vc" path="res://assets/glb/ps2_chair.glb" id="97_wgfj2"]
 [ext_resource type="Material" uid="uid://cku5ja4w5t710" path="res://assets/object/Priemnik/Radio.tres" id="100_40r2m"]
 [ext_resource type="Texture2D" uid="uid://bmx5wyrhb0gfi" path="res://models/board/board_board.png" id="101_40r2m"]
@@ -2910,7 +2911,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 25.1
 
 [node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="vorona" unique_id=1505958957]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07452184, 1.0273483, 1.2946072)
-stream = ExtResource("12_q40a6")
+stream = ExtResource("12_uj6tj")
 volume_db = -11.743
 unit_size = 2.0
 autoplay = true
@@ -3157,7 +3158,7 @@ mesh = SubResource("ArrayMesh_jxuce")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lightbulb" unique_id=509476230]
-light_color = Color(1, 0.92156863, 0.75686276, 1)
+light_color = Color(0.9019608, 0.7254902, 0.5411765, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
 omni_range = 4.6
@@ -3233,7 +3234,7 @@ mesh = SubResource("ArrayMesh_jxuce")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lightbulb3" unique_id=1837205997]
-light_color = Color(1, 0.92156863, 0.75686276, 1)
+light_color = Color(0.9019608, 0.7254902, 0.5411765, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
 omni_range = 4.6
@@ -3271,7 +3272,7 @@ mesh = SubResource("ArrayMesh_jxuce")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lightbulb4" unique_id=653166583]
-light_color = Color(1, 0.92156863, 0.75686276, 1)
+light_color = Color(0.972549, 0.8392157, 0.65882355, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
 omni_range = 4.6
@@ -3310,7 +3311,7 @@ mesh = SubResource("ArrayMesh_jxuce")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lightbulb5" unique_id=1060536886]
-light_color = Color(1, 0.92156863, 0.75686276, 1)
+light_color = Color(0.9019608, 0.7254902, 0.5411765, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
 omni_range = 4.6
@@ -3349,7 +3350,7 @@ mesh = SubResource("ArrayMesh_jxuce")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="lightbulb6" unique_id=2087138379]
-light_color = Color(1, 0.92156863, 0.75686276, 1)
+light_color = Color(0.972549, 0.8392157, 0.65882355, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
 omni_range = 4.6
@@ -3631,6 +3632,14 @@ shape = SubResource("BoxShape3D_hiboo")
 [node name="lamptable" parent="trash" unique_id=361215434 instance=ExtResource("65_myhjo")]
 transform = Transform3D(0.6946584, 0, 0.7193398, 0, 1, 0, -0.7193398, 0, 0.6946584, -7.610992, 0.8512405, 4.059373)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="trash/lamptable" unique_id=798556845]
+transform = Transform3D(-0.02470833, -0.14205979, 0.9895497, 0.14205971, -0.9803057, -0.13718559, 0.98954976, 0.13718551, 0.04440269, 0.15005875, 0.26921856, -0.0033025742)
+shadow_enabled = true
+omni_range = 1.25
+script = ExtResource("58_uj6tj")
+base_energy = 0.9
+flicker_speed = 80.0
+
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="trash" unique_id=1696128461]
 transform = Transform3D(-6.9938224e-08, 1.6, 6.9938224e-08, 0, -6.9938224e-08, 1.6, 1.6, 6.9938224e-08, 3.0570967e-15, -4.830207, 1.2385367, -2.8230665)
 mesh = SubResource("PlaneMesh_58mmm")
@@ -3768,7 +3777,7 @@ skeleton = NodePath("")
 
 [node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="military_radio/military_radio" unique_id=1328296171]
 transform = Transform3D(0.6666666, 0, 2.9802322e-08, 0, 0.90737915, 0, 1.4901161e-08, 0, 0.8757151, 0, 0.19519246, 0)
-stream = ExtResource("95_wgfj2")
+stream = ExtResource("97_uj6tj")
 volume_db = -14.679
 unit_size = 2.0
 autoplay = true
