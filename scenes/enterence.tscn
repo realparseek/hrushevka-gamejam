@@ -1,12 +1,15 @@
 [gd_scene format=4 uid="uid://bqu4f73c7t2uw"]
 
-[ext_resource type="AudioStream" uid="uid://m80yxqyjdv7w" path="res://sound/babka-ugrozaet.ogg" id="2_6egfy"]
+[ext_resource type="AudioStream" uid="uid://oqvkk737j3yy" path="res://sound/door/babkadoor/babka-ugrozaet (1).mp3" id="2_5caol"]
 [ext_resource type="Texture2D" uid="uid://fkwchxjvj1ov" path="res://models/enterance/enterance_wood.png" id="2_s6fmq"]
 [ext_resource type="Script" uid="uid://cn4082xur23kv" path="res://scripts/DoorBabka.gd" id="2_vymw1"]
 [ext_resource type="AudioStream" uid="uid://cadgjce6xeefs" path="res://sound/molodec_pesenka.ogg" id="3_8lvkg"]
 [ext_resource type="Texture2D" uid="uid://cxecg0lfc1yk1" path="res://models/enterance/enterance_floor0.png" id="3_cr15g"]
+[ext_resource type="AudioStream" uid="uid://c3wtdmxiqlq6f" path="res://sound/door/babkadoor/babka-ugrozaet (2).mp3" id="3_jmbeh"]
+[ext_resource type="AudioStream" uid="uid://xd1weg700wd" path="res://sound/door/babkadoor/babka-ugrozaet (3).mp3" id="4_a5bb8"]
 [ext_resource type="Texture2D" uid="uid://ce8ls0phqg25a" path="res://models/enterance/enterance_floor2_128f.png" id="4_dgd44"]
 [ext_resource type="Texture2D" uid="uid://dqnyqe2fps8oo" path="res://models/enterance/enterance_wall_paint_tiled.png" id="5_kt8se"]
+[ext_resource type="AudioStream" uid="uid://dp70rp4334i5u" path="res://sound/door/babkadoor/babka-ugrozaet (4).mp3" id="5_m2bax"]
 [ext_resource type="Texture2D" uid="uid://con2qn8hk8yja" path="res://models/enterance/enterance_walls0w.png" id="6_u4uh6"]
 [ext_resource type="Texture2D" uid="uid://cmrwyrvpclv1w" path="res://models/enterance/enterance_walls0w_6.png" id="8_trp8h"]
 [ext_resource type="Texture2D" uid="uid://bx5a6lth8qlip" path="res://models/enterance/enterance_walls0.png" id="9_jb1ae"]
@@ -2105,6 +2108,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_a1ek8")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cn3pe"]
+rough = true
 absorbent = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_et6l7"]
@@ -2114,6 +2118,7 @@ size = Vector3(0.68066406, 0.95581055, 0.6894531)
 size = Vector3(0.14160156, 1.5849609, 0.6425781)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p12en"]
+rough = true
 absorbent = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cn3pe"]
@@ -2269,7 +2274,7 @@ shape = SubResource("BoxShape3D_6egfy")
 [node name="Door" type="Node3D" parent="enterence" unique_id=2132417389 node_paths=PackedStringArray("interaction_area", "audio_player")]
 transform = Transform3D(1.7881398e-07, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 1.7881398e-07, -0.19140732, 3.7733402, 1.9495273)
 script = ExtResource("2_vymw1")
-door_sounds = Array[AudioStream]([ExtResource("2_6egfy"), ExtResource("3_8lvkg")])
+door_sounds = Array[AudioStream]([ExtResource("2_5caol"), ExtResource("3_jmbeh"), ExtResource("4_a5bb8"), ExtResource("5_m2bax"), ExtResource("3_8lvkg")])
 interaction_area = NodePath("Area3D")
 audio_player = NodePath("RaytracedAudioPlayer3D")
 
