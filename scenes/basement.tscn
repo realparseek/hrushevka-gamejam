@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://ixps1ft18ve8" path="res://assets/glb/ps1_low_poly_-_cigarette_and_lighter_1.png" id="62_gtgrb"]
 [ext_resource type="Texture2D" uid="uid://dmwfw4fn4rrnt" path="res://assets/glb/ps1_low_poly_-_cigarette_and_lighter_2.png" id="63_7vftb"]
 [ext_resource type="PackedScene" uid="uid://dg38fj0douo7i" path="res://assets/glb/lowpoly_propane_tank.glb" id="63_118yq"]
+[ext_resource type="Texture2D" uid="uid://c50sb5418hmm1" path="res://textures/pack/nnadpis28.png" id="63_uj6tj"]
 [ext_resource type="PackedScene" uid="uid://dg2sgy2tmjxrc" path="res://assets/glb/ps2_old_table.glb" id="64_7vftb"]
 [ext_resource type="PackedScene" uid="uid://d2v47una22h1a" path="res://assets/glb/ps2_table_lamp.glb" id="65_myhjo"]
 [ext_resource type="Texture2D" uid="uid://bjq35do0ccfeu" path="res://textures/pack/dirty2.png" id="69_sg3ro"]
@@ -63,7 +64,6 @@
 [ext_resource type="Texture2D" uid="uid://b18y7jwp8eieu" path="res://textures/pack/techet3.png" id="71_y7kqr"]
 [ext_resource type="PackedScene" uid="uid://bb66arrly1tmb" path="res://assets/glb/transformator.glb" id="72_gsoxu"]
 [ext_resource type="Texture2D" uid="uid://bmq07hcg2fb6r" path="res://textures/pack/techet2.png" id="72_qhbuu"]
-[ext_resource type="Texture2D" uid="uid://tv1x15rteq2q" path="res://textures/pack/hui2.png" id="73_1fc18"]
 [ext_resource type="Texture2D" uid="uid://wpvm8vpluvdu" path="res://assets/test/the_object_soviet_newspaper_props_0.png" id="73_b7hc5"]
 [ext_resource type="Script" uid="uid://17w7wthtlc54" path="res://scripts/surround.gd" id="73_renq8"]
 [ext_resource type="AudioStream" uid="uid://c3y787vo7p5uq" path="res://sound/surround/rt_eerie_wind1.ogg" id="73_rvu2m"]
@@ -2330,12 +2330,12 @@ albedo_texture = ExtResource("72_qhbuu")
 [sub_resource type="PlaneMesh" id="PlaneMesh_ld5jk"]
 material = SubResource("StandardMaterial3D_1fc18")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrgmg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tlrr"]
 transparency = 1
-albedo_texture = ExtResource("73_1fc18")
+albedo_texture = ExtResource("63_uj6tj")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5fawk"]
-material = SubResource("StandardMaterial3D_jrgmg")
+material = SubResource("StandardMaterial3D_5tlrr")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbk7e"]
 resource_name = "Material.006"
