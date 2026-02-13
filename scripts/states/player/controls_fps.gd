@@ -16,8 +16,10 @@ var walk_sounds : Array[Resource]
 var cur_walk_sound : int = 0
 var walk_sound_played : bool = false
 var can_walk : bool = false
-
+	
+	
 func _ready() -> void:
+	add_to_group("player")
 	head_init_pos = $head.position
 	walk_sounds.append(load("res://sound/walk/walk_concrete1.ogg"))
 	walk_sounds.append(load("res://sound/walk/walk_concrete2.ogg"))

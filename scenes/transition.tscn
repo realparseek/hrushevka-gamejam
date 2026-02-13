@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cfy01rfsc5g08" path="res://models/transition/transition_floor2_128f.png" id="3_6ancn"]
 [ext_resource type="Texture2D" uid="uid://br3flmcbejoyy" path="res://models/transition/transition_walls0w.png" id="4_lvx3c"]
 [ext_resource type="Script" uid="uid://cpdo7peeudei1" path="res://scripts/scene_load_trigger.gd" id="6_50nbv"]
+[ext_resource type="Texture2D" uid="uid://dxkyyl4y672ok" path="res://textures/pack/dirtyy2.png" id="7_6ancn"]
+[ext_resource type="Texture2D" uid="uid://dwx783csnks3g" path="res://textures/pack/techet.png" id="8_lvx3c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hi828"]
 size = Vector3(8.484108, 7.2116394, 0.3334961)
@@ -333,6 +335,18 @@ size = Vector3(1.0955143, 2.662384, 1.1445532)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0e1dl"]
 size = Vector3(1.0955143, 2.662384, 1.1445532)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_lvx3c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kejnv"]
+transparency = 1
+albedo_texture = ExtResource("7_6ancn")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kejnv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0e1dl"]
+transparency = 1
+albedo_texture = ExtResource("8_lvx3c")
+
 [node name="transition" type="Node3D" unique_id=889211787]
 
 [node name="white_door" parent="." unique_id=1060592183 instance=ExtResource("1_50nbv")]
@@ -443,3 +457,13 @@ unload_scenes = Array[String](["basement"])
 [node name="collider" type="CollisionShape3D" parent="enterence_load_trigger3" unique_id=1997540871]
 shape = SubResource("BoxShape3D_0e1dl")
 debug_color = Color(0.34333745, 0.6109148, 0.32744738, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1705375653]
+transform = Transform3D(5.032382e-09, -0.6, 3.5988954e-08, 0.45298466, -1.9800588e-08, -0.39345255, 0.39345255, 3.0470748e-08, 0.45298466, 5.5385537, 1.736886, 2.9955616)
+mesh = SubResource("PlaneMesh_lvx3c")
+surface_material_override/0 = SubResource("StandardMaterial3D_kejnv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1084744982]
+transform = Transform3D(-3.520632e-08, -0.8, -3.4730288e-08, 0.7999815, -3.496911e-08, -0.005445308, 0.005445308, -3.496911e-08, 0.7999815, 5.5356402, 4.2101755, 1.617209)
+mesh = SubResource("PlaneMesh_kejnv")
+surface_material_override/0 = SubResource("StandardMaterial3D_0e1dl")

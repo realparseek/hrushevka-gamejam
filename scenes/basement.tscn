@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d1kgucyy1w2ad" path="res://models/basement/basement_door.png" id="7_dqwih"]
 [ext_resource type="Texture2D" uid="uid://cvpin51yvtcn" path="res://models/basement/basement_white_ceiling_baked.png" id="8_nvrgk"]
 [ext_resource type="Material" uid="uid://cnfjy5uvcj1s4" path="res://materials/wires.material" id="11_olx36"]
-[ext_resource type="AudioStream" uid="uid://cpxl03y8wlie5" path="res://sound/limansk.ogg" id="12_uj6tj"]
+[ext_resource type="AudioStream" uid="uid://dbc3fxmgxmjkr" path="res://sound/radio/amigo.ogg" id="12_uj6tj"]
 [ext_resource type="AudioStream" uid="uid://nb5g8u301xpv" path="res://sound/light/switch1.ogg" id="14_wgfj2"]
 [ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="19_v858h"]
 [ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="20_nlhde"]
