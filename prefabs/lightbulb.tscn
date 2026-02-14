@@ -1,18 +1,18 @@
-[gd_scene load_steps=13 format=4 uid="uid://lwd5retbcq1p"]
+[gd_scene format=4 uid="uid://lwd5retbcq1p"]
 
-[ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="1_ujwm2"]
-[ext_resource type="Texture2D" uid="uid://bocmtrpbba5w" path="res://models/lightbulb/lightbulb_lightbulb_emission.png" id="2_48juk"]
-[ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="3_48juk"]
-[ext_resource type="Script" uid="uid://bm426oydcs6ee" path="res://scripts/states/lightbulb/turned_off.gd" id="4_j8o86"]
-[ext_resource type="Script" uid="uid://dxsyi6twmwt7k" path="res://scripts/states/lightbulb/turned_on.gd" id="5_oja4a"]
+[ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="1_j8o86"]
+[ext_resource type="Texture2D" uid="uid://bocmtrpbba5w" path="res://models/lightbulb/lightbulb_lightbulb_emission.png" id="2_oja4a"]
+[ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="3_xeuc5"]
+[ext_resource type="Script" uid="uid://bm426oydcs6ee" path="res://scripts/states/lightbulb/turned_off.gd" id="4_tc0bp"]
+[ext_resource type="Script" uid="uid://dxsyi6twmwt7k" path="res://scripts/states/lightbulb/turned_on.gd" id="5_hhtrg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_p2keb"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_hnvi1"]
 size = Vector3(0.1499939, 0.20683098, 0.15645027)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hg8t"]
 resource_name = "lightbulb_off"
 cull_mode = 2
-albedo_texture = ExtResource("1_ujwm2")
+albedo_texture = ExtResource("1_j8o86")
 roughness = 0.5
 texture_filter = 2
 
@@ -31,7 +31,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_gba4x"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_svxdm"]
 resource_name = "lightbulb_Icosphere"
 _surfaces = [{
 "aabb": AABB(-0.07368078, -0.106399566, -0.07747235, 0.1488125, 0.20354928, 0.1549447),
@@ -53,11 +53,11 @@ shadow_mesh = SubResource("ArrayMesh_si668")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnri6"]
 resource_name = "lightbulb_on"
 cull_mode = 2
-albedo_texture = ExtResource("1_ujwm2")
+albedo_texture = ExtResource("1_j8o86")
 roughness = 0.5
 emission_enabled = true
 emission_energy_multiplier = 5.0
-emission_texture = ExtResource("2_48juk")
+emission_texture = ExtResource("2_oja4a")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_d3hcj"]
@@ -75,7 +75,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_kal8p"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_jxuce"]
 resource_name = "lightbulb_Icosphere_002"
 _surfaces = [{
 "aabb": AABB(-0.07368078, -0.106399566, -0.07747235, 0.1488125, 0.20354928, 0.1549447),
@@ -94,38 +94,42 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d3hcj")
 
-[node name="lightbulb" type="StaticBody3D"]
+[node name="lightbulb" type="StaticBody3D" unique_id=827160578]
+transform = Transform3D(-4.371139e-08, -8.742278e-08, 1, 0, -1, -8.742278e-08, 1, -3.821371e-15, 4.371139e-08, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012054443, -0.005473137, -0.0001707077)
-shape = SubResource("BoxShape3D_p2keb")
+[node name="collider" type="CollisionShape3D" parent="." unique_id=2080814677]
+transform = Transform3D(1, 0, 0, 0, 1, -1.6703743e-22, 0, -1.6703743e-22, 1, -0.025662422, -0.005473137, -0.00016975403)
+shape = SubResource("BoxShape3D_hnvi1")
 
-[node name="lightbulb_off" type="MeshInstance3D" parent="."]
+[node name="lightbulb_off" type="MeshInstance3D" parent="." unique_id=2128266645]
+transform = Transform3D(1, 0, 0, 0, 1, -1.6703743e-22, 0, -1.6703743e-22, 1, -0.014913559, -0.018859386, 0)
 visible = false
-mesh = SubResource("ArrayMesh_gba4x")
+layers = 2
+mesh = SubResource("ArrayMesh_svxdm")
 skeleton = NodePath("")
 
-[node name="lightbulb_on" type="MeshInstance3D" parent="."]
-mesh = SubResource("ArrayMesh_kal8p")
+[node name="lightbulb_on" type="MeshInstance3D" parent="." unique_id=390743409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023360968, 0, 0)
+layers = 2
+mesh = SubResource("ArrayMesh_jxuce")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_color = Color(1, 0.92156863, 0.75686276, 1)
+[node name="omni_light" type="OmniLight3D" parent="." unique_id=389371820]
+transform = Transform3D(1, 0, 0, 0, 1, -1.6703743e-22, 0, -1.6703743e-22, 1, -0.020225525, 0.11284995, 0)
+light_color = Color(0.972549, 0.8392157, 0.65882355, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
-omni_range = 4.6
+shadow_enabled = true
+shadow_caster_mask = 4294967293
+omni_range = 10.794722
 omni_attenuation = 0.6
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_48juk")
+[node name="StateMachine" type="Node" parent="." unique_id=518157254 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_xeuc5")
 initial_state = NodePath("TurnedOn")
 
-[node name="TurnedOff" type="Node" parent="StateMachine" node_paths=PackedStringArray("light", "mesh")]
-script = ExtResource("4_j8o86")
-light = NodePath("../../OmniLight3D")
-mesh = NodePath("../../lightbulb_off")
+[node name="TurnedOff" type="Node" parent="StateMachine" unique_id=590359918]
+script = ExtResource("4_tc0bp")
 
-[node name="TurnedOn" type="Node" parent="StateMachine" node_paths=PackedStringArray("light", "mesh")]
-script = ExtResource("5_oja4a")
-light = NodePath("../../OmniLight3D")
-mesh = NodePath("../../lightbulb_on")
+[node name="TurnedOn" type="Node" parent="StateMachine" unique_id=1823018753]
+script = ExtResource("5_hhtrg")

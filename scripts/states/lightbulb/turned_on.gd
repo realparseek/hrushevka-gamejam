@@ -1,8 +1,8 @@
 extends State
 
-@export var light: OmniLight3D = null
-@export var mesh_on: MeshInstance3D = null
-@export var mesh_off: MeshInstance3D = null
+@onready var light: OmniLight3D = get_parent().get_parent().get_child(3)
+@onready var mesh_on: MeshInstance3D = get_parent().get_parent().get_child(2)
+@onready var mesh_off: MeshInstance3D = get_parent().get_parent().get_child(1)
 
 @onready var enter_blink_timer: float = 1.0
 

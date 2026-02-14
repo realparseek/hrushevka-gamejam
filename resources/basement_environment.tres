@@ -1,13 +1,9 @@
-[gd_resource type="Environment" load_steps=2 format=3 uid="uid://byswbkpxkpyxw"]
-
-[sub_resource type="Sky" id="Sky_hc2hy"]
+[gd_resource type="Environment" format=3 uid="uid://byswbkpxkpyxw"]
 
 [resource]
 background_mode = 2
-sky = SubResource("Sky_hc2hy")
 ambient_light_source = 2
-ambient_light_color = Color(0.47585332, 0.36934885, 0.27998945, 1)
-ambient_light_energy = 2.0
+ambient_light_color = Color(0.44837016, 0.34840265, 0.2603182, 1)
 tonemap_mode = 3
 tonemap_exposure = 0.6
 ssr_enabled = true

@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://oqvkk737j3yy" path="res://sound/door/babkadoor/babka-ugrozaet (1).mp3" id="2_5caol"]
 [ext_resource type="Texture2D" uid="uid://fkwchxjvj1ov" path="res://models/enterance/enterance_wood.png" id="2_s6fmq"]
-[ext_resource type="Script" uid="uid://cn4082xur23kv" path="res://scripts/DoorBabka.gd" id="2_vymw1"]
+[ext_resource type="Script" path="res://scripts/DoorBabka.gd" id="2_vymw1"]
 [ext_resource type="AudioStream" uid="uid://cadgjce6xeefs" path="res://sound/molodec_pesenka.ogg" id="3_8lvkg"]
 [ext_resource type="Texture2D" uid="uid://cxecg0lfc1yk1" path="res://models/enterance/enterance_floor0.png" id="3_cr15g"]
 [ext_resource type="AudioStream" uid="uid://c3wtdmxiqlq6f" path="res://sound/door/babkadoor/babka-ugrozaet (2).mp3" id="3_jmbeh"]

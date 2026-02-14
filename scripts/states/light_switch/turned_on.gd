@@ -1,6 +1,6 @@
 extends State
 
-@export var light_sources: Array[State]
+@export var light_sources: Array[StaticBody3D]
 @export var audio_player: RaytracedAudioPlayer3D
 
 @onready var environment: WorldEnvironment = $'../../../../env'
@@ -9,7 +9,7 @@ func enter() -> void:
 	if audio_player:
 		audio_player.play()
 	for ls in light_sources:
-		ls.Transitioned.emit("turnedon", ls.get_parent().current_state)
+		ls.get_child(4).get_child(0).Transitioned.emit("turnedon", ls.get_child(4).current_state)
 	
 func exit() -> void:
 	pass

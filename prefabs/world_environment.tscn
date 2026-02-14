@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://8bf0ubij0keq"]
+[gd_scene format=3 uid="uid://8bf0ubij0keq"]
 
 [ext_resource type="Environment" uid="uid://byswbkpxkpyxw" path="res://resources/basement_environment.tres" id="1_x16oa"]
 [ext_resource type="Shader" uid="uid://doxte1xpnc2aw" path="res://shader_test/test_shader.gdshader" id="2_wjtrd"]
@@ -15,10 +15,10 @@ shader_parameter/chroma_aberration = 0.0005
 shader_parameter/tv_noise_strength = 0.02
 shader_parameter/tv_noise_speed = 3.0
 
-[node name="WorldEnvironment" type="WorldEnvironment"]
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=1788442818]
 environment = ExtResource("1_x16oa")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1711675456]
 material = SubResource("ShaderMaterial_01g3i")
 anchors_preset = 15
 anchor_right = 1.0

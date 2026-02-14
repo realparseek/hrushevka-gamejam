@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://0u571tr54y4j"]
+[gd_scene format=4 uid="uid://0u571tr54y4j"]
 
 [ext_resource type="Texture2D" uid="uid://cli7xtrcb1qb3" path="res://assets/glb/low_poly_psx_wall_lamp_0.png" id="1_run8n"]
 [ext_resource type="Texture2D" uid="uid://354jf6orwb1j" path="res://assets/glb/low_poly_psx_wall_lamp_1.png" id="2_7bevp"]
@@ -44,12 +44,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rlir7")
 
-[node name="nastennayalanmpa" type="Node3D"]
+[node name="nastennayalanmpa" type="Node3D" unique_id=487468707]
 transform = Transform3D(-0.9998766, 0, 0.01570741, 0, 1, 0, -0.01570741, 0, -0.9998766, 0, 0, 0)
 
-[node name="Cube" type="Node3D" parent="."]
+[node name="Cube" type="Node3D" parent="." unique_id=1965784473]
 transform = Transform3D(0.088227645, 1.1641532e-10, -1.3877788e-17, 0, -1.43741055e-08, 0.08822763, 1.1641532e-10, -0.088227645, -1.4374106e-08, 0, 0, 0)
 
-[node name="Cube" type="MeshInstance3D" parent="Cube"]
+[node name="Cube" type="MeshInstance3D" parent="Cube" unique_id=1522847393]
 mesh = SubResource("ArrayMesh_4k3fh")
 skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cube" unique_id=1142232977]
+transform = Transform3D(11.334316, -4.4703484e-08, 3.5527137e-15, 4.4703484e-08, 11.334316, -5.684342e-13, 0, 1.1368684e-13, 11.334317, 0.027664462, -1.7610185, -2.8690636e-07)
+light_color = Color(0.5284582, 0.49767536, 0.255574, 1)
+shadow_enabled = true

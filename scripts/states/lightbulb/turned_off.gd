@@ -1,7 +1,7 @@
 extends State
 
-@export var light: OmniLight3D = null
-@export var mesh: MeshInstance3D = null
+@onready var light: OmniLight3D = get_parent().get_parent().get_child(3)
+@onready var mesh: MeshInstance3D = get_parent().get_parent().get_child(1)
 
 func enter() -> void:
 	light.visible = false

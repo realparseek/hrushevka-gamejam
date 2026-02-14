@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dhu7d5mfju5tc"]
+
+[ext_resource type="Script" uid="uid://do27p8vrteexw" path="res://scripts/main.gd" id="1_j4bwh"]
+[ext_resource type="PackedScene" uid="uid://8bf0ubij0keq" path="res://prefabs/world_environment.tscn" id="2_ksmap"]
+[ext_resource type="PackedScene" uid="uid://d3i24moe7m2ha" path="res://prefabs/player_fps.tscn" id="5_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://drcnp78aaq63m" path="res://sound/underground.ogg" id="12_trceg"]
+[ext_resource type="AudioStream" uid="uid://cxxrr5wrepik1" path="res://sound/whispers-of-the-breeze_91433 (1) (1).mp3" id="13_a8y0u"]
+
+[node name="main" type="Node3D" unique_id=862588848]
+script = ExtResource("1_j4bwh")
+
+[node name="env" parent="." unique_id=2011971821 instance=ExtResource("2_ksmap")]
+
+[node name="ambient" type="AudioStreamPlayer" parent="." unique_id=1529245151]
+stream = ExtResource("12_trceg")
+volume_db = -35.266
+pitch_scale = 0.9
+autoplay = true
+
+[node name="music" type="AudioStreamPlayer" parent="ambient" unique_id=1829966720]
+stream = ExtResource("13_a8y0u")
+volume_db = -40.725
+pitch_scale = 0.21
+autoplay = true
+
+[node name="player_fps" parent="." unique_id=1050280649 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.166617, 2.9892845, 2.901995)
+collision_layer = 3
+
+[node name="label" type="Label" parent="." unique_id=1670312431]
+offset_right = 209.0
+offset_bottom = 45.0
