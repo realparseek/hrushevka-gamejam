@@ -203,15 +203,3 @@ script = ExtResource("8_ommhc")
 
 [node name="Close" type="Node" parent="Interactable" unique_id=230357611]
 script = ExtResource("9_djjbo")
-
-[node name="Close2" type="Node" parent="Interactable" unique_id=1953127706]
-script = ExtResource("9_djjbo")
-
-[node name="Close3" type="Node" parent="Interactable" unique_id=1754973964]
-script = ExtResource("9_djjbo")
-
-[node name="Close4" type="Node" parent="Interactable" unique_id=1767749773]
-script = ExtResource("9_djjbo")
-
-[node name="Close5" type="Node" parent="Interactable" unique_id=2139181606]
-script = ExtResource("9_djjbo")
