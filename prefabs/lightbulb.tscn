@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b80ex7ek0uq1r" path="res://models/lightbulb/lightbulb_lightbulb.png" id="1_j8o86"]
 [ext_resource type="Texture2D" uid="uid://bocmtrpbba5w" path="res://models/lightbulb/lightbulb_lightbulb_emission.png" id="2_oja4a"]
+[ext_resource type="Script" uid="uid://b7d4it7fk8oj0" path="res://scripts/lights/lamp_stable.gd" id="3_oja4a"]
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="3_xeuc5"]
 [ext_resource type="Script" uid="uid://bm426oydcs6ee" path="res://scripts/states/lightbulb/turned_off.gd" id="4_tc0bp"]
 [ext_resource type="Script" uid="uid://dxsyi6twmwt7k" path="res://scripts/states/lightbulb/turned_on.gd" id="5_hhtrg"]
@@ -116,13 +117,14 @@ skeleton = NodePath("")
 
 [node name="omni_light" type="OmniLight3D" parent="." unique_id=389371820]
 transform = Transform3D(1, 0, 0, 0, 1, -1.6703743e-22, 0, -1.6703743e-22, 1, -0.020225525, 0.11284995, 0)
-light_color = Color(0.972549, 0.8392157, 0.65882355, 1)
+light_color = Color(0.9019608, 0.7254902, 0.5411765, 1)
 light_energy = 1.2
 light_indirect_energy = 2.0
 shadow_enabled = true
 shadow_caster_mask = 4294967293
 omni_range = 10.794722
 omni_attenuation = 0.6
+script = ExtResource("3_oja4a")
 
 [node name="StateMachine" type="Node" parent="." unique_id=518157254 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_xeuc5")

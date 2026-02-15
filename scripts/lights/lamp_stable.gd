@@ -1,12 +1,11 @@
 extends OmniLight3D
 
-@export var base_energy: float = 1.0
-@export var flicker_strength: float = 0.01  
+@export var base_energy: float = 1.2
+@export var flicker_strength: float = 0.02  
 @export var flicker_speed: float = 90.0
 
 func _ready():
 	light_energy = base_energy
-	light_color = Color("ffebc1ff")
 
 func _process(_delta):
 	# Только мерцание, без мигания

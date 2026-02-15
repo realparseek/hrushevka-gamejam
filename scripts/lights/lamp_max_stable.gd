@@ -6,7 +6,7 @@ extends OmniLight3D
 
 func _ready():
 	light_energy = base_energy
-	light_color = Color("ffebc1ff")
+	light_color = Color("c9a063")
 
 func _process(_delta):
 	# Только мерцание, без мигания

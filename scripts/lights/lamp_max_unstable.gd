@@ -1,6 +1,6 @@
 extends OmniLight3D
 
-@export var base_energy: float = 1.0
+@export var base_energy: float = 1.2
 @export var flicker_strength: float = 0.01  
 @export var flicker_speed: float = 70.0
 @export var min_blink_interval: float = 8.0
@@ -14,7 +14,7 @@ var pattern_total_duration: float = 0.0
 
 func _ready():
 	light_energy = base_energy
-	light_color = Color("ffebc1ff")
+	light_color = Color("c9a063")
 	reset_blink_timer()
 
 func _process(delta):
