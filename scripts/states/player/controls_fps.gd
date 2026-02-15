@@ -13,8 +13,10 @@ var headbob_timer : float = 0.0
 var look_sensetivity_mul : float = 0.001
 var head_init_pos : Vector3 = Vector3.ZERO
 var camera_init_pos : Vector3 = Vector3.ZERO
+var collider_init_height : float = 0.0
 var prev_head_y : float = 0.0
 var walk_sounds : Array[Resource]
+var crawl_sounds : Array[Resource]
 var cur_walk_sound : int = 0
 var walk_sound_played : bool = false
 var can_walk : bool = false
@@ -25,10 +27,16 @@ func _ready() -> void:
 	add_to_group("player")
 	head_init_pos = Vector3($head.position)
 	camera_init_pos = Vector3($head/camera.position)
+	collider_init_height = $collider.shape.height
 	walk_sounds.append(load("res://sound/walk/walk_concrete1.ogg"))
 	walk_sounds.append(load("res://sound/walk/walk_concrete2.ogg"))
 	walk_sounds.append(load("res://sound/walk/walk_concrete3.ogg"))
 	walk_sounds.append(load("res://sound/walk/walk_concrete4.ogg"))
+	
+	crawl_sounds.append(load("res://sound/walk/crawl1.ogg"))
+	crawl_sounds.append(load("res://sound/walk/crawl2.ogg"))
+	crawl_sounds.append(load("res://sound/walk/crawl3.ogg"))
+	crawl_sounds.append(load("res://sound/walk/crawl4.ogg"))
 	
 func _process(delta: float) -> void:
 	_handle_headbob(delta)
@@ -77,7 +85,8 @@ func _handle_gravity() -> void:
 func _handle_crouching(delta: float) -> void:
 	if Input.is_action_just_pressed('crouch'):
 		crouching = !crouching
-	$head.position.y = lerp($head.position.y, ((head_init_pos.y-crouching_size) if crouching else head_init_pos.y), delta*3)
+	$head.position.y = lerp($head.position.y, ((head_init_pos.y-crouching_size/1.5) if crouching else head_init_pos.y), delta*3)
+	$collider.shape.height = lerp($collider.shape.height, ((collider_init_height-crouching_size) if crouching else collider_init_height), delta*3)
 
 func _handle_headbob(delta: float) -> void:
 	if is_on_floor():
@@ -102,14 +111,16 @@ func _get_move_speed() -> float:
 
 func _play_random_walk_sound() -> void:
 	#if not walk_audio.playing:
-	
-	walk_audio.stream = walk_sounds[cur_walk_sound]
 	if crouching:
-		walk_audio.volume_db = -40
-	elif Input.is_action_pressed('sprint'):
+		walk_audio.stream = crawl_sounds[cur_walk_sound]
+	else:
+		walk_audio.stream = walk_sounds[cur_walk_sound]
+	#if crouching:
+		#walk_audio.volume_db = -40
+	if Input.is_action_pressed('sprint'):
 		walk_audio.volume_db = -15
 	else:
 		walk_audio.volume_db = -20
 	walk_audio.play()
-	print(walk_audio.volume_db)
+	#print(walk_audio.volume_db)
 	cur_walk_sound = wrap(cur_walk_sound+1, 0, 4)
