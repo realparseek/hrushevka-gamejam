@@ -13,7 +13,7 @@ func _ready():
 	interaction_area.body_entered.connect(_on_body_entered)
 	interaction_area.body_exited.connect(_on_body_exited)
 
-func _process(delta):
+func _process(_delta):
 	if player_in_range and Input.is_action_just_pressed("interact"):
 		if audio_player and door_sounds.size() > 0:
 			audio_player.stream = door_sounds[current_sound_index]

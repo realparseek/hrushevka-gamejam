@@ -535,7 +535,6 @@ shadow_mesh = SubResource("ArrayMesh_3x4kf")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mocsf"]
 resource_name = "чугун"
 cull_mode = 2
-shading_mode = 0
 albedo_texture = ExtResource("6_qew7w")
 texture_filter = 2
 
