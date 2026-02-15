@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkpexs3fp4f7"
-path="res://.godot/imported/basement_ext_floor_cement_baked.png-60e2f9e6316ba90968340d31976f6cb8.ctex"
+uid="uid://c3c5jx2h276"
+path="res://.godot/imported/basement_ext_wall_brick_baked_8.png-dde8a8f580761a5d4527f43cedcbdb84.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "646fca70c0c98af35322b83bba2cd54a"
+"md5": "954a3d3ec462c4c40de3e1d37c60424c"
 }
 
 [deps]
 
-source_file="res://models/basement_ext/basement_ext_floor_cement_baked.png"
-dest_files=["res://.godot/imported/basement_ext_floor_cement_baked.png-60e2f9e6316ba90968340d31976f6cb8.ctex"]
+source_file="res://models/basement_ext/basement_ext_wall_brick_baked_8.png"
+dest_files=["res://.godot/imported/basement_ext_wall_brick_baked_8.png-dde8a8f580761a5d4527f43cedcbdb84.ctex"]
 
 [params]
 

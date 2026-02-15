@@ -27,7 +27,10 @@ func load_scene(scene_name: String) -> void:
 		return
 	ResourceLoader.load_threaded_request('res://scenes/' + scene_name + '.tscn', '', true)
 	scenes_loading.append(scene_name)
-	#print('Scene loading: ', scene_name)
+	if scene_name == "enterence":
+		$env.ambient_energy = 1.0
+	elif scene_name == "basement":
+		$env.ambient_energy = 6.0
 
 func unload_scene(scene_name: String) -> void:
 	if scene_name in scenes_loading:
