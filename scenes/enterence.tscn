@@ -76,6 +76,7 @@
 [ext_resource type="Texture2D" uid="uid://dvhhc6eomkrvg" path="res://textures/pack/koskajena.png" id="65_et6l7"]
 [ext_resource type="Texture2D" uid="uid://24ln5qgm58st" path="res://textures/pack/nnadpis34.png" id="67_3brgh"]
 [ext_resource type="Texture2D" uid="uid://fkmvektjmcb8" path="res://textures/pack/nnadpis26.png" id="68_x1k1h"]
+[ext_resource type="PackedScene" uid="uid://m4fti5s0mco5" path="res://assets/newassetskraslavia2000/soviet_furniture_pack_lowpoly.glb" id="77_v6mv5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t0qnf"]
 size = Vector3(5.4707184, 1.2009888, 3.7311172)
@@ -2197,7 +2198,7 @@ interaction_area = NodePath("Area3D")
 audio_player = NodePath("RaytracedAudioPlayer3D")
 
 [node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="enterence/DoorNull" unique_id=357092687]
-transform = Transform3D(0.99502504, 0, -1.4210855e-14, 0, 0.9950249, 0, 1.4210855e-14, 0, 0.99502504, 0, 0, 0)
+transform = Transform3D(0.99502504, 0, -1.4210855e-14, 0, 0.9950249, 0, 1.4210855e-14, 0, 0.99502504, 0.24895056, 0.31147385, 3.5554886e-15)
 volume_db = -11.0
 unit_size = 5.0
 max_distance = 4.0
@@ -3016,3 +3017,6 @@ emission_angle_degrees = 58.0
 emission_angle_filter_attenuation_db = -30.0
 script = ExtResource("65_7d5gt")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
+[node name="Sketchfab_Scene" parent="." unique_id=1127778000 instance=ExtResource("77_v6mv5")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.2938336, 4.0090313, 2.7771046)
