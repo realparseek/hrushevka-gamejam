@@ -76,7 +76,6 @@
 [ext_resource type="Texture2D" uid="uid://dvhhc6eomkrvg" path="res://textures/pack/koskajena.png" id="65_et6l7"]
 [ext_resource type="Texture2D" uid="uid://24ln5qgm58st" path="res://textures/pack/nnadpis34.png" id="67_3brgh"]
 [ext_resource type="Texture2D" uid="uid://fkmvektjmcb8" path="res://textures/pack/nnadpis26.png" id="68_x1k1h"]
-[ext_resource type="PackedScene" uid="uid://m4fti5s0mco5" path="res://assets/newassetskraslavia2000/soviet_furniture_pack_lowpoly.glb" id="77_v6mv5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t0qnf"]
 size = Vector3(5.4707184, 1.2009888, 3.7311172)
@@ -3017,6 +3016,3 @@ emission_angle_degrees = 58.0
 emission_angle_filter_attenuation_db = -30.0
 script = ExtResource("65_7d5gt")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
-
-[node name="Sketchfab_Scene" parent="." unique_id=1127778000 instance=ExtResource("77_v6mv5")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.2938336, 4.0090313, 2.7771046)

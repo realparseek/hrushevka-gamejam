@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dv8l3h817g3mw"
+path="res://.godot/imported/ost-bumer (mp3cut.net).mp3-2619aa038cbc1dcfd3b1612ef296b3a1.mp3str"
+
+[deps]
+
+source_file="res://sound/ost-bumer (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/ost-bumer (mp3cut.net).mp3-2619aa038cbc1dcfd3b1612ef296b3a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

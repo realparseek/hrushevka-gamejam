@@ -91,6 +91,8 @@
 [ext_resource type="AudioStream" uid="uid://cw3kir6es88vg" path="res://sound/surround/new_drops1.ogg" id="94_trqyk"]
 [ext_resource type="AudioStream" uid="uid://b2tlg7sfu4omv" path="res://sound/surround/sfx_amb_wind_tat_a_loop.ogg" id="95_00u7k"]
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="95_rvu2m"]
+[ext_resource type="Script" uid="uid://cn4082xur23kv" path="res://scripts/DoorBabka.gd" id="96_5tlrr"]
+[ext_resource type="AudioStream" uid="uid://dq1eqbrh2e3yp" path="res://ost-bumer (mp3cut.net).mp3" id="97_5tlrr"]
 [ext_resource type="AudioStream" uid="uid://bkmwd5e88aupv" path="res://sound/radio/radio_noise-VEED.mp3" id="97_uj6tj"]
 [ext_resource type="PackedScene" uid="uid://bpfqou0e5r8vc" path="res://assets/glb/ps2_chair.glb" id="97_wgfj2"]
 [ext_resource type="Material" uid="uid://cku5ja4w5t710" path="res://assets/object/Priemnik/Radio.tres" id="100_40r2m"]
@@ -2573,6 +2575,9 @@ size = Vector3(0.3460083, 0.33874512, 0.05078125)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5tlrr"]
 absorbent = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gpqk7"]
+size = Vector3(8.733948, 6.7037354, 3.085083)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5tlrr"]
 size = Vector3(7.6870117, 6.4627686, 2.4179688)
 
@@ -3810,6 +3815,29 @@ collision_layer = 4
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_5tlrr")
 continuous_cd = true
+
+[node name="Node3D" type="Node3D" parent="Fizika/Ratsia" unique_id=1073328713 node_paths=PackedStringArray("interaction_area", "audio_player")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+script = ExtResource("96_5tlrr")
+door_sounds = Array[AudioStream]([ExtResource("97_5tlrr")])
+interaction_area = NodePath("Area3D")
+audio_player = NodePath("Area3D/RaytracedAudioPlayer3D")
+
+[node name="Area3D" type="Area3D" parent="Fizika/Ratsia/Node3D" unique_id=348751715]
+transform = Transform3D(-1.7770843e-10, -0.004065588, 0.08801961, 0.008333331, -3.6426462e-10, -4.1054101e-16, 3.179718e-10, 0.0072744675, 0.049192503, 0.49975777, 0.51153946, -0.21014881)
+
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="Fizika/Ratsia/Node3D/Area3D" unique_id=1425558253]
+transform = Transform3D(-2.1324825e-06, 100.000015, 3.8156286e-06, -48.785103, -4.37106e-06, 87.29066, 7.2142224, -9.497803e-13, 4.0319176, -61.384735, 51.269775, -3.3096695)
+volume_db = -1.0
+unit_size = 4.0
+max_distance = 3.0
+bus = &"RaytracedReverb"
+script = ExtResource("95_rvu2m")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fizika/Ratsia/Node3D/Area3D" unique_id=1281741420]
+transform = Transform3D(0.9999996, -8.881784e-15, 2.0236257e-11, -4.126477e-12, 0.9999995, 0, -6.949996e-14, 1.1175871e-08, 0.9999999, 0.68878174, -0.050048828, 0.29278564)
+shape = SubResource("BoxShape3D_gpqk7")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Fizika/Ratsia" unique_id=18307947]
 transform = Transform3D(-1.7770845e-10, -0.0040655877, 0.08801962, 0.008333331, -3.642646e-10, -4.1054101e-16, 3.179718e-10, 0.0072744675, 0.04919251, 0.49975777, 0.51153946, -0.21014881)
