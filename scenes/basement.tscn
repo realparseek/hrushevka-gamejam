@@ -2767,7 +2767,7 @@ mesh = SubResource("ArrayMesh_mp45n")
 skeleton = NodePath("")
 
 [node name="Потолок_006" type="MeshInstance3D" parent="NavigationRegion3D/NewNewMesh" unique_id=175767251]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4670486, 3.1000001, -8.623684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4670484, 3.1844234, -8.623684)
 mesh = SubResource("ArrayMesh_d38g2")
 skeleton = NodePath("")
 
@@ -2782,12 +2782,12 @@ mesh = SubResource("ArrayMesh_veegm")
 skeleton = NodePath("")
 
 [node name="floor_001" type="MeshInstance3D" parent="NavigationRegion3D/NewNewMesh" unique_id=536444891]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012090683, 0, 5.807624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012090683, 0.00030636787, 5.791971)
 mesh = SubResource("ArrayMesh_kbio6")
 skeleton = NodePath("")
 
 [node name="floor_002" type="MeshInstance3D" parent="NavigationRegion3D/NewNewMesh" unique_id=67054059]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2121042, -0.007519722, 3.85429)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.212, 0.002, 3.854)
 mesh = SubResource("ArrayMesh_ym7yv")
 skeleton = NodePath("")
 
