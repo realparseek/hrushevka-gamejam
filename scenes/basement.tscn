@@ -85,6 +85,7 @@
 [ext_resource type="AudioStream" uid="uid://34lr2ogoflwb" path="res://sound/surround/rnd_dog6.ogg" id="88_b7hc5"]
 [ext_resource type="AudioStream" uid="uid://c2iua4acxglpv" path="res://sound/surround/breath_4.ogg" id="89_8j7gd"]
 [ext_resource type="AudioStream" uid="uid://ckkf8f4itywr8" path="res://sound/surround/ambience03.ogg" id="90_dy81h"]
+[ext_resource type="Texture2D" uid="uid://c8d3dcfrpp3cu" path="res://textures/moon-dif-512.png" id="91_40r2m"]
 [ext_resource type="AudioStream" uid="uid://c7ytlgxnayth" path="res://sound/surround/rats_panic_3.ogg" id="91_jhj6i"]
 [ext_resource type="AudioStream" uid="uid://dy4qqlblb6xu" path="res://sound/surround/rats_panic_1.ogg" id="92_jxdt7"]
 [ext_resource type="AudioStream" uid="uid://scgq4wdl3uhw" path="res://sound/surround/new_drops2.ogg" id="93_kuisk"]
@@ -1188,6 +1189,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6363c")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvx64"]
+size = Vector3(0.8112793, 1.5013428, 2.3144531)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pqttm"]
+size = Vector3(0.061767578, 0.66516113, 0.05871582)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vp4i3"]
 resource_name = "wire"
@@ -2583,10 +2590,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_c58bs")
 
-[sub_resource type="FogMaterial" id="FogMaterial_40r2m"]
-density = 0.07
-albedo = Color(0.8439394, 1, 1, 1)
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_0gq6o"]
 _surfaces = [{
 "aabb": AABB(-0.19016589, -0.123773016, -0.19842008, 0.38033178, 0.18811095, 0.39684016),
@@ -2618,6 +2621,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0gq6o")
+
+[sub_resource type="FogMaterial" id="FogMaterial_40r2m"]
+density = 0.07
+albedo = Color(0.8439394, 1, 1, 1)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_40r2m"]
 friction = 0.8
@@ -2728,11 +2735,11 @@ size = Vector3(0.3460083, 0.33874512, 0.05078125)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5tlrr"]
 absorbent = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gpqk7"]
-size = Vector3(8.733948, 6.7037354, 3.085083)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_5tlrr"]
 size = Vector3(7.6870117, 6.4627686, 2.4179688)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gpqk7"]
+size = Vector3(8.688232, 7.156433, 2.3969727)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oi76d"]
 resource_name = "Brick_Phone"
@@ -2874,6 +2881,13 @@ absorbent = true
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pqttm"]
 absorbent = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sg3ro"]
+rough = true
+absorbent = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v54ks"]
+size = Vector3(1.5388489, 0.5071564, 0.79681396)
 
 [node name="basement" type="Node3D" unique_id=909503105]
 
@@ -3034,10 +3048,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4981976, 3, 4.022297)
 mesh = SubResource("ArrayMesh_vtlfw")
 skeleton = NodePath("")
 
-[node name="Cube_015" type="MeshInstance3D" parent="NavigationRegion3D/NewNewMesh" unique_id=1244017515]
+[node name="polka" type="MeshInstance3D" parent="NavigationRegion3D/NewNewMesh" unique_id=1244017515]
 transform = Transform3D(0.9929229, 0, -0.11876048, 0, 1, 0, 0.11876048, 0, 0.9929229, -7.3071456, 1.4394587, -7.919729)
 mesh = SubResource("ArrayMesh_15fev")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/NewNewMesh/polka" unique_id=449915382]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/NewNewMesh/polka/StaticBody3D" unique_id=62018666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18258953, -0.07525635, 1.6596298)
+shape = SubResource("BoxShape3D_jvx64")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavigationRegion3D/NewNewMesh/polka/StaticBody3D" unique_id=463673299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5831728, -1.1064254, 1.6832237)
+shape = SubResource("BoxShape3D_pqttm")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="NavigationRegion3D/NewNewMesh/polka/StaticBody3D" unique_id=834570947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57783127, -1.1064254, 0.5305195)
+shape = SubResource("BoxShape3D_pqttm")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="NavigationRegion3D/NewNewMesh/polka/StaticBody3D" unique_id=1726005228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57921124, -1.1064254, 2.833786)
+shape = SubResource("BoxShape3D_pqttm")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="NavigationRegion3D/NewNewMesh/polka/StaticBody3D" unique_id=825283054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18925762, -1.1064254, 2.832407)
+shape = SubResource("BoxShape3D_pqttm")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="NavigationRegion3D/NewNewMesh/polka/StaticBody3D" unique_id=618161455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18345833, -1.1064254, 1.680048)
+shape = SubResource("BoxShape3D_pqttm")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="NavigationRegion3D/NewNewMesh/polka/StaticBody3D" unique_id=1450802668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18879032, -1.1064254, 0.529129)
+shape = SubResource("BoxShape3D_pqttm")
 
 [node name="BézierCurve_001" type="MeshInstance3D" parent="NavigationRegion3D/NewNewMesh" unique_id=2074445816]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44765294, 2.7231014, 6.213642)
@@ -3896,6 +3940,29 @@ transform = Transform3D(0.6817593, 0.06560504, -0.7286293, -0.037349638, 0.99779
 mesh = SubResource("ArrayMesh_tkj2x")
 skeleton = NodePath("")
 
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="trash" unique_id=369778241]
+transform = Transform3D(0.95371103, -0.0033290929, -0.3007058, 0.003490651, 0.9999938, 0, 0.30070394, -0.001049659, 0.95371693, 8.486924, 0.0038638115, -1.7582455)
+mesh = SubResource("PlaneMesh_hih8g")
+
+[node name="military_radio" type="Node3D" parent="." unique_id=1146608093]
+transform = Transform3D(-0.26745677, 0, 0.9635699, 0, 1, 0, -0.9635699, 0, -0.26745677, 17.032267, -1.3700387, -5.346958)
+
+[node name="military_radio" type="MeshInstance3D" parent="military_radio" unique_id=505738199]
+transform = Transform3D(1.5, 0, 0, 0, 1.1020751, 0, 0, 0, 1.1419238, 0, 0, 0)
+mesh = SubResource("ArrayMesh_0xk1r")
+skeleton = NodePath("")
+
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="military_radio/military_radio" unique_id=1328296171]
+transform = Transform3D(0.6666666, 0, 2.9802322e-08, 0, 0.90737915, 0, 1.4901161e-08, 0, 0.8757151, 0, 0.19519246, 0)
+stream = ExtResource("97_uj6tj")
+volume_db = -14.679
+unit_size = 2.0
+autoplay = true
+max_distance = 3.0
+bus = &"RaytracedAmbient"
+script = ExtResource("95_rvu2m")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
 [node name="zadnik" type="Node3D" parent="." unique_id=867536484]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.529573, -2.3725135, 2.081852)
 
@@ -3965,27 +4032,10 @@ transform = Transform3D(0.98574734, 0.16312604, 0.041140534, -0.16427621, 0.9860
 size = Vector3(1.3623, 1.6357422, 8.427695)
 material = SubResource("FogMaterial_40r2m")
 
-[node name="military_radio" type="Node3D" parent="." unique_id=1146608093]
-transform = Transform3D(-0.26745677, 0, 0.9635699, 0, 1, 0, -0.9635699, 0, -0.26745677, 17.032267, -1.3700387, -5.346958)
-
-[node name="military_radio" type="MeshInstance3D" parent="military_radio" unique_id=505738199]
-transform = Transform3D(1.5, 0, 0, 0, 1.1020751, 0, 0, 0, 1.1419238, 0, 0, 0)
-mesh = SubResource("ArrayMesh_0xk1r")
-skeleton = NodePath("")
-
-[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="military_radio/military_radio" unique_id=1328296171]
-transform = Transform3D(0.6666666, 0, 2.9802322e-08, 0, 0.90737915, 0, 1.4901161e-08, 0, 0.8757151, 0, 0.19519246, 0)
-stream = ExtResource("97_uj6tj")
-volume_db = -14.679
-unit_size = 2.0
-autoplay = true
-max_distance = 3.0
-bus = &"RaytracedAmbient"
-script = ExtResource("95_rvu2m")
-metadata/_custom_type_script = "uid://dkb8ltjc6067n"
-
-[node name="Sketchfab_Scene3" parent="." unique_id=1202578169 instance=ExtResource("111_8j7gd")]
-transform = Transform3D(-0.015897285, 2.1240481e-08, 0.49974728, -0.48697594, 0.11231395, -0.015491031, -0.11225724, -0.48722228, -0.0035709569, 16.087593, -1.9798136, -3.0877323)
+[node name="Sprite3D" type="Sprite3D" parent="zadnik/DirectionalLight3D" unique_id=1180679061]
+transform = Transform3D(7.9252157, 0.6452013, 0.8801561, -0.6136043, 7.9701147, -0.31742144, -0.90246814, 0.24694562, 7.9450965, 19.968216, 0.16965866, 487.01456)
+layers = 16
+texture = ExtResource("91_40r2m")
 
 [node name="Fizika" type="Node3D" parent="." unique_id=838208408]
 
@@ -4097,17 +4147,18 @@ collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_5tlrr")
 continuous_cd = true
 
-[node name="Node3D" type="Node3D" parent="Fizika/Ratsia" unique_id=1073328713 node_paths=PackedStringArray("interaction_area", "audio_player")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Fizika/Ratsia" unique_id=18307947]
+transform = Transform3D(-1.7770851e-10, -0.004065588, 0.08801964, 0.008333332, -3.6426465e-10, -5.84236e-16, 3.1797187e-10, 0.007274469, 0.049192514, 0.49975777, 0.51153946, -0.21014833)
+shape = SubResource("BoxShape3D_5tlrr")
+
+[node name="Area3D" type="Area3D" parent="Fizika/Ratsia" unique_id=348751715 node_paths=PackedStringArray("interaction_area", "audio_player")]
+transform = Transform3D(-1.7770849e-10, -0.004065589, 0.08801964, 0.008333332, -3.6426465e-10, -4.1054107e-16, 3.1797193e-10, 0.0072744708, 0.04919251, 0.49975777, 0.51153946, -0.21014786)
 script = ExtResource("96_5tlrr")
 door_sounds = Array[AudioStream]([ExtResource("97_5tlrr")])
-interaction_area = NodePath("Area3D")
-audio_player = NodePath("Area3D/RaytracedAudioPlayer3D")
+interaction_area = NodePath(".")
+audio_player = NodePath("RaytracedAudioPlayer3D")
 
-[node name="Area3D" type="Area3D" parent="Fizika/Ratsia/Node3D" unique_id=348751715]
-transform = Transform3D(-1.7770843e-10, -0.004065588, 0.08801961, 0.008333331, -3.6426462e-10, -4.1054101e-16, 3.179718e-10, 0.0072744675, 0.049192503, 0.49975777, 0.51153946, -0.21014881)
-
-[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="Fizika/Ratsia/Node3D/Area3D" unique_id=1425558253]
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="Fizika/Ratsia/Area3D" unique_id=1425558253]
 transform = Transform3D(-2.1324825e-06, 100.000015, 3.8156286e-06, -48.785103, -4.37106e-06, 87.29066, 7.2142224, -9.497803e-13, 4.0319176, -61.384735, 51.269775, -3.3096695)
 volume_db = -1.0
 unit_size = 4.0
@@ -4116,13 +4167,9 @@ bus = &"RaytracedReverb"
 script = ExtResource("95_rvu2m")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fizika/Ratsia/Node3D/Area3D" unique_id=1281741420]
-transform = Transform3D(0.9999996, -8.881784e-15, 2.0236257e-11, -4.126477e-12, 0.9999995, 0, -6.949996e-14, 1.1175871e-08, 0.9999999, 0.68878174, -0.050048828, 0.29278564)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fizika/Ratsia/Area3D" unique_id=1771491546]
+transform = Transform3D(1.0000798, -2.8315128e-12, 1.8985702e-11, 9.7699626e-14, 1, -4.7683716e-07, 3.9745984e-14, 0, 1, 0.24111938, 0.21191406, -0.004753113)
 shape = SubResource("BoxShape3D_gpqk7")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Fizika/Ratsia" unique_id=18307947]
-transform = Transform3D(-1.7770845e-10, -0.0040655877, 0.08801962, 0.008333331, -3.642646e-10, -4.1054101e-16, 3.179718e-10, 0.0072744675, 0.04919251, 0.49975777, 0.51153946, -0.21014881)
-shape = SubResource("BoxShape3D_5tlrr")
 
 [node name="Brick Phone_Brick Phone_0" type="MeshInstance3D" parent="Fizika/Ratsia" unique_id=685228025]
 transform = Transform3D(-1.777084e-10, -0.0040654982, 0.088019624, 0.008333333, -3.6426157e-10, 0, 3.1797182e-10, 0.00727435, 0.04919251, 0.6911583, 0.49259222, -0.10326481)
@@ -4200,3 +4247,17 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fizika/BoxPhysic/RigidBody3D3" unique_id=1169400418]
 transform = Transform3D(0.9796109, 0.20092416, 8.375547e-09, -0.20092441, 0.97960776, -2.9545788e-09, -8.798663e-09, 1.21047e-09, 1.0001445, -0.0036419183, 3.1739473e-06, -0.0071715303)
 shape = SubResource("BoxShape3D_mfxom")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Fizika" unique_id=922055047]
+transform = Transform3D(-0.015897285, 2.1240481e-08, 0.49974728, -0.48697594, 0.11231395, -0.015491031, -0.11225724, -0.48722228, -0.0035709569, 16.087593, -1.9798136, -3.0877323)
+collision_layer = 4
+collision_mask = 5
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_sg3ro")
+
+[node name="Sketchfab_Scene3" parent="Fizika/RigidBody3D" unique_id=1202578169 instance=ExtResource("111_8j7gd")]
+transform = Transform3D(1, 0, 2.3283064e-09, 0, 1.0000001, 4.656613e-10, 1.3969839e-09, -4.656613e-10, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fizika/RigidBody3D" unique_id=1490900845]
+transform = Transform3D(1, 4.4703484e-08, 4.0594023e-07, 0, 1.0000008, 3.3853576e-07, 1.3969839e-09, -1.7043203e-07, 1, 0.021914482, 0.26001358, -0.0010948181)
+shape = SubResource("BoxShape3D_v54ks")

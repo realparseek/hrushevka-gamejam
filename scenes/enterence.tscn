@@ -2132,7 +2132,7 @@ absorbent = true
 absorbent = true
 
 [sub_resource type="FogMaterial" id="FogMaterial_kj5b3"]
-density = 0.07
+density = 0.08
 albedo = Color(0.58560264, 0.98355645, 1, 1)
 
 [node name="enterence" type="Node3D" unique_id=361712955]
@@ -2758,7 +2758,7 @@ transform = Transform3D(-0.29911178, -4.555051e-08, 0.023068072, -0.023068072, -
 mesh = SubResource("PlaneMesh_v6mv5")
 
 [node name="MeshInstance3D34" type="MeshInstance3D" parent="nadpisi" unique_id=1629232153]
-transform = Transform3D(-0.18778515, -0.48017338, 0.73767895, 0.11845605, -0.7612053, -0.4653328, 0.872184, -5.588378e-08, 0.222025, 2.4646633, 5.9005938, 1.9706627)
+transform = Transform3D(-0.18778515, -0.48017338, 0.73767895, 0.11845605, -0.7612053, -0.4653328, 0.872184, -5.588378e-08, 0.222025, 2.6540732, 5.7811127, 2.0276709)
 mesh = SubResource("PlaneMesh_vymw1")
 
 [node name="MeshInstance3D35" type="MeshInstance3D" parent="nadpisi" unique_id=1602340911]

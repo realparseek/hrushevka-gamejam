@@ -11,37 +11,37 @@ extends State
 @onready var cbody_player: CharacterBody3D = $"../../../../player_fps"
 @onready var walk_val: float = 0.0
 
-func enter() -> void:
-	agent.target_position = target3d
-	walk_val = 0.0
+#func enter() -> void:
+	#agent.target_position = target3d
+	#walk_val = 0.0
 
-func exit() -> void:
-	pass
+#func exit() -> void:
+	#pass
 
-func physics_update(_delta: float) -> void:
-	walk_val = lerpf(walk_val, 1.0, blend_weight)
-	update_anim_tree()
+#func physics_update(_delta: float) -> void:
+	#walk_val = lerpf(walk_val, 1.0, blend_weight)
+	#update_anim_tree()
 
-	agent.target_position = cbody_player.global_position
+	#agent.target_position = cbody_player.global_position
 
-	if agent.is_target_reached():
-		return
+	#if agent.is_target_reached():
+		#return
 
-	var next_pos: Vector3 = agent.get_next_path_position()
-	var direction: Vector3 = (next_pos - cbody.global_position).normalized()
-	direction.y = 0
+	#var next_pos: Vector3 = agent.get_next_path_position()
+	#var direction: Vector3 = (next_pos - cbody.global_position).normalized()
+	#direction.y = 0
 
-	if direction.length() > 0:
-		var target_angle: float = atan2(direction.x, direction.z)
-		cbody.rotation.y = lerp_angle(cbody.rotation.y, target_angle, blend_weight)
+	#if direction.length() > 0:
+		#var target_angle: float = atan2(direction.x, direction.z)
+		#cbody.rotation.y = lerp_angle(cbody.rotation.y, target_angle, blend_weight)
 
-	cbody.velocity.x = direction.x * move_speed
-	cbody.velocity.z = direction.z * move_speed
+	#cbody.velocity.x = direction.x * move_speed
+	#cbody.velocity.z = direction.z * move_speed
 
 	#if not cbody.is_on_floor():
 		#cbody.velocity.y -= gravity * delta
 
-	cbody.move_and_slide()
+	#cbody.move_and_slide()
 
-func update_anim_tree() -> void:
-	anim_tree["parameters/Walk/blend_amount"] = walk_val
+#func update_anim_tree() -> void:
+	#anim_tree["parameters/Walk/blend_amount"] = walk_val
