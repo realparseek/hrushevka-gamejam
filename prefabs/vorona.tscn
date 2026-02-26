@@ -1,10 +1,12 @@
 [gd_scene format=4 uid="uid://bk2hl6m52xp03"]
 
 [ext_resource type="Texture2D" uid="uid://pwcmipk7jjbr" path="res://models/vorona/vorona_animated_vorona.png" id="1_20gvs"]
+[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="1_cws7d"]
 [ext_resource type="Texture2D" uid="uid://d174w4isa85ae" path="res://models/vorona/vorona_animated_лапы.png" id="2_56okk"]
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="3_0rmse"]
 [ext_resource type="Script" uid="uid://d1tvlu2thtrnu" path="res://scripts/states/vorona/idle.gd" id="4_20gvs"]
 [ext_resource type="Script" uid="uid://bianc3trtp0mn" path="res://scripts/states/vorona/walking.gd" id="5_56okk"]
+[ext_resource type="Script" uid="uid://6swiavh4b8wf" path="res://scripts/states/vorona/patrol.gd" id="7_42e17"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ekjw"]
 resource_name = "vorona"
@@ -355,12 +357,23 @@ node_connections = [&"output", 0, &"Walk", &"Walk", 0, &"Idle", &"Walk", 1, &"Wa
 radius = 0.38671875
 height = 2.228222
 
-[node name="vorona" type="CharacterBody3D" unique_id=20597948]
+[node name="vorona" type="CharacterBody3D" unique_id=1732243969]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Armature" type="Node3D" parent="." unique_id=1243831735]
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=430886918]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07452183, 0.78548205, 1.1211573)
+volume_db = -11.743
+unit_size = 2.0
+autoplay = true
+max_distance = 10.0
+bus = &"RaytracedReverb"
+script = ExtResource("1_cws7d")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
+[node name="Armature" type="Node3D" parent="." unique_id=568595744]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0.03708285, 0.5039682, -0.30496216)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Armature" unique_id=1070600534]
+[node name="Skeleton3D" type="Skeleton3D" parent="Armature" unique_id=1372614396]
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0.9996566, 0.025872728, -0.0041455855, -0.013100618, 0.35648656, -0.93420887, -0.022692678, 0.93394214, 0.35670322, -0.09985103, -0.99789524, -0.15631342)
@@ -373,7 +386,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999828, 0.009128875, -0.016145615, -0.011823841, 0.9843874, -0.17561781, 0.014290348, 0.17577851, 0.984326, -1.1175871e-08, 2.7788723, -2.2304448e-07)
 bones/1/enabled = true
 bones/1/position = Vector3(-1.1175871e-08, 2.7788723, -2.2304448e-07)
-bones/1/rotation = Quaternion(0.09245471, -0.00041686642, -0.0077709737, 0.99568653)
+bones/1/rotation = Quaternion(0.092468195, -0.00085394795, -0.007893023, 0.995684)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
@@ -414,8 +427,8 @@ bones/7/name = "Bone.004.L"
 bones/7/parent = 0
 bones/7/rest = Transform3D(0.998846, -0.041325457, -0.024477486, -0.027496178, -0.07413328, -0.99686927, 0.03938148, 0.9963918, -0.07518402, 1.8551283, 2.6880772, 1.7027749)
 bones/7/enabled = true
-bones/7/position = Vector3(1.9459953, 2.8619962, 1.798414)
-bones/7/rotation = Quaternion(0.6722932, 0.015998576, -0.013155429, 0.7399953)
+bones/7/position = Vector3(1.9113593, 2.8777373, 1.8119689)
+bones/7/rotation = Quaternion(0.67234504, 0.016237805, -0.013284339, 0.7399406)
 bones/7/scale = Vector3(1.0000001, 1, 1)
 bones/8/name = "Bone.005.L"
 bones/8/parent = 7
@@ -436,7 +449,7 @@ bones/10/parent = 0
 bones/10/rest = Transform3D(0.9957256, 0.05336217, 0.07538642, 0.079118885, -0.07168269, -0.9942846, -0.047653276, 0.99599904, -0.07559824, -1.7778823, 2.5940492, 1.7178408)
 bones/10/enabled = true
 bones/10/position = Vector3(-1.8500059, 2.7634387, 1.8139052)
-bones/10/rotation = Quaternion(0.66383994, 0.055737194, 0.01626028, 0.7456175)
+bones/10/rotation = Quaternion(0.6636932, 0.05670335, 0.016043508, 0.74568015)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Bone.005.R"
 bones/11/parent = 10
@@ -460,34 +473,39 @@ bones/13/position = Vector3(0, 0, 0)
 bones/13/rotation = Quaternion(-0.70710677, 0, 0, 0.70710677)
 bones/13/scale = Vector3(1, 1, 1)
 
-[node name="jaw" type="MeshInstance3D" parent="Armature/Skeleton3D" unique_id=641341117]
+[node name="jaw" type="MeshInstance3D" parent="Armature/Skeleton3D" unique_id=1944654620]
 mesh = SubResource("ArrayMesh_gycy2")
 skin = SubResource("Skin_ncv6y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1990261861]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=623036922]
 libraries/ = SubResource("AnimationLibrary_0e6ay")
 
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1644847575]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1343761214]
 tree_root = SubResource("AnimationNodeBlendTree_56okk")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Walk/blend_amount = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=363041247]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=902407912]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.021728516, 0.31575012, 0.32011604)
 shape = SubResource("CapsuleShape3D_56okk")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1064830235]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=268661516]
 
-[node name="VoronaStates" type="Node" parent="." unique_id=775399739 node_paths=PackedStringArray("initial_state")]
+[node name="VoronaStates" type="Node" parent="." unique_id=1893816146 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_0rmse")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="VoronaStates" unique_id=1720933366 node_paths=PackedStringArray("anim_tree")]
+[node name="Idle" type="Node" parent="VoronaStates" unique_id=507005826 node_paths=PackedStringArray("anim_tree")]
 script = ExtResource("4_20gvs")
 anim_tree = NodePath("../../AnimationTree")
 
-[node name="Walking" type="Node" parent="VoronaStates" unique_id=1855432148 node_paths=PackedStringArray("agent", "anim_tree")]
+[node name="Walking" type="Node" parent="VoronaStates" unique_id=98416212 node_paths=PackedStringArray("agent", "anim_tree")]
 script = ExtResource("5_56okk")
 agent = NodePath("../../NavigationAgent3D")
 anim_tree = NodePath("../../AnimationTree")
 target3d = Vector3(2, 0, -5)
+
+[node name="Patrol" type="Node" parent="VoronaStates" unique_id=1494808249 node_paths=PackedStringArray("agent", "anim_tree")]
+script = ExtResource("7_42e17")
+agent = NodePath("../../NavigationAgent3D")
+anim_tree = NodePath("../../AnimationTree")

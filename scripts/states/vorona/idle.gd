@@ -24,7 +24,7 @@ func physics_update(_delta: float) -> void:
 	update_anim_tree()
 	
 	if cbody_player.global_position.distance_to(cbody.global_position) <= 5.0:
-		Transitioned.emit("walking", self)
+		Transitioned.emit("patrol", self)
 	
 	#if !cbody.is_on_floor():
 		#cbody.velocity.y -= gravity

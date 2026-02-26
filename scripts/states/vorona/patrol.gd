@@ -6,26 +6,31 @@ extends State
 @export var anim_tree: AnimationTree = null
 @export var target3d: Vector3 = Vector3.ZERO
 @export var blend_weight: float = 0.05
+@export var patrol_points: Array[Node3D] = []
 
 @onready var cbody: CharacterBody3D = $"../.."
-@onready var cbody_player: CharacterBody3D = $"../../../../player_fps"
 @onready var walk_val: float = 0.0
 
 func enter() -> void:
 	agent.target_position = target3d
 	walk_val = 0.0
-
+	
 func exit() -> void:
 	pass
 
+func update(_delta: float) -> void:
+	pass
+
 func physics_update(_delta: float) -> void:
+	if agent.is_target_reached():
+		walk_val = lerpf(walk_val, 0.0, blend_weight)
+		update_anim_tree()
+		return
+	
 	walk_val = lerpf(walk_val, 1.0, blend_weight)
 	update_anim_tree()
 
-	agent.target_position = cbody_player.global_position
-
-	if agent.is_target_reached():
-		return
+	agent.target_position = patrol_points[0].global_position
 
 	var next_pos: Vector3 = agent.get_next_path_position()
 	var direction: Vector3 = (next_pos - cbody.global_position).normalized()
