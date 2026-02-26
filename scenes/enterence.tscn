@@ -1982,10 +1982,10 @@ absorbent = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ucity"]
 radius = 0.37109375
-height = 1.4052734
+height = 1.3046875
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v6mv5"]
-size = Vector3(0.67749023, 0.15722656, 0.53930664)
+size = Vector3(0.7233887, 0.15722656, 0.6231079)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x1k1h"]
 size = Vector3(0.21484375, 1, 0.265625)
@@ -2931,11 +2931,11 @@ physics_material_override = SubResource("PhysicsMaterial_3brgh")
 continuous_cd = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PHYSIHSWATAFAK/RigidBody3D6" unique_id=656553399]
-transform = Transform3D(0.0019999784, 5.8207657e-11, 0, -5.820766e-11, -8.7421494e-11, -0.0019999782, -5.8207657e-11, 0.0019999782, -8.7421966e-11, 0, 0, 0.0010283962)
+transform = Transform3D(0.0019999784, 5.820762e-11, 0, -3.4924597e-10, -8.7421015e-11, -0.0019999782, -5.8207304e-11, 0.0019999624, -8.7421966e-11, 0, 0, 0.0011289828)
 shape = SubResource("CapsuleShape3D_ucity")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PHYSIHSWATAFAK/RigidBody3D6" unique_id=1710547073]
-transform = Transform3D(0.0019999782, 5.8207657e-11, -5.820766e-11, 0, -8.742494e-11, -0.001999978, -5.8207654e-11, 0.001999978, -8.7426115e-11, 0, 0, -0.0004914999)
+transform = Transform3D(0.0019999782, 5.820757e-11, -3.4924597e-10, 0, -8.742433e-11, -0.001999978, -5.8207068e-11, 0.0019999496, -8.742628e-11, -2.2153785e-05, -3.8295975e-06, -0.00046671892)
 shape = SubResource("BoxShape3D_v6mv5")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="PHYSIHSWATAFAK/RigidBody3D6" unique_id=1395727032]
@@ -3063,6 +3063,7 @@ transform = Transform3D(599.9998, 0, 0, 0, 599.9998, 0, 0, 0, 599.9998, 2457.831
 transform = Transform3D(12.986572, 0, -15.210159, 0, 20, 0, 15.210159, 0, 12.986572, -14.030766, -0.57382154, 16.369936)
 
 [node name="Node3D" type="Node3D" parent="Zadnik/zadnik" unique_id=1206098341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.055414, 5.321393, 30.121206)
 script = ExtResource("77_nafpa")
 audio_files = Array[AudioStream]([ExtResource("79_3d0pk"), ExtResource("80_kj5b3"), ExtResource("78_o2oxt"), ExtResource("82_cr15g"), ExtResource("81_s6fmq"), ExtResource("86_s6fmq"), ExtResource("87_cr15g")])
 
