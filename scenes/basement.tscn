@@ -3092,7 +3092,7 @@ absorbent = true
 size = Vector3(7.6870117, 6.4627686, 2.4179688)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gpqk7"]
-size = Vector3(8.688232, 7.156433, 2.3969727)
+size = Vector3(20.85962, 24.46489, 3.0646973)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oi76d"]
 resource_name = "Brick_Phone"
@@ -3686,7 +3686,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999828, 0.009128875, -0.016145615, -0.011823841, 0.9843874, -0.17561781, 0.014290348, 0.17577851, 0.984326, -1.1175871e-08, 2.7788723, -2.2304448e-07)
 bones/1/enabled = true
 bones/1/position = Vector3(-1.1175871e-08, 2.7788723, -2.2304448e-07)
-bones/1/rotation = Quaternion(0.09237143, 0.0022707314, -0.0070204665, 0.9956973)
+bones/1/rotation = Quaternion(0.092445515, -0.00011831542, -0.0076876096, 0.99568814)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
@@ -3727,8 +3727,8 @@ bones/7/name = "Bone.004.L"
 bones/7/parent = 0
 bones/7/rest = Transform3D(0.998846, -0.041325457, -0.024477486, -0.027496178, -0.07413328, -0.99686927, 0.03938148, 0.9963918, -0.07518402, 1.8551283, 2.6880772, 1.7027749)
 bones/7/enabled = true
-bones/7/position = Vector3(1.9463006, 2.8618574, 1.7982945)
-bones/7/rotation = Quaternion(0.67311746, 0.019825961, -0.0152178835, 0.73911315)
+bones/7/position = Vector3(1.9006873, 2.882588, 1.8161455)
+bones/7/rotation = Quaternion(0.67255336, 0.017200062, -0.01380288, 0.73972)
 bones/7/scale = Vector3(1.0000001, 1, 1)
 bones/8/name = "Bone.005.L"
 bones/8/parent = 7
@@ -3749,7 +3749,7 @@ bones/10/parent = 0
 bones/10/rest = Transform3D(0.9957256, 0.05336217, 0.07538642, 0.079118885, -0.07168269, -0.9942846, -0.047653276, 0.99599904, -0.07559824, -1.7778823, 2.5940492, 1.7178408)
 bones/10/enabled = true
 bones/10/position = Vector3(-1.8500059, 2.7634387, 1.8139052)
-bones/10/rotation = Quaternion(0.66387504, 0.055505503, 0.016312262, 0.74560237)
+bones/10/rotation = Quaternion(0.6636185, 0.057191424, 0.015933981, 0.7457115)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Bone.005.R"
 bones/11/parent = 10
@@ -4668,7 +4668,7 @@ script = ExtResource("95_rvu2m")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fizika/Ratsia/Area3D" unique_id=1771491546]
-transform = Transform3D(1.0000798, -2.8315128e-12, 1.8985702e-11, 9.7699626e-14, 1, -4.7683716e-07, 3.9745984e-14, 0, 1, 0.24111938, 0.21191406, -0.004753113)
+transform = Transform3D(1.0001081, -3.8369308e-12, 2.5750069e-11, 1.2256862e-13, 1, -4.7683716e-07, 4.962697e-14, 0, 1, 0.24111938, -0.13256836, -0.33869934)
 shape = SubResource("BoxShape3D_gpqk7")
 
 [node name="Brick Phone_Brick Phone_0" type="MeshInstance3D" parent="Fizika/Ratsia" unique_id=685228025]
