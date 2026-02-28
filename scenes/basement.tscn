@@ -2976,8 +2976,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0gq6o")
 
 [sub_resource type="FogMaterial" id="FogMaterial_40r2m"]
-density = 0.07
-albedo = Color(0.8439394, 1, 1, 1)
+density = 0.06
+albedo = Color(0.58431375, 0.9843137, 1, 1)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_40r2m"]
 friction = 0.8
@@ -3686,7 +3686,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999828, 0.009128875, -0.016145615, -0.011823841, 0.9843874, -0.17561781, 0.014290348, 0.17577851, 0.984326, -1.1175871e-08, 2.7788723, -2.2304448e-07)
 bones/1/enabled = true
 bones/1/position = Vector3(-1.1175871e-08, 2.7788723, -2.2304448e-07)
-bones/1/rotation = Quaternion(0.092445515, -0.00011831542, -0.0076876096, 0.99568814)
+bones/1/rotation = Quaternion(0.09231896, 0.003952198, -0.00655089, 0.9957002)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
@@ -3727,8 +3727,8 @@ bones/7/name = "Bone.004.L"
 bones/7/parent = 0
 bones/7/rest = Transform3D(0.998846, -0.041325457, -0.024477486, -0.027496178, -0.07413328, -0.99686927, 0.03938148, 0.9963918, -0.07518402, 1.8551283, 2.6880772, 1.7027749)
 bones/7/enabled = true
-bones/7/position = Vector3(1.9006873, 2.882588, 1.8161455)
-bones/7/rotation = Quaternion(0.67255336, 0.017200062, -0.01380288, 0.73972)
+bones/7/position = Vector3(1.9466376, 2.8617043, 1.7981626)
+bones/7/rotation = Quaternion(0.6736364, 0.022268176, -0.01653387, 0.7385424)
 bones/7/scale = Vector3(1.0000001, 1, 1)
 bones/8/name = "Bone.005.L"
 bones/8/parent = 7
@@ -3749,7 +3749,7 @@ bones/10/parent = 0
 bones/10/rest = Transform3D(0.9957256, 0.05336217, 0.07538642, 0.079118885, -0.07168269, -0.9942846, -0.047653276, 0.99599904, -0.07559824, -1.7778823, 2.5940492, 1.7178408)
 bones/10/enabled = true
 bones/10/position = Vector3(-1.8500059, 2.7634387, 1.8139052)
-bones/10/rotation = Quaternion(0.6636185, 0.057191424, 0.015933981, 0.7457115)
+bones/10/rotation = Quaternion(0.66391385, 0.055249676, 0.016369658, 0.7455857)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Bone.005.R"
 bones/11/parent = 10
@@ -4518,16 +4518,16 @@ volume_db = -8.0
 transform = Transform3D(12.986572, 0, -15.210159, 0, 20, 0, 15.210159, 0, 12.986572, -14.030766, -0.57382154, 16.369936)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="zadnik" unique_id=1828466890]
-transform = Transform3D(0.13833272, -0.89270794, 0.42887825, -0.88526374, 0.08269997, 0.45767727, -0.4440404, -0.44298226, -0.77884185, -1.5744817, 2.9089904, -14.220701)
+transform = Transform3D(0.13270307, -0.89824164, 0.41898912, -0.8614839, 0.10451455, 0.49691254, -0.49013793, -0.42689422, -0.7599514, -1.5744817, 2.9089904, -14.220701)
 layers = 3
 light_color = Color(0.53333336, 0.6, 0.6666667, 1)
-light_energy = 0.7
+light_energy = 0.72
 light_volumetric_fog_energy = 2.167
 shadow_enabled = true
 
 [node name="FogVolume" type="FogVolume" parent="zadnik/DirectionalLight3D" unique_id=439056478]
-transform = Transform3D(0.98574734, 0.16312604, 0.041140534, -0.16427621, 0.98606384, 0.026304275, -0.036276333, -0.032687843, 0.99880713, -2.0330954, -1.4194098, -7.8362427)
-size = Vector3(1.3623, 1.6357422, 8.427695)
+transform = Transform3D(0.9928478, 0.000927411, 0.119380474, -0.0059188977, 0.99912274, 0.041464, -0.1192371, -0.04187423, 0.99198234, -2.380084, -1.5041742, -7.104065)
+size = Vector3(1.409057, 1.417572, 9.708477)
 material = SubResource("FogMaterial_40r2m")
 
 [node name="Sprite3D" type="Sprite3D" parent="zadnik/DirectionalLight3D" unique_id=1180679061]
