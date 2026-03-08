@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://b5mhhu0eu3wpo" path="res://textures/pack/hui3.png" id="37_txlg3"]
 [ext_resource type="Texture2D" uid="uid://d0e0q8fbjkq7i" path="res://textures/pack/dirty4.png" id="38_avet7"]
 [ext_resource type="Texture2D" uid="uid://wpvm8vpluvdu" path="res://assets/test/the_object_soviet_newspaper_props_0.png" id="42_mn4lv"]
+[ext_resource type="Texture2D" uid="uid://dhumetoi1hta8" path="res://textures/pack/ehh9.png" id="43_aa62y"]
 [ext_resource type="Texture2D" uid="uid://ispr2oje1nkj" path="res://assets/test/the_object_soviet_newspaper_props_1.png" id="43_wqmiu"]
 [ext_resource type="PackedScene" uid="uid://i024dw8xdfb1" path="res://assets/test/russian_poster_2.glb" id="44_mn4lv"]
 [ext_resource type="Texture2D" uid="uid://cxam38gx8sjyg" path="res://assets/test/the_object_soviet_newspaper_props_2.png" id="44_rum65"]
@@ -50,7 +51,6 @@
 [ext_resource type="Texture2D" uid="uid://djtlbkim77ax0" path="res://textures/pack/nadpisnew10.png" id="49_310ar"]
 [ext_resource type="PackedScene" uid="uid://b64sdijf3kci" path="res://assets/test/soviet_old_bedside.glb" id="49_ac8ua"]
 [ext_resource type="Texture2D" uid="uid://cfp6cm5dm3ame" path="res://textures/pack/nadpis2.png" id="49_w7277"]
-[ext_resource type="Texture2D" uid="uid://bn7loh4vovwft" path="res://textures/pack/nadpisnew2.png" id="50_310ar"]
 [ext_resource type="PackedScene" uid="uid://brejjd0v5sivc" path="res://assets/test/soviet_old_chair.glb" id="50_iw817"]
 [ext_resource type="Texture2D" uid="uid://bfhhtnwt51x2i" path="res://textures/pack/nadpisnew9.png" id="51_7i3xr"]
 [ext_resource type="PackedScene" uid="uid://dtosra4w38wwt" path="res://assets/test/soviet_table (1).glb" id="51_ac8ua"]
@@ -66,7 +66,7 @@
 [ext_resource type="Texture2D" uid="uid://boo1nirv7dnyl" path="res://textures/pack/isskustvo.png" id="60_vymw1"]
 [ext_resource type="Texture2D" uid="uid://byfflb6t0jfqy" path="res://textures/pack/visjeno.png" id="61_vymw1"]
 [ext_resource type="Texture2D" uid="uid://b04fsttnsu16o" path="res://textures/pack/karakulii6.png" id="62_6egfy"]
-[ext_resource type="Texture2D" uid="uid://djllk3vwdtf4m" path="res://textures/pack/isskustvo2.png" id="62_w7277"]
+[ext_resource type="Texture2D" uid="uid://7up6okoop1nj" path="res://textures/pack/ehh5.png" id="62_ikxxi"]
 [ext_resource type="Texture2D" uid="uid://dxkyyl4y672ok" path="res://textures/pack/dirtyy2.png" id="63_vymw1"]
 [ext_resource type="Texture2D" uid="uid://hgnvi5nbh6lk" path="res://textures/pack/nnadpis24.png" id="63_x1k1h"]
 [ext_resource type="Texture2D" uid="uid://c44r2oai7wl77" path="res://textures/pack/isskustvo23.png" id="64_6egfy"]
@@ -74,7 +74,7 @@
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="65_7d5gt"]
 [ext_resource type="Texture2D" uid="uid://dcv8rujn8r4c" path="res://textures/pack/nnadpis21.png" id="65_cn3pe"]
 [ext_resource type="Texture2D" uid="uid://dvhhc6eomkrvg" path="res://textures/pack/koskajena.png" id="65_et6l7"]
-[ext_resource type="Texture2D" uid="uid://24ln5qgm58st" path="res://textures/pack/nnadpis34.png" id="67_3brgh"]
+[ext_resource type="Texture2D" uid="uid://c6yieabihq506" path="res://textures/pack/ehh4.png" id="67_od05n"]
 [ext_resource type="Texture2D" uid="uid://fkmvektjmcb8" path="res://textures/pack/nnadpis26.png" id="68_x1k1h"]
 [ext_resource type="PackedScene" uid="uid://2bn8khlej3v" path="res://assets/glb/psx_soviet_panel_building_khrushchyovka.glb" id="77_kj5b3"]
 [ext_resource type="Script" uid="uid://17w7wthtlc54" path="res://scripts/surround.gd" id="77_nafpa"]
@@ -1820,7 +1820,7 @@ material = SubResource("StandardMaterial3D_iumhv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcm8x"]
 transparency = 1
-albedo_texture = ExtResource("50_310ar")
+albedo_texture = ExtResource("43_aa62y")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iumhv"]
 material = SubResource("StandardMaterial3D_jcm8x")
@@ -1946,7 +1946,7 @@ albedo_texture = ExtResource("64_6egfy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmbeh"]
 transparency = 1
-albedo_texture = ExtResource("62_w7277")
+albedo_texture = ExtResource("62_ikxxi")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jmbeh"]
 
@@ -1976,7 +1976,7 @@ albedo_texture = ExtResource("58_et6l7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6fmq"]
 transparency = 1
-albedo_texture = ExtResource("67_3brgh")
+albedo_texture = ExtResource("67_od05n")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o2oxt"]
 
