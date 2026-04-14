@@ -3,10 +3,16 @@
 [ext_resource type="AudioStream" uid="uid://bdsilfbfd6drs" path="res://sound/door/open.ogg" id="1_5naa2"]
 [ext_resource type="Texture2D" uid="uid://bjdftjemcnoxh" path="res://models/doors/white_door_door4.png" id="1_r03lg"]
 [ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="2_52kfg"]
+[ext_resource type="Texture2D" uid="uid://di4fqe6li2ug3" path="res://models/doors/1/door4.002_Base_color.png" id="3_ommhc"]
+[ext_resource type="Texture2D" uid="uid://dgcwsyrwdroy7" path="res://models/doors/1/door4.002_Metallic.png" id="4_djjbo"]
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="4_m75pt"]
 [ext_resource type="Script" uid="uid://m8dfoy6npplp" path="res://scripts/states/door/opened.gd" id="5_s6eu3"]
+[ext_resource type="Texture2D" uid="uid://dtrycx832q7jp" path="res://models/doors/1/door4.002_Roughness.png" id="5_x6sdt"]
+[ext_resource type="Texture2D" uid="uid://dosbapjtl1bsb" path="res://models/doors/1/glass.003_Base_color.png" id="6_2m8ub"]
 [ext_resource type="Script" uid="uid://qs04m42xn5pl" path="res://scripts/states/door/closed.gd" id="6_2ovng"]
+[ext_resource type="Texture2D" uid="uid://cpjs8x4q456jy" path="res://models/doors/1/glass.003_Metallic.png" id="7_ffqt6"]
 [ext_resource type="Script" uid="uid://bba24pewhf4wc" path="res://scripts/interactables/door.gd" id="7_vnmbo"]
+[ext_resource type="Texture2D" uid="uid://byhj6dsdeyx0j" path="res://models/doors/1/glass.003_Roughness.png" id="8_a4vpf"]
 [ext_resource type="Script" uid="uid://c0bkwgm3ma2l" path="res://scripts/interactions/door/open.gd" id="8_ommhc"]
 [ext_resource type="Script" uid="uid://mnomygv101g7" path="res://scripts/interactions/door/close.gd" id="9_djjbo"]
 
@@ -16,17 +22,22 @@ size = Vector3(0.21881104, 2.049614, 0.92305523)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5naa2"]
 resource_name = "door4.002"
 cull_mode = 2
-albedo_texture = ExtResource("1_r03lg")
-roughness = 0.5
+albedo_texture = ExtResource("3_ommhc")
+metallic = 1.0
+metallic_texture = ExtResource("4_djjbo")
+roughness_texture = ExtResource("5_x6sdt")
 texture_filter = 2
 stencil_flags = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61akm"]
 resource_name = "glass.003"
-transparency = 4
-cull_mode = 2
-albedo_color = Color(0, 0, 0, 0.3529412)
-roughness = 0.15
+transparency = 1
+blend_mode = 1
+cull_mode = 1
+albedo_texture = ExtResource("6_2m8ub")
+metallic = 1.0
+metallic_texture = ExtResource("7_ffqt6")
+roughness_texture = ExtResource("8_a4vpf")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8dd5u"]
 resource_name = "white_door_Cube_002"

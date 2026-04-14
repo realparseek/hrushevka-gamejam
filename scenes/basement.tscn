@@ -19,13 +19,14 @@
 [ext_resource type="Script" uid="uid://bianc3trtp0mn" path="res://scripts/states/vorona/walking.gd" id="18_1fc18"]
 [ext_resource type="Script" uid="uid://6swiavh4b8wf" path="res://scripts/states/vorona/patrol.gd" id="19_jrgmg"]
 [ext_resource type="PackedScene" uid="uid://lwd5retbcq1p" path="res://prefabs/lightbulb.tscn" id="19_u23oa"]
-[ext_resource type="Texture2D" uid="uid://dd6c1ne2b4m6v" path="res://models/switch/switch_switch_baked_final.png" id="20_nlhde"]
-[ext_resource type="Texture2D" uid="uid://cb4st3ds5jedv" path="res://models/switch/switch_электрощиток.png" id="21_dwbgt"]
 [ext_resource type="Script" uid="uid://bhbtwy82hgf2t" path="res://scripts/state_machine.gd" id="22_n3vph"]
 [ext_resource type="Texture2D" uid="uid://df4cejvxbmml8" path="res://assets/object/Sewer/Textures/Trash.png" id="23_qu43e"]
 [ext_resource type="Script" uid="uid://bbg8t2i2hexvg" path="res://scripts/states/light_switch/turned_on.gd" id="23_v858h"]
+[ext_resource type="Texture2D" uid="uid://ekxybb3k6qpc" path="res://models/switch/2/щиток_Base_color.png" id="24_8j7gd"]
 [ext_resource type="Script" uid="uid://fowpdnjcd0tq" path="res://scripts/states/light_switch/turned_off.gd" id="24_udj7p"]
+[ext_resource type="Texture2D" uid="uid://byub30hh47nj" path="res://models/switch/2/щиток_Metallic.png" id="25_dy81h"]
 [ext_resource type="Material" uid="uid://dcrb61ai8akjl" path="res://materials/outline.material" id="27_uq6x4"]
+[ext_resource type="Texture2D" uid="uid://d4dqti2wl33bw" path="res://models/switch/2/электрощиток_Roughness.png" id="28_jxdt7"]
 [ext_resource type="PackedScene" uid="uid://dyes22bmvqkbu" path="res://prefabs/truba.tscn" id="28_n3vph"]
 [ext_resource type="Script" uid="uid://cbtbtr1mdf781" path="res://scripts/interactables/light_switch.gd" id="30_5cqeb"]
 [ext_resource type="Texture2D" uid="uid://dcbiuqi6rw1c1" path="res://textures/plakatverysgnil.png" id="30_tbks2"]
@@ -106,8 +107,9 @@
 [ext_resource type="PackedScene" uid="uid://bpfqou0e5r8vc" path="res://assets/glb/ps2_chair.glb" id="97_wgfj2"]
 [ext_resource type="Material" uid="uid://cku5ja4w5t710" path="res://assets/object/Priemnik/Radio.tres" id="100_40r2m"]
 [ext_resource type="Texture2D" uid="uid://br6vte022ceal" path="res://assets/object/Sewer/Textures/Trash_01.png" id="100_cw1ss"]
-[ext_resource type="Texture2D" uid="uid://bmx5wyrhb0gfi" path="res://models/board/board_board.png" id="101_40r2m"]
 [ext_resource type="PackedScene" uid="uid://b06sila5nko2l" path="res://assets/glb/gritty_abandoned_soviet-style_apartment_psx (1).glb" id="103_0pfjd"]
+[ext_resource type="Texture2D" uid="uid://drnopa803bc84" path="res://models/board/1/board_Base_color.png" id="108_dy81h"]
+[ext_resource type="Texture2D" uid="uid://c547sk31qxyk3" path="res://models/board/1/board_Metallic.png" id="109_jhj6i"]
 [ext_resource type="PackedScene" uid="uid://bxyy7wgdx6rq2" path="res://assets/test/russian_first_aid_kit_v3.glb" id="111_8j7gd"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_b7hc5"]
@@ -1983,7 +1985,9 @@ size = Vector3(0.21881104, 0.40570068, 0.5067291)
 resource_name = "щиток"
 cull_mode = 2
 albedo_color = Color(1.2742168, 1.2742168, 1.2742168, 1)
-albedo_texture = ExtResource("20_nlhde")
+albedo_texture = ExtResource("24_8j7gd")
+metallic = 1.0
+metallic_texture = ExtResource("25_dy81h")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_m8h3w"]
@@ -2106,7 +2110,7 @@ shadow_mesh = SubResource("ArrayMesh_du4x5")
 resource_name = "электрощиток"
 cull_mode = 2
 albedo_color = Color(0.5529556, 0.55295557, 0.55295557, 1)
-albedo_texture = ExtResource("21_dwbgt")
+albedo_texture = ExtResource("28_jxdt7")
 roughness = 0.5
 texture_filter = 2
 
@@ -3309,9 +3313,9 @@ size = Vector3(1.7519531, 2.1741943, 0.26733398)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6re0"]
 resource_name = "board"
 cull_mode = 2
-albedo_texture = ExtResource("101_40r2m")
-metallic = 0.6927374
-roughness = 0.68994415
+albedo_texture = ExtResource("108_dy81h")
+metallic = 1.0
+metallic_texture = ExtResource("109_jhj6i")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dlo46"]
@@ -3853,7 +3857,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999828, 0.009128875, -0.016145615, -0.011823841, 0.9843874, -0.17561781, 0.014290348, 0.17577851, 0.984326, -1.1175871e-08, 2.7788723, -2.2304448e-07)
 bones/1/enabled = true
 bones/1/position = Vector3(-1.1175871e-08, 2.7788723, -2.2304448e-07)
-bones/1/rotation = Quaternion(0.09233993, 0.0032815083, -0.0067381915, 0.9956994)
+bones/1/rotation = Quaternion(0.09245776, -0.0005158289, -0.0077986093, 0.995686)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
@@ -3894,8 +3898,8 @@ bones/7/name = "Bone.004.L"
 bones/7/parent = 0
 bones/7/rest = Transform3D(0.998846, -0.041325457, -0.024477486, -0.027496178, -0.07413328, -0.99686927, 0.03938148, 0.9963918, -0.07518402, 1.8551283, 2.6880772, 1.7027749)
 bones/7/enabled = true
-bones/7/position = Vector3(1.9464744, 2.8617785, 1.7982265)
-bones/7/rotation = Quaternion(0.67345834, 0.021427387, -0.016080812, 0.7387396)
+bones/7/position = Vector3(1.9459844, 2.8620012, 1.7984184)
+bones/7/rotation = Quaternion(0.6722663, 0.015875056, -0.013088863, 0.7400235)
 bones/7/scale = Vector3(1.0000001, 1, 1)
 bones/8/name = "Bone.005.L"
 bones/8/parent = 7
@@ -3916,7 +3920,7 @@ bones/10/parent = 0
 bones/10/rest = Transform3D(0.9957256, 0.05336217, 0.07538642, 0.079118885, -0.07168269, -0.9942846, -0.047653276, 0.99599904, -0.07559824, -1.7778823, 2.5940492, 1.7178408)
 bones/10/enabled = true
 bones/10/position = Vector3(-1.8500059, 2.7634387, 1.8139052)
-bones/10/rotation = Quaternion(0.6638951, 0.055373535, 0.01634187, 0.7455937)
+bones/10/rotation = Quaternion(0.6638387, 0.055745553, 0.016258398, 0.74561805)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Bone.005.R"
 bones/11/parent = 10
