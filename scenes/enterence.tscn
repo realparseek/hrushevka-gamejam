@@ -2145,6 +2145,8 @@ absorbent = true
 size = Vector3(0.6068115, 0.5359955, 0.42303467)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trp8h"]
+emission_enabled = true
+emission = Color(0.47843137, 0.47843137, 0.54901963, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jb1ae"]
 material = SubResource("StandardMaterial3D_trp8h")
@@ -3090,6 +3092,24 @@ transform = Transform3D(0.99998146, -0.0061085653, 7.117666e-10, 4.4476783e-10, 
 mesh = SubResource("PlaneMesh_jb1ae")
 skeleton = NodePath("")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="PHYSIHSWATAFAK/tv/TV2/MeshInstance3D" unique_id=1741729223]
+transform = Transform3D(0.9997666, 0.0023742374, 0.021474645, 0.021409264, 0.02478914, -0.99946356, -0.002905301, 0.99968994, 0.024732515, 0.0138274515, 0.0035462556, 0.0032811854)
+light_color = Color(0.47843137, 0.47843137, 0.54901963, 1)
+shadow_enabled = true
+shadow_opacity = 0.0
+spot_range = 0.49082008
+spot_angle = 88.914
+spot_angle_attenuation = 0.017337007
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="PHYSIHSWATAFAK/tv/TV2/MeshInstance3D" unique_id=1490322052]
+transform = Transform3D(-0.9995165, 0.0023742383, -0.031000806, -0.030932534, 0.024789147, 0.99921405, 0.0031408537, 0.9996901, -0.024703728, 0.0049578184, 0.20014685, 0.02905743)
+light_color = Color(0.47843137, 0.47843137, 0.54901963, 1)
+shadow_enabled = true
+shadow_opacity = 0.0
+spot_range = 0.49082008
+spot_angle = 60.250565
+spot_angle_attenuation = 0.017337007
+
 [node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="PHYSIHSWATAFAK/tv/TV2" unique_id=302729916]
 transform = Transform3D(-0.9999871, 0, -0.0051137824, 0, 1, 0, 0.0051137824, 0, -0.9999871, 0.01838197, 0.34599662, 0.24291822)
 volume_db = -40.0
@@ -3151,16 +3171,26 @@ volume_db = -20.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Zadnik" unique_id=18972111]
 transform = Transform3D(0.26689753, -0.2648645, 0.9266135, -0.0072890855, 0.96090937, 0.27676722, -0.9636975, -0.08062269, 0.25453377, 14.139632, 9.029447, 4.242278)
 light_color = Color(0.53333336, 0.6, 0.6666667, 1)
+light_energy = 0.167
 shadow_enabled = true
 
 [node name="FogVolume" type="FogVolume" parent="Zadnik/DirectionalLight3D" unique_id=1293248994]
-transform = Transform3D(0.09391737, -0.007289082, -0.9955534, -0.2748933, 0.9609094, -0.032968007, 0.95687675, 0.27676722, 0.08824235, -0.41321862, 0.116751194, -8.676085)
+transform = Transform3D(0.09391737, -0.007289082, -0.99555343, -0.2748933, 0.96090955, -0.032968, 0.95687675, 0.27676728, 0.08824232, -0.41321862, 0.116751194, -8.676087)
 size = Vector3(6.2430267, 2.072235, 2)
 material = SubResource("FogMaterial_kj5b3")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Zadnik/DirectionalLight3D" unique_id=24904306]
+transform = Transform3D(0.98498315, -7.450581e-09, -0.17265119, 4.1228163e-09, 1.0000001, -4.7319286e-09, 0.1726512, 1.8626451e-08, 0.984983, -0.5044409, -0.7874304, -0.87471807)
+light_color = Color(0.53333336, 0.6, 0.6666667, 1)
+light_energy = 3.5
+light_indirect_energy = 0.0
+light_specular = 1.0
+shadow_enabled = true
+spot_range = 27.620293
+
+[node name="enterenceNEW" parent="." unique_id=511137614 instance=ExtResource("96_ikxxi")]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.5448394, -0.034194466, -0.9753398)
 
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=1542261304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4170852, 1.7513318)
 data = SubResource("VoxelGIData_ov6h0")
-
-[node name="enterenceNEW" parent="." unique_id=511137614 instance=ExtResource("96_ikxxi")]
-transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.5448394, -0.034194466, -0.9753398)

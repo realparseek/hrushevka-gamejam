@@ -126,8 +126,9 @@ shape = SubResource("CapsuleShape3D_a0uo0")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=457778892]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2862208, 0)
-light_color = Color(0.7285397, 0.5974449, 0.48897117, 1)
+light_color = Color(0.54509807, 0.49411765, 0.36078432, 1)
 light_energy = 1.2
+light_volumetric_fog_energy = 0.0
 omni_range = 5.1429505
 
 [node name="head" type="Node3D" parent="." unique_id=1650658518]

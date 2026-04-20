@@ -3858,7 +3858,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999828, 0.009128875, -0.016145615, -0.011823841, 0.9843874, -0.17561781, 0.014290348, 0.17577851, 0.984326, -1.1175871e-08, 2.7788723, -2.2304448e-07)
 bones/1/enabled = true
 bones/1/position = Vector3(-1.1175871e-08, 2.7788723, -2.2304448e-07)
-bones/1/rotation = Quaternion(0.09248415, -0.0013719557, -0.008037667, 0.99568087)
+bones/1/rotation = Quaternion(0.09247668, -0.0011299382, -0.007970089, 0.9956823)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
@@ -3899,8 +3899,8 @@ bones/7/name = "Bone.004.L"
 bones/7/parent = 0
 bones/7/rest = Transform3D(0.998846, -0.041325457, -0.024477486, -0.027496178, -0.07413328, -0.99686927, 0.03938148, 0.9963918, -0.07518402, 1.8551283, 2.6880772, 1.7027749)
 bones/7/enabled = true
-bones/7/position = Vector3(1.930342, 2.86911, 1.8045399)
-bones/7/rotation = Quaternion(0.6721141, 0.015175174, -0.01271171, 0.74018306)
+bones/7/position = Vector3(1.9459099, 2.862035, 1.7984475)
+bones/7/rotation = Quaternion(0.6720975, 0.0150993755, -0.012670861, 0.7402003)
 bones/7/scale = Vector3(1.0000001, 1, 1)
 bones/8/name = "Bone.005.L"
 bones/8/parent = 7
@@ -3921,7 +3921,7 @@ bones/10/parent = 0
 bones/10/rest = Transform3D(0.9957256, 0.05336217, 0.07538642, 0.079118885, -0.07168269, -0.9942846, -0.047653276, 0.99599904, -0.07559824, -1.7778823, 2.5940492, 1.7178408)
 bones/10/enabled = true
 bones/10/position = Vector3(-1.8500059, 2.7634387, 1.8139052)
-bones/10/rotation = Quaternion(0.6637608, 0.05625865, 0.016143287, 0.74565136)
+bones/10/rotation = Quaternion(0.6638301, 0.055802085, 0.01624572, 0.74562174)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Bone.005.R"
 bones/11/parent = 10
@@ -4729,6 +4729,16 @@ material = SubResource("FogMaterial_40r2m")
 transform = Transform3D(7.9252157, 0.6452013, 0.8801561, -0.6136043, 7.9701147, -0.31742144, -0.90246814, 0.24694562, 7.9450965, 19.968216, 0.16965866, 487.01456)
 layers = 16
 texture = ExtResource("91_40r2m")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="zadnik/DirectionalLight3D" unique_id=503884605]
+transform = Transform3D(0.99172646, 0.04896822, 0.118662156, -0.045854956, 0.998532, -0.028827846, -0.119899675, 0.02314806, 0.99251604, -1.1816616, -1.4272604, 1.5638714)
+light_color = Color(0.53333336, 0.6, 0.6666667, 1)
+light_energy = 16.0
+light_indirect_energy = 0.0
+light_specular = 1.0
+shadow_enabled = true
+spot_range = 100.0
+spot_angle = 13.0
 
 [node name="Fizika" type="Node3D" parent="." unique_id=838208408]
 
