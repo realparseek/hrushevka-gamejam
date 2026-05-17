@@ -95,7 +95,7 @@
 [ext_resource type="VideoStream" uid="uid://c4rl8lpq5tbwe" path="res://assets/videoplayback (1).ogv" id="92_ikxxi"]
 [ext_resource type="AudioStream" uid="uid://bvxtntaca5gvf" path="res://assets/VID_20240410_125641_537.ogg" id="94_od05n"]
 [ext_resource type="AudioStream" uid="uid://dol2bxrn2ohir" path="res://assets/videoplayback (1).ogg" id="95_xpukn"]
-[ext_resource type="PackedScene" uid="uid://c5cuvmdtt3nk1" path="res://models/enterance/finalnadpis/1111.tscn" id="96_ikxxi"]
+[ext_resource type="PackedScene" uid="uid://ddbd6lktkk0dm" path="res://models/enterance/1/entertacment.tscn" id="97_od05n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t0qnf"]
 size = Vector3(5.4707184, 1.2009888, 3.7311172)
@@ -3078,7 +3078,7 @@ transform = Transform3D(0.99965185, 0, 0.02645579, 0, 1, 0, -0.02645579, 0, 0.99
 shape = SubResource("BoxShape3D_71t76")
 
 [node name="TV2" parent="PHYSIHSWATAFAK/tv" unique_id=2119734993 node_paths=PackedStringArray("screen_mesh", "audio_player", "interaction_area") instance=ExtResource("88_u4uh6")]
-transform = Transform3D(0.99986744, 0, 0.016283274, 0, 1, 0, -0.016283274, 0, 0.99986744, -0.0044322014, 0.0021243095, 0.001744628)
+transform = Transform3D(0.99986744, 0, 0.016283274, 0, 1, 0, -0.016283274, 0, 0.99986744, 0.021018505, -0.012971163, -0.027715564)
 script = ExtResource("89_u4uh6")
 video_files = Array[VideoStream]([ExtResource("90_71t76"), ExtResource("91_aa62y"), ExtResource("92_ikxxi")])
 audio_files = Array[AudioStream]([ExtResource("91_u4uh6"), ExtResource("94_od05n"), ExtResource("95_xpukn")])
@@ -3188,9 +3188,13 @@ light_specular = 1.0
 shadow_enabled = true
 spot_range = 27.620293
 
-[node name="enterenceNEW" parent="." unique_id=511137614 instance=ExtResource("96_ikxxi")]
+[node name="enterenceNEW" parent="." unique_id=511137614]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.5448394, -0.034194466, -0.9753398)
+visible = false
 
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=1542261304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4170852, 1.7513318)
 data = SubResource("VoxelGIData_ov6h0")
+
+[node name="entertacment" parent="." unique_id=285018054 instance=ExtResource("97_od05n")]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.5467491, -0.038770676, -0.97672653)
