@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://bc1cufd031dic" path="res://assets/glb/ps2_sofa.glb" id="29_txlg3"]
 [ext_resource type="PackedScene" uid="uid://c8wbvw5h7nwcn" path="res://assets/glb/ps2_soviet_tv_table.glb" id="30_avet7"]
 [ext_resource type="PackedScene" uid="uid://byl1agqu5w02t" path="res://assets/glb/ps2_stove.glb" id="31_3nic5"]
-[ext_resource type="PackedScene" uid="uid://i714ulj0oj64" path="res://assets/glb/servant_ps1.glb" id="32_leyei"]
 [ext_resource type="PackedScene" uid="uid://bpfqou0e5r8vc" path="res://assets/glb/ps2_chair.glb" id="33_mb0k8"]
 [ext_resource type="Texture2D" uid="uid://bmq07hcg2fb6r" path="res://textures/pack/techet2.png" id="34_agem0"]
 [ext_resource type="Texture2D" uid="uid://br6vte022ceal" path="res://assets/object/Sewer/Textures/Trash_01.png" id="35_leyei"]
@@ -96,6 +95,32 @@
 [ext_resource type="AudioStream" uid="uid://bvxtntaca5gvf" path="res://assets/VID_20240410_125641_537.ogg" id="94_od05n"]
 [ext_resource type="AudioStream" uid="uid://dol2bxrn2ohir" path="res://assets/videoplayback (1).ogg" id="95_xpukn"]
 [ext_resource type="PackedScene" uid="uid://ddbd6lktkk0dm" path="res://models/enterance/1/entertacment.tscn" id="97_od05n"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_ikxxi"]
+density = 0.4
+albedo = Color(0.31802028, 0.31801954, 0.31801975, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ikxxi"]
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.5, 0.5)
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 0.19997764
+gravity = Vector3(0.01, -0.01, 0.01)
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_od05n"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+albedo_color = Color(0.18506798, 0.1201187, 0.08232633, 0.34901962)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xpukn"]
+material = SubResource("StandardMaterial3D_od05n")
+radius = 0.003
+height = 0.005
+radial_segments = 4
+rings = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t0qnf"]
 size = Vector3(5.4707184, 1.2009888, 3.7311172)
@@ -2177,6 +2202,22 @@ interior = true
 [node name="lightbulb" parent="." unique_id=827160578 instance=ExtResource("1_3brgh")]
 transform = Transform3D(-4.371139e-08, -8.742278e-08, 1, 0, -1, -8.742278e-08, 1, -3.821371e-15, 4.371139e-08, 5.09918, 4.140401, 2.1113634)
 
+[node name="FogVolume" type="FogVolume" parent="lightbulb" unique_id=722288345]
+transform = Transform3D(1, 0, 0, 0, 1, -1.6703743e-22, 0, -1.6703743e-22, 1, 0.035339355, 0.6788678, -7.7112573e-23)
+size = Vector3(1.7601318, 0.8083496, 2)
+shape = 1
+material = SubResource("FogMaterial_ikxxi")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="lightbulb" unique_id=1389970879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004979372, 0.41057277, -0.19987059)
+amount = 70
+lifetime = 5.0
+preprocess = 2.0
+speed_scale = 0.33
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_ikxxi")
+draw_pass_1 = SubResource("SphereMesh_xpukn")
+
 [node name="lightbulb2" parent="." unique_id=1774881332 instance=ExtResource("1_3brgh")]
 transform = Transform3D(-4.371139e-08, -8.742278e-08, 1, 0, -1, -8.742278e-08, 1, -3.821371e-15, 4.371139e-08, -5.651906, 4.749295, 3.0530877)
 
@@ -2531,7 +2572,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0077147, 6.277303, 3.012822
 shape = SubResource("BoxShape3D_mb0k8")
 
 [node name="Sketchfab_Scene3" parent="musor" unique_id=997678865 instance=ExtResource("27_wb4f3")]
-transform = Transform3D(0.1692379, -0.67746663, -0.7158196, 0.973315, 0.00068064133, 0.22947218, -0.15497252, -0.7355532, 0.6595035, 6.597265, 4.875868, 2.4073484)
+transform = Transform3D(0.1692379, -0.67746663, -0.7158196, 0.973315, 0.00068064133, 0.22947218, -0.15497252, -0.7355532, 0.6595035, 6.607842, 4.9366984, 2.3976626)
 
 [node name="Sketchfab_Scene15" parent="musor" unique_id=1989310246 instance=ExtResource("28_vidgb")]
 transform = Transform3D(0.16937885, 0.4863898, 0.8571673, -0.94437635, 0.32886666, 0, -0.28189376, -0.80948853, 0.5150381, 5.293354, 5.808873, 1.9222617)
@@ -2545,9 +2586,6 @@ transform = Transform3D(0.13894832, 0, -0.99029964, 0, 1, 0, 0.99029964, 0, 0.13
 [node name="Sketchfab_Scene10" parent="musor" unique_id=222419508 instance=ExtResource("25_mb0k8")]
 transform = Transform3D(0.07845908, 0.20727077, -0.9751322, 0, 0.9781476, 0.20791169, 0.99691725, -0.016312562, 0.07674456, 7.2559566, 4.9496627, 1.7934017)
 
-[node name="a" parent="musor" unique_id=688406976 instance=ExtResource("32_leyei")]
-transform = Transform3D(-0.18837921, 0.033616632, -0.058165114, 0.036102198, 0.19668777, -0.003248081, 0.056655888, -0.013558799, -0.19132763, 6.3699036, 4.8070335, 2.8180356)
-
 [node name="Sketchfab_Scene8" parent="musor" unique_id=1647572715 instance=ExtResource("31_3nic5")]
 transform = Transform3D(1.2162998, -0.036056444, 0.69232583, 0.041483898, 1.3993853, 0, -0.69202185, 0.020514553, 1.2168341, 7.338962, 4.8013544, 2.6610587)
 
@@ -2555,7 +2593,7 @@ transform = Transform3D(1.2162998, -0.036056444, 0.69232583, 0.041483898, 1.3993
 transform = Transform3D(0.39967716, 0, -0.9166559, 0, 1, 0, 0.9166559, 0, 0.39967716, 6.5800686, 5.464272, 3.923824)
 
 [node name="Sketchfab_Scene6" parent="musor" unique_id=168149281 instance=ExtResource("29_txlg3")]
-transform = Transform3D(0.3222277, 0.6133553, 0.72108585, -0.11094254, 0.78093207, -0.6146842, -0.94013906, 0.118069224, 0.31968522, 4.830001, 5.2368236, 2.0958133)
+transform = Transform3D(0.3222277, 0.6133553, 0.72108585, -0.11094254, 0.78093207, -0.6146842, -0.94013906, 0.118069224, 0.31968522, 4.933374, 5.3684397, 2.1157124)
 
 [node name="Sketchfab_Scene5" parent="musor" unique_id=1765590233 instance=ExtResource("28_vidgb")]
 transform = Transform3D(0.86115044, 0, 0.5083502, 0, 1, 0, -0.5083502, 0, 0.86115044, 6.8128247, 4.8013544, 4.089819)
@@ -3187,10 +3225,6 @@ light_indirect_energy = 0.0
 light_specular = 1.0
 shadow_enabled = true
 spot_range = 27.620293
-
-[node name="enterenceNEW" parent="." unique_id=511137614]
-transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.5448394, -0.034194466, -0.9753398)
-visible = false
 
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=1542261304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4170852, 1.7513318)

@@ -13,13 +13,13 @@ script = ExtResource("1_j4bwh")
 
 [node name="ambient" type="AudioStreamPlayer" parent="." unique_id=1529245151]
 stream = ExtResource("12_trceg")
-volume_db = -45.0
+volume_db = -42.137
 pitch_scale = 0.9
 autoplay = true
 
 [node name="music" type="AudioStreamPlayer" parent="ambient" unique_id=1829966720]
 stream = ExtResource("4_tbgi4")
-volume_db = -40.0
+volume_db = -36.183
 pitch_scale = 0.9
 autoplay = true
 

@@ -36,7 +36,7 @@ gdscript/warnings/unused_signal=0
 [display]
 
 window/size/viewport_width=640
-window/size/viewport_height=480
+window/size/viewport_height=360
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
@@ -123,3 +123,5 @@ ambient_bus=&"RaytracedAmbient"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/decals/filter=0
+textures/light_projectors/filter=0
