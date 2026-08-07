@@ -1,6 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bmi2us83g86n2"]
-
-[resource]
-resource_name = "Tabel"
-cull_mode = 2
-shading_mode = 0

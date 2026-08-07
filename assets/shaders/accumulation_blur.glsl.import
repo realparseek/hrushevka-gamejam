@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://cdhvba7w5vpm2"
+path="res://.godot/imported/accumulation_blur.glsl-05e8b7cd0a4470e7911eee05428646f0.res"
+
+[deps]
+
+source_file="res://assets/shaders/accumulation_blur.glsl"
+dest_files=["res://.godot/imported/accumulation_blur.glsl-05e8b7cd0a4470e7911eee05428646f0.res"]
+
+[params]
+

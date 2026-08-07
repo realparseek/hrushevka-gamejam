@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4ttm7b46w63t"]
-
-[ext_resource type="PackedScene" uid="uid://cwnxjshcsint1" path="res://assets/object/Models/Bucket/Bucket.fbx" id="1_m4psx"]
-
-[node name="Bucket" instance=ExtResource("1_m4psx")]

@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://b8ggy8gp55r1e"]
+
+[ext_resource type="Script" uid="uid://cjl5jcfutf0af" path="res://scripts/fps_movement/fps_movement.gd" id="1_symyc"]
+[ext_resource type="Script" uid="uid://d35lt4pdgmtx4" path="res://scripts/interaction_cast/interaction_cast.gd" id="2_fkugw"]
+[ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="2_sglur"]
+[ext_resource type="Script" uid="uid://dd3nh8y7xrt8h" path="res://scripts/inventory/inventory.gd" id="3_26q78"]
+[ext_resource type="Texture2D" uid="uid://dc8biru5wf5ej" path="res://assets/icons/cursor/hold.png" id="4_bectd"]
+[ext_resource type="FontFile" uid="uid://gt28632ytyu1" path="res://assets/fonts/PxPlus_IBM_VGA8.ttf" id="4_bls4j"]
+[ext_resource type="Texture2D" uid="uid://c3824jej5i0gg" path="res://assets/icons/cursor/hand.png" id="6_8fjmc"]
+[ext_resource type="Script" uid="uid://41floom4owhh" path="res://scripts/fps_counter/fps_counter.gd" id="6_bectd"]
+[ext_resource type="Script" uid="uid://bha5v1ek6623u" path="res://scripts/post_processing/post_processing.gd" id="6_wvtmh"]
+[ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
+[ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = false
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("8_7thud")
+metadata/_custom_type_script = "uid://46y1f2eo6xys"
+
+[sub_resource type="Compositor" id="Compositor_vpe7l"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7ba2d")])
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mm0n8"]
+radius = 0.35
+height = 1.9820312
+
+[sub_resource type="LabelSettings" id="LabelSettings_fkugw"]
+font = ExtResource("4_bls4j")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4s8us"]
+font = ExtResource("4_bls4j")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_26q78"]
+font = ExtResource("4_bls4j")
+font_size = 18
+font_color = Color(0.3647059, 1, 0.20784314, 1)
+
+[node name="player" type="CharacterBody3D" unique_id=2010102372]
+floor_constant_speed = true
+
+[node name="fps_movement" type="Node" parent="." unique_id=1834738851 node_paths=PackedStringArray("player", "head", "steps_player", "collision_shape")]
+script = ExtResource("1_symyc")
+player = NodePath("..")
+head = NodePath("../head")
+steps_player = NodePath("../step_sounds")
+collision_shape = NodePath("../collision")
+mouse_sensetivity = 2.0
+headbob_size = 0.04
+headbob_tilt = 0.5
+crouch_tilt = 1.0
+
+[node name="interaction_cast" type="Node" parent="." unique_id=1498851580 node_paths=PackedStringArray("fps", "inventory", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound")]
+script = ExtResource("2_fkugw")
+fps = NodePath("../fps_movement")
+inventory = NodePath("../inventory")
+raycast = NodePath("../head/camera/interaction_cast")
+icon_sprite = NodePath("../cursor")
+crosshair_rect = NodePath("../ui/crosshair")
+pickup_sound = NodePath("../pickup_sound")
+icon_interacte = ExtResource("6_8fjmc")
+icon_drag = ExtResource("4_bectd")
+
+[node name="inventory" type="Node" parent="." unique_id=2040348201 node_paths=PackedStringArray("grid_container")]
+script = ExtResource("3_26q78")
+grid_container = NodePath("../ui/inventory/grid")
+
+[node name="post_processing" type="Node" parent="." unique_id=744587933 node_paths=PackedStringArray("camera")]
+script = ExtResource("6_wvtmh")
+camera = NodePath("../head/camera")
+
+[node name="fps_counter" type="Node" parent="." unique_id=1892276216 node_paths=PackedStringArray("fps_label")]
+script = ExtResource("6_bectd")
+fps_label = NodePath("../ui/stat_panel/fps")
+
+[node name="head" type="Node3D" parent="." unique_id=815278167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012596369, 0.7461406, -0.09485489)
+
+[node name="camera" type="Camera3D" parent="head" unique_id=27703201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.094000936)
+compositor = SubResource("Compositor_vpe7l")
+
+[node name="interaction_cast" type="RayCast3D" parent="head/camera" unique_id=49206775]
+target_position = Vector3(0, 0, -1)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="collision" type="CollisionShape3D" parent="." unique_id=1968258280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09101564, 0)
+shape = SubResource("CapsuleShape3D_mm0n8")
+
+[node name="audio_listener" type="AudioListener3D" parent="." unique_id=487444052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73364884, 0)
+current = true
+
+[node name="step_sounds" type="AudioStreamPlayer3D" parent="." unique_id=1794066880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5173645, -0.0011698008)
+volume_db = -1.5
+script = ExtResource("2_sglur")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="pickup_sound" type="AudioStreamPlayer3D" parent="." unique_id=1341738747]
+stream = ExtResource("10_7thud")
+volume_db = -5.0
+script = ExtResource("2_sglur")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="cursor" type="Sprite3D" parent="." unique_id=312436328]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, -2)
+visible = false
+billboard = 1
+no_depth_test = true
+fixed_size = true
+render_priority = 1
+texture = ExtResource("6_8fjmc")
+
+[node name="ui" type="Control" parent="." unique_id=1611900789]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="text" type="Label" parent="ui" unique_id=1600123497]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_fkugw")
+
+[node name="crosshair" type="ColorRect" parent="ui" unique_id=189611426]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.5
+offset_top = -1.5
+offset_right = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="inventory" type="PanelContainer" parent="ui" unique_id=1014861244]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_right = -340.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="grid" type="GridContainer" parent="ui/inventory" unique_id=1040561380]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="stat_panel" type="Panel" parent="ui" unique_id=1658070182]
+layout_mode = 1
+offset_right = 90.0
+offset_bottom = 31.0
+mouse_filter = 2
+
+[node name="label" type="Label" parent="ui/stat_panel" unique_id=1625911709]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = -27.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "FPS: "
+label_settings = SubResource("LabelSettings_4s8us")
+vertical_alignment = 1
+
+[node name="fps" type="Label" parent="ui/stat_panel" unique_id=1543797526]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 5.0
+offset_right = -6.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_26q78")
+vertical_alignment = 1
