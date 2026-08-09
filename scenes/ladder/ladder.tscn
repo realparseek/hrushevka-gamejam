@@ -8,6 +8,7 @@
 
 [node name="ladder" type="CSGBox3D" parent="mesh" unique_id=348713616]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4051237, 0.19962502, -6.854627)
+use_collision = true
 flip_faces = true
 size = Vector3(1.7615967, 6.1992188, 6.5371094)
 material = ExtResource("1_1hr68")
@@ -18,8 +19,14 @@ operation = 2
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_1hr68")
 
+[node name="door3" type="CSGBox3D" parent="mesh/ladder" unique_id=1906380846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042304993, -2.0476663, -3.2933316)
+operation = 2
+size = Vector3(1, 2, 0.24136353)
+material = ExtResource("1_1hr68")
+
 [node name="door" type="CSGBox3D" parent="mesh/ladder" unique_id=1652486738]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042304993, 1.2677504, 3.3823624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042304993, 1.2677504, 3.2731283)
 operation = 2
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
