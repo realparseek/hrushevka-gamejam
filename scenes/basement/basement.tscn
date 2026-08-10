@@ -120,6 +120,12 @@ light_bake_mode = 1
 shadow_enabled = true
 omni_range = 4.9066143
 
+[node name="OmniLight3D17" type="OmniLight3D" parent="lights" unique_id=274241464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6792345, -0.61046374, -20.09028)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 4.9066143
+
 [node name="OmniLight3D16" type="OmniLight3D" parent="lights" unique_id=203382857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.49684, -0.61046374, -16.434732)
 light_bake_mode = 1
@@ -154,15 +160,15 @@ size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5fs4t")
 
 [node name="door7" type="CSGBox3D" parent="mesh/basement" unique_id=343192929]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.608306, -0.39308786, -6.355385)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.608306, -0.39308786, -6.0293903)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5fs4t")
 
 [node name="door8" type="CSGBox3D" parent="mesh/basement" unique_id=181049946]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.561954, 0.18217242, -6.3173103)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.561954, 0.18217242, -5.6799984)
 flip_faces = true
-size = Vector3(1.6072388, 0.8285599, 0.24136353)
+size = Vector3(1.8647003, 0.8285599, 0.24136353)
 material = ExtResource("1_5fs4t")
 
 [node name="door9" type="CSGBox3D" parent="mesh/basement" unique_id=164056335]
@@ -214,9 +220,20 @@ size = Vector3(3, 2.90979, 8.577637)
 material = ExtResource("1_5fs4t")
 
 [node name="chamber" type="CSGBox3D" parent="." unique_id=1344209392]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.68192, -1.7477155, -19.904007)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6731615, -1.5089841, -19.921555)
 use_collision = true
-size = Vector3(2.9805908, 2.30365, 3.8687897)
+size = Vector3(2.998108, 2.7811127, 3.9038868)
+material = ExtResource("1_5fs4t")
+
+[node name="door10" type="CSGBox3D" parent="chamber" unique_id=26690281]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3546124, -0.3390572, -0.6251068)
+operation = 2
+size = Vector3(1, 2, 0.32035065)
+material = ExtResource("1_5fs4t")
+
+[node name="door11" type="CSGBox3D" parent="chamber/door10" unique_id=841631028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638855, 0.3178711, -1.3607607)
+size = Vector3(3.6837158, 2.6357422, 2.7945604)
 material = ExtResource("1_5fs4t")
 
 [node name="entities" type="Node3D" parent="." unique_id=441242414]
@@ -285,7 +302,7 @@ fallback_transmission = 0.059
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="eletric_panel" type="StaticBody3D" parent="entities" unique_id=1561667112]
-transform = Transform3D(-0.705, 0, 1.06452035e-07, 0, 0.705, 0, -1.06452035e-07, 0, -0.705, 1.868663, -1.4552089, -19.488855)
+transform = Transform3D(-0.705, 0, 1.06452035e-07, 0, 0.705, 0, -1.06452035e-07, 0, -0.705, 1.868663, -1.4117328, -21.437712)
 
 [node name="mesh" type="MeshInstance3D" parent="entities/eletric_panel" unique_id=1816417859]
 mesh = SubResource("ArrayMesh_gxd77")
