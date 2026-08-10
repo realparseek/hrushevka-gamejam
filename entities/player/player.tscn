@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://41floom4owhh" path="res://scripts/fps_counter/fps_counter.gd" id="6_bectd"]
 [ext_resource type="Script" uid="uid://bha5v1ek6623u" path="res://scripts/post_processing/post_processing.gd" id="6_wvtmh"]
 [ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
+[ext_resource type="Script" uid="uid://hwac2ykrct1h" path="res://assets/compositor/ps1_post_processing.gd" id="9_a1qjk"]
 [ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
@@ -22,8 +23,18 @@ needs_normal_roughness = false
 script = ExtResource("8_7thud")
 metadata/_custom_type_script = "uid://46y1f2eo6xys"
 
+[sub_resource type="CompositorEffect" id="CompositorEffect_oh64f"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("9_a1qjk")
+metadata/_custom_type_script = "uid://hwac2ykrct1h"
+
 [sub_resource type="Compositor" id="Compositor_vpe7l"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7ba2d")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7ba2d"), SubResource("CompositorEffect_oh64f")])
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mm0n8"]
 radius = 0.35

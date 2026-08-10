@@ -31,10 +31,8 @@ autoplay = true
 parameters/looping = true
 
 [node name="basement" parent="." unique_id=582073405 instance=ExtResource("2_rskmp")]
-visible = false
 
 [node name="ladder" parent="." unique_id=1939932885 instance=ExtResource("3_hrtr2")]
-visible = false
 
 [node name="enterence" parent="." unique_id=1644069952 instance=ExtResource("4_7ak8l")]
 
