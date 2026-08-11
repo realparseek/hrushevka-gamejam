@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://carktpvksqyv3" path="res://assets/audio/generator/electricshock.mp3" id="7_ebucs"]
 [ext_resource type="PackedScene" uid="uid://bh7oitlyohweq" path="res://entities/switch/switch.tscn" id="8_inglc"]
 [ext_resource type="PackedScene" uid="uid://dmbwbfwvpjtg5" path="res://entities/orb/orb.tscn" id="9_3ijw5"]
+[ext_resource type="PackedScene" uid="uid://djdixfi5tfxfi" path="res://entities/door/door.tscn" id="10_6yijy"]
 
 [sub_resource type="Curve" id="Curve_gxd77"]
 _data = [Vector2(0.35459182, 0.10674167), 0.0, 0.0, 0, 0, Vector2(0.42091835, 1), 0.0, 0.0, 0, 0, Vector2(0.8137755, 0.32022476), 0.0, 0.0, 0, 0]
@@ -219,19 +220,19 @@ flip_faces = true
 size = Vector3(3, 2.90979, 8.577637)
 material = ExtResource("1_5fs4t")
 
-[node name="chamber" type="CSGBox3D" parent="." unique_id=1344209392]
+[node name="chamber" type="CSGBox3D" parent="mesh" unique_id=1344209392]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6731615, -1.5089841, -19.921555)
 use_collision = true
 size = Vector3(2.998108, 2.7811127, 3.9038868)
 material = ExtResource("1_5fs4t")
 
-[node name="door10" type="CSGBox3D" parent="chamber" unique_id=26690281]
+[node name="door10" type="CSGBox3D" parent="mesh/chamber" unique_id=26690281]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.3546124, -0.3390572, -0.6251068)
 operation = 2
 size = Vector3(1, 2, 0.32035065)
 material = ExtResource("1_5fs4t")
 
-[node name="door11" type="CSGBox3D" parent="chamber/door10" unique_id=841631028]
+[node name="door11" type="CSGBox3D" parent="mesh/chamber/door10" unique_id=841631028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638855, 0.3178711, -1.3607607)
 size = Vector3(3.6837158, 2.6357422, 2.7945604)
 material = ExtResource("1_5fs4t")
@@ -324,3 +325,6 @@ transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.07089
 
 [node name="orb" parent="entities" unique_id=1712574766 instance=ExtResource("9_3ijw5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6009398, -1.8537714, -14.985698)
+
+[node name="door" parent="." unique_id=2026821777 instance=ExtResource("10_6yijy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.254, -1.848, -18.829)
