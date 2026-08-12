@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://gt28632ytyu1"
-path="res://.godot/imported/PxPlus_IBM_VGA8.ttf-eff98495da1164b8d558fc7b3ece7b62.fontdata"
+uid="uid://hofycntvop3r"
+path="res://.godot/imported/serif-vga-10pt.ttf-e0152b998774b85d5da06fabd6a2308f.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/PxPlus_IBM_VGA8.ttf"
-dest_files=["res://.godot/imported/PxPlus_IBM_VGA8.ttf-eff98495da1164b8d558fc7b3ece7b62.fontdata"]
+source_file="res://assets/fonts/serif-vga-10pt.ttf"
+dest_files=["res://.godot/imported/serif-vga-10pt.ttf-e0152b998774b85d5da06fabd6a2308f.fontdata"]
 
 [params]
 
@@ -22,7 +22,7 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
-hinting=1
+hinting=3
 subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0

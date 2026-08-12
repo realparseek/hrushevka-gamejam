@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="1_05v0y"]
 [ext_resource type="Script" uid="uid://brnmjdghgrqog" path="res://scripts/hoverable/hoverable.gd" id="1_6sqah"]
 [ext_resource type="Script" uid="uid://drm0nqeu0gtp6" path="res://entities/door/door.gd" id="1_uq1c4"]
+[ext_resource type="Script" uid="uid://bo4cxk5vpao0h" path="res://scripts/interactable/interactable.gd" id="2_uq1c4"]
 [ext_resource type="Material" uid="uid://chqm468gixvba" path="res://assets/materials/outline.material" id="3_dsbe1"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bfv6c"]
@@ -80,6 +81,9 @@ collision_layer = 3
 [node name="door" type="Node" parent="." unique_id=802647948 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_uq1c4")
 animation_player = NodePath("../anim_player")
+
+[node name="interactable" type="Node" parent="." unique_id=249374583]
+script = ExtResource("2_uq1c4")
 
 [node name="hoverable" type="Node" parent="." unique_id=791892074]
 script = ExtResource("1_6sqah")

@@ -5,14 +5,15 @@
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="2_sglur"]
 [ext_resource type="Script" uid="uid://dd3nh8y7xrt8h" path="res://scripts/inventory/inventory.gd" id="3_26q78"]
 [ext_resource type="Texture2D" uid="uid://dc8biru5wf5ej" path="res://assets/icons/cursor/hold.png" id="4_bectd"]
-[ext_resource type="FontFile" uid="uid://gt28632ytyu1" path="res://assets/fonts/PxPlus_IBM_VGA8.ttf" id="4_bls4j"]
 [ext_resource type="Texture2D" uid="uid://c3824jej5i0gg" path="res://assets/icons/cursor/hand.png" id="6_8fjmc"]
 [ext_resource type="Script" uid="uid://41floom4owhh" path="res://scripts/fps_counter/fps_counter.gd" id="6_bectd"]
 [ext_resource type="Script" uid="uid://bha5v1ek6623u" path="res://scripts/post_processing/post_processing.gd" id="6_wvtmh"]
 [ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
 [ext_resource type="Script" uid="uid://hwac2ykrct1h" path="res://assets/compositor/ps1_post_processing.gd" id="9_a1qjk"]
 [ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
+[ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="13_gx6sm"]
 [ext_resource type="Texture2D" uid="uid://d4bvi4x2e6c4v" path="res://assets/images/ui_window/window0-75.png" id="13_j3ovn"]
+[ext_resource type="FontFile" uid="uid://hofycntvop3r" path="res://assets/fonts/serif-vga-10pt.ttf" id="14_afbqv"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
 resource_local_to_scene = false
@@ -42,25 +43,24 @@ radius = 0.35
 height = 1.9820312
 
 [sub_resource type="LabelSettings" id="LabelSettings_fkugw"]
-font = ExtResource("4_bls4j")
+font = ExtResource("13_gx6sm")
 
 [sub_resource type="LabelSettings" id="LabelSettings_4s8us"]
-font = ExtResource("4_bls4j")
+font = ExtResource("13_gx6sm")
 font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_26q78"]
-font = ExtResource("4_bls4j")
+font = ExtResource("13_gx6sm")
 font_size = 18
 font_color = Color(0.3647059, 1, 0.20784314, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_j3ovn"]
-font = ExtResource("4_bls4j")
+font = ExtResource("13_gx6sm")
 font_size = 22
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_afbqv"]
-font = ExtResource("4_bls4j")
-font_size = 22
+font = ExtResource("14_afbqv")
+font_size = 26
 font_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 
 [node name="player" type="CharacterBody3D" unique_id=2010102372]
@@ -164,6 +164,7 @@ grow_vertical = 0
 label_settings = SubResource("LabelSettings_fkugw")
 
 [node name="crosshair" type="ColorRect" parent="ui" unique_id=189611426]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -233,26 +234,26 @@ vertical_alignment = 1
 
 [node name="ui_window" type="NinePatchRect" parent="ui" unique_id=1554813719]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 39.0
-offset_right = 207.0
-offset_bottom = 150.0
+offset_left = 83.0
+offset_top = 119.0
+offset_right = 423.0
+offset_bottom = 349.0
 offset_transform_enabled = true
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 texture = ExtResource("13_j3ovn")
 region_rect = Rect2(0, 0, 51, 51)
 patch_margin_left = 12
-patch_margin_top = 40
+patch_margin_top = 46
 patch_margin_right = 11
-patch_margin_bottom = 19
+patch_margin_bottom = 4
 
 [node name="title" type="Label" parent="ui/ui_window" unique_id=1122937319]
 layout_mode = 1
-offset_left = 16.0
-offset_top = 9.0
-offset_right = 82.0
-offset_bottom = 32.0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 87.0
+offset_bottom = 40.0
 text = "Window"
 label_settings = SubResource("LabelSettings_j3ovn")
 vertical_alignment = 1
@@ -263,12 +264,11 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 15.0
-offset_top = 40.0
-offset_right = -17.0
-offset_bottom = -19.0
+offset_top = 53.0
+offset_right = -16.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Message
-"
+text = "Wenomechainsama"
 label_settings = SubResource("LabelSettings_afbqv")
 autowrap_mode = 1

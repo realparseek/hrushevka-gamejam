@@ -12,4 +12,7 @@ func open() -> void:
 	OPENED = true
 
 func close() -> void:
+	if animation_player:
+		if animation_player.is_playing(): return
+		animation_player.play("open")
 	OPENED = false
