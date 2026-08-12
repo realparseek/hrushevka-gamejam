@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
 [ext_resource type="Script" uid="uid://hwac2ykrct1h" path="res://assets/compositor/ps1_post_processing.gd" id="9_a1qjk"]
 [ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
+[ext_resource type="Texture2D" uid="uid://d4bvi4x2e6c4v" path="res://assets/images/ui_window/window0-75.png" id="13_j3ovn"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
 resource_local_to_scene = false
@@ -51,6 +52,11 @@ font_size = 18
 font = ExtResource("4_bls4j")
 font_size = 18
 font_color = Color(0.3647059, 1, 0.20784314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j3ovn"]
+font = ExtResource("4_bls4j")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
 
 [node name="player" type="CharacterBody3D" unique_id=2010102372]
 floor_constant_speed = true
@@ -137,7 +143,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 
 [node name="text" type="Label" parent="ui" unique_id=1600123497]
 layout_mode = 1
@@ -190,7 +196,6 @@ columns = 4
 layout_mode = 1
 offset_right = 90.0
 offset_bottom = 31.0
-mouse_filter = 2
 
 [node name="label" type="Label" parent="ui/stat_panel" unique_id=1625911709]
 layout_mode = 1
@@ -219,4 +224,30 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_26q78")
+vertical_alignment = 1
+
+[node name="ui_window" type="NinePatchRect" parent="ui" unique_id=1554813719]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 56.0
+offset_right = 333.0
+offset_bottom = 248.0
+offset_transform_enabled = true
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+texture = ExtResource("13_j3ovn")
+region_rect = Rect2(0, 0, 51, 51)
+patch_margin_left = 12
+patch_margin_top = 40
+patch_margin_right = 11
+patch_margin_bottom = 19
+
+[node name="title" type="Label" parent="ui/ui_window" unique_id=1122937319]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 9.0
+offset_right = 82.0
+offset_bottom = 32.0
+text = "Window"
+label_settings = SubResource("LabelSettings_j3ovn")
 vertical_alignment = 1

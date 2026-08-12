@@ -86,13 +86,7 @@ shadow_enabled = true
 omni_range = 7.350647
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="lights" unique_id=190380329]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8268228, -0.18807411, -17.527203)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 7.350647
-
-[node name="OmniLight3D14" type="OmniLight3D" parent="lights" unique_id=307852108]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8268228, -0.18807411, -13.357591)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8268228, -0.18807411, -15.527203)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 7.350647
@@ -327,4 +321,4 @@ transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.07089
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6009398, -1.8537714, -14.985698)
 
 [node name="door" parent="." unique_id=2026821777 instance=ExtResource("10_6yijy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.254, -1.848, -18.829)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.254, -1.848, -16.829)

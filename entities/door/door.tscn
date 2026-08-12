@@ -81,9 +81,8 @@ collision_layer = 3
 script = ExtResource("1_uq1c4")
 animation_player = NodePath("../anim_player")
 
-[node name="hoverable" type="Node" parent="." unique_id=791892074 node_paths=PackedStringArray("hover_mesh")]
+[node name="hoverable" type="Node" parent="." unique_id=791892074]
 script = ExtResource("1_6sqah")
-hover_mesh = NodePath("../outline")
 
 [node name="mesh" type="CSGBox3D" parent="." unique_id=1741286065]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4998849, 0, 0)
