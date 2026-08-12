@@ -58,6 +58,11 @@ font = ExtResource("4_bls4j")
 font_size = 22
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_afbqv"]
+font = ExtResource("4_bls4j")
+font_size = 22
+font_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+
 [node name="player" type="CharacterBody3D" unique_id=2010102372]
 floor_constant_speed = true
 
@@ -228,10 +233,10 @@ vertical_alignment = 1
 
 [node name="ui_window" type="NinePatchRect" parent="ui" unique_id=1554813719]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 56.0
-offset_right = 333.0
-offset_bottom = 248.0
+offset_left = 150.0
+offset_top = 73.0
+offset_right = 520.0
+offset_bottom = 330.0
 offset_transform_enabled = true
 mouse_filter = 0
 mouse_default_cursor_shape = 2
@@ -251,3 +256,19 @@ offset_bottom = 32.0
 text = "Window"
 label_settings = SubResource("LabelSettings_j3ovn")
 vertical_alignment = 1
+
+[node name="message" type="Label" parent="ui/ui_window" unique_id=1573994428]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 40.0
+offset_right = -17.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Message
+"
+label_settings = SubResource("LabelSettings_afbqv")
+autowrap_mode = 1
