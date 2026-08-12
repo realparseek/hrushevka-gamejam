@@ -233,12 +233,12 @@ label_settings = SubResource("LabelSettings_26q78")
 vertical_alignment = 1
 
 [node name="ui_window" type="NinePatchRect" parent="ui" unique_id=1554813719]
+custom_minimum_size = Vector2(245, 184)
 layout_mode = 0
-offset_left = 83.0
-offset_top = 119.0
-offset_right = 423.0
-offset_bottom = 349.0
-offset_transform_enabled = true
+offset_left = 10.0
+offset_top = 43.0
+offset_right = 255.0
+offset_bottom = 227.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 texture = ExtResource("13_j3ovn")
