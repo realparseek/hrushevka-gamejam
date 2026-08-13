@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
 [ext_resource type="Script" uid="uid://hwac2ykrct1h" path="res://assets/compositor/ps1_post_processing.gd" id="9_a1qjk"]
 [ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
-[ext_resource type="Texture2D" uid="uid://c1rotg5sric8w" path="res://assets/images/ui_window/window0-75-dark.png" id="13_afbqv"]
+[ext_resource type="Texture2D" uid="uid://b7d1eot25g322" path="res://assets/images/ui_window/window-50p-dark.png" id="13_afbqv"]
 [ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="13_gx6sm"]
 [ext_resource type="FontFile" uid="uid://hofycntvop3r" path="res://assets/fonts/serif-vga-10pt.ttf" id="14_afbqv"]
 
@@ -56,11 +56,11 @@ font_color = Color(0.3647059, 1, 0.20784314, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_j3ovn"]
 font = ExtResource("13_gx6sm")
-font_size = 22
+font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_afbqv"]
 font = ExtResource("14_afbqv")
-font_size = 26
+font_size = 22
 
 [node name="player" type="CharacterBody3D" unique_id=2010102372]
 floor_constant_speed = true
@@ -141,6 +141,7 @@ render_priority = 1
 texture = ExtResource("6_8fjmc")
 
 [node name="ui" type="Control" parent="." unique_id=1611900789]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -235,25 +236,25 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 7.0
 offset_top = 41.0
-offset_right = 228.0
-offset_bottom = 177.0
+offset_right = 215.0
+offset_bottom = 149.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 texture = ExtResource("13_afbqv")
-region_rect = Rect2(0, 0, 51, 51)
-patch_margin_left = 12
-patch_margin_top = 42
-patch_margin_right = 11
+region_rect = Rect2(0, 0, 38, 38)
+patch_margin_left = 6
+patch_margin_top = 34
+patch_margin_right = 5
 patch_margin_bottom = 5
 
 [node name="title" type="Label" parent="ui/ui_window" unique_id=1122937319]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 14.0
-offset_top = 10.0
-offset_right = -8.0
-offset_bottom = 39.0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = -10.0
+offset_bottom = 30.0
 grow_horizontal = 2
 text = "Window"
 label_settings = SubResource("LabelSettings_j3ovn")
@@ -261,14 +262,15 @@ vertical_alignment = 1
 clip_text = true
 
 [node name="message" type="Label" parent="ui/ui_window" unique_id=1573994428]
+custom_minimum_size = Vector2(1, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 53.0
-offset_right = -16.0
-offset_bottom = -17.0
+offset_left = 11.0
+offset_top = 38.0
+offset_right = -7.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Do you really want to quit ?"
