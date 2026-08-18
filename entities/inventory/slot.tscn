@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://cu62jtaatiady"]
 
+[ext_resource type="Script" uid="uid://cmiq2jrgjhclj" path="res://scripts/inventory/slot.gd" id="1_m1o5v"]
+
 [node name="islot" type="ColorRect" unique_id=1139671104]
 custom_minimum_size = Vector2(60, 60)
 offset_right = 40.0
 offset_bottom = 40.0
-mouse_filter = 2
+mouse_filter = 1
 color = Color(0.048, 0.048, 0.06, 0.78431374)
+
+[node name="slot" type="Node" parent="." unique_id=1059018792 node_paths=PackedStringArray("icon")]
+script = ExtResource("1_m1o5v")
+icon = NodePath("../icon")
 
 [node name="background" type="ColorRect" parent="." unique_id=1148114306]
 custom_minimum_size = Vector2(38, 38)

@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dd3nh8y7xrt8h" path="res://scripts/inventory/inventory.gd" id="3_26q78"]
 [ext_resource type="Texture2D" uid="uid://dc8biru5wf5ej" path="res://assets/icons/cursor/hold.png" id="4_bectd"]
 [ext_resource type="Texture2D" uid="uid://c3824jej5i0gg" path="res://assets/icons/cursor/hand.png" id="6_8fjmc"]
-[ext_resource type="Script" uid="uid://41floom4owhh" path="res://scripts/fps_counter/fps_counter.gd" id="6_bectd"]
 [ext_resource type="Script" uid="uid://bha5v1ek6623u" path="res://scripts/post_processing/post_processing.gd" id="6_wvtmh"]
 [ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
 [ext_resource type="Script" uid="uid://hwac2ykrct1h" path="res://assets/compositor/ps1_post_processing.gd" id="9_a1qjk"]
@@ -18,7 +17,7 @@
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
 resource_local_to_scene = false
 resource_name = ""
-enabled = false
+enabled = true
 effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
@@ -41,18 +40,6 @@ compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7ba2
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mm0n8"]
 radius = 0.35
 height = 1.9820312
-
-[sub_resource type="LabelSettings" id="LabelSettings_fkugw"]
-font = ExtResource("13_gx6sm")
-
-[sub_resource type="LabelSettings" id="LabelSettings_4s8us"]
-font = ExtResource("13_gx6sm")
-font_size = 18
-
-[sub_resource type="LabelSettings" id="LabelSettings_26q78"]
-font = ExtResource("13_gx6sm")
-font_size = 18
-font_color = Color(0.3647059, 1, 0.20784314, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_j3ovn"]
 font = ExtResource("13_gx6sm")
@@ -89,15 +76,11 @@ icon_drag = ExtResource("4_bectd")
 
 [node name="inventory" type="Node" parent="." unique_id=2040348201 node_paths=PackedStringArray("grid_container")]
 script = ExtResource("3_26q78")
-grid_container = NodePath("../ui/inventory/grid")
+grid_container = NodePath("../ui/inventory")
 
 [node name="post_processing" type="Node" parent="." unique_id=744587933 node_paths=PackedStringArray("camera")]
 script = ExtResource("6_wvtmh")
 camera = NodePath("../head/camera")
-
-[node name="fps_counter" type="Node" parent="." unique_id=1892276216 node_paths=PackedStringArray("fps_label")]
-script = ExtResource("6_bectd")
-fps_label = NodePath("../ui/stat_panel/fps")
 
 [node name="head" type="Node3D" parent="." unique_id=815278167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012596369, 0.7461406, -0.09485489)
@@ -150,19 +133,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="text" type="Label" parent="ui" unique_id=1600123497]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -88.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-label_settings = SubResource("LabelSettings_fkugw")
-
 [node name="crosshair" type="ColorRect" parent="ui" unique_id=189611426]
 visible = false
 layout_mode = 1
@@ -179,65 +149,26 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="inventory" type="PanelContainer" parent="ui" unique_id=1014861244]
+[node name="inventory" type="GridContainer" parent="ui" unique_id=1040561380]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -340.0
-offset_right = -340.0
 grow_horizontal = 0
 grow_vertical = 0
-
-[node name="grid" type="GridContainer" parent="ui/inventory" unique_id=1040561380]
-layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 4
 
-[node name="stat_panel" type="Panel" parent="ui" unique_id=1658070182]
-layout_mode = 1
-offset_right = 90.0
-offset_bottom = 31.0
-
-[node name="label" type="Label" parent="ui/stat_panel" unique_id=1625911709]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 5.0
-offset_right = -27.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "FPS: "
-label_settings = SubResource("LabelSettings_4s8us")
-vertical_alignment = 1
-
-[node name="fps" type="Label" parent="ui/stat_panel" unique_id=1543797526]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 66.0
-offset_top = 5.0
-offset_right = -6.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-label_settings = SubResource("LabelSettings_26q78")
-vertical_alignment = 1
-
 [node name="ui_window" type="NinePatchRect" parent="ui" unique_id=1554813719]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 41.0
-offset_right = 215.0
-offset_bottom = 149.0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 223.0
+offset_bottom = 117.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
 texture = ExtResource("13_afbqv")

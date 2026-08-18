@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	if hoverable.hovered() and Input.is_action_just_pressed("item_interacte"):
 		start_dragging()
 		WAS_HOVERED = true
-	
+
 	if WAS_HOVERED and Input.is_action_just_released("item_interacte"):
 		stop_dragging()
 		WAS_HOVERED = false
