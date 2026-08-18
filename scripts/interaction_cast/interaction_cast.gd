@@ -6,8 +6,8 @@ class_name InteractionCast
 @export var raycast: RayCast3D
 @export var icon_sprite: Sprite3D
 @export var crosshair_rect: ColorRect
-@export var pickup_sound: SpatialAudioPlayer3D
-@export var denied_sound: AudioStreamPlayer3D
+@export var pickup_sound: AudioStreamPlayer
+@export var denied_sound: AudioStreamPlayer
 @export var icon_interacte: Texture2D
 @export var icon_drag: Texture2D
 
