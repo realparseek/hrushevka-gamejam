@@ -320,5 +320,17 @@ transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.07089
 [node name="orb" parent="entities" unique_id=1712574766 instance=ExtResource("9_3ijw5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6009398, -1.8537714, -14.985698)
 
+[node name="orb2" parent="entities" unique_id=1165084838 instance=ExtResource("9_3ijw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8605511, -1.8537714, -14.985698)
+
+[node name="orb3" parent="entities" unique_id=268166303 instance=ExtResource("9_3ijw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8605511, -1.8537714, -14.326989)
+
+[node name="orb4" parent="entities" unique_id=2079109980 instance=ExtResource("9_3ijw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5976777, -1.8537714, -14.326989)
+
+[node name="orb5" parent="entities" unique_id=1745980144 instance=ExtResource("9_3ijw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3913946, -1.8537714, -14.326989)
+
 [node name="door" parent="entities" unique_id=2026821777 instance=ExtResource("10_6yijy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.254, -1.848, -16.829)

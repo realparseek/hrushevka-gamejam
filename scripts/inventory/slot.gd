@@ -7,7 +7,7 @@ func set_item(pickable: Pickable) -> void:
 	icon.texture = pickable.icon
 
 func set_null() -> void:
-	pass
+	icon.texture = null
 
 func is_null() -> bool:
 	return icon.texture == null
