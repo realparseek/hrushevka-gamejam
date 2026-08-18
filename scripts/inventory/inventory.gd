@@ -19,9 +19,9 @@ func add_pickable(pickable: Pickable):
 			if cc is InventorySlot and cc.is_null(): 
 				slot = cc
 				break
-		if slot: break
-	if not slot: return
-	slot.set_item(pickable)
+		if slot: 
+			slot.set_item(pickable)
+			return
 
 func pos_to_index(_pos: Vector2i) -> int:
 	return 0

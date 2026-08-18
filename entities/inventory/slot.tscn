@@ -6,7 +6,6 @@
 custom_minimum_size = Vector2(60, 60)
 offset_right = 40.0
 offset_bottom = 40.0
-mouse_filter = 1
 color = Color(0.048, 0.048, 0.06, 0.78431374)
 
 [node name="slot" type="Node" parent="." unique_id=1059018792 node_paths=PackedStringArray("icon")]
@@ -20,7 +19,7 @@ offset_left = 3.0
 offset_top = 3.0
 offset_right = 57.0
 offset_bottom = 57.0
-mouse_filter = 2
+mouse_filter = 1
 color = Color(0.16924527, 0.1692453, 0.16924527, 1)
 
 [node name="icon" type="TextureRect" parent="." unique_id=569157296]
@@ -29,5 +28,4 @@ offset_left = 3.0
 offset_top = 3.0
 offset_right = 57.0
 offset_bottom = 57.0
-mouse_filter = 2
 expand_mode = 1
