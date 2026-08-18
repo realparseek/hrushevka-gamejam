@@ -7,6 +7,7 @@ class_name InteractionCast
 @export var icon_sprite: Sprite3D
 @export var crosshair_rect: ColorRect
 @export var pickup_sound: SpatialAudioPlayer3D
+@export var denied_sound: AudioStreamPlayer3D
 @export var icon_interacte: Texture2D
 @export var icon_drag: Texture2D
 
@@ -54,9 +55,13 @@ func _process(_delta: float) -> void:
 	
 	if pickable and inventory:
 		if Input.is_action_just_pressed("item_pickup"):
-			inventory.add_pickable(pickable)
-			coll.queue_free()
-			pickup_sound.play()
+			if not inventory.add_pickable(pickable):
+				if denied_sound.playing:
+					denied_sound.stop()
+				denied_sound.play()
+			else:
+				coll.queue_free()
+				pickup_sound.play()
 
 	if draggable:
 		if Input.is_action_just_pressed("item_interacte"):

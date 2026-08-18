@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
 [ext_resource type="Script" uid="uid://hwac2ykrct1h" path="res://assets/compositor/ps1_post_processing.gd" id="9_a1qjk"]
 [ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
+[ext_resource type="AudioStream" uid="uid://cqw6hy3msf12q" path="res://assets/audio/ui/ding.mp3" id="11_afbqv"]
 [ext_resource type="Texture2D" uid="uid://b7d1eot25g322" path="res://assets/images/ui_window/window-50p-dark.png" id="13_afbqv"]
 [ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="13_gx6sm"]
 [ext_resource type="FontFile" uid="uid://hofycntvop3r" path="res://assets/fonts/serif-vga-10pt.ttf" id="14_afbqv"]
@@ -63,7 +64,7 @@ headbob_size = 0.04
 headbob_tilt = 0.5
 crouch_tilt = 1.0
 
-[node name="interaction_cast" type="Node" parent="." unique_id=1498851580 node_paths=PackedStringArray("fps", "inventory", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound")]
+[node name="interaction_cast" type="Node" parent="." unique_id=1498851580 node_paths=PackedStringArray("fps", "inventory", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound", "denied_sound")]
 script = ExtResource("2_fkugw")
 fps = NodePath("../fps_movement")
 inventory = NodePath("../inventory")
@@ -71,6 +72,7 @@ raycast = NodePath("../head/camera/interaction_cast")
 icon_sprite = NodePath("../cursor")
 crosshair_rect = NodePath("../ui/crosshair")
 pickup_sound = NodePath("../pickup_sound")
+denied_sound = NodePath("../denied_sound")
 icon_interacte = ExtResource("6_8fjmc")
 icon_drag = ExtResource("4_bectd")
 
@@ -113,6 +115,9 @@ stream = ExtResource("10_7thud")
 volume_db = -5.0
 script = ExtResource("2_sglur")
 metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="denied_sound" type="AudioStreamPlayer3D" parent="." unique_id=741635575]
+stream = ExtResource("11_afbqv")
 
 [node name="cursor" type="Sprite3D" parent="." unique_id=312436328]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, -2)
