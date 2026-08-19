@@ -173,13 +173,13 @@ theme_override_constants/v_separation = 0
 columns = 4
 
 [node name="ui_window" type="NinePatchRect" parent="ui" unique_id=1554813719]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_left = 10.0
 offset_top = 9.0
 offset_right = 223.0
 offset_bottom = 117.0
 mouse_filter = 0
-mouse_default_cursor_shape = 2
 texture = ExtResource("13_afbqv")
 region_rect = Rect2(0, 0, 38, 38)
 patch_margin_left = 6
