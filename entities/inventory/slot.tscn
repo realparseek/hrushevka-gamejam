@@ -23,7 +23,7 @@ offset_bottom = 57.0
 mouse_filter = 1
 color = Color(0.16862746, 0.16862746, 0.16862746, 1)
 
-[node name="icon" type="TextureRect" parent="." unique_id=569157296]
+[node name="icon" type="TextureRect" parent="." unique_id=569157296 node_paths=PackedStringArray("inventory_slot")]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
@@ -31,3 +31,4 @@ offset_right = 57.0
 offset_bottom = 57.0
 expand_mode = 1
 script = ExtResource("2_l2dpr")
+inventory_slot = NodePath("../slot")

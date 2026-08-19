@@ -13,16 +13,9 @@ func _ready() -> void:
 		grid_container.add_child(slot)
 
 func add_pickable(pickable: Pickable) -> bool:
-	var slot: InventorySlot = null
 	for c in grid_container.get_children():
 		for cc in c.get_children():
 			if cc is InventorySlot and cc.is_null(): 
-				slot = cc
-				break
-		if slot: 
-			slot.set_item(pickable)
-			return true
+				cc.set_item(pickable)
+				return true
 	return false
-
-func pos_to_index(_pos: Vector2i) -> int:
-	return 0

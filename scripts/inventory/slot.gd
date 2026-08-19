@@ -3,14 +3,15 @@ class_name InventorySlot
 
 @export var icon: TextureRect
 
-func _ready() -> void:
-	pass
+var PICKABLE: Pickable = null
 
 func set_item(pickable: Pickable) -> void:
 	if pickable:
-		icon.texture = pickable.icon
+		PICKABLE = pickable.duplicate()
+		icon.texture = PICKABLE.icon
 	else:
+		PICKABLE = null
 		icon.texture = null
 
 func is_null() -> bool:
-	return icon.texture == null
+	return PICKABLE == null
