@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://hwac2ykrct1h" path="res://assets/compositor/ps1_post_processing.gd" id="9_a1qjk"]
 [ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
 [ext_resource type="AudioStream" uid="uid://cqw6hy3msf12q" path="res://assets/audio/ui/ding.mp3" id="11_afbqv"]
+[ext_resource type="AudioStream" uid="uid://bxcj8p380ajy7" path="res://assets/audio/ui/move.mp3" id="12_gx6sm"]
 [ext_resource type="Texture2D" uid="uid://b7d1eot25g322" path="res://assets/images/ui_window/window-50p-dark.png" id="13_afbqv"]
 [ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="13_gx6sm"]
 [ext_resource type="FontFile" uid="uid://hofycntvop3r" path="res://assets/fonts/serif-vga-10pt.ttf" id="14_afbqv"]
@@ -76,9 +77,10 @@ denied_sound = NodePath("../denied_sound")
 icon_interacte = ExtResource("6_8fjmc")
 icon_drag = ExtResource("4_bectd")
 
-[node name="inventory" type="Node" parent="." unique_id=2040348201 node_paths=PackedStringArray("grid_container")]
+[node name="inventory" type="Node" parent="." unique_id=2040348201 node_paths=PackedStringArray("grid_container", "move_sound")]
 script = ExtResource("3_26q78")
 grid_container = NodePath("../ui/inventory")
+move_sound = NodePath("../item_move_sound")
 
 [node name="post_processing" type="Node" parent="." unique_id=744587933 node_paths=PackedStringArray("camera")]
 script = ExtResource("6_wvtmh")
@@ -116,6 +118,9 @@ volume_db = -15.0
 
 [node name="denied_sound" type="AudioStreamPlayer" parent="." unique_id=887254695]
 stream = ExtResource("11_afbqv")
+
+[node name="item_move_sound" type="AudioStreamPlayer" parent="." unique_id=894706487]
+stream = ExtResource("12_gx6sm")
 
 [node name="cursor" type="Sprite3D" parent="." unique_id=312436328]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, -2)

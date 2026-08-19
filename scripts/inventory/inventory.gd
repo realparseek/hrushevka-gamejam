@@ -2,6 +2,7 @@ extends Node
 class_name Inventory
 
 @export var grid_container: GridContainer
+@export var move_sound: AudioStreamPlayer
 
 var ISLOT: PackedScene = load("res://entities/inventory/slot.tscn")
 var SLOT_COUNT: int = 0
