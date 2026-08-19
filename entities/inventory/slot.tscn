@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cu62jtaatiady"]
 
 [ext_resource type="Script" uid="uid://cmiq2jrgjhclj" path="res://scripts/inventory/slot.gd" id="1_m1o5v"]
+[ext_resource type="Script" uid="uid://b1i11fsgjcr1" path="res://scripts/inventory/icon.gd" id="2_l2dpr"]
 
 [node name="islot" type="ColorRect" unique_id=1139671104]
 custom_minimum_size = Vector2(60, 60)
@@ -20,7 +21,7 @@ offset_top = 3.0
 offset_right = 57.0
 offset_bottom = 57.0
 mouse_filter = 1
-color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+color = Color(0.16862746, 0.16862746, 0.16862746, 1)
 
 [node name="icon" type="TextureRect" parent="." unique_id=569157296]
 layout_mode = 0
@@ -29,3 +30,4 @@ offset_top = 3.0
 offset_right = 57.0
 offset_bottom = 57.0
 expand_mode = 1
+script = ExtResource("2_l2dpr")

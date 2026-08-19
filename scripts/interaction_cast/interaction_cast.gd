@@ -61,6 +61,8 @@ func _process(_delta: float) -> void:
 				denied_sound.play()
 			else:
 				coll.queue_free()
+				if pickup_sound.playing:
+					pickup_sound.stop()
 				pickup_sound.play()
 
 	if draggable:
