@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://d3ykkyhv1t4wx"]
+
+[ext_resource type="Texture2D" uid="uid://b7d1eot25g322" path="res://assets/images/ui_window/window-50p-dark.png" id="1_dlpi6"]
+[ext_resource type="Script" uid="uid://cvh4bc3c1w582" path="res://entities/windows/fps/fpswindow.gd" id="2_dlpi6"]
+[ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="3_gexx8"]
+[ext_resource type="FontFile" uid="uid://hofycntvop3r" path="res://assets/fonts/serif-vga-10pt.ttf" id="4_xfhkx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j3ovn"]
+font = ExtResource("3_gexx8")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_afbqv"]
+font = ExtResource("4_xfhkx")
+font_size = 22
+
+[node name="fpswindow" type="NinePatchRect" unique_id=512119476]
+custom_minimum_size = Vector2(50, 50)
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 223.0
+offset_bottom = 117.0
+mouse_filter = 0
+texture = ExtResource("1_dlpi6")
+region_rect = Rect2(0, 0, 38, 38)
+patch_margin_left = 6
+patch_margin_top = 34
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="fpswindow" type="Node" parent="." unique_id=1737618984 node_paths=PackedStringArray("rect")]
+script = ExtResource("2_dlpi6")
+rect = NodePath("..")
+window_title = "FPS"
+window_message = "?"
+
+[node name="title" type="Label" parent="." unique_id=1583771090]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = -10.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "FPS"
+label_settings = SubResource("LabelSettings_j3ovn")
+vertical_alignment = 1
+clip_text = true
+
+[node name="message" type="Label" parent="." unique_id=1465674699]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 38.0
+offset_right = -7.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "?"
+label_settings = SubResource("LabelSettings_afbqv")
+autowrap_mode = 2
+clip_text = true

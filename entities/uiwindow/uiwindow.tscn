@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dejthqbhwivcj"]
+
+[ext_resource type="Texture2D" uid="uid://b7d1eot25g322" path="res://assets/images/ui_window/window-50p-dark.png" id="1_s4ssl"]
+[ext_resource type="Script" uid="uid://c24dr4oh3eum" path="res://scripts/uiwindow/uiwindow.gd" id="2_4s5eg"]
+[ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="3_rgswv"]
+[ext_resource type="FontFile" uid="uid://hofycntvop3r" path="res://assets/fonts/serif-vga-10pt.ttf" id="4_p08nv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j3ovn"]
+font = ExtResource("3_rgswv")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_afbqv"]
+font = ExtResource("4_p08nv")
+font_size = 22
+
+[node name="ui_window" type="NinePatchRect" unique_id=1941317813]
+custom_minimum_size = Vector2(50, 50)
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 223.0
+offset_bottom = 117.0
+mouse_filter = 0
+texture = ExtResource("1_s4ssl")
+region_rect = Rect2(0, 0, 38, 38)
+patch_margin_left = 6
+patch_margin_top = 34
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="ui_window" type="Node" parent="." unique_id=1404657286 node_paths=PackedStringArray("rect")]
+script = ExtResource("2_4s5eg")
+rect = NodePath("..")
+window_title = "FPS"
+window_message = "?"
+
+[node name="title" type="Label" parent="." unique_id=1554757870]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = -10.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "Window"
+label_settings = SubResource("LabelSettings_j3ovn")
+vertical_alignment = 1
+clip_text = true
+
+[node name="message" type="Label" parent="." unique_id=366930773]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 38.0
+offset_right = -7.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Do you really want to quit ?"
+label_settings = SubResource("LabelSettings_afbqv")
+autowrap_mode = 2
+clip_text = true

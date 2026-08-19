@@ -2,12 +2,25 @@ extends Node
 class_name UIWindow
 
 @export var rect: NinePatchRect
+@export var window_title: String
+@export_multiline var window_message: String
+
+var title: String:
+	get: return rect.get_node("title").text
+	set(value): rect.get_node("title").text = value
+var message: String:
+	get: return rect.get_node("message").text
+	set(value): rect.get_node("message").text = value
 
 var DRAGGING: bool = false
 var RESIZING: bool = false
 var WSTARTPOS: Vector2 = Vector2.ZERO
 var MSTARTPOS: Vector2 = Vector2.ZERO
 var WSTARTSIZE: Vector2 = Vector2.ZERO
+
+func _ready() -> void:
+	title = window_title
+	message = window_message
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
