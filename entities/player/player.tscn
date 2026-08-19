@@ -163,6 +163,7 @@ columns = 4
 
 [node name="fpswindow" parent="ui" unique_id=512119476 instance=ExtResource("13_j3ovn")]
 layout_mode = 0
-offset_left = 13.0
-offset_right = 138.0
-offset_bottom = 98.0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 134.0
+offset_bottom = 84.0

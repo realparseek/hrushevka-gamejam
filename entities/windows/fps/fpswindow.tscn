@@ -15,10 +15,8 @@ font_size = 22
 
 [node name="fpswindow" type="NinePatchRect" unique_id=512119476]
 custom_minimum_size = Vector2(50, 50)
-offset_left = 10.0
-offset_top = 9.0
-offset_right = 223.0
-offset_bottom = 117.0
+offset_right = 213.0
+offset_bottom = 108.0
 mouse_filter = 0
 texture = ExtResource("1_dlpi6")
 region_rect = Rect2(0, 0, 38, 38)
