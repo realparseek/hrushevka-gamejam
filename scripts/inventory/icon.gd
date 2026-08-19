@@ -23,4 +23,6 @@ func _drop_data(_at_pos: Vector2, data: Variant) -> void:
 	if inventory_slot == data: return
 	inventory_slot.set_item(data.PICKABLE)
 	data.set_item(null)
+	
+	# пиздец
 	$"../../../../inventory".move_sound.play()

@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b7d1eot25g322" path="res://assets/images/ui_window/window-50p-dark.png" id="13_afbqv"]
 [ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="13_gx6sm"]
 [ext_resource type="FontFile" uid="uid://hofycntvop3r" path="res://assets/fonts/serif-vga-10pt.ttf" id="14_afbqv"]
+[ext_resource type="Script" uid="uid://c24dr4oh3eum" path="res://scripts/ui_window/ui_window.gd" id="14_yqrof"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
 resource_local_to_scene = false
@@ -185,6 +186,10 @@ patch_margin_left = 6
 patch_margin_top = 34
 patch_margin_right = 5
 patch_margin_bottom = 5
+
+[node name="ui_window" type="Node" parent="ui/ui_window" unique_id=950988223 node_paths=PackedStringArray("rect")]
+script = ExtResource("14_yqrof")
+rect = NodePath("..")
 
 [node name="title" type="Label" parent="ui/ui_window" unique_id=1122937319]
 layout_mode = 1
