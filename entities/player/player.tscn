@@ -70,10 +70,12 @@ denied_sound = NodePath("../denied_sound")
 icon_interacte = ExtResource("6_8fjmc")
 icon_drag = ExtResource("4_bectd")
 
-[node name="inventory" type="Node" parent="." unique_id=2040348201 node_paths=PackedStringArray("grid_container", "move_sound")]
+[node name="inventory" type="Node" parent="." unique_id=2040348201 node_paths=PackedStringArray("pause_menu", "grid_container", "move_sound")]
 script = ExtResource("3_26q78")
+pause_menu = NodePath("../pause_menu")
 grid_container = NodePath("../ui/inventory")
 move_sound = NodePath("../item_move_sound")
+open_acceleration = 0.158
 
 [node name="post_processing" type="Node" parent="." unique_id=744587933 node_paths=PackedStringArray("camera")]
 script = ExtResource("6_wvtmh")
