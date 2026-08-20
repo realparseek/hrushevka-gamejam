@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://ca5dkr7ytxhv7"]
+
+[ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="1_lwhiy"]
+
+[resource]
+default_font = ExtResource("1_lwhiy")
+default_font_size = 64

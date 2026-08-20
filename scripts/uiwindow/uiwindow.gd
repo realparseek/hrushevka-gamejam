@@ -23,6 +23,8 @@ func _ready() -> void:
 	message = window_message
 
 func _input(event: InputEvent) -> void:
+	if not rect: return
+	
 	if event is InputEventMouseButton:
 		if event.pressed:
 			var wrect = Rect2(rect.global_position, rect.size)

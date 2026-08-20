@@ -7,11 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://dc8biru5wf5ej" path="res://assets/icons/cursor/hold.png" id="4_bectd"]
 [ext_resource type="Texture2D" uid="uid://c3824jej5i0gg" path="res://assets/icons/cursor/hand.png" id="6_8fjmc"]
 [ext_resource type="Script" uid="uid://bha5v1ek6623u" path="res://scripts/post_processing/post_processing.gd" id="6_wvtmh"]
+[ext_resource type="Script" uid="uid://7b5emub0t48a" path="res://scripts/pause_menu/pause_menu.gd" id="7_gx6sm"]
 [ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
 [ext_resource type="Script" uid="uid://hwac2ykrct1h" path="res://assets/compositor/ps1_post_processing.gd" id="9_a1qjk"]
 [ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
 [ext_resource type="AudioStream" uid="uid://cqw6hy3msf12q" path="res://assets/audio/ui/ding.mp3" id="11_afbqv"]
 [ext_resource type="AudioStream" uid="uid://bxcj8p380ajy7" path="res://assets/audio/ui/move.mp3" id="12_gx6sm"]
+[ext_resource type="Theme" uid="uid://ca5dkr7ytxhv7" path="res://assets/themes/pause/menu.tres" id="13_afbqv"]
 [ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="13_j3ovn"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
@@ -44,8 +46,9 @@ height = 1.9820312
 [node name="player" type="CharacterBody3D" unique_id=2010102372]
 floor_constant_speed = true
 
-[node name="fps_movement" type="Node" parent="." unique_id=1834738851 node_paths=PackedStringArray("player", "head", "steps_player", "collision_shape")]
+[node name="fps_movement" type="Node" parent="." unique_id=1834738851 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape")]
 script = ExtResource("1_symyc")
+pause_menu = NodePath("../pause_menu")
 player = NodePath("..")
 head = NodePath("../head")
 steps_player = NodePath("../step_sounds")
@@ -75,6 +78,10 @@ move_sound = NodePath("../item_move_sound")
 [node name="post_processing" type="Node" parent="." unique_id=744587933 node_paths=PackedStringArray("camera")]
 script = ExtResource("6_wvtmh")
 camera = NodePath("../head/camera")
+
+[node name="pause_menu" type="Node" parent="." unique_id=320344774 node_paths=PackedStringArray("menu")]
+script = ExtResource("7_gx6sm")
+menu = NodePath("../ui/pause")
 
 [node name="head" type="Node3D" parent="." unique_id=815278167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012596369, 0.7461406, -0.09485489)
@@ -131,6 +138,63 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
+[node name="inventory" type="GridContainer" parent="ui" unique_id=1040561380]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="pause" type="ColorRect" parent="ui" unique_id=807441283]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.90000004)
+
+[node name="menu" type="VBoxContainer" parent="ui/pause" unique_id=21782432]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -248.0
+offset_right = 361.0
+offset_bottom = -24.0
+grow_vertical = 0
+mouse_filter = 0
+
+[node name="resume" type="Button" parent="ui/pause/menu" unique_id=1881946547]
+layout_mode = 2
+theme = ExtResource("13_afbqv")
+text = "Resume
+"
+flat = true
+
+[node name="settings" type="Button" parent="ui/pause/menu" unique_id=949134442]
+layout_mode = 2
+theme = ExtResource("13_afbqv")
+text = "Settings
+"
+flat = true
+
+[node name="exit" type="Button" parent="ui/pause/menu" unique_id=1361604264]
+layout_mode = 2
+theme = ExtResource("13_afbqv")
+text = "Exit"
+flat = true
+
 [node name="crosshair" type="ColorRect" parent="ui" unique_id=189611426]
 visible = false
 layout_mode = 1
@@ -146,20 +210,6 @@ offset_bottom = 1.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="inventory" type="GridContainer" parent="ui" unique_id=1040561380]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 8
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 4
 
 [node name="fpswindow" parent="ui" unique_id=512119476 instance=ExtResource("13_j3ovn")]
 layout_mode = 0

@@ -1,6 +1,7 @@
 extends Node
 class_name FPSMovement
 
+@export var pause_menu: PauseMenu
 @export var player: CharacterBody3D
 @export var head: Node3D
 @export var steps_player: SpatialAudioPlayer3D
@@ -49,6 +50,7 @@ func _physics_process(delta: float) -> void:
 	_handle_step_sounds()
 	_handle_headbob(delta)
 	_handle_crouching()
+	_handle_pausing()
 
 	player.move_and_slide()
 
@@ -93,6 +95,15 @@ func _handle_crouching():
 	var desired_height: float = PLAYER_START_HEIGHT-crouch_size if CROUCHED else PLAYER_START_HEIGHT
 	collision_shape.shape.height = lerpf(collision_shape.shape.height, desired_height, crouch_acceleration)
 
+func _handle_pausing():
+	if not pause_menu: return
+	
+	if Input.is_action_just_pressed("ui_pause"):
+		if pause_menu.PAUSED:
+			pause_menu.unpause()
+		else:
+			pause_menu.pause()
+
 func _play_step_sound() -> void:
 	steps_player.stream = step_sounds[NEXT_STEP_SOUND]
 	steps_player.play()
@@ -100,12 +111,9 @@ func _play_step_sound() -> void:
 	NEXT_STEP_SOUND = wrap(NEXT_STEP_SOUND+1, 0, step_sounds.size())
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	if event is InputEventKey:
-		if event.keycode == KEY_ESCAPE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#if event is InputEventMouseButton:
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#
 	
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		player.rotate_y(event.relative.x * -mouse_sensetivity * SENSETIVITY_MUL)
