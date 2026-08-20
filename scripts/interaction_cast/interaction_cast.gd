@@ -26,7 +26,8 @@ func _process(_delta: float) -> void:
 		PICKED_DRAGGABLE.stop_dragging()
 		PICKED_DRAGGABLE = null
 	
-	var coll: StaticBody3D = raycast.get_collider()
+	#var coll: StaticBody3D = raycast.get_collider()
+	var coll = raycast.get_collider()
 	if not coll and not PICKED_DRAGGABLE:
 		if PICKED_HOVERABLE:
 			PICKED_HOVERABLE.unhover()

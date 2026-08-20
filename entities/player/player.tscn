@@ -44,9 +44,11 @@ radius = 0.35
 height = 1.9820312
 
 [node name="player" type="CharacterBody3D" unique_id=2010102372]
+process_mode = 3
 floor_constant_speed = true
 
 [node name="fps_movement" type="Node" parent="." unique_id=1834738851 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape")]
+process_mode = 3
 script = ExtResource("1_symyc")
 pause_menu = NodePath("../pause_menu")
 player = NodePath("..")
@@ -95,7 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.094000936)
 compositor = SubResource("Compositor_vpe7l")
 
 [node name="interaction_cast" type="RayCast3D" parent="head/camera" unique_id=49206775]
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, -1.2)
 collision_mask = 2
 collide_with_areas = true
 

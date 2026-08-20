@@ -44,13 +44,15 @@ func _ready() -> void:
 	PLAYER_START_HEIGHT = collision_shape.shape.height
 
 func _physics_process(delta: float) -> void:
+	_handle_pausing()
+	if pause_menu and pause_menu.PAUSED: return
+	
 	_handle_gravity(delta)
 	_handle_jump()
 	_handle_walk()
 	_handle_step_sounds()
 	_handle_headbob(delta)
 	_handle_crouching()
-	_handle_pausing()
 
 	player.move_and_slide()
 
