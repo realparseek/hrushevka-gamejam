@@ -79,9 +79,11 @@ move_sound = NodePath("../item_move_sound")
 script = ExtResource("6_wvtmh")
 camera = NodePath("../head/camera")
 
-[node name="pause_menu" type="Node" parent="." unique_id=320344774 node_paths=PackedStringArray("menu")]
+[node name="pause_menu" type="Node" parent="." unique_id=320344774 node_paths=PackedStringArray("menu", "resume_button", "exit_button")]
 script = ExtResource("7_gx6sm")
 menu = NodePath("../ui/pause")
+resume_button = NodePath("../ui/pause/menu/resume")
+exit_button = NodePath("../ui/pause/menu/exit")
 
 [node name="head" type="Node3D" parent="." unique_id=815278167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012596369, 0.7461406, -0.09485489)
