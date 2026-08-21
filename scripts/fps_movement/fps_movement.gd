@@ -17,6 +17,8 @@ class_name FPSMovement
 @export var headbob_speed: float = 3.5
 @export var headbob_tilt: float = 0.7
 @export var crouch_tilt: float = 2.0
+@export var push_force_walk: float = 0.05
+@export var push_force_run: float = 1.0
 
 const SENSETIVITY_MUL: float = 0.001
 var HEADBOB_START_Y: float = 0.0
@@ -55,6 +57,8 @@ func _physics_process(delta: float) -> void:
 	_handle_crouching()
 
 	player.move_and_slide()
+
+	_push_rigid_bodies()
 
 func _handle_gravity(delta: float) -> void:
 	if not player.is_on_floor():
@@ -109,15 +113,30 @@ func _handle_pausing():
 func _play_step_sound() -> void:
 	steps_player.stream = step_sounds[NEXT_STEP_SOUND]
 	steps_player.play()
-	#print('Step sound player: ', NEXT_STEP_SOUND)
 	NEXT_STEP_SOUND = wrap(NEXT_STEP_SOUND+1, 0, step_sounds.size())
 
 func _unhandled_input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton:
-		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		player.rotate_y(event.relative.x * -mouse_sensetivity * SENSETIVITY_MUL)
 		HEAD_PITCH += event.relative.y * -mouse_sensetivity * SENSETIVITY_MUL
 		HEAD_PITCH = clamp(HEAD_PITCH, deg_to_rad(-90), deg_to_rad(90))
 		head.rotation.x = HEAD_PITCH
+
+func _push_rigid_bodies():
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	if input_dir.length() < 0.001:
+		return   
+
+	var current_push_force = push_force_run if Input.is_action_pressed("move_run") else push_force_walk
+
+	for i in player.get_slide_collision_count():
+		var collision = player.get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider is RigidBody3D:
+			var rb = collider as RigidBody3D
+			var push_dir = -collision.get_normal()
+			push_dir.y = 0.0
+			if push_dir.length() > 0.001:
+				push_dir = push_dir.normalized()
+				rb.apply_central_impulse(push_dir * current_push_force)
