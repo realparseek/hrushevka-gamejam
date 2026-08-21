@@ -14,16 +14,19 @@ var SLOT_COUNT: int = 0
 var ITEM_COUNT: int = 0
 var VISIBLE: bool = false
 var STARTPOS: Vector2 = Vector2.ZERO
+var VIEWSIZE: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	for i in range(grid_container.columns*rows):
 		var slot = ISLOT.instantiate()
 		grid_container.add_child(slot)
-
+	
+	VIEWSIZE = get_viewport().get_visible_rect().size
 	STARTPOS = grid_container.position
-
+	
 func _process(_delta: float) -> void:
 	_handle_visibility()
+	_handle_window_resize()
 
 func add_pickable(pickable: Pickable) -> bool:
 	for c in grid_container.get_children():
@@ -52,3 +55,9 @@ func _handle_visibility() -> void:
 	var fposy: float = STARTPOS.y - rows * ROWHEIGHT
 	fposy += float(not VISIBLE) * rows * ROWHEIGHT
 	grid_container.position.y = lerp(grid_container.position.y, fposy, open_acceleration)
+
+func _handle_window_resize() -> void:
+	var cur_viewsize: Vector2 = get_viewport().get_visible_rect().size
+	if VIEWSIZE != cur_viewsize:
+		STARTPOS += cur_viewsize - VIEWSIZE
+		VIEWSIZE = cur_viewsize
