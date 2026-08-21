@@ -36,6 +36,18 @@ operation = 2
 size = Vector3(4.7177734, 1.2400665, 2.5867126)
 material = ExtResource("1_2c4ba")
 
+[node name="stairs" type="CSGBox3D" parent="mesh" unique_id=1784721510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4120517, -1.2472703, -6.5893493)
+use_collision = true
+size = Vector3(2, 3.3588867, 6)
+material = ExtResource("1_2c4ba")
+
+[node name="stairscut" type="CSGBox3D" parent="mesh/stairs" unique_id=631864090]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -0.001298666, 1.5693952, -0.944767)
+operation = 2
+size = Vector3(3, 3.7120972, 6.967743)
+material = ExtResource("1_2c4ba")
+
 [node name="enterence" type="CSGBox3D" parent="mesh" unique_id=148027971]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102993965, 2.953029, 1.6130242)
 use_collision = true
@@ -43,9 +55,21 @@ flip_faces = true
 size = Vector3(4.7085133, 7.0822353, 9.969611)
 material = ExtResource("1_2c4ba")
 
-[node name="door3" type="CSGBox3D" parent="mesh/enterence" unique_id=804762140]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5038872, -1.4856535, -5.0365953)
-operation = 2
+[node name="door" type="CSGBox3D" parent="mesh/enterence" unique_id=1129811450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5038872, -1.4856535, -5.061455)
+flip_faces = true
+size = Vector3(1, 2, 0.36238098)
+material = ExtResource("1_2c4ba")
+
+[node name="ladder" type="CSGBox3D" parent="mesh/enterence" unique_id=865941780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5081177, -2.753404, -8.467651)
+use_collision = true
+flip_faces = true
+size = Vector3(1.7615967, 6.1992188, 6.5371094)
+material = ExtResource("1_2c4ba")
+
+[node name="door3" type="CSGBox3D" parent="mesh/enterence/ladder" unique_id=1693220184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042304993, -2.0476663, -3.2933316)
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_2c4ba")
 
@@ -96,6 +120,12 @@ omni_range = 3.2391167
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="lights" unique_id=284730374]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9103549, 2.6454735, 5.608636)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.2391167
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="lights" unique_id=1790948040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5231156, -0.35452652, -7.7866325)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 3.2391167

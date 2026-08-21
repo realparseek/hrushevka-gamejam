@@ -13,6 +13,5 @@ func _ready() -> void:
 
 func interacte(interaction_name: String) -> void:
 	var inter: Interaction = interactions[interaction_name.to_lower()]
-	if not inter:
-		return
+	if not inter: return
 	inter.interacte()

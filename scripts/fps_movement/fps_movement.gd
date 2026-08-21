@@ -115,7 +115,6 @@ func _play_step_sound() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	#if event is InputEventMouseButton:
 		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	#
 	
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		player.rotate_y(event.relative.x * -mouse_sensetivity * SENSETIVITY_MUL)

@@ -83,7 +83,7 @@ data = PackedVector3Array(-0.0787, -0.5, -0.2573, -0.0787, 0.5, -0.2573, -0.0787
 script/source = "extends RigidBody3D
 
 func _ready() -> void:
-	linear_velocity = Vector3(1.0, 0.0, 0.0)
+	linear_velocity = Vector3(3.0, 0.0, 0.0)
 "
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6yijy"]
@@ -166,6 +166,12 @@ light_bake_mode = 1
 shadow_enabled = true
 omni_range = 4.9066143
 
+[node name="OmniLight3D7" type="OmniLight3D" parent="lights" unique_id=134803872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5231156, -0.35452652, -7.7866325)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.2391167
+
 [node name="mesh" type="Node3D" parent="." unique_id=624987806]
 
 [node name="basement" type="CSGBox3D" parent="mesh" unique_id=927945219]
@@ -175,9 +181,28 @@ flip_faces = true
 size = Vector3(7, 2.90979, 8.571777)
 material = ExtResource("1_5fs4t")
 
-[node name="door1" type="CSGBox3D" parent="mesh/basement" unique_id=1598771322]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14227653, -0.39308786, 4.3517647)
+[node name="ladder" type="CSGBox3D" parent="mesh/basement" unique_id=498512168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13804603, 1.6545784, 7.6450963)
+use_collision = true
+flip_faces = true
+size = Vector3(1.7615967, 6.1992188, 6.5371094)
+material = ExtResource("1_5fs4t")
+
+[node name="door2" type="CSGBox3D" parent="mesh/basement/ladder" unique_id=312928164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042304993, -2.0476663, -3.2933316)
 operation = 2
+size = Vector3(1, 2, 0.24136353)
+material = ExtResource("1_5fs4t")
+
+[node name="door" type="CSGBox3D" parent="mesh/basement/ladder" unique_id=446653858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042304993, 1.2677504, 3.2731283)
+flip_faces = true
+size = Vector3(1, 2, 0.24136353)
+material = ExtResource("1_5fs4t")
+
+[node name="door1" type="CSGBox3D" parent="mesh/basement" unique_id=1598771322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14227653, -0.39308786, 4.401577)
+flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5fs4t")
 
@@ -229,6 +254,12 @@ flip_faces = true
 size = Vector3(2, 2.90979, 7.706421)
 material = ExtResource("1_5fs4t")
 
+[node name="door10" type="CSGBox3D" parent="mesh/basement/basement4" unique_id=1225786346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00017738342, -0.39308786, -3.9715252)
+operation = 2
+size = Vector3(1, 2, 0.24136353)
+material = ExtResource("1_5fs4t")
+
 [node name="basement6" type="CSGBox3D" parent="mesh/basement" unique_id=653622698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.717278, 0, -3.6230164)
 flip_faces = true
@@ -268,6 +299,18 @@ material = ExtResource("1_5fs4t")
 [node name="door11" type="CSGBox3D" parent="mesh/chamber/door10" unique_id=841631028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638855, 0.3178711, -1.3607607)
 size = Vector3(3.6837158, 2.6357422, 2.7945604)
+material = ExtResource("1_5fs4t")
+
+[node name="stairs" type="CSGBox3D" parent="mesh" unique_id=1975575462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4120517, -1.2472701, -6.5893493)
+use_collision = true
+size = Vector3(2, 3.3588867, 6)
+material = ExtResource("1_5fs4t")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="mesh/stairs" unique_id=73876352]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -0.001298666, 1.5693952, -0.944767)
+operation = 2
+size = Vector3(3, 3.7120972, 6.967743)
 material = ExtResource("1_5fs4t")
 
 [node name="entities" type="Node3D" parent="." unique_id=441242414]
@@ -374,26 +417,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3913946, -1.8537714, -14.3
 [node name="door" parent="entities" unique_id=2026821777 instance=ExtResource("10_6yijy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.254, -1.848, -16.829)
 
-[node name="probka" type="RigidBody3D" parent="." unique_id=156068850]
+[node name="probka" type="RigidBody3D" parent="entities" unique_id=156068850]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5142713, -0.2678269, -18.461613)
 collision_layer = 3
 script = SubResource("GDScript_a54wy")
 
-[node name="hoverable" type="Node" parent="probka" unique_id=572105882 node_paths=PackedStringArray("hover_mesh")]
+[node name="hoverable" type="Node" parent="entities/probka" unique_id=572105882 node_paths=PackedStringArray("hover_mesh")]
 script = ExtResource("11_a54wy")
 hover_mesh = NodePath("../outline")
 
-[node name="pickable" type="Node" parent="probka" unique_id=1205727591]
+[node name="pickable" type="Node" parent="entities/probka" unique_id=1205727591]
 script = ExtResource("12_ebucs")
 icon = ExtResource("13_inglc")
 description = "просто белый шар че доебался"
 
-[node name="mesh" type="MeshInstance3D" parent="probka" unique_id=969411919]
+[node name="mesh" type="MeshInstance3D" parent="entities/probka" unique_id=969411919]
 mesh = SubResource("ArrayMesh_6yijy")
 
-[node name="collision" type="CollisionShape3D" parent="probka" unique_id=1520235365]
+[node name="collision" type="CollisionShape3D" parent="entities/probka" unique_id=1520235365]
 shape = SubResource("SphereShape3D_xeobe")
 
-[node name="outline" type="MeshInstance3D" parent="probka" unique_id=1313984643]
+[node name="outline" type="MeshInstance3D" parent="entities/probka" unique_id=1313984643]
 visible = false
 mesh = SubResource("ArrayMesh_mey60")

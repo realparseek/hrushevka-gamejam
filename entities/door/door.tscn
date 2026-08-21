@@ -85,6 +85,10 @@ animation_player = NodePath("../anim_player")
 [node name="interactable" type="Node" parent="." unique_id=249374583]
 script = ExtResource("2_uq1c4")
 
+[node name="open" type="Node" parent="interactable" unique_id=1770815497]
+
+[node name="close" type="Node" parent="interactable" unique_id=2038694831]
+
 [node name="hoverable" type="Node" parent="." unique_id=791892074]
 script = ExtResource("1_6sqah")
 

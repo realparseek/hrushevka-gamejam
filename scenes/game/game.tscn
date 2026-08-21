@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://u0o8cyn856bh"]
+
+[ext_resource type="AudioStream" uid="uid://dq1gjei2dgiag" path="res://assets/audio/ambience/room.mp3" id="1_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://dion0cpxa0v11" path="res://scenes/basement/basement.tscn" id="2_kelw5"]
+[ext_resource type="PackedScene" uid="uid://b8ggy8gp55r1e" path="res://entities/player/player.tscn" id="3_lfrn8"]
+
+[sub_resource type="Environment" id="Environment_6oo2w"]
+background_mode = 1
+background_color = Color(0.33660764, 0.3366076, 0.3366076, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.05874543, 0.07364527, 0.098990895, 1)
+reflected_light_source = 2
+fog_enabled = true
+fog_mode = 1
+fog_density = 0.0
+fog_depth_curve = 0.73204297
+fog_depth_begin = 0.0
+fog_depth_end = 144.3
+
+[node name="game" type="Node3D" unique_id=322255385]
+
+[node name="environment" type="WorldEnvironment" parent="." unique_id=365987119]
+environment = SubResource("Environment_6oo2w")
+
+[node name="ambient" type="AudioStreamPlayer" parent="." unique_id=1524581880]
+stream = ExtResource("1_0sr1o")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[node name="basement" parent="." unique_id=582073405 instance=ExtResource("2_kelw5")]
+
+[node name="player" parent="." unique_id=2010102372 instance=ExtResource("3_lfrn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115531564, -1.9712591, -15.601477)
