@@ -11,7 +11,7 @@ var WORKING: bool = true
 
 var SWITCHES: Array[ElectricSwitch]
 
-var WORKING_SOUND: AudioStream = preload("res://assets/audio/generator/generator.mp3")
+var WORKING_SOUND: AudioStream = preload("res://assets/audio/generator/generatoridle.ogg")
 var OUTAGE_SOUND: AudioStream = preload("res://assets/audio/generator/powerout.mp3")
 
 func _ready() -> void:

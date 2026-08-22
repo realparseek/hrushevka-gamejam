@@ -21,6 +21,8 @@
 [ext_resource type="AudioStream" uid="uid://bxcj8p380ajy7" path="res://assets/audio/ui/move.mp3" id="12_gx6sm"]
 [ext_resource type="Theme" uid="uid://ca5dkr7ytxhv7" path="res://assets/themes/pause/menu.tres" id="13_afbqv"]
 [ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="13_j3ovn"]
+[ext_resource type="AudioStream" uid="uid://c7rs3k73vj5y" path="res://assets/audio/ambience/Menu.ogg" id="15_3wlsy"]
+[ext_resource type="Script" uid="uid://b54gy03r0igjt" path="res://entities/player/menu_music_player.gd" id="16_b2kln"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
 resource_local_to_scene = false
@@ -212,6 +214,13 @@ theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 
 theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
 text = "Exit"
 flat = true
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer2D" parent="ui/pause" unique_id=134265772 node_paths=PackedStringArray("pause_menu_node")]
+stream = ExtResource("15_3wlsy")
+volume_db = 10.0
+autoplay = true
+script = ExtResource("16_b2kln")
+pause_menu_node = NodePath("..")
 
 [node name="crosshair" type="ColorRect" parent="ui" unique_id=189611426]
 visible = false

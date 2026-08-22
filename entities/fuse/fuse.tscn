@@ -65,7 +65,7 @@ hover_mesh = NodePath("../outline")
 [node name="pickable" type="Node" parent="." unique_id=1910727214]
 script = ExtResource("2_jau2u")
 icon = ExtResource("3_clfha")
-description = "просто белый шар че доебался"
+description = "Если долго смотреть в бездну - бездна начинает........ иди нахуй"
 
 [node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=2083496643]
 stream = ExtResource("4_g3j1t")

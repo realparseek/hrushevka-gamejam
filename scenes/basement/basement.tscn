@@ -5,12 +5,15 @@
 [ext_resource type="AudioStream" uid="uid://bk3t6ok6a5v1x" path="res://assets/audio/generator/plastic_fall.ogg" id="3_xeobe"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="4_n7hqg"]
 [ext_resource type="AudioStream" uid="uid://cdbtr0n3bnmco" path="res://assets/audio/generator/small_explosion.mp3" id="5_acu8t"]
-[ext_resource type="AudioStream" uid="uid://b035dwnoj2a2s" path="res://assets/audio/generator/generator.mp3" id="6_a54wy"]
+[ext_resource type="AudioStream" uid="uid://bq8mm5cm4mhvm" path="res://assets/audio/generator/generatoridle.ogg" id="6_a54wy"]
 [ext_resource type="AudioStream" uid="uid://carktpvksqyv3" path="res://assets/audio/generator/electricshock.mp3" id="7_ebucs"]
 [ext_resource type="PackedScene" uid="uid://bh7oitlyohweq" path="res://entities/switch/switch.tscn" id="8_inglc"]
 [ext_resource type="PackedScene" uid="uid://dmbwbfwvpjtg5" path="res://entities/orb/orb.tscn" id="9_3ijw5"]
 [ext_resource type="PackedScene" uid="uid://djdixfi5tfxfi" path="res://entities/door/door.tscn" id="10_6yijy"]
 [ext_resource type="PackedScene" uid="uid://vtmqgy5vxla0" path="res://entities/fuse/fuse.tscn" id="11_xeobe"]
+[ext_resource type="Script" uid="uid://cuj5bfwyx56lf" path="res://scenes/basement/sound_manager.gd" id="12_a54wy"]
+[ext_resource type="AudioStream" uid="uid://c6om6n4s0ktjo" path="res://assets/audio/ambience/drop.ogg" id="13_ebucs"]
+[ext_resource type="AudioStream" uid="uid://r4bruxut4pvk" path="res://assets/audio/ambience/p5.ogg" id="14_inglc"]
 
 [sub_resource type="Curve" id="Curve_gxd77"]
 _data = [Vector2(0.35459182, 0.10674167), 0.0, 0.0, 0, 0, Vector2(0.42091835, 1), 0.0, 0.0, 0, 0, Vector2(0.8137755, 0.32022476), 0.0, 0.0, 0, 0]
@@ -381,3 +384,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.254, -1.848, -16.829)
 
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("11_xeobe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5142713, -0.2678269, -18.461613)
+
+[node name="SoundManager" type="Node3D" parent="entities" unique_id=1794416804]
+script = ExtResource("12_a54wy")
+sound_streams = Array[AudioStream]([ExtResource("14_inglc"), ExtResource("13_ebucs")])
+max_delay = 300.0
+volume_db = -20.0
