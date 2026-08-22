@@ -62,6 +62,8 @@ crouch_tilt = 1.0
 
 [node name="interaction_cast" type="Node" parent="." unique_id=1498851580 node_paths=PackedStringArray("fps", "inventory", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound", "denied_sound")]
 script = ExtResource("2_fkugw")
+icon_interacte = ExtResource("6_8fjmc")
+icon_drag = ExtResource("4_bectd")
 fps = NodePath("../fps_movement")
 inventory = NodePath("../inventory")
 raycast = NodePath("../head/camera/interaction_cast")
@@ -69,8 +71,6 @@ icon_sprite = NodePath("../cursor")
 crosshair_rect = NodePath("../ui/crosshair")
 pickup_sound = NodePath("../pickup_sound")
 denied_sound = NodePath("../denied_sound")
-icon_interacte = ExtResource("6_8fjmc")
-icon_drag = ExtResource("4_bectd")
 
 [node name="inventory" type="Node" parent="." unique_id=2040348201 node_paths=PackedStringArray("pause_menu", "grid_container", "move_sound")]
 script = ExtResource("3_26q78")

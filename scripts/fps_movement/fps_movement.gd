@@ -113,6 +113,7 @@ func _handle_pausing():
 func _play_step_sound() -> void:
 	steps_player.stream = step_sounds[NEXT_STEP_SOUND]
 	steps_player.play()
+	#print('Step sound playing: ', NEXT_STEP_SOUND)
 	NEXT_STEP_SOUND = wrap(NEXT_STEP_SOUND+1, 0, step_sounds.size())
 
 func _unhandled_input(event: InputEvent) -> void:
