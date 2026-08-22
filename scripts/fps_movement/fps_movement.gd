@@ -5,6 +5,7 @@ class_name FPSMovement
 @export var player: CharacterBody3D
 @export var head: Node3D
 @export var steps_player: SpatialAudioPlayer3D
+@export var step_sounds: Array[AudioStream]
 @export var collision_shape: CollisionShape3D
 @export var move_speed: float = 2.0
 @export var run_speed: float = 3.0
@@ -32,14 +33,6 @@ var STEP_SOUND_PLAYED: bool = false
 var NEXT_STEP_SOUND: int = 0
 var CROUCHED: bool = false
 
-var step_sounds: Array[AudioStream] = [
-	preload("res://assets/audio/steps/step0.ogg"),
-	preload("res://assets/audio/steps/step1.ogg"),
-	preload("res://assets/audio/steps/step2.ogg"),
-	preload("res://assets/audio/steps/step3.ogg"),
-	preload("res://assets/audio/steps/step4.ogg"),
-	preload("res://assets/audio/steps/step5.ogg")]
-
 func _ready() -> void:
 	HEADBOB_START_Y = head.position.y
 	HEADBOB_START_ROT_Z = head.rotation.z
@@ -57,7 +50,6 @@ func _physics_process(delta: float) -> void:
 	_handle_crouching()
 
 	player.move_and_slide()
-
 	_push_rigid_bodies()
 
 func _handle_gravity(delta: float) -> void:

@@ -6,10 +6,8 @@ extends Node
 @export var other_hit_sounds: Array[AudioStream]   
 
 func _ready():
-	var parent = get_parent()
-	if parent is RigidBody3D:
-		parent.body_entered.connect(_on_body_entered)
-	
+	if not rigid_body: return
+	rigid_body.body_entered.connect(_on_body_entered)
 	rigid_body.linear_velocity = Vector3(0.0, 0.0, 2.0)
 
 func _on_body_entered(_body: Node):

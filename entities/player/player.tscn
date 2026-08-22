@@ -1,13 +1,19 @@
 [gd_scene format=3 uid="uid://b8ggy8gp55r1e"]
 
 [ext_resource type="Script" uid="uid://cjl5jcfutf0af" path="res://scripts/fps_movement/fps_movement.gd" id="1_symyc"]
+[ext_resource type="AudioStream" uid="uid://dma2pllb2bwnh" path="res://assets/audio/steps/step0.ogg" id="2_eyb6c"]
 [ext_resource type="Script" uid="uid://d35lt4pdgmtx4" path="res://scripts/interaction_cast/interaction_cast.gd" id="2_fkugw"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="2_sglur"]
 [ext_resource type="Script" uid="uid://dd3nh8y7xrt8h" path="res://scripts/inventory/inventory.gd" id="3_26q78"]
+[ext_resource type="AudioStream" uid="uid://c4tep4o1k1ci7" path="res://assets/audio/steps/step1.ogg" id="3_221hk"]
 [ext_resource type="Texture2D" uid="uid://dc8biru5wf5ej" path="res://assets/icons/cursor/hold.png" id="4_bectd"]
+[ext_resource type="AudioStream" uid="uid://fpm5day7rjcs" path="res://assets/audio/steps/step2.ogg" id="4_ghoj8"]
+[ext_resource type="AudioStream" uid="uid://b83yk1v6frgpi" path="res://assets/audio/steps/step3.ogg" id="5_t1t22"]
 [ext_resource type="Texture2D" uid="uid://c3824jej5i0gg" path="res://assets/icons/cursor/hand.png" id="6_8fjmc"]
+[ext_resource type="AudioStream" uid="uid://bmptjemni6br6" path="res://assets/audio/steps/step4.ogg" id="6_50fht"]
 [ext_resource type="Script" uid="uid://bha5v1ek6623u" path="res://scripts/post_processing/post_processing.gd" id="6_wvtmh"]
 [ext_resource type="Script" uid="uid://7b5emub0t48a" path="res://scripts/pause_menu/pause_menu.gd" id="7_gx6sm"]
+[ext_resource type="AudioStream" uid="uid://cniqfeiw75oqg" path="res://assets/audio/steps/step5.ogg" id="7_wuv6x"]
 [ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
 [ext_resource type="Script" uid="uid://hwac2ykrct1h" path="res://assets/compositor/ps1_post_processing.gd" id="9_a1qjk"]
 [ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
@@ -54,6 +60,7 @@ pause_menu = NodePath("../pause_menu")
 player = NodePath("..")
 head = NodePath("../head")
 steps_player = NodePath("../step_sounds")
+step_sounds = Array[AudioStream]([ExtResource("2_eyb6c"), ExtResource("3_221hk"), ExtResource("4_ghoj8"), ExtResource("5_t1t22"), ExtResource("6_50fht"), ExtResource("7_wuv6x")])
 collision_shape = NodePath("../collision")
 mouse_sensetivity = 2.0
 headbob_size = 0.04
@@ -159,7 +166,6 @@ theme_override_constants/v_separation = 0
 columns = 4
 
 [node name="pause" type="ColorRect" parent="ui" unique_id=807441283]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,6 +190,8 @@ mouse_filter = 0
 [node name="resume" type="Button" parent="ui/pause/menu" unique_id=1881946547]
 layout_mode = 2
 theme = ExtResource("13_afbqv")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
 text = "Resume
 "
 flat = true
@@ -191,6 +199,8 @@ flat = true
 [node name="settings" type="Button" parent="ui/pause/menu" unique_id=949134442]
 layout_mode = 2
 theme = ExtResource("13_afbqv")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
 text = "Settings
 "
 flat = true
@@ -198,6 +208,8 @@ flat = true
 [node name="exit" type="Button" parent="ui/pause/menu" unique_id=1361604264]
 layout_mode = 2
 theme = ExtResource("13_afbqv")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
 text = "Exit"
 flat = true
 
