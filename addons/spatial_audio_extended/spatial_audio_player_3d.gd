@@ -2468,7 +2468,3 @@ func _draw_wireframe_sphere(center: Vector3, radius: float, color: Color, segmen
 			_debug_immediate.surface_set_color(color)
 			_debug_immediate.surface_add_vertex(p1)
 #endregion
-
-
-func _on_probka_body_entered(body: Node) -> void:
-	pass # Replace with function body.
