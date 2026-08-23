@@ -48,7 +48,7 @@ compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7ba2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mm0n8"]
 radius = 0.35
-height = 1.9820312
+height = 1.8
 
 [node name="player" type="CharacterBody3D" unique_id=2010102372]
 process_mode = 3
@@ -67,6 +67,7 @@ mouse_sensetivity = 2.0
 headbob_size = 0.04
 headbob_tilt = 0.5
 crouch_tilt = 1.0
+heavy_push_max_mass = 100.0
 
 [node name="interaction_cast" type="Node" parent="." unique_id=1498851580 node_paths=PackedStringArray("fps", "inventory", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound", "denied_sound")]
 script = ExtResource("2_fkugw")

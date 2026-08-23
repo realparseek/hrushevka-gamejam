@@ -46,8 +46,8 @@ _surfaces = [{
 [node name="fuse" type="RigidBody3D" unique_id=369460855]
 collision_layer = 3
 collision_mask = 3
-mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_inglc")
+continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 6
 

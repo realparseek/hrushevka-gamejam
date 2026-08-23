@@ -78,6 +78,30 @@ _surfaces = [{
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gxd77"]
 data = PackedVector3Array(-0.0787, -0.5, -0.2573, -0.0787, 0.5, -0.2573, -0.0787, -0.5, 0.2573, -0.0787, -0.5, -0.2573, -0.0787, -0.5, 0.2573, 0.0787, -0.5, -0.2573, -0.0787, -0.5, -0.2573, 0.0787, -0.5, -0.2573, -0.0787, 0.5, -0.2573, -0.0787, -0.5, 0.2573, -0.0787, 0.5, -0.2573, -0.0787, 0.5, 0.2573, -0.0787, -0.5, 0.2573, -0.0787, 0.5, 0.2573, 0.0787, 0.5, 0.2573, -0.0787, 0.5, -0.2573, 0.0787, 0.5, 0.2573, -0.0787, 0.5, 0.2573, 0.0787, -0.5, -0.2573, 0.0787, -0.46829998, 0.23529999, 0.0787, -0.46829998, -0.23339999, 0.0787, -0.5, -0.2573, 0.0787, -0.46829998, -0.23339999, 0.0787, 0.5, -0.2573, -0.0787, -0.5, 0.2573, 0.0787, -0.5, 0.2573, 0.0787, -0.5, -0.2573, -0.0787, -0.5, 0.2573, 0.0787, 0.5, 0.2573, 0.0787, -0.5, 0.2573, 0.0787, -0.5, -0.2573, 0.0787, -0.5, 0.2573, 0.0787, -0.46829998, 0.23529999, 0.0787, -0.5, 0.2573, 0.0787, 0.46289998, 0.23529999, 0.0787, -0.46829998, 0.23529999, -0.0787, 0.5, -0.2573, 0.0787, -0.5, -0.2573, 0.0787, 0.5, -0.2573, -0.0787, 0.5, -0.2573, 0.0787, 0.5, -0.2573, 0.0787, 0.5, 0.2573, 0.0787, 0.5, -0.2573, 0.0787, -0.46829998, -0.23339999, 0.0787, 0.46289998, -0.23339999, 0.0787, 0.5, -0.2573, 0.0787, 0.46289998, -0.23339999, 0.0787, 0.5, 0.2573, 0.0787, -0.5, 0.2573, 0.0787, 0.5, 0.2573, 0.0787, 0.46289998, 0.23529999, 0.0787, 0.5, 0.2573, 0.0787, 0.46289998, -0.23339999, 0.0787, 0.46289998, 0.23529999, -0.0022, -0.46829998, -0.23339999, -0.0022, -0.46829998, 0.23529999, -0.0022, 0.46289998, -0.23339999, -0.0022, -0.46829998, 0.23529999, -0.0022, 0.46289998, 0.23529999, -0.0022, 0.46289998, -0.23339999, -0.0022, -0.46829998, -0.23339999, -0.0022, 0.46289998, -0.23339999, 0.0787, -0.46829998, -0.23339999, -0.0022, -0.46829998, -0.23339999, 0.0787, -0.46829998, -0.23339999, 0.0787, -0.46829998, 0.23529999, -0.0022, -0.46829998, -0.23339999, 0.0787, -0.46829998, 0.23529999, -0.0022, -0.46829998, 0.23529999, -0.0022, -0.46829998, 0.23529999, 0.0787, -0.46829998, 0.23529999, 0.0787, 0.46289998, 0.23529999, -0.0022, 0.46289998, -0.23339999, -0.0022, 0.46289998, 0.23529999, 0.0787, 0.46289998, -0.23339999, -0.0022, 0.46289998, -0.23339999, 0.0787, 0.46289998, -0.23339999, 0.0787, -0.46829998, -0.23339999, -0.0022, -0.46829998, 0.23529999, 0.0787, 0.46289998, 0.23529999, -0.0022, 0.46289998, 0.23529999, -0.0022, 0.46289998, 0.23529999, 0.0787, 0.46289998, 0.23529999, 0.0787, 0.46289998, -0.23339999)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v5gy4"]
+rough = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_8vrlf"]
+size = Vector3(1.7310181, 1.6420288, 0.15002441)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_acu8t"]
+size = Vector3(1.7144165, 1.6137695, 0.152771)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qbdty"]
+rough = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8vrlf"]
+size = Vector3(0.44976807, 0.04309082, 0.46981812)
+
+[sub_resource type="BoxMesh" id="BoxMesh_auskg"]
+size = Vector3(0.44244385, 0.032196045, 0.47387695)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qbdty"]
+size = Vector3(0.024902344, 0.37329102, 0.03466797)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1vivr"]
+size = Vector3(0.029876709, 0.34375, 0.03857422)
+
 [node name="basement" type="Node3D" unique_id=582073405]
 
 [node name="lights" type="Node3D" parent="." unique_id=603588395]
@@ -397,3 +421,62 @@ script = ExtResource("12_a54wy")
 sound_streams = Array[AudioStream]([ExtResource("14_inglc"), ExtResource("13_ebucs")])
 max_delay = 300.0
 volume_db = 20.0
+
+[node name="BoxTest" type="RigidBody3D" parent="." unique_id=526282323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.89167583, -1.3500687, -12.492362)
+mass = 30.0
+physics_material_override = SubResource("PhysicsMaterial_v5gy4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BoxTest" unique_id=1760037071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36550903, -0.190979, 0)
+mesh = SubResource("BoxMesh_8vrlf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxTest" unique_id=1401611226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35720825, -0.18966675, -0.0049743652)
+shape = SubResource("BoxShape3D_acu8t")
+
+[node name="BoxexsTest" type="RigidBody3D" parent="." unique_id=1646316866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3244114, -13.486897)
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_qbdty")
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxexsTest" unique_id=387289836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038238525, -0.11846924, 0.053207397)
+shape = SubResource("BoxShape3D_8vrlf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BoxexsTest" unique_id=1795565542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050201416, -0.12095189, 0.053588867)
+mesh = SubResource("BoxMesh_auskg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BoxexsTest" unique_id=1302459498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05822599, -0.3218994, 0.20275974)
+shape = SubResource("BoxShape3D_qbdty")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="BoxexsTest/CollisionShape3D2" unique_id=972192267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
+mesh = SubResource("BoxMesh_1vivr")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BoxexsTest" unique_id=1795427101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09591448, -0.3218994, -0.14663887)
+shape = SubResource("BoxShape3D_qbdty")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="BoxexsTest/CollisionShape3D3" unique_id=282005288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
+mesh = SubResource("BoxMesh_1vivr")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="BoxexsTest" unique_id=1178367227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18340605, -0.3218994, 0.20275974)
+shape = SubResource("BoxShape3D_qbdty")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="BoxexsTest/CollisionShape3D4" unique_id=957515763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
+mesh = SubResource("BoxMesh_1vivr")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="BoxexsTest" unique_id=1099764871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19674522, -0.3218994, -0.07056236)
+shape = SubResource("BoxShape3D_qbdty")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="BoxexsTest/CollisionShape3D5" unique_id=1823346713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
+mesh = SubResource("BoxMesh_1vivr")
