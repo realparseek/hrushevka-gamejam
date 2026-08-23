@@ -4,7 +4,9 @@ class_name Generator
 @export var lights: Array[OmniLight3D]
 @export var switches_bodies: Array[StaticBody3D]
 @export var audio_player: SpatialAudioPlayer3D
-@export var electric_shock_sound: SpatialAudioPlayer3D
+@export var fuse_sound: SpatialAudioPlayer3D
+@export var explosion_sound: SpatialAudioPlayer3D
+@export var electricity_sound: SpatialAudioPlayer3D
 @export var sparkles: GPUParticles3D
 
 var WORKING: bool = true
@@ -42,6 +44,6 @@ func shutdown() -> void:
 	audio_player.play()
 	WORKING = false
 	sparkles.visible = true
-	electric_shock_sound.play()
-	$"../probka".play()
-	$"../explosion".play()
+	electricity_sound.play()
+	fuse_sound.play()
+	explosion_sound.play()

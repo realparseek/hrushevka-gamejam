@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://bq8mm5cm4mhvm" path="res://assets/audio/generator/generatoridle.ogg" id="6_a54wy"]
 [ext_resource type="AudioStream" uid="uid://carktpvksqyv3" path="res://assets/audio/generator/electricshock.mp3" id="7_ebucs"]
 [ext_resource type="PackedScene" uid="uid://bh7oitlyohweq" path="res://entities/switch/switch.tscn" id="8_inglc"]
-[ext_resource type="PackedScene" uid="uid://dmbwbfwvpjtg5" path="res://entities/orb/orb.tscn" id="9_3ijw5"]
 [ext_resource type="PackedScene" uid="uid://djdixfi5tfxfi" path="res://entities/door/door.tscn" id="10_6yijy"]
 [ext_resource type="PackedScene" uid="uid://vtmqgy5vxla0" path="res://entities/fuse/fuse.tscn" id="11_xeobe"]
 [ext_resource type="Script" uid="uid://cuj5bfwyx56lf" path="res://scenes/basement/sound_manager.gd" id="12_a54wy"]
@@ -289,12 +288,14 @@ draw_pass_1 = SubResource("SphereMesh_sq6te")
 [node name="generator" type="StaticBody3D" parent="entities" unique_id=748440623]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8796599, -2.2922778, -21.410326)
 
-[node name="generator" type="Node" parent="entities/generator" unique_id=1770221733 node_paths=PackedStringArray("lights", "switches_bodies", "audio_player", "electric_shock_sound", "sparkles")]
+[node name="generator" type="Node" parent="entities/generator" unique_id=1770221733 node_paths=PackedStringArray("lights", "switches_bodies", "audio_player", "fuse_sound", "explosion_sound", "electricity_sound", "sparkles")]
 script = ExtResource("2_6yijy")
 lights = [NodePath("../../../lights/OmniLight3D8"), NodePath("../../../lights/OmniLight3D9"), NodePath("../../../lights/OmniLight3D10")]
 switches_bodies = [NodePath("../../eletric_panel/switch"), NodePath("../../eletric_panel/switch2"), NodePath("../../eletric_panel/switch3"), NodePath("../../eletric_panel/switch4")]
 audio_player = NodePath("../generator_sound")
-electric_shock_sound = NodePath("../electric_sound")
+fuse_sound = NodePath("../fuse_sound")
+explosion_sound = NodePath("../explosion_sound")
+electricity_sound = NodePath("../electricity_sound")
 sparkles = NodePath("../../electric_particles")
 
 [node name="mesh" type="MeshInstance3D" parent="entities/generator" unique_id=1663140716]
@@ -304,7 +305,7 @@ mesh = SubResource("ArrayMesh_swrb0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018920898, -0.00024414063, 0.009300232)
 shape = SubResource("BoxShape3D_swrb0")
 
-[node name="probka" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1751959203]
+[node name="fuse_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1751959203]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44288456, -0.23493052, 1.5217667)
 stream = ExtResource("3_xeobe")
 volume_db = -5.0
@@ -313,7 +314,7 @@ script = ExtResource("4_n7hqg")
 fallback_transmission = 0.082
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
-[node name="explosion" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=450557645]
+[node name="explosion_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=450557645]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53129685, 0.15107727, 0.6499882)
 stream = ExtResource("5_acu8t")
 volume_db = 10.0
@@ -333,7 +334,7 @@ script = ExtResource("4_n7hqg")
 fallback_transmission = 0.059
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
-[node name="electric_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1279328378]
+[node name="electricity_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1279328378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7206016, 0.7458414, 0.9177685)
 stream = ExtResource("7_ebucs")
 attenuation_model = 3
@@ -364,29 +365,35 @@ transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.07089
 [node name="switch4" parent="entities/eletric_panel" unique_id=1754541526 instance=ExtResource("8_inglc")]
 transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, 0.04169345, 0.06719327, -0.17525673)
 
-[node name="orb" parent="entities" unique_id=1712574766 instance=ExtResource("9_3ijw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6009398, -1.8537714, -14.985698)
-
-[node name="orb2" parent="entities" unique_id=1165084838 instance=ExtResource("9_3ijw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8605511, -1.8537714, -14.985698)
-
-[node name="orb3" parent="entities" unique_id=268166303 instance=ExtResource("9_3ijw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8605511, -1.8537714, -14.326989)
-
-[node name="orb4" parent="entities" unique_id=2079109980 instance=ExtResource("9_3ijw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5976777, -1.8537714, -14.326989)
-
-[node name="orb5" parent="entities" unique_id=1745980144 instance=ExtResource("9_3ijw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3913946, -1.8537714, -14.326989)
-
 [node name="door" parent="entities" unique_id=2026821777 instance=ExtResource("10_6yijy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.254, -1.848, -16.829)
 
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("11_xeobe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5142713, -0.2678269, -18.461613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -1.2678269, -18.461613)
+
+[node name="fuse2" parent="entities" unique_id=1474881071 instance=ExtResource("11_xeobe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -1.2678269, -17.461613)
+
+[node name="fuse3" parent="entities" unique_id=47040493 instance=ExtResource("11_xeobe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -1.2678269, -17.461613)
+
+[node name="fuse4" parent="entities" unique_id=652903356 instance=ExtResource("11_xeobe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -1.2678269, -18.461613)
+
+[node name="fuse5" parent="entities" unique_id=1657792036 instance=ExtResource("11_xeobe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -1.2678269, -16.461613)
+
+[node name="fuse6" parent="entities" unique_id=368975856 instance=ExtResource("11_xeobe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -1.2678269, -16.461613)
+
+[node name="fuse7" parent="entities" unique_id=920800486 instance=ExtResource("11_xeobe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -1.2678269, -15.461613)
+
+[node name="fuse8" parent="entities" unique_id=1206786976 instance=ExtResource("11_xeobe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -1.2678269, -15.461613)
 
 [node name="SoundManager" type="Node3D" parent="entities" unique_id=1794416804]
 script = ExtResource("12_a54wy")
 sound_streams = Array[AudioStream]([ExtResource("14_inglc"), ExtResource("13_ebucs")])
 max_delay = 300.0
-volume_db = -20.0
+volume_db = 20.0
