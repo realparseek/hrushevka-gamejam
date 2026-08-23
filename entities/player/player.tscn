@@ -22,7 +22,6 @@
 [ext_resource type="Theme" uid="uid://ca5dkr7ytxhv7" path="res://assets/themes/pause/menu.tres" id="13_afbqv"]
 [ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="13_j3ovn"]
 [ext_resource type="AudioStream" uid="uid://c7rs3k73vj5y" path="res://assets/audio/ambience/Menu.ogg" id="15_3wlsy"]
-[ext_resource type="Script" uid="uid://b54gy03r0igjt" path="res://entities/player/menu_music_player.gd" id="16_b2kln"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
 resource_local_to_scene = false
@@ -71,8 +70,6 @@ crouch_tilt = 1.0
 
 [node name="interaction_cast" type="Node" parent="." unique_id=1498851580 node_paths=PackedStringArray("fps", "inventory", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound", "denied_sound")]
 script = ExtResource("2_fkugw")
-icon_interacte = ExtResource("6_8fjmc")
-icon_drag = ExtResource("4_bectd")
 fps = NodePath("../fps_movement")
 inventory = NodePath("../inventory")
 raycast = NodePath("../head/camera/interaction_cast")
@@ -80,6 +77,8 @@ icon_sprite = NodePath("../cursor")
 crosshair_rect = NodePath("../ui/crosshair")
 pickup_sound = NodePath("../pickup_sound")
 denied_sound = NodePath("../denied_sound")
+icon_interacte = ExtResource("6_8fjmc")
+icon_drag = ExtResource("4_bectd")
 
 [node name="inventory" type="Node" parent="." unique_id=2040348201 node_paths=PackedStringArray("pause_menu", "grid_container", "move_sound")]
 script = ExtResource("3_26q78")
@@ -92,11 +91,12 @@ open_acceleration = 0.158
 script = ExtResource("6_wvtmh")
 camera = NodePath("../head/camera")
 
-[node name="pause_menu" type="Node" parent="." unique_id=320344774 node_paths=PackedStringArray("menu", "resume_button", "exit_button")]
+[node name="pause_menu" type="Node" parent="." unique_id=320344774 node_paths=PackedStringArray("menu", "resume_button", "exit_button", "ambient")]
 script = ExtResource("7_gx6sm")
 menu = NodePath("../ui/pause")
 resume_button = NodePath("../ui/pause/menu/resume")
 exit_button = NodePath("../ui/pause/menu/exit")
+ambient = NodePath("../ui/pause/ambient")
 
 [node name="head" type="Node3D" parent="." unique_id=815278167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012596369, 0.7461406, -0.09485489)
@@ -168,6 +168,7 @@ theme_override_constants/v_separation = 0
 columns = 4
 
 [node name="pause" type="ColorRect" parent="ui" unique_id=807441283]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -215,12 +216,10 @@ theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0
 text = "Exit"
 flat = true
 
-[node name="MenuMusicPlayer" type="AudioStreamPlayer2D" parent="ui/pause" unique_id=134265772 node_paths=PackedStringArray("pause_menu_node")]
+[node name="ambient" type="AudioStreamPlayer" parent="ui/pause" unique_id=1281992251]
 stream = ExtResource("15_3wlsy")
-volume_db = 10.0
-autoplay = true
-script = ExtResource("16_b2kln")
-pause_menu_node = NodePath("..")
+volume_db = -10.0
+parameters/looping = true
 
 [node name="crosshair" type="ColorRect" parent="ui" unique_id=189611426]
 visible = false
