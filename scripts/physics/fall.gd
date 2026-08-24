@@ -23,7 +23,7 @@ func _ready():
 		push_error("Родительский узел не RigidBody3D!")
 		return
 	rigid_body.contact_monitor = true
-	rigid_body.max_contacts_reported = 10
+	rigid_body.max_contacts_reported = 8
 
 	if audio_player:
 		_players.append(audio_player)

@@ -20,7 +20,7 @@ func _ready():
 	rigid_body.body_entered.connect(_on_body_entered)
 	rigid_body.linear_velocity = Vector3(0.0, 0.0, 2.0)
 	rigid_body.contact_monitor = true
-	rigid_body.max_contacts_reported = 10
+	rigid_body.max_contacts_reported = 8
 
 func _physics_process(delta):
 	var state = PhysicsServer3D.body_get_direct_state(rigid_body.get_rid())

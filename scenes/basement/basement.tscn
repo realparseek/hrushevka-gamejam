@@ -11,11 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://djdixfi5tfxfi" path="res://entities/door/door.tscn" id="10_6yijy"]
 [ext_resource type="PackedScene" uid="uid://vtmqgy5vxla0" path="res://entities/fuse/fuse.tscn" id="11_xeobe"]
 [ext_resource type="Script" uid="uid://cuj5bfwyx56lf" path="res://scenes/basement/sound_manager.gd" id="12_a54wy"]
-[ext_resource type="AudioStream" uid="uid://c6om6n4s0ktjo" path="res://assets/audio/ambience/drop.ogg" id="13_ebucs"]
+[ext_resource type="AudioStream" uid="uid://c1oti4c5n3qw0" path="res://assets/audio/ambience/p3.ogg" id="13_3ijw5"]
 [ext_resource type="Script" uid="uid://cdsgkepujw22i" path="res://scripts/physics/fall.gd" id="14_ebucs"]
 [ext_resource type="AudioStream" uid="uid://r4bruxut4pvk" path="res://assets/audio/ambience/p5.ogg" id="14_inglc"]
-[ext_resource type="AudioStream" uid="uid://c80gua0qxpao" path="res://assets/audio/door/woon1.mp3" id="16_3ijw5"]
-[ext_resource type="AudioStream" uid="uid://cq4fqclgroqub" path="res://assets/audio/door/wood2.mp3" id="17_mey60"]
+[ext_resource type="AudioStream" uid="uid://cbfxnr0qvves7" path="res://assets/audio/ambience/p7.ogg" id="14_mey60"]
+[ext_resource type="AudioStream" uid="uid://c80gua0qxpao" path="res://assets/audio/interaction/contact1.mp3" id="16_3ijw5"]
+[ext_resource type="AudioStream" uid="uid://cq4fqclgroqub" path="res://assets/audio/interaction/contact2.mp3" id="17_mey60"]
 
 [sub_resource type="Curve" id="Curve_gxd77"]
 _data = [Vector2(0.35459182, 0.10674167), 0.0, 0.0, 0, 0, Vector2(0.42091835, 1), 0.0, 0.0, 0, 0, Vector2(0.8137755, 0.32022476), 0.0, 0.0, 0, 0]
@@ -421,9 +422,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -2.831049, -15.46
 
 [node name="SoundManager" type="Node3D" parent="entities" unique_id=1794416804]
 script = ExtResource("12_a54wy")
-sound_streams = Array[AudioStream]([ExtResource("14_inglc"), ExtResource("13_ebucs")])
+sound_streams = Array[AudioStream]([ExtResource("14_inglc"), ExtResource("13_3ijw5"), ExtResource("14_mey60")])
 max_delay = 300.0
-volume_db = 20.0
+volume_db = -20.0
 
 [node name="BoxTest" type="RigidBody3D" parent="." unique_id=526282323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5478516, -1.3500687, -12.492362)
@@ -438,8 +439,7 @@ max_contacts_reported = 6
 script = ExtResource("14_ebucs")
 audio_player = NodePath("../SpatialAudioPlayer3D")
 other_hit_sounds = Array[AudioStream]([ExtResource("17_mey60"), ExtResource("16_3ijw5")])
-min_volume = -30.0
-max_speed = 2.0
+max_speed = 1.0
 volume_curve_power = 1.0
 
 [node name="SpatialAudioPlayer3D" type="AudioStreamPlayer3D" parent="BoxTest" unique_id=531444171]
@@ -470,7 +470,9 @@ max_contacts_reported = 6
 script = ExtResource("14_ebucs")
 audio_player = NodePath("../SpatialAudioPlayer3D")
 other_hit_sounds = Array[AudioStream]([ExtResource("16_3ijw5"), ExtResource("17_mey60")])
-min_volume = -30.0
+min_volume = -40.0
+max_volume = 10.0
+min_speed = 0.3
 max_speed = 2.0
 cooldown = 0.5
 volume_curve_power = 1.0
