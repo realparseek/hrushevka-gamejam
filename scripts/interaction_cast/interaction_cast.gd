@@ -38,14 +38,14 @@ func _process(_delta: float) -> void:
 	var hoverable: Hoverable
 	var pickable: Pickable
 	var draggable: Draggable
-	#var interactable: Interactable
+	var interactable: Interactable
 	
 	if not PICKED_DRAGGABLE:
 		for c in coll.get_children():
 			if c is Hoverable: hoverable = c
 			if c is Pickable: pickable = c
 			if c is Draggable: draggable = c
-			#if c is Interactable: interactable = c
+			if c is Interactable: interactable = c
 	
 	if hoverable:
 		if PICKED_HOVERABLE and PICKED_HOVERABLE != hoverable:
@@ -72,6 +72,10 @@ func _process(_delta: float) -> void:
 			PICKED_DRAGGABLE = draggable
 			PICKED_DRAGGABLE.start_dragging()
 			show_drag_icon()
+	
+	if interactable:
+		if Input.is_action_just_pressed("item_interacte"):
+			interactable.interacte()
 	
 	if PICKED_DRAGGABLE: show_drag_icon()
 	else: show_interacte_icon()

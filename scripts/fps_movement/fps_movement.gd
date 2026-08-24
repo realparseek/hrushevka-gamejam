@@ -1,24 +1,28 @@
 extends Node
 class_name FPSMovement
 
+@export_subgroup("Player")
 @export var pause_menu: PauseMenu
 @export var player: CharacterBody3D
 @export var head: Node3D
 @export var steps_player: SpatialAudioPlayer3D
-@export var step_sounds: Array[AudioStream]
 @export var collision_shape: CollisionShape3D
+@export var step_sounds: Array[AudioStream]
+
+@export_subgroup("Movement")
 @export var move_speed: float = 2.0
 @export var run_speed: float = 3.0
 @export var move_acceleration: float = 0.2
 @export var crouch_size: float = 1.2
 @export var crouch_acceleration: float = 0.07
 @export var jump_force: float = 6.0
-@export var mouse_sensetivity: float = 3.0
-@export var headbob_size: float = 0.07
+@export var mouse_sensetivity: float = 2.0
+@export var headbob_size: float = 0.04
 @export var headbob_speed: float = 3.5
-@export var headbob_tilt: float = 0.7
-@export var crouch_tilt: float = 2.0
+@export var headbob_tilt: float = 0.5
+@export var crouch_tilt: float = 1.0
 
+@export_subgroup("Physics")
 @export var push_force_walk: float = 8.0
 @export var push_force_run: float = 15.0
 @export var max_push_impulse: float = 50.0
@@ -30,7 +34,7 @@ class_name FPSMovement
 @export var max_side_push_speed: float = 2.0
 
 @export var heavy_push_threshold: float = 5.0
-@export var heavy_push_max_mass: float = 50.0
+@export var heavy_push_max_mass: float = 100.0
 @export var push_mass_exponent: float = 0.7
 @export var push_slowdown_factor: float = 0.3
 @export var freeze_radius: float = 0.6

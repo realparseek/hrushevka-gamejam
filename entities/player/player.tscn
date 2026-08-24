@@ -61,13 +61,8 @@ pause_menu = NodePath("../pause_menu")
 player = NodePath("..")
 head = NodePath("../head")
 steps_player = NodePath("../step_sounds")
-step_sounds = Array[AudioStream]([ExtResource("2_eyb6c"), ExtResource("3_221hk"), ExtResource("4_ghoj8"), ExtResource("5_t1t22"), ExtResource("6_50fht"), ExtResource("7_wuv6x")])
 collision_shape = NodePath("../collision")
-mouse_sensetivity = 2.0
-headbob_size = 0.04
-headbob_tilt = 0.5
-crouch_tilt = 1.0
-heavy_push_max_mass = 100.0
+step_sounds = Array[AudioStream]([ExtResource("2_eyb6c"), ExtResource("3_221hk"), ExtResource("4_ghoj8"), ExtResource("5_t1t22"), ExtResource("6_50fht"), ExtResource("7_wuv6x")])
 
 [node name="interaction_cast" type="Node" parent="." unique_id=1498851580 node_paths=PackedStringArray("fps", "inventory", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound", "denied_sound")]
 script = ExtResource("2_fkugw")

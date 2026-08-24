@@ -390,31 +390,31 @@ transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.07089
 transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, 0.04169345, 0.06719327, -0.17525673)
 
 [node name="door" parent="entities" unique_id=2026821777 instance=ExtResource("10_6yijy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.254, -1.848, -16.829)
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 2.0518625, -1.848, -11.828804)
 
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("11_xeobe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -1.2678269, -18.461613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -2.831049, -18.461613)
 
 [node name="fuse2" parent="entities" unique_id=1474881071 instance=ExtResource("11_xeobe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -1.2678269, -17.461613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -2.831049, -17.461613)
 
 [node name="fuse3" parent="entities" unique_id=47040493 instance=ExtResource("11_xeobe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -1.2678269, -17.461613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -2.831049, -17.461613)
 
 [node name="fuse4" parent="entities" unique_id=652903356 instance=ExtResource("11_xeobe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -1.2678269, -18.461613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -2.831049, -18.461613)
 
 [node name="fuse5" parent="entities" unique_id=1657792036 instance=ExtResource("11_xeobe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -1.2678269, -16.461613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -2.831049, -16.461613)
 
 [node name="fuse6" parent="entities" unique_id=368975856 instance=ExtResource("11_xeobe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -1.2678269, -16.461613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -2.831049, -16.461613)
 
 [node name="fuse7" parent="entities" unique_id=920800486 instance=ExtResource("11_xeobe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -1.2678269, -15.461613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -2.831049, -15.461613)
 
 [node name="fuse8" parent="entities" unique_id=1206786976 instance=ExtResource("11_xeobe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -1.2678269, -15.461613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -2.831049, -15.461613)
 
 [node name="SoundManager" type="Node3D" parent="entities" unique_id=1794416804]
 script = ExtResource("12_a54wy")
