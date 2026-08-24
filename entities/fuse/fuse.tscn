@@ -55,8 +55,11 @@ max_contacts_reported = 6
 script = ExtResource("6_ok366")
 rigid_body = NodePath("..")
 audio_player = NodePath("../audio")
-main_hit_sound = ExtResource("10_ujhio")
 other_hit_sounds = Array[AudioStream]([ExtResource("10_ujhio"), ExtResource("7_yl5t0"), ExtResource("8_c1rhe"), ExtResource("9_nx1pi")])
+min_volume = -25.0
+min_speed = 0.2
+max_speed = 2.0
+volume_curve_power = 1.0
 
 [node name="hoverable" type="Node" parent="." unique_id=610330188 node_paths=PackedStringArray("hover_mesh")]
 script = ExtResource("1_24q71")

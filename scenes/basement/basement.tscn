@@ -12,7 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://vtmqgy5vxla0" path="res://entities/fuse/fuse.tscn" id="11_xeobe"]
 [ext_resource type="Script" uid="uid://cuj5bfwyx56lf" path="res://scenes/basement/sound_manager.gd" id="12_a54wy"]
 [ext_resource type="AudioStream" uid="uid://c6om6n4s0ktjo" path="res://assets/audio/ambience/drop.ogg" id="13_ebucs"]
+[ext_resource type="Script" uid="uid://cdsgkepujw22i" path="res://scripts/physics/fall.gd" id="14_ebucs"]
 [ext_resource type="AudioStream" uid="uid://r4bruxut4pvk" path="res://assets/audio/ambience/p5.ogg" id="14_inglc"]
+[ext_resource type="AudioStream" uid="uid://c80gua0qxpao" path="res://assets/audio/door/woon1.mp3" id="16_3ijw5"]
+[ext_resource type="AudioStream" uid="uid://cq4fqclgroqub" path="res://assets/audio/door/wood2.mp3" id="17_mey60"]
 
 [sub_resource type="Curve" id="Curve_gxd77"]
 _data = [Vector2(0.35459182, 0.10674167), 0.0, 0.0, 0, 0, Vector2(0.42091835, 1), 0.0, 0.0, 0, 0, Vector2(0.8137755, 0.32022476), 0.0, 0.0, 0, 0]
@@ -423,9 +426,27 @@ max_delay = 300.0
 volume_db = 20.0
 
 [node name="BoxTest" type="RigidBody3D" parent="." unique_id=526282323]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.89167583, -1.3500687, -12.492362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5478516, -1.3500687, -12.492362)
+collision_layer = 3
+collision_mask = 3
 mass = 30.0
 physics_material_override = SubResource("PhysicsMaterial_v5gy4")
+contact_monitor = true
+max_contacts_reported = 6
+
+[node name="Node" type="Node" parent="BoxTest" unique_id=641510130 node_paths=PackedStringArray("audio_player")]
+script = ExtResource("14_ebucs")
+audio_player = NodePath("../SpatialAudioPlayer3D")
+other_hit_sounds = Array[AudioStream]([ExtResource("17_mey60"), ExtResource("16_3ijw5")])
+min_volume = -30.0
+max_speed = 2.0
+volume_curve_power = 1.0
+
+[node name="SpatialAudioPlayer3D" type="AudioStreamPlayer3D" parent="BoxTest" unique_id=531444171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38984704, 0.79002106, 0.015981674)
+max_distance = 10.0
+script = ExtResource("4_n7hqg")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BoxTest" unique_id=1760037071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36550903, -0.190979, 0)
@@ -437,9 +458,28 @@ shape = SubResource("BoxShape3D_acu8t")
 
 [node name="BoxexsTest" type="RigidBody3D" parent="." unique_id=1646316866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3244114, -13.486897)
+collision_layer = 3
+collision_mask = 3
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_qbdty")
 continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 6
+
+[node name="Node" type="Node" parent="BoxexsTest" unique_id=517678515 node_paths=PackedStringArray("audio_player")]
+script = ExtResource("14_ebucs")
+audio_player = NodePath("../SpatialAudioPlayer3D")
+other_hit_sounds = Array[AudioStream]([ExtResource("16_3ijw5"), ExtResource("17_mey60")])
+min_volume = -30.0
+max_speed = 2.0
+cooldown = 0.5
+volume_curve_power = 1.0
+
+[node name="SpatialAudioPlayer3D" type="AudioStreamPlayer3D" parent="BoxexsTest" unique_id=1806867047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060897917, -0.13857532, 0.06337738)
+max_distance = 10.0
+script = ExtResource("4_n7hqg")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BoxexsTest" unique_id=387289836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038238525, -0.11846924, 0.053207397)

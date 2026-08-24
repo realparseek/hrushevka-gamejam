@@ -19,10 +19,10 @@ class_name FPSMovement
 @export var mouse_sensetivity: float = 2.0
 @export var headbob_size: float = 0.04
 @export var headbob_speed: float = 3.5
-@export var headbob_tilt: float = 0.5
-@export var crouch_tilt: float = 1.0
 
 @export_subgroup("Physics")
+@export var headbob_tilt: float = 0.7
+@export var crouch_tilt: float = 2.0
 @export var push_force_walk: float = 8.0
 @export var push_force_run: float = 15.0
 @export var max_push_impulse: float = 50.0
@@ -32,13 +32,11 @@ class_name FPSMovement
 @export var side_push_strength: float = 8.0
 @export var ball_side_scale: float = 0.5
 @export var max_side_push_speed: float = 2.0
-
 @export var heavy_push_threshold: float = 5.0
 @export var heavy_push_max_mass: float = 100.0
 @export var push_mass_exponent: float = 0.7
 @export var push_slowdown_factor: float = 0.3
 @export var freeze_radius: float = 0.6
-
 @export var top_push_factor: float = 0.5
 @export var max_object_horiz_speed: float = 3.0
 
@@ -53,7 +51,6 @@ var PLAYER_START_HEIGHT: float = 0.0
 var STEP_SOUND_PLAYED: bool = false
 var NEXT_STEP_SOUND: int = 0
 var CROUCHED: bool = false
-
 var _floor_collider: Node = null
 var _was_on_floor: bool = false
 var _frozen_objects: Array = []
