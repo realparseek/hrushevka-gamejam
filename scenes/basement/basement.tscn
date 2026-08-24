@@ -522,4 +522,3 @@ shape = SubResource("BoxShape3D_qbdty")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="BoxexsTest/CollisionShape3D5" unique_id=1823346713]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
 mesh = SubResource("BoxMesh_1vivr")
-volume_db = -20.0
