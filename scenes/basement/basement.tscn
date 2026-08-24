@@ -394,7 +394,7 @@ transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.07089
 transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, 0.04169345, 0.06719327, -0.17525673)
 
 [node name="door" parent="entities" unique_id=2026821777 instance=ExtResource("10_6yijy")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 2.0518625, -1.848, -11.828804)
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 2.0170064, -1.848, -11.828804)
 
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("11_xeobe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -2.831049, -18.461613)

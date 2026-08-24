@@ -52,7 +52,7 @@ func _process(_delta: float) -> void:
 			PICKED_HOVERABLE.unhover()
 		hoverable.hover()
 		PICKED_HOVERABLE = hoverable
-		ICON_POS = coll.global_position
+		ICON_POS = coll.global_position if not hoverable.icon_pos else hoverable.icon_pos.global_position
 	
 	if pickable and inventory:
 		if Input.is_action_just_pressed("item_pickup"):

@@ -161,8 +161,9 @@ script = ExtResource("4_6agv2")
 animation_player = NodePath("../../anim_player")
 door_open = NodePath("../open")
 
-[node name="hoverable" type="Node" parent="." unique_id=791892074]
+[node name="hoverable" type="Node" parent="." unique_id=791892074 node_paths=PackedStringArray("icon_pos")]
 script = ExtResource("1_6sqah")
+icon_pos = NodePath("../collision/icon")
 
 [node name="collision" type="CollisionShape3D" parent="." unique_id=1549875306]
 transform = Transform3D(-0.25881985, 0, -0.9659261, 0, 1, 0, 0.9659261, 0, -0.25881985, 0, 0, 0)
@@ -170,6 +171,9 @@ shape = SubResource("ConvexPolygonShape3D_dsbe1")
 
 [node name="mesh" type="MeshInstance3D" parent="collision" unique_id=917339141]
 mesh = SubResource("ArrayMesh_6sqah")
+
+[node name="icon" type="Node3D" parent="collision" unique_id=1372345849]
+transform = Transform3D(-0.2588194, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.2588194, 0.7737375, 0, -2.536508e-07)
 
 [node name="anim_player" type="AnimationPlayer" parent="." unique_id=62286207]
 libraries/ = SubResource("AnimationLibrary_uq1c4")
