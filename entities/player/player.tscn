@@ -127,7 +127,7 @@ current = true
 
 [node name="step_sounds" type="AudioStreamPlayer3D" parent="." unique_id=1794066880]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5173645, -0.0011698008)
-volume_db = -1.5
+volume_db = -10.0
 script = ExtResource("2_sglur")
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 

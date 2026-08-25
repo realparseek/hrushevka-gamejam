@@ -180,6 +180,7 @@ libraries/ = SubResource("AnimationLibrary_uq1c4")
 
 [node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=2093912906]
 transform = Transform3D(1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000001, 0.20303242, 1.0626744, 0.7570288)
+volume_db = -10.0
 max_distance = 10.0
 area_mask = 3
 script = ExtResource("6_kgyc3")
@@ -187,6 +188,7 @@ metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="audio2" type="AudioStreamPlayer3D" parent="." unique_id=397789580]
 transform = Transform3D(1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000001, -0.503281, 1.0626744, 0.56777275)
+volume_db = -10.0
 max_distance = 10.0
 area_mask = 3
 script = ExtResource("6_kgyc3")
