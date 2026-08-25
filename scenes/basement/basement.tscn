@@ -135,7 +135,7 @@ shadow_enabled = true
 omni_range = 3.3767915
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="lights" unique_id=781680234]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0112958, -0.61046374, -20.09028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0112958, -0.61046374, -18.894249)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 4.9066143

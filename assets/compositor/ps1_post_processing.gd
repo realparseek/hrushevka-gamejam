@@ -55,7 +55,7 @@ func _render_callback(_effect_type: int, render_data: RenderData) -> void:
 	# uniform float color_depth = 64;
 	# uniform float _padding;
 
-	var constants = PackedFloat32Array([640.0, 360.0, 640.0, 360.0, 0.6, 0.01, 64.0, 0.0])
+	var constants = PackedFloat32Array([800.0, 600.0, 800.0, 600.0, 0.6, 0.005, 64.0, 0.0])
 
 	var view_count = render_scene_buffers.get_view_count()
 	for view in range(view_count):

@@ -59,7 +59,7 @@ void main() {
 		source_texel = clamp(source_texel, ivec2(0), img_size - 1);
 
 		vec4 fcolor = imageLoad(color_image, source_texel);
-		float screen_brightness = 1.3;
+		float screen_brightness = 1.1;
 		vec3 screen_color = fcolor.rgb*screen_brightness;
 
     // vec4 fcolor = imageLoad(color_image, texel);
