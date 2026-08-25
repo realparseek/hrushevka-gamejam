@@ -43,13 +43,28 @@ void main() {
     ivec2 texel = ivec2(gl_GlobalInvocationID.xy);
     ivec2 img_size = imageSize(color_image);
 
-    if (texel.x >= img_size.x || texel.y >= img_size.y) {
+		if (texel.x >= img_size.x || texel.y >= img_size.y) {
         return;
     }
 
-    vec4 fcolor = imageLoad(color_image, texel);
+		vec2 uv = (vec2(texel) + 0.5) / vec2(img_size);
+
+		vec2 virtual_uv = floor(uv * params.virtual_resolution)
+		                / params.virtual_resolution;
+
+		ivec2 source_texel = ivec2(
+		    virtual_uv * vec2(img_size)
+		);
+
+		source_texel = clamp(source_texel, ivec2(0), img_size - 1);
+
+		vec4 fcolor = imageLoad(color_image, source_texel);
 		float screen_brightness = 1.3;
-    vec3 screen_color = fcolor.rgb * screen_brightness;
+		vec3 screen_color = fcolor.rgb*screen_brightness;
+
+    // vec4 fcolor = imageLoad(color_image, texel);
+		// float screen_brightness = 1.3;
+    // vec3 screen_color = fcolor.rgb * screen_brightness;
 
     vec2 virtual_pos = floor(vec2(texel) * (params.virtual_resolution / params.custom_viewport_size));
     int x = int(mod(virtual_pos.x, 4.0));
