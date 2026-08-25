@@ -36,7 +36,7 @@ func _ready():
 	else:
 		push_error("Нет аудиоплеера!")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var state = PhysicsServer3D.body_get_direct_state(rigid_body.get_rid())
 	if not state:
 		_had_contact_last_frame = false

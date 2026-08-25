@@ -25,9 +25,10 @@ patch_margin_top = 34
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="ui_window" type="Node" parent="." unique_id=1404657286 node_paths=PackedStringArray("rect")]
+[node name="ui_window" type="Node" parent="." unique_id=1404657286 node_paths=PackedStringArray("rect", "resize_bounds")]
 script = ExtResource("2_4s5eg")
 rect = NodePath("..")
+resize_bounds = NodePath("../resize_bounds")
 window_title = "FPS"
 window_message = "?"
 
@@ -61,3 +62,17 @@ text = "Do you really want to quit ?"
 label_settings = SubResource("LabelSettings_afbqv")
 autowrap_mode = 2
 clip_text = true
+
+[node name="resize_bounds" type="Control" parent="." unique_id=2066628151]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = -30.0
+offset_right = -5.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0

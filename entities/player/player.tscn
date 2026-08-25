@@ -53,7 +53,7 @@ height = 1.8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1vivr"]
 shader = ExtResource("23_ghoj8")
-shader_parameter/viewport_size = Vector2(640, 360)
+shader_parameter/custom_viewport_size = Vector2(640, 360)
 shader_parameter/virtual_resolution = Vector2(640, 360)
 shader_parameter/shadow_smoothness = 0.6
 shader_parameter/color_depth = 64
@@ -186,7 +186,6 @@ theme_override_constants/v_separation = 0
 columns = 4
 
 [node name="pause" type="ColorRect" parent="ui" unique_id=807441283]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -202,8 +201,8 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 23.0
-offset_top = -248.0
-offset_right = 361.0
+offset_top = -152.0
+offset_right = 159.0
 offset_bottom = -24.0
 grow_vertical = 0
 mouse_filter = 0
@@ -216,6 +215,7 @@ theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0
 text = "Resume
 "
 flat = true
+alignment = 0
 
 [node name="settings" type="Button" parent="ui/pause/menu" unique_id=949134442]
 layout_mode = 2
@@ -225,6 +225,7 @@ theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0
 text = "Settings
 "
 flat = true
+alignment = 0
 
 [node name="exit" type="Button" parent="ui/pause/menu" unique_id=1361604264]
 layout_mode = 2
@@ -233,6 +234,7 @@ theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 
 theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
 text = "Exit"
 flat = true
+alignment = 0
 
 [node name="ambient" type="AudioStreamPlayer" parent="ui/pause" unique_id=1281992251]
 stream = ExtResource("15_3wlsy")

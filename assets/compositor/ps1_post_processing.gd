@@ -35,51 +35,31 @@ func _ensure_shader() -> bool:
 	return pipeline.is_valid()
 
 
-func _render_callback(_effect_callback_type: int, render_data: RenderData) -> void:
+func _render_callback(_effect_type: int, render_data: RenderData) -> void:
 	if not rd or not _ensure_shader():
 		return
 
-	var render_scene_buffers := render_data.get_render_scene_buffers() as RenderSceneBuffersRD
-	if not render_scene_buffers:
-		return
+	var render_scene_buffers = render_data.get_render_scene_buffers() as RenderSceneBuffersRD
+	if not render_scene_buffers: return
 
-	var size := render_scene_buffers.get_internal_size()
-	if size.x == 0 or size.y == 0:
-		return
+	var size = render_scene_buffers.get_internal_size()
+	if size.x == 0 or size.y == 0: return
+	
+	var x_groups = ceili(float(size.x) / 8.0)
+	var y_groups = ceili(float(size.y) / 8.0)
 
-	# var usage_bits := (
-	# 	RenderingDevice.TEXTURE_USAGE_SAMPLING_BIT
-	# 	| RenderingDevice.TEXTURE_USAGE_STORAGE_BIT
-	# 	| RenderingDevice.TEXTURE_USAGE_CAN_COPY_TO_BIT
-	# )
-	# render_scene_buffers.create_texture(
-	# 	&"accum_blur", &"prev_frame",
-	# 	RenderingDevice.DATA_FORMAT_R16G16B16A16_SFLOAT,
-	# 	usage_bits,
-	# 	RenderingDevice.TEXTURE_SAMPLES_1,
-	# 	size, 1, 1, false, false
-	# )
-
-	var x_groups := ceili(float(size.x) / 8.0)
-	var y_groups := ceili(float(size.y) / 8.0)
-
-	var push_constant := PackedFloat32Array([size.x, size.y, 0.0, 0.0])
-
-	var view_count := render_scene_buffers.get_view_count()
+	var view_count = render_scene_buffers.get_view_count()
 	for view in range(view_count):
 		var color_image: RID = render_scene_buffers.get_color_layer(view)
 
-		# Uniform for color buffer (binding 0)
-		var color_uniform := RDUniform.new()
+		var color_uniform = RDUniform.new()
 		color_uniform.uniform_type = RenderingDevice.UNIFORM_TYPE_IMAGE
 		color_uniform.binding = 0
 		color_uniform.add_id(color_image)
+		var uniform_set = UniformSetCacheRD.get_cache(shader, 0, [color_uniform])
 
-		var uniform_set := UniformSetCacheRD.get_cache(shader, 0, [color_uniform])
-
-		var compute_list := rd.compute_list_begin()
+		var compute_list = rd.compute_list_begin()
 		rd.compute_list_bind_compute_pipeline(compute_list, pipeline)
 		rd.compute_list_bind_uniform_set(compute_list, uniform_set, 0)
-		rd.compute_list_set_push_constant(compute_list, push_constant.to_byte_array(), push_constant.size() * 4)
 		rd.compute_list_dispatch(compute_list, x_groups, y_groups, 1)
 		rd.compute_list_end()
