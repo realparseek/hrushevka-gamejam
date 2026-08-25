@@ -71,7 +71,62 @@ func _physics_process(delta: float) -> void:
 	_handle_step_sounds()
 	_handle_headbob(delta)
 	_handle_crouching()
+	_handle_collisions()
 
+func _handle_gravity(delta: float) -> void:
+	if not player.is_on_floor():
+		player.velocity += player.get_gravity() * 2.0 * delta
+
+func _handle_jump() -> void:
+	if Input.is_action_just_pressed("move_jump") and player.is_on_floor():
+		player.velocity.y = jump_force
+		_play_step_sound()
+		HEADBOB_VAL = 0.0
+	
+func _handle_walk() -> void:
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var speed: float = move_speed
+	if not CROUCHED and Input.is_action_pressed("move_run"):
+		speed = run_speed
+	player.velocity.x = lerp(player.velocity.x, direction.x * speed, move_acceleration)
+	player.velocity.z = lerp(player.velocity.z, direction.z * speed, move_acceleration)
+
+func _handle_headbob(delta: float) -> void:
+	HEADBOB_VAL += delta * headbob_speed * player.velocity.length()
+	HEADBOB_PREV_DIR = HEADBOB_CUR_DIR
+	HEADBOB_CUR_DIR = sin(HEADBOB_VAL) * headbob_size
+	head.position.y = HEADBOB_START_Y + HEADBOB_CUR_DIR
+	var tilt: float = deg_to_rad(headbob_tilt) if not CROUCHED else deg_to_rad(crouch_tilt)
+	head.rotation.z = HEADBOB_START_ROT_Z + tilt * (cos(HEADBOB_VAL/2))
+
+func _handle_step_sounds() -> void:
+	if HEADBOB_PREV_DIR < HEADBOB_CUR_DIR and not STEP_SOUND_PLAYED and player.is_on_floor():
+		_play_step_sound()
+		STEP_SOUND_PLAYED = true
+	if HEADBOB_PREV_DIR > HEADBOB_CUR_DIR and STEP_SOUND_PLAYED:
+		STEP_SOUND_PLAYED = false
+
+func _handle_crouching():
+	if Input.is_action_just_pressed("move_crouch"):
+		CROUCHED = not CROUCHED
+	var desired_height: float = PLAYER_START_HEIGHT-crouch_size if CROUCHED else PLAYER_START_HEIGHT
+	collision_shape.shape.height = lerp(collision_shape.shape.height, desired_height, crouch_acceleration)
+
+func _handle_pausing():
+	if not pause_menu: return
+	if Input.is_action_just_pressed("ui_pause"):
+		if pause_menu.PAUSED:
+			pause_menu.unpause()
+		else:
+			pause_menu.pause()
+
+func _play_step_sound() -> void:
+	steps_player.stream = step_sounds[NEXT_STEP_SOUND]
+	steps_player.play()
+	NEXT_STEP_SOUND = wrap(NEXT_STEP_SOUND+1, 0, step_sounds.size())
+
+func _handle_collisions() -> void:
 	_was_on_floor = player.is_on_floor()
 	player.move_and_slide()
 	
@@ -238,59 +293,6 @@ func _update_frozen_objects() -> void:
 		if rb not in found_heavy:
 			rb.freeze = false
 			_frozen_objects.erase(rb)
-
-func _handle_gravity(delta: float) -> void:
-	if not player.is_on_floor():
-		player.velocity += player.get_gravity() * 2.0 * delta
-
-func _handle_jump() -> void:
-	if Input.is_action_just_pressed("move_jump") and player.is_on_floor():
-		player.velocity.y = jump_force
-		_play_step_sound()
-		HEADBOB_VAL = 0.0
-	
-func _handle_walk() -> void:
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	var speed: float = move_speed
-	if not CROUCHED and Input.is_action_pressed("move_run"):
-		speed = run_speed
-	player.velocity.x = lerp(player.velocity.x, direction.x * speed, move_acceleration)
-	player.velocity.z = lerp(player.velocity.z, direction.z * speed, move_acceleration)
-
-func _handle_headbob(delta: float) -> void:
-	HEADBOB_VAL += delta * headbob_speed * player.velocity.length()
-	HEADBOB_PREV_DIR = HEADBOB_CUR_DIR
-	HEADBOB_CUR_DIR = sin(HEADBOB_VAL) * headbob_size
-	head.position.y = HEADBOB_START_Y + HEADBOB_CUR_DIR
-	var tilt: float = deg_to_rad(headbob_tilt) if not CROUCHED else deg_to_rad(crouch_tilt)
-	head.rotation.z = HEADBOB_START_ROT_Z + tilt * (cos(HEADBOB_VAL/2))
-
-func _handle_step_sounds() -> void:
-	if HEADBOB_PREV_DIR < HEADBOB_CUR_DIR and not STEP_SOUND_PLAYED and player.is_on_floor():
-		_play_step_sound()
-		STEP_SOUND_PLAYED = true
-	if HEADBOB_PREV_DIR > HEADBOB_CUR_DIR and STEP_SOUND_PLAYED:
-		STEP_SOUND_PLAYED = false
-
-func _handle_crouching():
-	if Input.is_action_just_pressed("move_crouch"):
-		CROUCHED = not CROUCHED
-	var desired_height: float = PLAYER_START_HEIGHT-crouch_size if CROUCHED else PLAYER_START_HEIGHT
-	collision_shape.shape.height = lerp(collision_shape.shape.height, desired_height, crouch_acceleration)
-
-func _handle_pausing():
-	if not pause_menu: return
-	if Input.is_action_just_pressed("ui_pause"):
-		if pause_menu.PAUSED:
-			pause_menu.unpause()
-		else:
-			pause_menu.pause()
-
-func _play_step_sound() -> void:
-	steps_player.stream = step_sounds[NEXT_STEP_SOUND]
-	steps_player.play()
-	NEXT_STEP_SOUND = wrap(NEXT_STEP_SOUND+1, 0, step_sounds.size())
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
