@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b1i11fsgjcr1" path="res://scripts/inventory/icon.gd" id="2_l2dpr"]
 
 [node name="islot" type="ColorRect" unique_id=1139671104]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.048, 0.048, 0.06, 0.78431374)
@@ -14,21 +14,21 @@ script = ExtResource("1_m1o5v")
 icon = NodePath("../icon")
 
 [node name="background" type="ColorRect" parent="." unique_id=1148114306]
-custom_minimum_size = Vector2(38, 38)
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 57.0
-offset_bottom = 57.0
+offset_right = 37.0
+offset_bottom = 37.0
 mouse_filter = 1
 color = Color(0.16862746, 0.16862746, 0.16862746, 1)
 
 [node name="icon" type="TextureRect" parent="." unique_id=569157296 node_paths=PackedStringArray("inventory_slot")]
+custom_minimum_size = Vector2(34, 34)
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 57.0
-offset_bottom = 57.0
+offset_right = 37.0
+offset_bottom = 37.0
 expand_mode = 1
 script = ExtResource("2_l2dpr")
 inventory_slot = NodePath("../slot")

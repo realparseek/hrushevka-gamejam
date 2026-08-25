@@ -7,7 +7,7 @@ class_name Inventory
 @export var rows: int = 2
 @export_range(0.0, 1.0) var open_acceleration: float
 
-const ROWHEIGHT: int = 60
+const ROWHEIGHT: int = 40
 
 var ISLOT: PackedScene = preload("res://entities/inventory/slot.tscn")
 var SLOT_COUNT: int = 0

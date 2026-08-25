@@ -48,6 +48,15 @@ func _render_callback(_effect_type: int, render_data: RenderData) -> void:
 	var x_groups = ceili(float(size.x) / 8.0)
 	var y_groups = ceili(float(size.y) / 8.0)
 
+	# uniform vec2 custom_viewport_size = vec2(640.0, 360.0);
+	# uniform vec2 virtual_resolution = vec2(640.0, 360.0);
+	# uniform float shadow_smoothness = 0.6;
+	# uniform float dither_strength = 0.01;
+	# uniform float color_depth = 64;
+	# uniform float _padding;
+
+	var constants = PackedFloat32Array([640.0, 360.0, 640.0, 360.0, 0.6, 0.05, 64.0, 0.0])
+
 	var view_count = render_scene_buffers.get_view_count()
 	for view in range(view_count):
 		var color_image: RID = render_scene_buffers.get_color_layer(view)
@@ -61,5 +70,6 @@ func _render_callback(_effect_type: int, render_data: RenderData) -> void:
 		var compute_list = rd.compute_list_begin()
 		rd.compute_list_bind_compute_pipeline(compute_list, pipeline)
 		rd.compute_list_bind_uniform_set(compute_list, uniform_set, 0)
+		rd.compute_list_set_push_constant(compute_list, constants.to_byte_array(), constants.size()*4)
 		rd.compute_list_dispatch(compute_list, x_groups, y_groups, 1)
 		rd.compute_list_end()

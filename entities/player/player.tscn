@@ -22,7 +22,6 @@
 [ext_resource type="Theme" uid="uid://ca5dkr7ytxhv7" path="res://assets/themes/pause/menu.tres" id="13_afbqv"]
 [ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="13_j3ovn"]
 [ext_resource type="AudioStream" uid="uid://c7rs3k73vj5y" path="res://assets/audio/ambience/Menu.ogg" id="15_3wlsy"]
-[ext_resource type="Shader" uid="uid://burqsqqqv84wc" path="res://assets/shaders/ps1_post_proccess.gdshader" id="23_ghoj8"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
 resource_local_to_scene = false
@@ -50,14 +49,6 @@ compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7ba2
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mm0n8"]
 radius = 0.35
 height = 1.8
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1vivr"]
-shader = ExtResource("23_ghoj8")
-shader_parameter/custom_viewport_size = Vector2(640, 360)
-shader_parameter/virtual_resolution = Vector2(640, 360)
-shader_parameter/shadow_smoothness = 0.6
-shader_parameter/color_depth = 64
-shader_parameter/dither_strength = 0.01
 
 [node name="player" type="CharacterBody3D" unique_id=2010102372]
 process_mode = 3
@@ -111,6 +102,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012596369, 0.7461406, -0.0
 [node name="camera" type="Camera3D" parent="head" unique_id=27703201]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.094000936)
 compositor = SubResource("Compositor_vpe7l")
+current = true
 
 [node name="interaction_cast" type="RayCast3D" parent="head/camera" unique_id=49206775]
 target_position = Vector3(0, 0, -1.2)
@@ -150,17 +142,6 @@ fixed_size = true
 render_priority = 1
 texture = ExtResource("6_8fjmc")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=450254259]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1079876205]
-material = SubResource("ShaderMaterial_1vivr")
-anchors_preset = -1
-anchor_right = 0.99700004
-anchor_bottom = 1.0
-offset_right = -0.08001709
-offset_bottom = 1.0
-mouse_filter = 2
-
 [node name="ui" type="Control" parent="." unique_id=1611900789]
 clip_contents = true
 layout_mode = 3
@@ -178,6 +159,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
