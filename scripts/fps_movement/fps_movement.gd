@@ -141,6 +141,7 @@ func _handle_collisions() -> void:
 		_process_rigidbody_collisions()
 	else:
 		for rb in _frozen_objects.duplicate():
+			if not rb: continue
 			rb.freeze = false
 			_frozen_objects.erase(rb)
 	
@@ -291,6 +292,7 @@ func _update_frozen_objects() -> void:
 	
 	for rb in _frozen_objects.duplicate():
 		if rb not in found_heavy:
+			if not rb: continue
 			rb.freeze = false
 			_frozen_objects.erase(rb)
 

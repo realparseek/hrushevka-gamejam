@@ -23,16 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="13_j3ovn"]
 [ext_resource type="AudioStream" uid="uid://c7rs3k73vj5y" path="res://assets/audio/ambience/Menu.ogg" id="15_3wlsy"]
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = true
-effect_callback_type = 4
-needs_motion_vectors = false
-needs_normal_roughness = false
-script = ExtResource("8_7thud")
-metadata/_custom_type_script = "uid://46y1f2eo6xys"
-
 [sub_resource type="CompositorEffect" id="CompositorEffect_oh64f"]
 resource_local_to_scene = false
 resource_name = ""
@@ -43,8 +33,18 @@ needs_normal_roughness = false
 script = ExtResource("9_a1qjk")
 metadata/_custom_type_script = "uid://hwac2ykrct1h"
 
+[sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("8_7thud")
+metadata/_custom_type_script = "uid://46y1f2eo6xys"
+
 [sub_resource type="Compositor" id="Compositor_vpe7l"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7ba2d"), SubResource("CompositorEffect_oh64f")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_oh64f"), SubResource("CompositorEffect_7ba2d")])
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mm0n8"]
 radius = 0.35

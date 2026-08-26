@@ -61,6 +61,8 @@ func _process(_delta: float) -> void:
 					denied_sound.stop()
 				denied_sound.play()
 			else:
+				if coll is RigidBody3D and coll.freeze:
+					coll.freeze = false
 				coll.queue_free()
 				if pickup_sound.playing:
 					pickup_sound.stop()
