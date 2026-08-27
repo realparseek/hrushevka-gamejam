@@ -4,6 +4,7 @@ class_name InteractionCast
 @export var fps: FPSMovement
 @export var messenger: Messenger
 @export var inventory: Inventory
+@export var pause_menu: PauseMenu
 @export var raycast: RayCast3D
 @export var icon_sprite: Sprite3D
 @export var crosshair_rect: ColorRect
@@ -23,6 +24,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if inventory and inventory.opened(): return
+	if pause_menu and pause_menu.PAUSED: return
 	
 	if not Input.is_action_pressed("item_interacte") and PICKED_DRAGGABLE:
 		if fps: fps.mouse_sensetivity = ORIGINAL_MSENSETIVITY
