@@ -22,6 +22,8 @@ func _ready() -> void:
 		ORIGINAL_MSENSETIVITY = fps.mouse_sensetivity
 
 func _process(_delta: float) -> void:
+	if inventory and inventory.opened(): return
+	
 	if not Input.is_action_pressed("item_interacte") and PICKED_DRAGGABLE:
 		if fps: fps.mouse_sensetivity = ORIGINAL_MSENSETIVITY
 		PICKED_DRAGGABLE.stop_dragging()
