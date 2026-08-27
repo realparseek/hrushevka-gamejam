@@ -2,7 +2,6 @@
 
 [ext_resource type="AudioStream" uid="uid://dq1gjei2dgiag" path="res://assets/audio/ambience/room.mp3" id="1_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://dion0cpxa0v11" path="res://scenes/bunker/bunker.tscn" id="2_kelw5"]
-[ext_resource type="PackedScene" uid="uid://qyi33qfap0xi" path="res://scenes/basement/basement.tscn" id="3_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://b8ggy8gp55r1e" path="res://entities/player/player.tscn" id="3_lfrn8"]
 
 [sub_resource type="Environment" id="Environment_6oo2w"]
@@ -29,10 +28,7 @@ volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
-[node name="bunker" parent="." unique_id=582073405 instance=ExtResource("3_0sr1o")]
-visible = false
+[node name="bunker" parent="." unique_id=1257384898 instance=ExtResource("2_kelw5")]
 
 [node name="player" parent="." unique_id=2010102372 instance=ExtResource("3_lfrn8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4775665, 0.20269585, -5.6014767)
-
-[node name="bunker2" parent="." unique_id=1257384898 instance=ExtResource("2_kelw5")]
