@@ -21,7 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://bxcj8p380ajy7" path="res://assets/audio/ui/move.mp3" id="12_gx6sm"]
 [ext_resource type="Theme" uid="uid://ca5dkr7ytxhv7" path="res://assets/themes/pause/menu.tres" id="13_afbqv"]
 [ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="13_j3ovn"]
+[ext_resource type="Script" uid="uid://b88n71lc4gxwl" path="res://scripts/messenger/messenger.gd" id="14_t1t22"]
 [ext_resource type="AudioStream" uid="uid://c7rs3k73vj5y" path="res://assets/audio/ambience/Menu.ogg" id="15_3wlsy"]
+[ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="23_ghoj8"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_oh64f"]
 resource_local_to_scene = false
@@ -50,6 +52,9 @@ compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_oh64
 radius = 0.35
 height = 1.8
 
+[sub_resource type="LabelSettings" id="LabelSettings_j3ovn"]
+font = ExtResource("23_ghoj8")
+
 [node name="player" type="CharacterBody3D" unique_id=2010102372]
 process_mode = 3
 floor_constant_speed = true
@@ -66,9 +71,10 @@ step_sounds = Array[AudioStream]([ExtResource("2_eyb6c"), ExtResource("3_221hk")
 headbob_tilt = 0.5
 crouch_tilt = 1.0
 
-[node name="interaction_cast" type="Node" parent="." unique_id=1498851580 node_paths=PackedStringArray("fps", "inventory", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound", "denied_sound")]
+[node name="interaction_cast" type="Node" parent="." unique_id=1498851580 node_paths=PackedStringArray("fps", "messenger", "inventory", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound", "denied_sound")]
 script = ExtResource("2_fkugw")
 fps = NodePath("../fps_movement")
+messenger = NodePath("../messenger")
 inventory = NodePath("../inventory")
 raycast = NodePath("../head/camera/interaction_cast")
 icon_sprite = NodePath("../cursor")
@@ -95,6 +101,11 @@ menu = NodePath("../ui/pause")
 resume_button = NodePath("../ui/pause/menu/resume")
 exit_button = NodePath("../ui/pause/menu/exit")
 ambient = NodePath("../ui/pause/ambient")
+
+[node name="messenger" type="Node" parent="." unique_id=1210379644 node_paths=PackedStringArray("label")]
+script = ExtResource("14_t1t22")
+label = NodePath("../ui/message")
+message = "sample text"
 
 [node name="head" type="Node3D" parent="." unique_id=815278167]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012596369, 0.7461406, -0.09485489)
@@ -168,7 +179,21 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 4
 
+[node name="message" type="Label" parent="ui" unique_id=2059212661]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -23.0
+offset_right = 221.0
+grow_vertical = 0
+text = "Сообщение"
+label_settings = SubResource("LabelSettings_j3ovn")
+vertical_alignment = 2
+
 [node name="pause" type="ColorRect" parent="ui" unique_id=807441283]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

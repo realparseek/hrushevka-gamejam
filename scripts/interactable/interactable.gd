@@ -3,6 +3,9 @@ class_name Interactable
 
 var interactions: Dictionary[String,Interaction] = {}
 
+var MESSAGE: String = ''
+var MESSAGETIME: float = 0.0
+
 func _ready() -> void:
 	if len(interactions): interactions.clear()
 	for c in get_children():

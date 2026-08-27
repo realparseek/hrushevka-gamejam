@@ -180,10 +180,10 @@ _data = {
 transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 0, 0, 0)
 collision_layer = 3
 
-[node name="door" type="Node" parent="." unique_id=802647948 node_paths=PackedStringArray("animation_player")]
+[node name="door" type="Node" parent="." unique_id=802647948 node_paths=PackedStringArray("animation_player", "interactable")]
 script = ExtResource("1_uq1c4")
 animation_player = NodePath("../anim_player")
-locked = false
+interactable = NodePath("../interactable")
 
 [node name="interactable" type="Node" parent="." unique_id=249374583]
 script = ExtResource("2_uq1c4")

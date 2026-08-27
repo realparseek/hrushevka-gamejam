@@ -2,6 +2,7 @@ extends Node
 class_name InteractionCast
 
 @export var fps: FPSMovement
+@export var messenger: Messenger
 @export var inventory: Inventory
 @export var raycast: RayCast3D
 @export var icon_sprite: Sprite3D
@@ -78,6 +79,8 @@ func _process(_delta: float) -> void:
 	if interactable:
 		if Input.is_action_just_pressed("item_interacte"):
 			interactable.interacte()
+			if messenger: 
+				messenger.push_message(interactable.MESSAGE, interactable.MESSAGETIME)
 	
 	if PICKED_DRAGGABLE: show_drag_icon()
 	else: show_interacte_icon()
