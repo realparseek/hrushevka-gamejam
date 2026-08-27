@@ -1,11 +1,11 @@
 extends Interaction
 class_name DoorClose
 
-@export var animation_player: AnimationPlayer
+@export var door: Door
 @export var door_open: Interaction
 
 func interacte() -> void:
-	if not animation_player: return
-	animation_player.play("close")
+	if not door: return
+	if not door.close(): return
+	if door_open: door_open.available = true
 	available = false
-	door_open.available = true

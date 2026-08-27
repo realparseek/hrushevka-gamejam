@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cp4stcmqo2e4o" path="res://assets/audio/door/close.mp3" id="5_r5xgf"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="6_kgyc3"]
 [ext_resource type="AudioStream" uid="uid://c0h5t11iwhich" path="res://assets/audio/door/open.mp3" id="6_mjxdi"]
+[ext_resource type="AudioStream" uid="uid://tfltlt2bqa5t" path="res://assets/audio/door/locked.mp3" id="8_k25rb"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dsbe1"]
 points = PackedVector3Array(-4e-05, -1, -0.039101, -4e-05, -1, 0.039100993, -4e-05, 1, -0.039101, 0.99996, -1, -0.039101, 0.99996, -1, 0.039100993, -4e-05, 1, 0.039100993, 0.99996, 1, -0.039101, 0.99996, 1, 0.039100993)
@@ -93,6 +94,40 @@ tracks/2/keys = {
 }
 tracks/2/use_blend = true
 
+[sub_resource type="Animation" id="Animation_4ul54"]
+resource_name = "locked"
+length = 0.7
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("audio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_k25rb")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("audio2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_k25rb")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
 [sub_resource type="Animation" id="Animation_6sqah"]
 resource_name = "open"
 tracks/0/type = "rotation_3d"
@@ -137,6 +172,7 @@ tracks/2/use_blend = true
 _data = {
 &"RESET": SubResource("Animation_dsbe1"),
 &"close": SubResource("Animation_uq1c4"),
+&"locked": SubResource("Animation_4ul54"),
 &"open": SubResource("Animation_6sqah")
 }
 
@@ -147,18 +183,19 @@ collision_layer = 3
 [node name="door" type="Node" parent="." unique_id=802647948 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_uq1c4")
 animation_player = NodePath("../anim_player")
+locked = false
 
 [node name="interactable" type="Node" parent="." unique_id=249374583]
 script = ExtResource("2_uq1c4")
 
-[node name="open" type="Node" parent="interactable" unique_id=1770815497 node_paths=PackedStringArray("animation_player", "door_close")]
+[node name="open" type="Node" parent="interactable" unique_id=1770815497 node_paths=PackedStringArray("door", "door_close")]
 script = ExtResource("3_mjxdi")
-animation_player = NodePath("../../anim_player")
+door = NodePath("../../door")
 door_close = NodePath("../close")
 
-[node name="close" type="Node" parent="interactable" unique_id=2038694831 node_paths=PackedStringArray("animation_player", "door_open")]
+[node name="close" type="Node" parent="interactable" unique_id=2038694831 node_paths=PackedStringArray("door", "door_open")]
 script = ExtResource("4_6agv2")
-animation_player = NodePath("../../anim_player")
+door = NodePath("../../door")
 door_open = NodePath("../open")
 
 [node name="hoverable" type="Node" parent="." unique_id=791892074 node_paths=PackedStringArray("icon_pos")]
