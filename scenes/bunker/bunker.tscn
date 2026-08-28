@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bh7oitlyohweq" path="res://entities/switch/switch.tscn" id="8_r4pkr"]
 [ext_resource type="PackedScene" uid="uid://djdixfi5tfxfi" path="res://entities/door/door.tscn" id="9_g4n5i"]
 [ext_resource type="PackedScene" uid="uid://vtmqgy5vxla0" path="res://entities/fuse/fuse.tscn" id="10_txlqv"]
-[ext_resource type="Script" uid="uid://cuj5bfwyx56lf" path="res://scenes/bunker/sound_manager.gd" id="11_5q7q2"]
+[ext_resource type="PackedScene" uid="uid://cmaqkihwflgyj" path="res://entities/enter/enter.tscn" id="10_ys4l0"]
+[ext_resource type="Script" uid="uid://cuj5bfwyx56lf" path="res://scripts/sound_manager/sound_manager.gd" id="11_5q7q2"]
 [ext_resource type="AudioStream" uid="uid://r4bruxut4pvk" path="res://assets/audio/ambience/p5.ogg" id="12_sl3he"]
 [ext_resource type="AudioStream" uid="uid://c1oti4c5n3qw0" path="res://assets/audio/ambience/p3.ogg" id="13_jm3eo"]
 [ext_resource type="AudioStream" uid="uid://cbfxnr0qvves7" path="res://assets/audio/ambience/p7.ogg" id="14_3ygmk"]
@@ -158,12 +159,6 @@ light_bake_mode = 1
 shadow_enabled = true
 omni_range = 4.9066143
 
-[node name="OmniLight3D7" type="OmniLight3D" parent="lights" unique_id=134803872]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5231156, -0.31268203, -7.7866325)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 2.089714
-
 [node name="mesh" type="Node3D" parent="." unique_id=624987806]
 
 [node name="basement" type="CSGBox3D" parent="mesh" unique_id=927945219]
@@ -171,31 +166,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5431697, -1.4549534, -14.4
 use_collision = true
 flip_faces = true
 size = Vector3(7, 2.90979, 8.571777)
-material = ExtResource("1_5qweq")
-
-[node name="ladder" type="CSGBox3D" parent="mesh/basement" unique_id=498512168]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13804603, 1.6545784, 7.6450963)
-use_collision = true
-flip_faces = true
-size = Vector3(1.7615967, 6.1992188, 6.5371094)
-material = ExtResource("1_5qweq")
-
-[node name="door2" type="CSGBox3D" parent="mesh/basement/ladder" unique_id=312928164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042304993, -2.0476663, -3.2933316)
-operation = 2
-size = Vector3(1, 2, 0.24136353)
-material = ExtResource("1_5qweq")
-
-[node name="door" type="CSGBox3D" parent="mesh/basement/ladder" unique_id=446653858]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042304993, 1.2677504, 3.2731283)
-flip_faces = true
-size = Vector3(1, 2, 0.24136353)
-material = ExtResource("1_5qweq")
-
-[node name="door1" type="CSGBox3D" parent="mesh/basement" unique_id=1598771322]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14227653, -0.39308786, 4.401577)
-flip_faces = true
-size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door3" type="CSGBox3D" parent="mesh/basement" unique_id=2127854733]
@@ -305,18 +275,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638855, 0.3178711, -1.36076
 size = Vector3(3.6837158, 2.6357422, 2.7945604)
 material = ExtResource("1_5qweq")
 
-[node name="stairs" type="CSGBox3D" parent="mesh" unique_id=1975575462]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4120517, -1.2472701, -6.5893493)
-use_collision = true
-size = Vector3(2, 3.3588867, 6)
-material = ExtResource("1_5qweq")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="mesh/stairs" unique_id=73876352]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -0.001298666, 1.5693952, -0.944767)
-operation = 2
-size = Vector3(3, 3.7120972, 6.967743)
-material = ExtResource("1_5qweq")
-
 [node name="entities" type="Node3D" parent="." unique_id=441242414]
 
 [node name="electric_particles" type="GPUParticles3D" parent="entities" unique_id=782075015]
@@ -414,37 +372,14 @@ transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25
 [node name="door3" parent="entities" unique_id=1165432989 instance=ExtResource("9_g4n5i")]
 transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, 2.5629413, -1.848, -21.915087)
 
+[node name="enter" parent="entities" unique_id=2059708551 instance=ExtResource("10_ys4l0")]
+transform = Transform3D(-0.25881928, 0, 0.96592575, 0, 1, 0, -0.96592575, 0, -0.25881928, -7.282757, -1.848, -18.800856)
+visible = false
+
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("10_txlqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -2.831049, -18.461613)
 
-[node name="fuse2" parent="entities" unique_id=1474881071 instance=ExtResource("10_txlqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -2.831049, -17.461613)
-
-[node name="fuse3" parent="entities" unique_id=47040493 instance=ExtResource("10_txlqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -2.831049, -17.461613)
-
-[node name="fuse4" parent="entities" unique_id=652903356 instance=ExtResource("10_txlqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -2.831049, -18.461613)
-
-[node name="fuse5" parent="entities" unique_id=1657792036 instance=ExtResource("10_txlqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -2.831049, -16.461613)
-
-[node name="fuse6" parent="entities" unique_id=368975856 instance=ExtResource("10_txlqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -2.831049, -16.461613)
-
-[node name="fuse7" parent="entities" unique_id=920800486 instance=ExtResource("10_txlqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -2.831049, -15.461613)
-
-[node name="fuse8" parent="entities" unique_id=1206786976 instance=ExtResource("10_txlqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5142713, -2.831049, -15.461613)
-
-[node name="SoundManager" type="Node3D" parent="entities" unique_id=1794416804]
-script = ExtResource("11_5q7q2")
-sound_streams = Array[AudioStream]([ExtResource("12_sl3he"), ExtResource("13_jm3eo"), ExtResource("14_3ygmk")])
-max_delay = 300.0
-volume_db = -20.0
-
-[node name="BoxTest" type="RigidBody3D" parent="." unique_id=526282323]
+[node name="BoxTest" type="RigidBody3D" parent="entities" unique_id=526282323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5478516, -1.3500687, -12.492362)
 collision_layer = 3
 collision_mask = 3
@@ -453,28 +388,28 @@ physics_material_override = SubResource("PhysicsMaterial_v5gy4")
 contact_monitor = true
 max_contacts_reported = 6
 
-[node name="Node" type="Node" parent="BoxTest" unique_id=641510130 node_paths=PackedStringArray("audio_player")]
+[node name="Node" type="Node" parent="entities/BoxTest" unique_id=641510130 node_paths=PackedStringArray("audio_player")]
 script = ExtResource("15_r6ban")
 audio_player = NodePath("../SpatialAudioPlayer3D")
 other_hit_sounds = Array[AudioStream]([ExtResource("16_e5ka1"), ExtResource("17_qi1sa")])
 max_speed = 1.0
 volume_curve_power = 1.0
 
-[node name="SpatialAudioPlayer3D" type="AudioStreamPlayer3D" parent="BoxTest" unique_id=531444171]
+[node name="SpatialAudioPlayer3D" type="AudioStreamPlayer3D" parent="entities/BoxTest" unique_id=531444171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38984704, 0.79002106, 0.015981674)
 max_distance = 10.0
 script = ExtResource("4_p8jr6")
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BoxTest" unique_id=1760037071]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="entities/BoxTest" unique_id=1760037071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36550903, -0.190979, 0)
 mesh = SubResource("BoxMesh_8vrlf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxTest" unique_id=1401611226]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="entities/BoxTest" unique_id=1401611226]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35720825, -0.18966675, -0.0049743652)
 shape = SubResource("BoxShape3D_acu8t")
 
-[node name="BoxexsTest" type="RigidBody3D" parent="." unique_id=1646316866]
+[node name="BoxexsTest" type="RigidBody3D" parent="entities" unique_id=1646316866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3244114, -13.486897)
 collision_layer = 3
 collision_mask = 3
@@ -484,7 +419,7 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 6
 
-[node name="Node" type="Node" parent="BoxexsTest" unique_id=517678515 node_paths=PackedStringArray("audio_player")]
+[node name="Node" type="Node" parent="entities/BoxexsTest" unique_id=517678515 node_paths=PackedStringArray("audio_player")]
 script = ExtResource("15_r6ban")
 audio_player = NodePath("../SpatialAudioPlayer3D")
 other_hit_sounds = Array[AudioStream]([ExtResource("17_qi1sa"), ExtResource("16_e5ka1")])
@@ -495,48 +430,54 @@ max_speed = 2.0
 cooldown = 0.5
 volume_curve_power = 1.0
 
-[node name="SpatialAudioPlayer3D" type="AudioStreamPlayer3D" parent="BoxexsTest" unique_id=1806867047]
+[node name="SpatialAudioPlayer3D" type="AudioStreamPlayer3D" parent="entities/BoxexsTest" unique_id=1806867047]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060897917, -0.13857532, 0.06337738)
 max_distance = 10.0
 script = ExtResource("4_p8jr6")
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BoxexsTest" unique_id=387289836]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="entities/BoxexsTest" unique_id=387289836]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038238525, -0.11846924, 0.053207397)
 shape = SubResource("BoxShape3D_8vrlf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BoxexsTest" unique_id=1795565542]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="entities/BoxexsTest" unique_id=1795565542]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050201416, -0.12095189, 0.053588867)
 mesh = SubResource("BoxMesh_auskg")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="BoxexsTest" unique_id=1302459498]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="entities/BoxexsTest" unique_id=1302459498]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05822599, -0.3218994, 0.20275974)
 shape = SubResource("BoxShape3D_qbdty")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="BoxexsTest/CollisionShape3D2" unique_id=972192267]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="entities/BoxexsTest/CollisionShape3D2" unique_id=972192267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
 mesh = SubResource("BoxMesh_1vivr")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="BoxexsTest" unique_id=1795427101]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="entities/BoxexsTest" unique_id=1795427101]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09591448, -0.3218994, -0.14663887)
 shape = SubResource("BoxShape3D_qbdty")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="BoxexsTest/CollisionShape3D3" unique_id=282005288]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="entities/BoxexsTest/CollisionShape3D3" unique_id=282005288]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
 mesh = SubResource("BoxMesh_1vivr")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="BoxexsTest" unique_id=1178367227]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="entities/BoxexsTest" unique_id=1178367227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18340605, -0.3218994, 0.20275974)
 shape = SubResource("BoxShape3D_qbdty")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="BoxexsTest/CollisionShape3D4" unique_id=957515763]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="entities/BoxexsTest/CollisionShape3D4" unique_id=957515763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
 mesh = SubResource("BoxMesh_1vivr")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="BoxexsTest" unique_id=1099764871]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="entities/BoxexsTest" unique_id=1099764871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19674522, -0.3218994, -0.07056236)
 shape = SubResource("BoxShape3D_qbdty")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="BoxexsTest/CollisionShape3D5" unique_id=1823346713]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="entities/BoxexsTest/CollisionShape3D5" unique_id=1823346713]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
 mesh = SubResource("BoxMesh_1vivr")
+
+[node name="SoundManager" type="Node3D" parent="entities" unique_id=1794416804]
+script = ExtResource("11_5q7q2")
+sound_streams = Array[AudioStream]([ExtResource("12_sl3he"), ExtResource("13_jm3eo"), ExtResource("14_3ygmk")])
+max_delay = 300.0
+volume_db = -20.0

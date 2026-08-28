@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cmaqkihwflgyj"]
+
+[ext_resource type="Script" uid="uid://bo4cxk5vpao0h" path="res://scripts/interactable/interactable.gd" id="1_1g6r7"]
+[ext_resource type="Script" uid="uid://c82dmbgc7j7yd" path="res://entities/enter/enter.gd" id="2_4jm15"]
+[ext_resource type="Script" uid="uid://brnmjdghgrqog" path="res://scripts/hoverable/hoverable.gd" id="3_2bt4j"]
+[ext_resource type="PackedScene" uid="uid://qyi33qfap0xi" path="res://scenes/basement/basement.tscn" id="3_4jm15"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_02yi3"]
+size = Vector3(0.5020447, 1.9048462, 0.16235352)
+
+[node name="enter" type="StaticBody3D" unique_id=2059708551]
+transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, 0, 0, 0)
+collision_layer = 2
+
+[node name="interactable" type="Node" parent="." unique_id=1041191712]
+script = ExtResource("1_1g6r7")
+
+[node name="enter" type="Node" parent="interactable" unique_id=1714570850]
+script = ExtResource("2_4jm15")
+scene = ExtResource("3_4jm15")
+
+[node name="hoverable" type="Node" parent="." unique_id=1219760817]
+script = ExtResource("3_2bt4j")
+
+[node name="collision" type="CollisionShape3D" parent="." unique_id=1494186521]
+transform = Transform3D(-0.25881976, 0, -0.96592605, 0, 1, 0, 0.96592605, 0, -0.25881976, 0.002904892, 0.042816162, -0.038674355)
+shape = SubResource("BoxShape3D_02yi3")

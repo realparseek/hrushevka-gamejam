@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://cniqfeiw75oqg" path="res://assets/audio/steps/step5.ogg" id="7_wuv6x"]
 [ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
 [ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
+[ext_resource type="Texture2D" uid="uid://c0mqdapgatx2" path="res://assets/icons/cursor/enter.png" id="11_50fht"]
 [ext_resource type="AudioStream" uid="uid://cqw6hy3msf12q" path="res://assets/audio/ui/ding.mp3" id="11_afbqv"]
 [ext_resource type="AudioStream" uid="uid://bxcj8p380ajy7" path="res://assets/audio/ui/move.mp3" id="12_gx6sm"]
 [ext_resource type="Theme" uid="uid://ca5dkr7ytxhv7" path="res://assets/themes/pause/menu.tres" id="13_afbqv"]
@@ -42,16 +43,16 @@ compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7ba2
 radius = 0.35
 height = 1.8
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4s8us"]
-shader = ExtResource("17_t1t22")
-shader_parameter/custom_viewport_size = Vector2(640, 360)
-shader_parameter/virtual_resolution = Vector2(640, 360)
-shader_parameter/shadow_smoothness = 0.6
-shader_parameter/color_depth = 64
-shader_parameter/dither_strength = 0.01
-
 [sub_resource type="LabelSettings" id="LabelSettings_j3ovn"]
 font = ExtResource("23_ghoj8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4s8us"]
+shader = ExtResource("17_t1t22")
+shader_parameter/custom_viewport_size = Vector2(100, 100)
+shader_parameter/virtual_resolution = Vector2(100, 100)
+shader_parameter/shadow_smoothness = 0.6
+shader_parameter/color_depth = 64
+shader_parameter/dither_strength = 0.1
 
 [node name="player" type="CharacterBody3D" unique_id=2010102372]
 process_mode = 3
@@ -82,6 +83,7 @@ pickup_sound = NodePath("../pickup_sound")
 denied_sound = NodePath("../denied_sound")
 icon_interacte = ExtResource("6_8fjmc")
 icon_drag = ExtResource("4_bectd")
+icon_enter = ExtResource("11_50fht")
 
 [node name="inventory" type="Node" parent="." unique_id=2040348201 node_paths=PackedStringArray("pause_menu", "grid_container", "move_sound")]
 script = ExtResource("3_26q78")
@@ -162,16 +164,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="shader_quad" type="ColorRect" parent="ui" unique_id=1150370795]
-material = SubResource("ShaderMaterial_4s8us")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-
 [node name="inventory" type="GridContainer" parent="ui" unique_id=1040561380]
 layout_mode = 1
 anchors_preset = 3
@@ -200,6 +192,16 @@ grow_vertical = 0
 text = "Сообщение"
 label_settings = SubResource("LabelSettings_j3ovn")
 vertical_alignment = 2
+
+[node name="shader_quad" type="ColorRect" parent="ui" unique_id=1150370795]
+material = SubResource("ShaderMaterial_4s8us")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="pause" type="ColorRect" parent="ui" unique_id=807441283]
 visible = false

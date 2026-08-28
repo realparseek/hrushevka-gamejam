@@ -22,11 +22,11 @@ func _ensure_shader() -> bool:
 	if not rd:
 		return false
 
-	var shader_file := load("res://assets/shaders/ps1_post_processing.glsl") as RDShaderFile
+	var shader_file = load("res://assets/shaders/ps1_post_processing.glsl") as RDShaderFile
 	if not shader_file:
 		return false
 
-	var spirv := shader_file.get_spirv()
+	var spirv = shader_file.get_spirv()
 	shader = rd.shader_create_from_spirv(spirv)
 	if not shader.is_valid():
 		return false

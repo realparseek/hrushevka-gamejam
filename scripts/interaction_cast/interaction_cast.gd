@@ -12,6 +12,7 @@ class_name InteractionCast
 @export var denied_sound: AudioStreamPlayer
 @export var icon_interacte: Texture2D
 @export var icon_drag: Texture2D
+@export var icon_enter: Texture2D
 
 var ORIGINAL_MSENSETIVITY: float = 0.0
 var PICKED_HOVERABLE: Hoverable = null
