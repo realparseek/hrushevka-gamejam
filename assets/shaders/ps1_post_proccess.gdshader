@@ -4,7 +4,7 @@ uniform vec2 custom_viewport_size = vec2(640.0, 360.0);
 uniform vec2 virtual_resolution = vec2(640.0, 360.0);
 uniform float shadow_smoothness = 0.6;
 uniform int color_depth = 64;
-uniform float dither_strength = 0.01;
+uniform float dither_strength = 0.5;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
