@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dion0cpxa0v11"]
 
 [ext_resource type="Material" uid="uid://cqwivw5utrrji" path="res://assets/materials/proto.material" id="1_5qweq"]
+[ext_resource type="Script" uid="uid://dwg5jrcv4qtyf" path="res://scripts/scene_loader/scene.gd" id="1_578qv"]
 [ext_resource type="Script" uid="uid://cb88qw06jug5v" path="res://entities/generator/generator.gd" id="2_ys4l0"]
 [ext_resource type="AudioStream" uid="uid://bk3t6ok6a5v1x" path="res://assets/audio/generator/plastic_fall.ogg" id="3_578qv"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="4_p8jr6"]
@@ -8,11 +9,13 @@
 [ext_resource type="AudioStream" uid="uid://bq8mm5cm4mhvm" path="res://assets/audio/generator/generatoridle.ogg" id="6_878n7"]
 [ext_resource type="AudioStream" uid="uid://carktpvksqyv3" path="res://assets/audio/generator/electricshock.mp3" id="7_6votu"]
 [ext_resource type="PackedScene" uid="uid://bh7oitlyohweq" path="res://entities/switch/switch.tscn" id="8_r4pkr"]
-[ext_resource type="PackedScene" uid="uid://djdixfi5tfxfi" path="res://entities/door/door.tscn" id="9_g4n5i"]
 [ext_resource type="PackedScene" uid="uid://vtmqgy5vxla0" path="res://entities/fuse/fuse.tscn" id="10_txlqv"]
-[ext_resource type="PackedScene" uid="uid://cmaqkihwflgyj" path="res://entities/enter/enter.tscn" id="10_ys4l0"]
+[ext_resource type="PackedScene" uid="uid://djdixfi5tfxfi" path="res://entities/door/door.tscn" id="10_ys4l0"]
 [ext_resource type="Script" uid="uid://cuj5bfwyx56lf" path="res://scripts/sound_manager/sound_manager.gd" id="11_5q7q2"]
+[ext_resource type="Script" uid="uid://bo4cxk5vpao0h" path="res://scripts/interactable/interactable.gd" id="11_l760p"]
+[ext_resource type="Script" uid="uid://c82dmbgc7j7yd" path="res://entities/enter/enter.gd" id="12_878n7"]
 [ext_resource type="AudioStream" uid="uid://r4bruxut4pvk" path="res://assets/audio/ambience/p5.ogg" id="12_sl3he"]
+[ext_resource type="Script" uid="uid://brnmjdghgrqog" path="res://scripts/hoverable/hoverable.gd" id="13_6votu"]
 [ext_resource type="AudioStream" uid="uid://c1oti4c5n3qw0" path="res://assets/audio/ambience/p3.ogg" id="13_jm3eo"]
 [ext_resource type="AudioStream" uid="uid://cbfxnr0qvves7" path="res://assets/audio/ambience/p7.ogg" id="14_3ygmk"]
 [ext_resource type="Script" uid="uid://cdsgkepujw22i" path="res://scripts/physics/fall.gd" id="15_r6ban"]
@@ -83,6 +86,9 @@ _surfaces = [{
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gxd77"]
 data = PackedVector3Array(-0.0787, -0.5, -0.2573, -0.0787, 0.5, -0.2573, -0.0787, -0.5, 0.2573, -0.0787, -0.5, -0.2573, -0.0787, -0.5, 0.2573, 0.0787, -0.5, -0.2573, -0.0787, -0.5, -0.2573, 0.0787, -0.5, -0.2573, -0.0787, 0.5, -0.2573, -0.0787, -0.5, 0.2573, -0.0787, 0.5, -0.2573, -0.0787, 0.5, 0.2573, -0.0787, -0.5, 0.2573, -0.0787, 0.5, 0.2573, 0.0787, 0.5, 0.2573, -0.0787, 0.5, -0.2573, 0.0787, 0.5, 0.2573, -0.0787, 0.5, 0.2573, 0.0787, -0.5, -0.2573, 0.0787, -0.46829998, 0.23529999, 0.0787, -0.46829998, -0.23339999, 0.0787, -0.5, -0.2573, 0.0787, -0.46829998, -0.23339999, 0.0787, 0.5, -0.2573, -0.0787, -0.5, 0.2573, 0.0787, -0.5, 0.2573, 0.0787, -0.5, -0.2573, -0.0787, -0.5, 0.2573, 0.0787, 0.5, 0.2573, 0.0787, -0.5, 0.2573, 0.0787, -0.5, -0.2573, 0.0787, -0.5, 0.2573, 0.0787, -0.46829998, 0.23529999, 0.0787, -0.5, 0.2573, 0.0787, 0.46289998, 0.23529999, 0.0787, -0.46829998, 0.23529999, -0.0787, 0.5, -0.2573, 0.0787, -0.5, -0.2573, 0.0787, 0.5, -0.2573, -0.0787, 0.5, -0.2573, 0.0787, 0.5, -0.2573, 0.0787, 0.5, 0.2573, 0.0787, 0.5, -0.2573, 0.0787, -0.46829998, -0.23339999, 0.0787, 0.46289998, -0.23339999, 0.0787, 0.5, -0.2573, 0.0787, 0.46289998, -0.23339999, 0.0787, 0.5, 0.2573, 0.0787, -0.5, 0.2573, 0.0787, 0.5, 0.2573, 0.0787, 0.46289998, 0.23529999, 0.0787, 0.5, 0.2573, 0.0787, 0.46289998, -0.23339999, 0.0787, 0.46289998, 0.23529999, -0.0022, -0.46829998, -0.23339999, -0.0022, -0.46829998, 0.23529999, -0.0022, 0.46289998, -0.23339999, -0.0022, -0.46829998, 0.23529999, -0.0022, 0.46289998, 0.23529999, -0.0022, 0.46289998, -0.23339999, -0.0022, -0.46829998, -0.23339999, -0.0022, 0.46289998, -0.23339999, 0.0787, -0.46829998, -0.23339999, -0.0022, -0.46829998, -0.23339999, 0.0787, -0.46829998, -0.23339999, 0.0787, -0.46829998, 0.23529999, -0.0022, -0.46829998, -0.23339999, 0.0787, -0.46829998, 0.23529999, -0.0022, -0.46829998, 0.23529999, -0.0022, -0.46829998, 0.23529999, 0.0787, -0.46829998, 0.23529999, 0.0787, 0.46289998, 0.23529999, -0.0022, 0.46289998, -0.23339999, -0.0022, 0.46289998, 0.23529999, 0.0787, 0.46289998, -0.23339999, -0.0022, 0.46289998, -0.23339999, 0.0787, 0.46289998, -0.23339999, 0.0787, -0.46829998, -0.23339999, -0.0022, -0.46829998, 0.23529999, 0.0787, 0.46289998, 0.23529999, -0.0022, 0.46289998, 0.23529999, -0.0022, 0.46289998, 0.23529999, 0.0787, 0.46289998, 0.23529999, 0.0787, 0.46289998, -0.23339999)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_02yi3"]
+size = Vector3(0.5020447, 1.9048462, 0.16235352)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v5gy4"]
 rough = true
 
@@ -109,52 +115,56 @@ size = Vector3(0.029876709, 0.34375, 0.03857422)
 
 [node name="bunker" type="Node3D" unique_id=582073405]
 
+[node name="scene" type="Node" parent="." unique_id=1845090491 node_paths=PackedStringArray("player_spawn")]
+script = ExtResource("1_578qv")
+player_spawn = NodePath("../entities/spawn")
+
 [node name="lights" type="Node3D" parent="." unique_id=603588395]
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="lights" unique_id=398021846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8268228, -0.18807411, -14.636738)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3063521, 2.96908, 2.4394064)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 7.350647
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="lights" unique_id=190380329]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8268228, -0.18807411, -15.527203)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.306352, 2.96908, 1.5489416)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 7.350647
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="lights" unique_id=1805696500]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33817065, -0.15831232, -19.761526)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14135873, 2.9988418, -2.685382)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 7.350647
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="lights" unique_id=720040484]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.011296, -0.61046374, -12.090281)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5317664, 2.5466905, 4.9858637)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 3.3767915
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="lights" unique_id=781680234]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0112958, -0.61046374, -18.894249)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5317664, 2.5466905, -1.8181047)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 4.9066143
 
 [node name="OmniLight3D15" type="OmniLight3D" parent="lights" unique_id=1451564292]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.517595, -0.61046374, -20.09028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0380654, 2.5466905, -3.0141363)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 4.9066143
 
 [node name="OmniLight3D17" type="OmniLight3D" parent="lights" unique_id=274241464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6792345, -0.61046374, -20.09028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.199705, 2.5466905, -3.0141363)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 4.9066143
 
 [node name="OmniLight3D16" type="OmniLight3D" parent="lights" unique_id=203382857]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.49684, -0.61046374, -16.434732)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0173106, 2.5466905, 0.6414118)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 4.9066143
@@ -162,7 +172,7 @@ omni_range = 4.9066143
 [node name="mesh" type="Node3D" parent="." unique_id=624987806]
 
 [node name="basement" type="CSGBox3D" parent="mesh" unique_id=927945219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5431697, -1.4549534, -14.499723)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.022699, 1.7022009, 2.5764208)
 use_collision = true
 flip_faces = true
 size = Vector3(7, 2.90979, 8.571777)
@@ -259,7 +269,7 @@ size = Vector3(3, 2.90979, 3)
 material = ExtResource("1_5qweq")
 
 [node name="chamber" type="CSGBox3D" parent="mesh" unique_id=1344209392]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6731615, -1.5089841, -19.921555)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.193632, 1.64817, -2.8454103)
 use_collision = true
 size = Vector3(2.998108, 2.7811127, 3.9038868)
 material = ExtResource("1_5qweq")
@@ -284,7 +294,7 @@ process_material = SubResource("ParticleProcessMaterial_a1qps")
 draw_pass_1 = SubResource("SphereMesh_sq6te")
 
 [node name="generator" type="StaticBody3D" parent="entities" unique_id=748440623]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8796599, -2.2922778, -21.410326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3591893, 0.8648763, -4.334182)
 
 [node name="generator" type="Node" parent="entities/generator" unique_id=1770221733 node_paths=PackedStringArray("lights", "switches_bodies", "audio_player", "fuse_sound", "explosion_sound", "electricity_sound", "sparkles")]
 script = ExtResource("2_ys4l0")
@@ -343,7 +353,7 @@ fallback_transmission = 0.059
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="eletric_panel" type="StaticBody3D" parent="entities" unique_id=1561667112]
-transform = Transform3D(-0.705, 0, 1.06452035e-07, 0, 0.705, 0, -1.06452035e-07, 0, -0.705, 1.868663, -1.4117328, -21.437712)
+transform = Transform3D(-0.705, 0, 1.06452035e-07, 0, 0.705, 0, -1.06452035e-07, 0, -0.705, 1.3891336, 1.7454214, -4.3615675)
 
 [node name="mesh" type="MeshInstance3D" parent="entities/eletric_panel" unique_id=1816417859]
 mesh = SubResource("ArrayMesh_gxd77")
@@ -363,24 +373,38 @@ transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.07089
 [node name="switch4" parent="entities/eletric_panel" unique_id=1754541526 instance=ExtResource("8_r4pkr")]
 transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, 0.04169345, 0.06719327, -0.17525673)
 
-[node name="door" parent="entities" unique_id=2026821777 instance=ExtResource("9_g4n5i")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 2.0170064, -1.848, -11.828804)
+[node name="door" parent="entities" unique_id=2026821777 instance=ExtResource("10_ys4l0")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 1.537477, 1.309154, 5.24734)
 
-[node name="door2" parent="entities" unique_id=996318969 instance=ExtResource("9_g4n5i")]
-transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, 0.24666822, -1.848, -18.827978)
+[node name="door2" parent="entities" unique_id=996318969 instance=ExtResource("10_ys4l0")]
+transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, -0.23286116, 1.309154, -1.7518339)
 
-[node name="door3" parent="entities" unique_id=1165432989 instance=ExtResource("9_g4n5i")]
-transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, 2.5629413, -1.848, -21.915087)
+[node name="door3" parent="entities" unique_id=1165432989 instance=ExtResource("10_ys4l0")]
+transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, 2.083412, 1.309154, -4.8389425)
 
-[node name="enter" parent="entities" unique_id=2059708551 instance=ExtResource("10_ys4l0")]
-transform = Transform3D(-0.25881928, 0, 0.96592575, 0, 1, 0, -0.96592575, 0, -0.25881928, -7.282757, -1.848, -18.800856)
-visible = false
+[node name="enter" type="StaticBody3D" parent="entities" unique_id=2059708551]
+transform = Transform3D(-0.25881925, 0, 0.9659257, 0, 1, 0, -0.9659257, 0, -0.25881925, -7.762286, 1.309154, -1.7247114)
+collision_layer = 2
+
+[node name="interactable" type="Node" parent="entities/enter" unique_id=1041191712]
+script = ExtResource("11_l760p")
+
+[node name="enter" type="Node" parent="entities/enter/interactable" unique_id=1714570850]
+script = ExtResource("12_878n7")
+scene_name = "basement"
+
+[node name="hoverable" type="Node" parent="entities/enter" unique_id=1219760817]
+script = ExtResource("13_6votu")
+
+[node name="collision" type="CollisionShape3D" parent="entities/enter" unique_id=1494186521]
+transform = Transform3D(-0.25881976, 0, -0.96592605, 0, 1, 0, 0.96592605, 0, -0.25881976, 0.002904892, 0.042816162, -0.038674355)
+shape = SubResource("BoxShape3D_02yi3")
 
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("10_txlqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5142713, -2.831049, -18.461613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9938006, 0.32610512, -1.3854685)
 
 [node name="BoxTest" type="RigidBody3D" parent="entities" unique_id=526282323]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5478516, -1.3500687, -12.492362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.027381, 1.8070855, 4.583782)
 collision_layer = 3
 collision_mask = 3
 mass = 30.0
@@ -410,7 +434,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35720825, -0.18966675, -0.
 shape = SubResource("BoxShape3D_acu8t")
 
 [node name="BoxexsTest" type="RigidBody3D" parent="entities" unique_id=1646316866]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3244114, -13.486897)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47952938, 0.8327427, 3.5892467)
 collision_layer = 3
 collision_mask = 3
 mass = 10.0
@@ -477,7 +501,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734,
 mesh = SubResource("BoxMesh_1vivr")
 
 [node name="SoundManager" type="Node3D" parent="entities" unique_id=1794416804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47952938, 3.157154, 17.076145)
 script = ExtResource("11_5q7q2")
 sound_streams = Array[AudioStream]([ExtResource("12_sl3he"), ExtResource("13_jm3eo"), ExtResource("14_3ygmk")])
 max_delay = 300.0
 volume_db = -20.0
+
+[node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -8, 1.1267571, -0.76783013)

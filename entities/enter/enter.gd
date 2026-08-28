@@ -1,7 +1,7 @@
 extends Interaction
 class_name Enter
 
-@export var scene: PackedScene
+@export var scene_name: String
 
 var scene_loader: SceneLoader = null
 
@@ -13,4 +13,4 @@ func _ready() -> void:
 	print('failed to find scene loader')
 
 func interacte() -> void:
-	scene_loader.load_scene(scene.resource_path)
+	scene_loader.load_scene("res://scenes/" + scene_name + "/" + scene_name + ".tscn")

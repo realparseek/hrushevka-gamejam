@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://u0o8cyn856bh"]
 
-[ext_resource type="AudioStream" uid="uid://dq1gjei2dgiag" path="res://assets/audio/ambience/room.mp3" id="1_0sr1o"]
 [ext_resource type="Script" uid="uid://br6ht05tumgv5" path="res://scripts/scene_loader/scene_loader.gd" id="1_kelw5"]
 [ext_resource type="PackedScene" uid="uid://dion0cpxa0v11" path="res://scenes/bunker/bunker.tscn" id="2_kelw5"]
 [ext_resource type="PackedScene" uid="uid://b8ggy8gp55r1e" path="res://entities/player/player.tscn" id="3_lfrn8"]
@@ -20,22 +19,14 @@ fog_depth_end = 144.3
 
 [node name="game" type="Node3D" unique_id=322255385]
 
-[node name="scene_loader" type="Node" parent="." unique_id=861520109 node_paths=PackedStringArray("root", "player", "CURRENT_SCENE")]
+[node name="scene_loader" type="Node" parent="." unique_id=861520109 node_paths=PackedStringArray("root", "player")]
 script = ExtResource("1_kelw5")
 root = NodePath("..")
 player = NodePath("../player")
-CURRENT_SCENE = NodePath("../bunker")
-
-[node name="ambient" type="AudioStreamPlayer" parent="." unique_id=1524581880]
-stream = ExtResource("1_0sr1o")
-volume_db = -10.0
-autoplay = true
-parameters/looping = true
-
-[node name="environment" type="WorldEnvironment" parent="." unique_id=365987119]
-environment = SubResource("Environment_6oo2w")
-
-[node name="bunker" parent="." unique_id=1257384898 instance=ExtResource("2_kelw5")]
+start_scene = ExtResource("2_kelw5")
 
 [node name="player" parent="." unique_id=2010102372 instance=ExtResource("3_lfrn8")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -7.6251755, -2.079805, -18.164377)
+
+[node name="environment" type="WorldEnvironment" parent="." unique_id=365987119]
+environment = SubResource("Environment_6oo2w")

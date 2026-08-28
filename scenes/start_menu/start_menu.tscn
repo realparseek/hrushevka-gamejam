@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c3h22jb0mgdei"]
+
+[ext_resource type="Texture2D" uid="uid://b7hmhfmno0pq5" path="res://assets/images/start_menu/background.png" id="1_ces3l"]
+[ext_resource type="Theme" uid="uid://ca5dkr7ytxhv7" path="res://assets/themes/pause/menu.tres" id="2_uqtq5"]
+
+[node name="start_menu" type="Node3D" unique_id=2021580864]
+
+[node name="start" type="TextureRect" parent="." unique_id=1362527156]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ces3l")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="menu" type="VBoxContainer" parent="start" unique_id=2132453939]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -152.0
+offset_right = 159.0
+offset_bottom = -24.0
+grow_vertical = 0
+mouse_filter = 0
+
+[node name="start" type="Button" parent="start/menu" unique_id=439799980]
+layout_mode = 2
+theme = ExtResource("2_uqtq5")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+text = "Start"
+flat = true
+alignment = 0
+
+[node name="settings" type="Button" parent="start/menu" unique_id=1603634382]
+layout_mode = 2
+theme = ExtResource("2_uqtq5")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+text = "Settings
+"
+flat = true
+alignment = 0
+
+[node name="exit" type="Button" parent="start/menu" unique_id=1037938754]
+layout_mode = 2
+theme = ExtResource("2_uqtq5")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+text = "Exit"
+flat = true
+alignment = 0

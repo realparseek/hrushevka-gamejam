@@ -2,17 +2,29 @@
 
 [ext_resource type="Script" uid="uid://dwg5jrcv4qtyf" path="res://scripts/scene_loader/scene.gd" id="1_w75rf"]
 [ext_resource type="Material" uid="uid://cqwivw5utrrji" path="res://assets/materials/proto.material" id="1_wjqd4"]
+[ext_resource type="Script" uid="uid://bo4cxk5vpao0h" path="res://scripts/interactable/interactable.gd" id="3_wuaeu"]
+[ext_resource type="Script" uid="uid://c82dmbgc7j7yd" path="res://entities/enter/enter.gd" id="4_olr0t"]
+[ext_resource type="Script" uid="uid://brnmjdghgrqog" path="res://scripts/hoverable/hoverable.gd" id="6_5fs4t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_02yi3"]
+size = Vector3(0.5020447, 1.9048462, 0.16235352)
 
 [node name="basement" type="Node3D" unique_id=582073405]
 
 [node name="scene" type="Node" parent="." unique_id=1946707721 node_paths=PackedStringArray("player_spawn")]
 script = ExtResource("1_w75rf")
-player_spawn = NodePath("../spawn")
+player_spawn = NodePath("../entities/spawn")
 
 [node name="lights" type="Node3D" parent="." unique_id=603588395]
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="lights" unique_id=398021846]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2421908, -0.39306527, -7.525488)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.350647
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="lights" unique_id=752865006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.714878, -0.39306527, -7.525488)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 7.350647
@@ -58,6 +70,18 @@ flip_faces = true
 size = Vector3(10, 2.90979, 2)
 material = ExtResource("1_wjqd4")
 
+[node name="door10" type="CSGBox3D" parent="mesh/basement5" unique_id=1153714216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.897251, -0.39308786, -3.2903829)
+flip_faces = true
+size = Vector3(0.31988525, 2, 0.5260773)
+material = ExtResource("1_wjqd4")
+
+[node name="basement7" type="CSGBox3D" parent="mesh/basement5" unique_id=2002304399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.522842, 0, -3.2093053)
+flip_faces = true
+size = Vector3(5.173828, 2.90979, 3)
+material = ExtResource("1_wjqd4")
+
 [node name="stairs" type="CSGBox3D" parent="mesh" unique_id=1975575462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4120517, -1.233232, 4.361262)
 use_collision = true
@@ -72,5 +96,23 @@ material = ExtResource("1_wjqd4")
 
 [node name="entities" type="Node3D" parent="." unique_id=441242414]
 
-[node name="spawn" type="Node3D" parent="." unique_id=963403557]
+[node name="enter" type="StaticBody3D" parent="entities" unique_id=1759281821]
+transform = Transform3D(0.9659259, 0, 0.25881928, 0, 1, 0, -0.25881928, 0, 0.9659259, 7.434218, -1.702851, -6.7951293)
+collision_layer = 2
+
+[node name="interactable" type="Node" parent="entities/enter" unique_id=9499503]
+script = ExtResource("3_wuaeu")
+
+[node name="enter" type="Node" parent="entities/enter/interactable" unique_id=1077496721]
+script = ExtResource("4_olr0t")
+scene_name = "bunker"
+
+[node name="hoverable" type="Node" parent="entities/enter" unique_id=2097791463]
+script = ExtResource("6_5fs4t")
+
+[node name="collision" type="CollisionShape3D" parent="entities/enter" unique_id=1654115343]
+transform = Transform3D(-0.25881976, 0, -0.96592605, 0, 1, 0, 0.96592605, 0, -0.25881976, 0.002904892, 0.042816162, -0.038674355)
+shape = SubResource("BoxShape3D_02yi3")
+
+[node name="spawn" type="Node3D" parent="entities" unique_id=963403557]
 transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, 6.6092143, -1.9704454, -6.6199093)
