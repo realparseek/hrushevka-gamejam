@@ -14,7 +14,6 @@ func _ready() -> void:
 	if exit_button: exit_button.connect("pressed", _on_exit_btn_press)
 	menu.visible = PAUSED
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if PAUSED else Input.MOUSE_MODE_CAPTURED)
-	#pause()
 
 func pause() -> void:
 	get_tree().paused = true

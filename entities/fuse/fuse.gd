@@ -22,7 +22,7 @@ func _ready():
 	rigid_body.contact_monitor = true
 	rigid_body.max_contacts_reported = 8
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var state = PhysicsServer3D.body_get_direct_state(rigid_body.get_rid())
 	if not state:
 		return
