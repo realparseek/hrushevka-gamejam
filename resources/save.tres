@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="SceneData" format=3]
-
-[ext_resource type="Script" path="res://scripts/resources/scene_data.gd" id="1_8knjt"]
-
-[resource]
-script = ExtResource("1_8knjt")
-fuse_position = Vector3(-6.9938006, 0.33169496, 3.065728)
-fuse_velocity = Vector3(-2.0208217e-16, 0, -0.14706278)
