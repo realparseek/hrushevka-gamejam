@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cqwivw5utrrji" path="res://assets/materials/proto.material" id="1_5qweq"]
 [ext_resource type="Script" uid="uid://dwg5jrcv4qtyf" path="res://scripts/scene_loader/scene.gd" id="1_578qv"]
+[ext_resource type="AudioStream" uid="uid://dq1gjei2dgiag" path="res://assets/audio/ambience/room.mp3" id="2_878n7"]
 [ext_resource type="Script" uid="uid://cb88qw06jug5v" path="res://entities/generator/generator.gd" id="2_ys4l0"]
 [ext_resource type="AudioStream" uid="uid://bk3t6ok6a5v1x" path="res://assets/audio/generator/plastic_fall.ogg" id="3_578qv"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="4_p8jr6"]
@@ -118,6 +119,12 @@ size = Vector3(0.029876709, 0.34375, 0.03857422)
 [node name="scene" type="Node" parent="." unique_id=1845090491 node_paths=PackedStringArray("player_spawn")]
 script = ExtResource("1_578qv")
 player_spawn = NodePath("../entities/spawn")
+
+[node name="ambient" type="AudioStreamPlayer" parent="." unique_id=1393562549]
+stream = ExtResource("2_878n7")
+volume_db = -3.0
+autoplay = true
+parameters/looping = true
 
 [node name="lights" type="Node3D" parent="." unique_id=603588395]
 
