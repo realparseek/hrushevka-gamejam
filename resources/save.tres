@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_8knjt")
-fuse_position = Vector3(-6.9938006, 0.33169496, 6.0766563)
-fuse_velocity = Vector3(-1.5465786e-15, 0, -0.62763727)
+fuse_position = Vector3(-6.9938006, 0.33169496, 3.065728)
+fuse_velocity = Vector3(-2.0208217e-16, 0, -0.14706278)

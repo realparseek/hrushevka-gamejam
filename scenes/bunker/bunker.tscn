@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://cdsgkepujw22i" path="res://scripts/physics/fall.gd" id="15_r6ban"]
 [ext_resource type="AudioStream" uid="uid://cq4fqclgroqub" path="res://assets/audio/interaction/contact2.mp3" id="16_e5ka1"]
 [ext_resource type="AudioStream" uid="uid://c80gua0qxpao" path="res://assets/audio/interaction/contact1.mp3" id="17_qi1sa"]
+[ext_resource type="PackedScene" uid="uid://dtnitnx1fnytk" path="res://assets/shaders/gargamel shader test/gargamel.glb" id="23_6votu"]
 
 [sub_resource type="Environment" id="Environment_878n7"]
 background_mode = 1
@@ -458,8 +459,6 @@ shape = SubResource("BoxShape3D_acu8t")
 
 [node name="BoxexsTest" type="RigidBody3D" parent="entities" unique_id=1646316866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47952938, 0.8327427, 3.5892467)
-collision_layer = 3
-collision_mask = 3
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_qbdty")
 continuous_cd = true
@@ -532,3 +531,6 @@ volume_db = -20.0
 
 [node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
 transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -8, 1.1267571, -0.76783013)
+
+[node name="gargamel" parent="." unique_id=501130089 instance=ExtResource("23_6votu")]
+transform = Transform3D(-0.8341536, 0, -0.33791682, 0, 0.9, 0, 0.33791682, 0, -0.8341536, -0.35622537, 0.2526685, -3.3029313)

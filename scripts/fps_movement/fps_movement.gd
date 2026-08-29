@@ -81,7 +81,7 @@ func _handle_gravity(delta: float) -> void:
 		player.velocity += player.get_gravity() * 2.0 * delta
 
 func _handle_jump() -> void:
-	if Input.is_action_just_pressed("move_jump") and player.is_on_floor():
+	if Input.is_action_just_pressed("move_jump") and player.is_on_floor() and not CROUCHED:
 		player.velocity.y = jump_force
 		_play_step_sound()
 		HEADBOB_VAL = 0.0
@@ -174,7 +174,8 @@ func _process_rigidbody_collisions() -> void:
 		var is_long = rb.is_in_group("long_object")
 		var mass = rb.mass
 		
-		var is_running = Input.is_action_pressed("move_run")
+		# Бег недоступен при приседании
+		var is_running = Input.is_action_pressed("move_run") and not CROUCHED
 		var can_push = false
 		if is_ball or is_long:
 			can_push = true
@@ -276,7 +277,7 @@ func _update_frozen_objects() -> void:
 						continue
 						
 					found_heavy.append(rb)
-					var is_running = Input.is_action_pressed("move_run")
+					var is_running = Input.is_action_pressed("move_run") and not CROUCHED
 					var should_freeze = (mass > heavy_push_max_mass) or (not is_running)
 					if should_freeze:
 						if not rb.freeze:
