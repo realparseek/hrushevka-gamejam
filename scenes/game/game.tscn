@@ -29,19 +29,6 @@
 [ext_resource type="Shader" uid="uid://burqsqqqv84wc" path="res://assets/shaders/ps1_post_proccess.gdshader" id="24_35t1a"]
 [ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="25_ye7x0"]
 
-[sub_resource type="Environment" id="Environment_6oo2w"]
-background_mode = 1
-background_color = Color(0.33660764, 0.3366076, 0.3366076, 1)
-ambient_light_source = 2
-ambient_light_color = Color(0.05874543, 0.07364527, 0.098990895, 1)
-reflected_light_source = 2
-fog_enabled = true
-fog_mode = 1
-fog_density = 0.0
-fog_depth_curve = 0.73204297
-fog_depth_begin = 0.0
-fog_depth_end = 144.3
-
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
 resource_local_to_scene = false
 resource_name = ""
@@ -132,9 +119,6 @@ root = NodePath("..")
 player = NodePath("../player")
 start_scene = ExtResource("2_kelw5")
 loading_screen = NodePath("../player/loading_screen")
-
-[node name="environment" type="WorldEnvironment" parent="." unique_id=365987119]
-environment = SubResource("Environment_6oo2w")
 
 [node name="player" type="CharacterBody3D" parent="." unique_id=1303298807]
 process_mode = 3

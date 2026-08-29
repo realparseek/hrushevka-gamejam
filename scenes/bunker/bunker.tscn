@@ -23,6 +23,19 @@
 [ext_resource type="AudioStream" uid="uid://cq4fqclgroqub" path="res://assets/audio/interaction/contact2.mp3" id="16_e5ka1"]
 [ext_resource type="AudioStream" uid="uid://c80gua0qxpao" path="res://assets/audio/interaction/contact1.mp3" id="17_qi1sa"]
 
+[sub_resource type="Environment" id="Environment_878n7"]
+background_mode = 1
+background_color = Color(0.33660764, 0.3366076, 0.3366076, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.05874543, 0.07364527, 0.098990895, 1)
+reflected_light_source = 2
+fog_enabled = true
+fog_mode = 1
+fog_density = 0.0
+fog_depth_curve = 0.73204297
+fog_depth_begin = 0.0
+fog_depth_end = 144.3
+
 [sub_resource type="Curve" id="Curve_gxd77"]
 _data = [Vector2(0.35459182, 0.10674167), 0.0, 0.0, 0, 0, Vector2(0.42091835, 1), 0.0, 0.0, 0, 0, Vector2(0.8137755, 0.32022476), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -125,6 +138,9 @@ stream = ExtResource("2_878n7")
 volume_db = -3.0
 autoplay = true
 parameters/looping = true
+
+[node name="environment" type="WorldEnvironment" parent="." unique_id=268067819]
+environment = SubResource("Environment_878n7")
 
 [node name="lights" type="Node3D" parent="." unique_id=603588395]
 
@@ -408,7 +424,7 @@ transform = Transform3D(-0.25881976, 0, -0.96592605, 0, 1, 0, 0.96592605, 0, -0.
 shape = SubResource("BoxShape3D_02yi3")
 
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("10_txlqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9938006, 0.32610512, -1.3854685)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -6.9938006, 0.32610512, 5.6145315)
 
 [node name="BoxTest" type="RigidBody3D" parent="entities" unique_id=526282323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.027381, 1.8070855, 4.583782)
