@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://cq4fqclgroqub" path="res://assets/audio/interaction/contact2.mp3" id="16_e5ka1"]
 [ext_resource type="AudioStream" uid="uid://c80gua0qxpao" path="res://assets/audio/interaction/contact1.mp3" id="17_qi1sa"]
 [ext_resource type="PackedScene" uid="uid://dtnitnx1fnytk" path="res://assets/shaders/gargamel shader test/gargamel.glb" id="23_6votu"]
+[ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="23_r4pkr"]
 
 [sub_resource type="Environment" id="Environment_878n7"]
 background_mode = 1
@@ -151,25 +152,25 @@ environment = SubResource("Environment_878n7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047119856, 2.8664904, -1.3156731)
 light_bake_mode = 1
 shadow_enabled = true
-omni_range = 3.691833
+omni_range = 5.1132946
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="lights" unique_id=220977814]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1402729, 2.8664904, 4.9334917)
 light_bake_mode = 1
 shadow_enabled = true
-omni_range = 2.8508716
+omni_range = 3.9104002
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="lights" unique_id=190380329]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.788292, 2.7122235, -0.20141496)
 light_bake_mode = 1
 shadow_enabled = true
-omni_range = 2.798831
+omni_range = 3.930395
 
 [node name="OmniLight3D14" type="OmniLight3D" parent="lights" unique_id=1037407122]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.788292, 2.7122235, 4.748379)
 light_bake_mode = 1
 shadow_enabled = true
-omni_range = 2.798831
+omni_range = 4.4195876
 
 [node name="OmniLight3D19" type="OmniLight3D" parent="lights" unique_id=1539238433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3479757, 2.7122235, -0.22365263)
@@ -184,10 +185,10 @@ shadow_enabled = true
 omni_range = 2.798831
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="lights" unique_id=1805696500]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14135873, 2.9988418, -2.685382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34325528, 2.9988418, -2.685382)
 light_bake_mode = 1
 shadow_enabled = true
-omni_range = 3.051389
+omni_range = 3.5240576
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="lights" unique_id=720040484]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3419843, 2.7849398, 4.9858637)
@@ -196,7 +197,25 @@ shadow_enabled = true
 omni_range = 3.3767915
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="lights" unique_id=781680234]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4735897, 2.5466905, -4.5459785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6159103, 2.5466905, -4.5459785)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 2.3403792
+
+[node name="OmniLight3D22" type="OmniLight3D" parent="lights" unique_id=1603708289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6159103, 2.5466905, -5.0318427)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.5273235
+
+[node name="OmniLight3D23" type="OmniLight3D" parent="lights" unique_id=1755433677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6159103, 6.1817627, -3.3154593)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 3.5273235
+
+[node name="OmniLight3D21" type="OmniLight3D" parent="lights" unique_id=1039139714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4319544, 2.5466905, -3.1405954)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 2.3403792
@@ -289,9 +308,27 @@ size = Vector3(2, 2.90979, 7.706421)
 material = ExtResource("1_5qweq")
 
 [node name="door10" type="CSGBox3D" parent="mesh/basement/basement4" unique_id=1225786346]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00017738342, -0.39308786, -3.9715252)
-operation = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00017738342, -0.39308786, -3.9330096)
+flip_faces = true
 size = Vector3(1, 2, 0.24136353)
+material = ExtResource("1_5qweq")
+
+[node name="basement8" type="CSGBox3D" parent="mesh/basement" unique_id=930681008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6081285, 0.545105, -8.95069)
+flip_faces = true
+size = Vector3(2, 4, 3)
+material = ExtResource("1_5qweq")
+
+[node name="basement9" type="CSGBox3D" parent="mesh/basement" unique_id=3863401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.595831, 2.6064215, -8.990612)
+flip_faces = true
+size = Vector3(1.18396, 0.22509766, 1.1494141)
+material = ExtResource("1_5qweq")
+
+[node name="basement10" type="CSGBox3D" parent="mesh/basement" unique_id=995582585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6081285, 3.6991277, -7.9506903)
+flip_faces = true
+size = Vector3(2, 2, 5)
 material = ExtResource("1_5qweq")
 
 [node name="basement6" type="CSGBox3D" parent="mesh/basement" unique_id=653622698]
@@ -564,5 +601,11 @@ volume_db = -20.0
 [node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
 transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -8, 1.1267571, -0.76783013)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="entities" unique_id=1578640375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5814166, 2.475792, -6.9170747)
+use_collision = true
+size = Vector3(0.73291016, 3.9515839, 0.07757568)
+material = ExtResource("23_r4pkr")
+
 [node name="gargamel" parent="." unique_id=501130089 instance=ExtResource("23_6votu")]
-transform = Transform3D(-0.8341536, 0, -0.33791682, 0, 0.9, 0, 0.33791682, 0, -0.8341536, -0.35622537, 0.2526685, -3.3029313)
+transform = Transform3D(0.27852958, 0, -0.855816, 0, 0.9, 0, 0.855816, 0, 0.27852958, -2.866777, 0.2526685, -2.2892346)

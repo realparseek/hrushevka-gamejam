@@ -139,7 +139,7 @@ step_sounds = Array[AudioStream]([ExtResource("4_fty5b"), ExtResource("5_l2dhg")
 headbob_tilt = 0.5
 crouch_tilt = 1.0
 
-[node name="interaction_cast" type="Node" parent="player" unique_id=1589112615 node_paths=PackedStringArray("fps", "messenger", "inventory", "pause_menu", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound", "denied_sound")]
+[node name="interaction_cast" type="Node" parent="player" unique_id=1589112615 node_paths=PackedStringArray("fps", "messenger", "inventory", "pause_menu", "raycast", "icon_sprite", "pickup_sound", "denied_sound")]
 script = ExtResource("10_mumkj")
 fps = NodePath("../fps_movement")
 messenger = NodePath("../messenger")
@@ -147,7 +147,6 @@ inventory = NodePath("../inventory")
 pause_menu = NodePath("../pause_menu")
 raycast = NodePath("../head/camera/interaction_cast")
 icon_sprite = NodePath("../cursor")
-crosshair_rect = NodePath("../ui/crosshair")
 pickup_sound = NodePath("../pickup_sound")
 denied_sound = NodePath("../denied_sound")
 icon_interacte = ExtResource("11_2vph8")

@@ -20,8 +20,7 @@ var PICKED_DRAGGABLE: Draggable = null
 var ICON_POS: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
-	if fps: 
-		ORIGINAL_MSENSETIVITY = fps.mouse_sensetivity
+	if fps: ORIGINAL_MSENSETIVITY = fps.mouse_sensetivity
 
 func _process(_delta: float) -> void:
 	if inventory and inventory.opened(): return
@@ -95,16 +94,16 @@ func show_interacte_icon() -> void:
 	icon_sprite.global_position = ICON_POS
 	icon_sprite.texture = icon_interacte
 	icon_sprite.visible = true
-	crosshair_rect.visible = false
+	if crosshair_rect: crosshair_rect.visible = false
 
 func show_drag_icon() -> void:
 	if not icon_sprite: return
 	icon_sprite.global_position = ICON_POS
 	icon_sprite.texture = icon_drag
 	icon_sprite.visible = true
-	crosshair_rect.visible = false
+	if crosshair_rect: crosshair_rect.visible = false
 
 func hide_icon() -> void:
 	if not icon_sprite: return
 	icon_sprite.visible = false
-	crosshair_rect.visible = true
+	if crosshair_rect: crosshair_rect.visible = true
