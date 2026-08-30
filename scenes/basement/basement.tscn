@@ -13,6 +13,8 @@ background_color = Color(0.33660764, 0.3366076, 0.3366076, 1)
 ambient_light_source = 2
 ambient_light_color = Color(0.05874543, 0.07364527, 0.098990895, 1)
 reflected_light_source = 2
+tonemap_mode = 4
+tonemap_exposure = 1.1
 fog_enabled = true
 fog_mode = 1
 fog_density = 0.0
@@ -41,16 +43,10 @@ environment = SubResource("Environment_wuaeu")
 [node name="lights" type="Node3D" parent="." unique_id=603588395]
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="lights" unique_id=398021846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2421908, -0.39306527, -7.525488)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9119023, -0.39306527, -7.525488)
 light_bake_mode = 1
 shadow_enabled = true
-omni_range = 7.350647
-
-[node name="OmniLight3D9" type="OmniLight3D" parent="lights" unique_id=752865006]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.714878, -0.39306527, -7.525488)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 7.350647
+omni_range = 10.9700775
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="lights" unique_id=134803872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5231156, -0.31268203, 3.1639786)
