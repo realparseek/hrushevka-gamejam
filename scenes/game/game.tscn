@@ -123,11 +123,11 @@ player = NodePath("../player")
 start_scene = ExtResource("2_kelw5")
 loading_screen = NodePath("../player/loading_screen")
 
-[node name="player" type="CharacterBody3D" parent="." unique_id=1303298807]
+[node name="player" type="CharacterBody3D" parent="." unique_id=1927215584]
 process_mode = 3
 floor_constant_speed = true
 
-[node name="fps_movement" type="Node" parent="player" unique_id=153331594 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape")]
+[node name="fps_movement" type="Node" parent="player" unique_id=1433282975 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape")]
 process_mode = 3
 script = ExtResource("3_h48ew")
 pause_menu = NodePath("../pause_menu")
@@ -139,7 +139,7 @@ step_sounds = Array[AudioStream]([ExtResource("4_fty5b"), ExtResource("5_l2dhg")
 headbob_tilt = 0.5
 crouch_tilt = 1.0
 
-[node name="interaction_cast" type="Node" parent="player" unique_id=1589112615 node_paths=PackedStringArray("fps", "messenger", "inventory", "pause_menu", "raycast", "icon_sprite", "pickup_sound", "denied_sound")]
+[node name="interaction_cast" type="Node" parent="player" unique_id=1663068697 node_paths=PackedStringArray("fps", "messenger", "inventory", "pause_menu", "raycast", "icon_sprite", "pickup_sound", "denied_sound")]
 script = ExtResource("10_mumkj")
 fps = NodePath("../fps_movement")
 messenger = NodePath("../messenger")
@@ -153,61 +153,61 @@ icon_interacte = ExtResource("11_2vph8")
 icon_drag = ExtResource("12_0gkf7")
 icon_enter = ExtResource("13_6ehwc")
 
-[node name="inventory" type="Node" parent="player" unique_id=322906619 node_paths=PackedStringArray("pause_menu", "grid_container", "move_sound")]
+[node name="inventory" type="Node" parent="player" unique_id=661274644 node_paths=PackedStringArray("pause_menu", "grid_container", "move_sound")]
 script = ExtResource("14_tyhjx")
 pause_menu = NodePath("../pause_menu")
 grid_container = NodePath("../ui/inventory")
 move_sound = NodePath("../item_move_sound")
 open_acceleration = 0.158
 
-[node name="post_processing" type="Node" parent="player" unique_id=1894570789 node_paths=PackedStringArray("camera")]
+[node name="post_processing" type="Node" parent="player" unique_id=1629497127 node_paths=PackedStringArray("camera")]
 script = ExtResource("15_5q2xh")
 camera = NodePath("../head/camera")
 
-[node name="pause_menu" type="Node" parent="player" unique_id=566229940 node_paths=PackedStringArray("menu", "resume_button", "exit_button", "ambient")]
+[node name="pause_menu" type="Node" parent="player" unique_id=947648781 node_paths=PackedStringArray("menu", "resume_button", "exit_button", "ambient")]
 script = ExtResource("16_sikks")
 menu = NodePath("../ui/pause")
 resume_button = NodePath("../ui/pause/menu/resume")
 exit_button = NodePath("../ui/pause/menu/exit")
 ambient = NodePath("../ui/pause/ambient")
 
-[node name="loading_screen" type="Node" parent="player" unique_id=119949984 node_paths=PackedStringArray("animation_player")]
+[node name="loading_screen" type="Node" parent="player" unique_id=1424976573 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("17_fty5b")
 animation_player = NodePath("../loading")
 
-[node name="messenger" type="Node" parent="player" unique_id=91312801 node_paths=PackedStringArray("label")]
+[node name="messenger" type="Node" parent="player" unique_id=1505581399 node_paths=PackedStringArray("label")]
 script = ExtResource("17_ah1mj")
 label = NodePath("../ui/message")
 message = "sample text"
 
-[node name="head" type="Node3D" parent="player" unique_id=1726695452]
+[node name="head" type="Node3D" parent="player" unique_id=996783886]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012596369, 0.7461406, -0.09485489)
 
-[node name="camera" type="Camera3D" parent="player/head" unique_id=1322763943]
+[node name="camera" type="Camera3D" parent="player/head" unique_id=38152946]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.094000936)
 compositor = SubResource("Compositor_vpe7l")
 current = true
 
-[node name="interaction_cast" type="RayCast3D" parent="player/head/camera" unique_id=1744414043]
+[node name="interaction_cast" type="RayCast3D" parent="player/head/camera" unique_id=1635932057]
 target_position = Vector3(0, 0, -1.2)
 collision_mask = 2
 collide_with_areas = true
 
-[node name="collision" type="CollisionShape3D" parent="player" unique_id=929773781]
+[node name="collision" type="CollisionShape3D" parent="player" unique_id=694112860]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09101564, 0)
 shape = SubResource("CapsuleShape3D_mm0n8")
 
-[node name="audio_listener" type="AudioListener3D" parent="player" unique_id=1775546872]
+[node name="audio_listener" type="AudioListener3D" parent="player" unique_id=1999663531]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73364884, 0)
 current = true
 
-[node name="step_sounds" type="AudioStreamPlayer3D" parent="player" unique_id=520636047]
+[node name="step_sounds" type="AudioStreamPlayer3D" parent="player" unique_id=1835369745]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5173645, -0.0011698008)
 volume_db = -1.5
 script = ExtResource("19_41gcl")
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
-[node name="cursor" type="Sprite3D" parent="player" unique_id=1299970631]
+[node name="cursor" type="Sprite3D" parent="player" unique_id=763850486]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, -2)
 visible = false
 billboard = 1
@@ -216,25 +216,25 @@ fixed_size = true
 render_priority = 1
 texture = ExtResource("11_2vph8")
 
-[node name="shaderquad" type="MeshInstance3D" parent="player" unique_id=1644037204]
+[node name="shaderquad" type="MeshInstance3D" parent="player" unique_id=2084802003]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.06388092, 0.8207929, -0.85551333)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_4s8us")
 
-[node name="loading" type="AnimationPlayer" parent="player" unique_id=427609571]
+[node name="loading" type="AnimationPlayer" parent="player" unique_id=1614435067]
 libraries/ = SubResource("AnimationLibrary_firvq")
 
-[node name="pickup_sound" type="AudioStreamPlayer" parent="player" unique_id=1026635573]
+[node name="pickup_sound" type="AudioStreamPlayer" parent="player" unique_id=396475998]
 stream = ExtResource("20_fba2n")
 volume_db = -15.0
 
-[node name="denied_sound" type="AudioStreamPlayer" parent="player" unique_id=1165768998]
+[node name="denied_sound" type="AudioStreamPlayer" parent="player" unique_id=1064401907]
 stream = ExtResource("21_teoly")
 
-[node name="item_move_sound" type="AudioStreamPlayer" parent="player" unique_id=1068270566]
+[node name="item_move_sound" type="AudioStreamPlayer" parent="player" unique_id=1325356735]
 stream = ExtResource("22_b7fhm")
 
-[node name="ui" type="Control" parent="player" unique_id=1871347004]
+[node name="ui" type="Control" parent="player" unique_id=1828582740]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -244,7 +244,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="inventory" type="GridContainer" parent="player/ui" unique_id=624395091]
+[node name="inventory" type="GridContainer" parent="player/ui" unique_id=720773155]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -260,7 +260,7 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 4
 
-[node name="message" type="Label" parent="player/ui" unique_id=1944571018]
+[node name="message" type="Label" parent="player/ui" unique_id=2113747190]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -273,7 +273,7 @@ text = "Сообщение"
 label_settings = SubResource("LabelSettings_j3ovn")
 vertical_alignment = 2
 
-[node name="crosshair" type="ColorRect" parent="player/ui" unique_id=1169735583]
+[node name="crosshair" type="ColorRect" parent="player/ui" unique_id=1505063600]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -289,7 +289,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="pause" type="ColorRect" parent="player/ui" unique_id=795099412]
+[node name="pause" type="ColorRect" parent="player/ui" unique_id=2042170592]
 process_mode = 3
 layout_mode = 1
 anchors_preset = 15
@@ -299,7 +299,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.90000004)
 
-[node name="menu" type="VBoxContainer" parent="player/ui/pause" unique_id=55867137]
+[node name="menu" type="VBoxContainer" parent="player/ui/pause" unique_id=1430398439]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 2
@@ -312,7 +312,7 @@ offset_bottom = -24.0
 grow_vertical = 0
 mouse_filter = 0
 
-[node name="resume" type="Button" parent="player/ui/pause/menu" unique_id=1869984542]
+[node name="resume" type="Button" parent="player/ui/pause/menu" unique_id=219116428]
 layout_mode = 2
 theme = ExtResource("4_lfrn8")
 theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
@@ -322,7 +322,7 @@ text = "Resume
 flat = true
 alignment = 0
 
-[node name="settings" type="Button" parent="player/ui/pause/menu" unique_id=881749739]
+[node name="settings" type="Button" parent="player/ui/pause/menu" unique_id=627632332]
 layout_mode = 2
 theme = ExtResource("4_lfrn8")
 theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
@@ -332,7 +332,7 @@ text = "Settings
 flat = true
 alignment = 0
 
-[node name="exit" type="Button" parent="player/ui/pause/menu" unique_id=1288674283]
+[node name="exit" type="Button" parent="player/ui/pause/menu" unique_id=1351120322]
 layout_mode = 2
 theme = ExtResource("4_lfrn8")
 theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
@@ -341,12 +341,12 @@ text = "Exit"
 flat = true
 alignment = 0
 
-[node name="ambient" type="AudioStreamPlayer" parent="player/ui/pause" unique_id=387733694]
+[node name="ambient" type="AudioStreamPlayer" parent="player/ui/pause" unique_id=245468557]
 stream = ExtResource("5_5i0tg")
 volume_db = -10.0
 parameters/looping = true
 
-[node name="loading" type="ColorRect" parent="player/ui" unique_id=37617823]
+[node name="loading" type="ColorRect" parent="player/ui" unique_id=1670907078]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

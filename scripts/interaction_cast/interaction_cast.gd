@@ -91,19 +91,19 @@ func _process(_delta: float) -> void:
 
 func show_interacte_icon() -> void:
 	if not icon_sprite: return
+	if crosshair_rect: crosshair_rect.visible = false
 	icon_sprite.global_position = ICON_POS
 	icon_sprite.texture = icon_interacte
 	icon_sprite.visible = true
-	if crosshair_rect: crosshair_rect.visible = false
 
 func show_drag_icon() -> void:
 	if not icon_sprite: return
+	if crosshair_rect: crosshair_rect.visible = false
 	icon_sprite.global_position = ICON_POS
 	icon_sprite.texture = icon_drag
 	icon_sprite.visible = true
-	if crosshair_rect: crosshair_rect.visible = false
 
 func hide_icon() -> void:
 	if not icon_sprite: return
-	icon_sprite.visible = false
 	if crosshair_rect: crosshair_rect.visible = true
+	icon_sprite.visible = false

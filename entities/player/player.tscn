@@ -1,28 +1,31 @@
 [gd_scene format=3 uid="uid://b8ggy8gp55r1e"]
 
-[ext_resource type="Script" uid="uid://cjl5jcfutf0af" path="res://scripts/fps_movement/fps_movement.gd" id="1_symyc"]
-[ext_resource type="AudioStream" uid="uid://dma2pllb2bwnh" path="res://assets/audio/steps/step0.ogg" id="2_eyb6c"]
-[ext_resource type="Script" uid="uid://d35lt4pdgmtx4" path="res://scripts/interaction_cast/interaction_cast.gd" id="2_fkugw"]
-[ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="2_sglur"]
-[ext_resource type="Script" uid="uid://dd3nh8y7xrt8h" path="res://scripts/inventory/inventory.gd" id="3_26q78"]
-[ext_resource type="AudioStream" uid="uid://c4tep4o1k1ci7" path="res://assets/audio/steps/step1.ogg" id="3_221hk"]
-[ext_resource type="Texture2D" uid="uid://dc8biru5wf5ej" path="res://assets/icons/cursor/hold.png" id="4_bectd"]
-[ext_resource type="AudioStream" uid="uid://fpm5day7rjcs" path="res://assets/audio/steps/step2.ogg" id="4_ghoj8"]
-[ext_resource type="AudioStream" uid="uid://b83yk1v6frgpi" path="res://assets/audio/steps/step3.ogg" id="5_t1t22"]
-[ext_resource type="Texture2D" uid="uid://c3824jej5i0gg" path="res://assets/icons/cursor/hand.png" id="6_8fjmc"]
-[ext_resource type="AudioStream" uid="uid://bmptjemni6br6" path="res://assets/audio/steps/step4.ogg" id="6_50fht"]
-[ext_resource type="Script" uid="uid://bha5v1ek6623u" path="res://scripts/post_processing/post_processing.gd" id="6_wvtmh"]
-[ext_resource type="Script" uid="uid://7b5emub0t48a" path="res://scripts/pause_menu/pause_menu.gd" id="7_gx6sm"]
-[ext_resource type="AudioStream" uid="uid://cniqfeiw75oqg" path="res://assets/audio/steps/step5.ogg" id="7_wuv6x"]
-[ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="8_7thud"]
-[ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="10_7thud"]
-[ext_resource type="Texture2D" uid="uid://c0mqdapgatx2" path="res://assets/icons/cursor/enter.png" id="11_50fht"]
-[ext_resource type="AudioStream" uid="uid://cqw6hy3msf12q" path="res://assets/audio/ui/ding.mp3" id="11_afbqv"]
-[ext_resource type="AudioStream" uid="uid://bxcj8p380ajy7" path="res://assets/audio/ui/move.mp3" id="12_gx6sm"]
-[ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="13_j3ovn"]
-[ext_resource type="Script" uid="uid://b88n71lc4gxwl" path="res://scripts/messenger/messenger.gd" id="14_t1t22"]
-[ext_resource type="Shader" uid="uid://burqsqqqv84wc" path="res://assets/shaders/ps1_post_proccess.gdshader" id="17_t1t22"]
-[ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="23_ghoj8"]
+[ext_resource type="Script" uid="uid://cjl5jcfutf0af" path="res://scripts/fps_movement/fps_movement.gd" id="1_wuv6x"]
+[ext_resource type="AudioStream" uid="uid://dma2pllb2bwnh" path="res://assets/audio/steps/step0.ogg" id="2_qpopc"]
+[ext_resource type="AudioStream" uid="uid://c4tep4o1k1ci7" path="res://assets/audio/steps/step1.ogg" id="3_wq0jh"]
+[ext_resource type="AudioStream" uid="uid://fpm5day7rjcs" path="res://assets/audio/steps/step2.ogg" id="4_gt4e4"]
+[ext_resource type="AudioStream" uid="uid://b83yk1v6frgpi" path="res://assets/audio/steps/step3.ogg" id="5_24ehl"]
+[ext_resource type="AudioStream" uid="uid://bmptjemni6br6" path="res://assets/audio/steps/step4.ogg" id="6_bwdx1"]
+[ext_resource type="AudioStream" uid="uid://cniqfeiw75oqg" path="res://assets/audio/steps/step5.ogg" id="7_vewsg"]
+[ext_resource type="Script" uid="uid://d35lt4pdgmtx4" path="res://scripts/interaction_cast/interaction_cast.gd" id="8_2soq1"]
+[ext_resource type="Texture2D" uid="uid://c3824jej5i0gg" path="res://assets/icons/cursor/hand.png" id="9_8q4fm"]
+[ext_resource type="Texture2D" uid="uid://dc8biru5wf5ej" path="res://assets/icons/cursor/hold.png" id="10_np63p"]
+[ext_resource type="Texture2D" uid="uid://c0mqdapgatx2" path="res://assets/icons/cursor/enter.png" id="11_0eo6o"]
+[ext_resource type="Script" uid="uid://dd3nh8y7xrt8h" path="res://scripts/inventory/inventory.gd" id="12_ttr27"]
+[ext_resource type="Script" uid="uid://bha5v1ek6623u" path="res://scripts/post_processing/post_processing.gd" id="13_13wue"]
+[ext_resource type="Script" uid="uid://7b5emub0t48a" path="res://scripts/pause_menu/pause_menu.gd" id="14_wy7bt"]
+[ext_resource type="Script" uid="uid://hamx2en5qqte" path="res://scripts/loading_screen/loading_screen.gd" id="15_geky7"]
+[ext_resource type="Script" uid="uid://b88n71lc4gxwl" path="res://scripts/messenger/messenger.gd" id="16_qwspa"]
+[ext_resource type="Script" uid="uid://46y1f2eo6xys" path="res://assets/compositor/accumulative_blur.gd" id="17_r633c"]
+[ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="18_pacje"]
+[ext_resource type="Shader" uid="uid://cws1b6xmxt8" path="res://assets/shaders/retro.gdshader" id="19_2h0qb"]
+[ext_resource type="AudioStream" uid="uid://b468fpetiyhu5" path="res://assets/audio/interaction/pickup.mp3" id="20_mmk7k"]
+[ext_resource type="AudioStream" uid="uid://cqw6hy3msf12q" path="res://assets/audio/ui/ding.mp3" id="21_g3pa7"]
+[ext_resource type="AudioStream" uid="uid://bxcj8p380ajy7" path="res://assets/audio/ui/move.mp3" id="22_7otdo"]
+[ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="23_c112w"]
+[ext_resource type="Theme" uid="uid://ca5dkr7ytxhv7" path="res://assets/themes/pause/menu.tres" id="24_u37te"]
+[ext_resource type="AudioStream" uid="uid://c7rs3k73vj5y" path="res://assets/audio/ambience/Menu.ogg" id="25_ssgi7"]
+[ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="26_rtlkk"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
 resource_local_to_scene = false
@@ -31,7 +34,7 @@ enabled = true
 effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
-script = ExtResource("8_7thud")
+script = ExtResource("17_r633c")
 metadata/_custom_type_script = "uid://46y1f2eo6xys"
 
 [sub_resource type="Compositor" id="Compositor_vpe7l"]
@@ -41,115 +44,186 @@ compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7ba2
 radius = 0.35
 height = 1.8
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h48ew"]
+render_priority = 0
+shader = ExtResource("19_2h0qb")
+shader_parameter/color_level = 650.0
+shader_parameter/noise_level = 0.0014999999625
+
+[sub_resource type="QuadMesh" id="QuadMesh_4s8us"]
+material = SubResource("ShaderMaterial_h48ew")
+flip_faces = true
+size = Vector2(10, 10)
+
+[sub_resource type="Animation" id="Animation_fty5b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ui/loading:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_firvq"]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ui/loading:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l2dhg"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ui/loading:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_firvq"]
+_data = {
+&"RESET": SubResource("Animation_fty5b"),
+&"hide": SubResource("Animation_firvq"),
+&"show": SubResource("Animation_l2dhg")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_j3ovn"]
-font = ExtResource("23_ghoj8")
+font = ExtResource("23_c112w")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4s8us"]
-shader = ExtResource("17_t1t22")
-shader_parameter/custom_viewport_size = Vector2(100, 100)
-shader_parameter/virtual_resolution = Vector2(100, 100)
-shader_parameter/shadow_smoothness = 0.6
-shader_parameter/color_depth = 64
-shader_parameter/dither_strength = 0.1
-
-[node name="player" type="CharacterBody3D" unique_id=1303298807]
+[node name="player" type="CharacterBody3D" unique_id=1927215584]
 process_mode = 3
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 0, 0, 0)
 floor_constant_speed = true
 
-[node name="fps_movement" type="Node" parent="." unique_id=153331594 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape")]
+[node name="fps_movement" type="Node" parent="." unique_id=1433282975 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape")]
 process_mode = 3
-script = ExtResource("1_symyc")
+script = ExtResource("1_wuv6x")
 pause_menu = NodePath("../pause_menu")
 player = NodePath("..")
 head = NodePath("../head")
 steps_player = NodePath("../step_sounds")
 collision_shape = NodePath("../collision")
-step_sounds = Array[AudioStream]([ExtResource("2_eyb6c"), ExtResource("3_221hk"), ExtResource("4_ghoj8"), ExtResource("5_t1t22"), ExtResource("6_50fht"), ExtResource("7_wuv6x")])
+step_sounds = Array[AudioStream]([ExtResource("2_qpopc"), ExtResource("3_wq0jh"), ExtResource("4_gt4e4"), ExtResource("5_24ehl"), ExtResource("6_bwdx1"), ExtResource("7_vewsg")])
 headbob_tilt = 0.5
 crouch_tilt = 1.0
 
-[node name="interaction_cast" type="Node" parent="." unique_id=1589112615 node_paths=PackedStringArray("fps", "messenger", "inventory", "pause_menu", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound", "denied_sound")]
-script = ExtResource("2_fkugw")
+[node name="interaction_cast" type="Node" parent="." unique_id=1663068697 node_paths=PackedStringArray("fps", "messenger", "inventory", "pause_menu", "raycast", "icon_sprite", "pickup_sound", "denied_sound")]
+script = ExtResource("8_2soq1")
 fps = NodePath("../fps_movement")
 messenger = NodePath("../messenger")
 inventory = NodePath("../inventory")
 pause_menu = NodePath("../pause_menu")
 raycast = NodePath("../head/camera/interaction_cast")
 icon_sprite = NodePath("../cursor")
-crosshair_rect = NodePath("../ui/crosshair")
 pickup_sound = NodePath("../pickup_sound")
 denied_sound = NodePath("../denied_sound")
-icon_interacte = ExtResource("6_8fjmc")
-icon_drag = ExtResource("4_bectd")
-icon_enter = ExtResource("11_50fht")
+icon_interacte = ExtResource("9_8q4fm")
+icon_drag = ExtResource("10_np63p")
+icon_enter = ExtResource("11_0eo6o")
 
-[node name="inventory" type="Node" parent="." unique_id=322906619 node_paths=PackedStringArray("pause_menu", "grid_container", "move_sound")]
-script = ExtResource("3_26q78")
+[node name="inventory" type="Node" parent="." unique_id=661274644 node_paths=PackedStringArray("pause_menu", "grid_container", "move_sound")]
+script = ExtResource("12_ttr27")
 pause_menu = NodePath("../pause_menu")
 grid_container = NodePath("../ui/inventory")
 move_sound = NodePath("../item_move_sound")
 open_acceleration = 0.158
 
-[node name="post_processing" type="Node" parent="." unique_id=1894570789 node_paths=PackedStringArray("camera")]
-script = ExtResource("6_wvtmh")
+[node name="post_processing" type="Node" parent="." unique_id=1629497127 node_paths=PackedStringArray("camera")]
+script = ExtResource("13_13wue")
 camera = NodePath("../head/camera")
 
-[node name="pause_menu" type="Node" parent="." unique_id=566229940]
-script = ExtResource("7_gx6sm")
+[node name="pause_menu" type="Node" parent="." unique_id=947648781 node_paths=PackedStringArray("menu", "resume_button", "exit_button", "ambient")]
+script = ExtResource("14_wy7bt")
+menu = NodePath("../ui/pause")
+resume_button = NodePath("../ui/pause/menu/resume")
+exit_button = NodePath("../ui/pause/menu/exit")
+ambient = NodePath("../ui/pause/ambient")
 
-[node name="messenger" type="Node" parent="." unique_id=91312801 node_paths=PackedStringArray("label")]
-script = ExtResource("14_t1t22")
+[node name="loading_screen" type="Node" parent="." unique_id=1424976573 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("15_geky7")
+animation_player = NodePath("../loading")
+
+[node name="messenger" type="Node" parent="." unique_id=1505581399 node_paths=PackedStringArray("label")]
+script = ExtResource("16_qwspa")
 label = NodePath("../ui/message")
 message = "sample text"
 
-[node name="head" type="Node3D" parent="." unique_id=1726695452]
+[node name="head" type="Node3D" parent="." unique_id=996783886]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012596369, 0.7461406, -0.09485489)
 
-[node name="camera" type="Camera3D" parent="head" unique_id=1322763943]
+[node name="camera" type="Camera3D" parent="head" unique_id=38152946]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.094000936)
 compositor = SubResource("Compositor_vpe7l")
 current = true
 
-[node name="interaction_cast" type="RayCast3D" parent="head/camera" unique_id=1744414043]
+[node name="interaction_cast" type="RayCast3D" parent="head/camera" unique_id=1635932057]
 target_position = Vector3(0, 0, -1.2)
 collision_mask = 2
 collide_with_areas = true
 
-[node name="collision" type="CollisionShape3D" parent="." unique_id=929773781]
+[node name="collision" type="CollisionShape3D" parent="." unique_id=694112860]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09101564, 0)
 shape = SubResource("CapsuleShape3D_mm0n8")
 
-[node name="audio_listener" type="AudioListener3D" parent="." unique_id=1775546872]
+[node name="audio_listener" type="AudioListener3D" parent="." unique_id=1999663531]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73364884, 0)
 current = true
 
-[node name="step_sounds" type="AudioStreamPlayer3D" parent="." unique_id=520636047]
+[node name="step_sounds" type="AudioStreamPlayer3D" parent="." unique_id=1835369745]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5173645, -0.0011698008)
 volume_db = -1.5
-script = ExtResource("2_sglur")
+script = ExtResource("18_pacje")
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
-[node name="cursor" type="Sprite3D" parent="." unique_id=1299970631]
+[node name="cursor" type="Sprite3D" parent="." unique_id=763850486]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, -2)
 visible = false
 billboard = 1
 no_depth_test = true
 fixed_size = true
 render_priority = 1
-texture = ExtResource("6_8fjmc")
+texture = ExtResource("9_8q4fm")
 
-[node name="pickup_sound" type="AudioStreamPlayer" parent="." unique_id=1026635573]
-stream = ExtResource("10_7thud")
+[node name="shaderquad" type="MeshInstance3D" parent="." unique_id=2084802003]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -0.06388092, 0.8207929, -0.85551333)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_4s8us")
+
+[node name="loading" type="AnimationPlayer" parent="." unique_id=1614435067]
+libraries/ = SubResource("AnimationLibrary_firvq")
+
+[node name="pickup_sound" type="AudioStreamPlayer" parent="." unique_id=396475998]
+stream = ExtResource("20_mmk7k")
 volume_db = -15.0
 
-[node name="denied_sound" type="AudioStreamPlayer" parent="." unique_id=1165768998]
-stream = ExtResource("11_afbqv")
+[node name="denied_sound" type="AudioStreamPlayer" parent="." unique_id=1064401907]
+stream = ExtResource("21_g3pa7")
 
-[node name="item_move_sound" type="AudioStreamPlayer" parent="." unique_id=1068270566]
-stream = ExtResource("12_gx6sm")
+[node name="item_move_sound" type="AudioStreamPlayer" parent="." unique_id=1325356735]
+stream = ExtResource("22_7otdo")
 
-[node name="ui" type="Control" parent="." unique_id=1871347004]
+[node name="ui" type="Control" parent="." unique_id=1828582740]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -159,7 +233,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="inventory" type="GridContainer" parent="ui" unique_id=624395091]
+[node name="inventory" type="GridContainer" parent="ui" unique_id=720773155]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -175,7 +249,7 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 4
 
-[node name="message" type="Label" parent="ui" unique_id=1944571018]
+[node name="message" type="Label" parent="ui" unique_id=2113747190]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -188,17 +262,7 @@ text = "Сообщение"
 label_settings = SubResource("LabelSettings_j3ovn")
 vertical_alignment = 2
 
-[node name="shader_quad" type="ColorRect" parent="ui" unique_id=433394307]
-material = SubResource("ShaderMaterial_4s8us")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="crosshair" type="ColorRect" parent="ui" unique_id=1169735583]
+[node name="crosshair" type="ColorRect" parent="ui" unique_id=1505063600]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -214,9 +278,76 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="fpswindow" parent="ui" unique_id=512119476 instance=ExtResource("13_j3ovn")]
+[node name="pause" type="ColorRect" parent="ui" unique_id=2042170592]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.90000004)
+
+[node name="menu" type="VBoxContainer" parent="ui/pause" unique_id=1430398439]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -152.0
+offset_right = 159.0
+offset_bottom = -24.0
+grow_vertical = 0
+mouse_filter = 0
+
+[node name="resume" type="Button" parent="ui/pause/menu" unique_id=219116428]
+layout_mode = 2
+theme = ExtResource("24_u37te")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+text = "Resume
+"
+flat = true
+alignment = 0
+
+[node name="settings" type="Button" parent="ui/pause/menu" unique_id=627632332]
+layout_mode = 2
+theme = ExtResource("24_u37te")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+text = "Settings
+"
+flat = true
+alignment = 0
+
+[node name="exit" type="Button" parent="ui/pause/menu" unique_id=1351120322]
+layout_mode = 2
+theme = ExtResource("24_u37te")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+text = "Exit"
+flat = true
+alignment = 0
+
+[node name="ambient" type="AudioStreamPlayer" parent="ui/pause" unique_id=245468557]
+stream = ExtResource("25_ssgi7")
+volume_db = -10.0
+parameters/looping = true
+
+[node name="loading" type="ColorRect" parent="ui" unique_id=1670907078]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="fpswindow" parent="ui" unique_id=512119476 instance=ExtResource("26_rtlkk")]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 134.0
-offset_bottom = 84.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 125.0
+offset_bottom = 80.0

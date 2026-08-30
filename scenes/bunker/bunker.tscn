@@ -493,6 +493,25 @@ script = ExtResource("13_6votu")
 transform = Transform3D(-0.25881976, 0, -0.96592605, 0, 1, 0, 0.96592605, 0, -0.25881976, 0.002904892, 0.042816162, -0.038674355)
 shape = SubResource("BoxShape3D_02yi3")
 
+[node name="ladder" type="CSGBox3D" parent="entities" unique_id=1578640375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5814166, 2.475792, -6.917074)
+use_collision = true
+collision_layer = 3
+size = Vector3(0.73291016, 3.9515839, 0.07757568)
+material = ExtResource("23_r4pkr")
+
+[node name="hoverable" type="Node" parent="entities/ladder" unique_id=1287904496 node_paths=PackedStringArray("icon_pos")]
+script = ExtResource("13_6votu")
+icon_pos = NodePath("../iconpos")
+metadata/_custom_type_script = "uid://brnmjdghgrqog"
+
+[node name="interactable" type="Node" parent="entities/ladder" unique_id=1912059954]
+script = ExtResource("11_l760p")
+metadata/_custom_type_script = "uid://bo4cxk5vpao0h"
+
+[node name="iconpos" type="Node3D" parent="entities/ladder" unique_id=1307276883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6144099, 0)
+
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("10_txlqv")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -6.9938006, 0.32610512, 5.6145315)
 
@@ -599,13 +618,7 @@ max_delay = 300.0
 volume_db = -20.0
 
 [node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -8, 1.1267571, -0.76783013)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="entities" unique_id=1578640375]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5814166, 2.475792, -6.9170747)
-use_collision = true
-size = Vector3(0.73291016, 3.9515839, 0.07757568)
-material = ExtResource("23_r4pkr")
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 2.6469612, 1.1267571, -3.247783)
 
 [node name="gargamel" parent="." unique_id=501130089 instance=ExtResource("23_6votu")]
 transform = Transform3D(0.27852958, 0, -0.855816, 0, 0.9, 0, 0.855816, 0, 0.27852958, -2.866777, 0.2526685, -2.2892346)
