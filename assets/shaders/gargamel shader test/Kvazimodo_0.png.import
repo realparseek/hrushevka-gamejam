@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsh6ncfemva7q"
-path.s3tc="res://.godot/imported/gargamel_1.png-94a6827ca5774acfdaeff063f9c867e3.s3tc.ctex"
+uid="uid://bjfnkv604squ0"
+path.s3tc="res://.godot/imported/Kvazimodo_0.png-6c47ca2728018fd0820746f48fdb8cbb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "7989a0322ae94b10d9995e57156077c2"
+"md5": "80d9c33f739c20cfb709be5a170fa678"
 }
 
 [deps]
 
-source_file="res://assets/shaders/gargamel shader test/gargamel_1.png"
-dest_files=["res://.godot/imported/gargamel_1.png-94a6827ca5774acfdaeff063f9c867e3.s3tc.ctex"]
+source_file="res://assets/shaders/gargamel shader test/Kvazimodo_0.png"
+dest_files=["res://.godot/imported/Kvazimodo_0.png-6c47ca2728018fd0820746f48fdb8cbb.s3tc.ctex"]
 
 [params]
 
@@ -29,8 +29,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=8
-roughness/src_normal="res://assets/shaders/gargamel_2.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

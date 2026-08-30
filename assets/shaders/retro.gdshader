@@ -2,8 +2,8 @@ shader_type spatial;
 render_mode unshaded, fog_disabled;
 
 uniform sampler2D screen_texture: hint_screen_texture;
-uniform float color_level: hint_range(0.0, 1000.0, 1.0);
-uniform float noise_level: hint_range(0.0, 1.0, 0.00001);
+uniform float color_level: hint_range(1.0, 1000.0, 1.0);
+uniform float noise_level: hint_range(0.0, 0.5, 0.00001);
 
 void vertex() {
 	POSITION = vec4(VERTEX.xy, 1.0, 1.0);

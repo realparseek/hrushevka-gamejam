@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dtnitnx1fnytk"
-path="res://.godot/imported/gargamel.glb-93e72c3f48917d82e837886044c5878b.scn"
+uid="uid://b4tbckmoxcp3s"
+path="res://.godot/imported/гаргамель.glb-49e4a7bb038a612cceeff9653c5ec36c.scn"
 
 [deps]
 
-source_file="res://assets/shaders/gargamel shader test/gargamel.glb"
-dest_files=["res://.godot/imported/gargamel.glb-93e72c3f48917d82e837886044c5878b.scn"]
+source_file="res://assets/shaders/gargamel shader test/гаргамель.glb"
+dest_files=["res://.godot/imported/гаргамель.glb-49e4a7bb038a612cceeff9653c5ec36c.scn"]
 
 [params]
 

@@ -22,8 +22,9 @@
 [ext_resource type="Script" uid="uid://cdsgkepujw22i" path="res://scripts/physics/fall.gd" id="15_r6ban"]
 [ext_resource type="AudioStream" uid="uid://cq4fqclgroqub" path="res://assets/audio/interaction/contact2.mp3" id="16_e5ka1"]
 [ext_resource type="AudioStream" uid="uid://c80gua0qxpao" path="res://assets/audio/interaction/contact1.mp3" id="17_qi1sa"]
-[ext_resource type="PackedScene" uid="uid://dtnitnx1fnytk" path="res://assets/shaders/gargamel shader test/gargamel.glb" id="23_6votu"]
 [ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="23_r4pkr"]
+[ext_resource type="PackedScene" uid="uid://bafmbprcx7u8j" path="res://assets/shaders/gargamel shader test/Kvazimodo.glb" id="25_g4n5i"]
+[ext_resource type="PackedScene" uid="uid://b4tbckmoxcp3s" path="res://assets/shaders/gargamel shader test/гаргамель.glb" id="25_txlqv"]
 
 [sub_resource type="Environment" id="Environment_878n7"]
 background_mode = 1
@@ -150,60 +151,70 @@ environment = SubResource("Environment_878n7")
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="lights" unique_id=398021846]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047119856, 2.8664904, -1.3156731)
+light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 5.1132946
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="lights" unique_id=220977814]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1402729, 2.8664904, 4.9334917)
+light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 3.9104002
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="lights" unique_id=190380329]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.788292, 2.7122235, -0.20141496)
+light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 3.930395
 
 [node name="OmniLight3D14" type="OmniLight3D" parent="lights" unique_id=1037407122]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.788292, 2.7122235, 4.748379)
+light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 4.4195876
 
 [node name="OmniLight3D19" type="OmniLight3D" parent="lights" unique_id=1539238433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3479757, 2.7122235, -0.22365263)
+light_color = Color(0.45882353, 0.3764706, 0.22745098, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 2.798831
 
 [node name="OmniLight3D20" type="OmniLight3D" parent="lights" unique_id=851843151]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3479757, 2.7122235, 4.6759887)
+light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 2.798831
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="lights" unique_id=1805696500]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34325528, 2.9988418, -2.685382)
+light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 3.5240576
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="lights" unique_id=720040484]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3419843, 2.7849398, 4.9858637)
+light_color = Color(0.2901961, 0, 0, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 3.3767915
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="lights" unique_id=781680234]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6159103, 2.5466905, -4.5459785)
+light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 2.3403792
 
 [node name="OmniLight3D22" type="OmniLight3D" parent="lights" unique_id=1603708289]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6159103, 2.5466905, -5.0318427)
+light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 3.5273235
@@ -216,30 +227,35 @@ omni_range = 3.5273235
 
 [node name="OmniLight3D21" type="OmniLight3D" parent="lights" unique_id=1039139714]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4319544, 2.5466905, -3.1405954)
+light_color = Color(0.4509804, 0.32156864, 0.14901961, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 2.3403792
 
 [node name="OmniLight3D15" type="OmniLight3D" parent="lights" unique_id=1451564292]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.159323, 3.0557969, -2.9573092)
+light_color = Color(0.5411765, 0.6039216, 0.5254902, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 2.1019855
 
 [node name="OmniLight3D17" type="OmniLight3D" parent="lights" unique_id=274241464]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.199705, 2.5466905, -3.0141363)
+light_color = Color(0.5411765, 0.6039216, 0.5254902, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 2.2704828
 
 [node name="OmniLight3D16" type="OmniLight3D" parent="lights" unique_id=203382857]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.267244, 2.652381, 1.0542315)
+light_color = Color(0.5411765, 0.6039216, 0.5254902, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 3.3159509
 
 [node name="OmniLight3D18" type="OmniLight3D" parent="lights" unique_id=695939451]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2092505, 2.652381, 1.1266979)
+light_color = Color(0.5411765, 0.6039216, 0.5254902, 1)
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 2.0339036
@@ -620,5 +636,8 @@ volume_db = -20.0
 [node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
 transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 2.6469612, 1.1267571, -3.247783)
 
-[node name="gargamel" parent="." unique_id=501130089 instance=ExtResource("23_6votu")]
-transform = Transform3D(0.27852958, 0, -0.855816, 0, 0.9, 0, 0.855816, 0, 0.27852958, -2.866777, 0.2526685, -2.2892346)
+[node name="Kvazimodo" parent="." unique_id=171566427 instance=ExtResource("25_g4n5i")]
+transform = Transform3D(-0.99408716, 0, 0.10858527, 0, 1, 0, -0.10858527, 0, -0.99408716, 4.689811, 0.28711268, 5.6178446)
+
+[node name="гаргамель" parent="." unique_id=1822972340 instance=ExtResource("25_txlqv")]
+transform = Transform3D(0.16026661, 0, -0.9059331, 0, 0.92, 0, 0.9059331, 0, 0.16026661, -2.563337, 0.2544246, -2.2632241)
