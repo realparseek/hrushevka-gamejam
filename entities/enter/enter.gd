@@ -5,12 +5,8 @@ class_name Enter
 
 var scene_loader: SceneLoader = null
 
-func _ready() -> void:
-	for c in get_tree().current_scene.get_children():
-		if c is not SceneLoader: continue
-		scene_loader = c
+func interacte(player: CharacterBody3D) -> void:
+	for loader in player.get_children():
+		if loader is not SceneLoader: continue
+		loader.load_scene("res://scenes/" + scene_name + "/" + scene_name + ".tscn")
 		return
-	print('failed to find scene loader')
-
-func interacte() -> void:
-	scene_loader.load_scene("res://scenes/" + scene_name + "/" + scene_name + ".tscn")

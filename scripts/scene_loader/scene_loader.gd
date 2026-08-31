@@ -1,7 +1,6 @@
 extends Node
 class_name SceneLoader
 
-@export var root: Node3D
 @export var player: CharacterBody3D
 @export var start_scene: PackedScene
 @export var loading_screen: LoadingScreen
@@ -28,11 +27,12 @@ func _process(_delta: float) -> void:
 				for c in CURRENT_SCENE.get_children():
 					if c is Scene:
 						c.save_data("res://resources/save.tres")
+						break
 				CURRENT_SCENE.queue_free()
 			
 			var sceneres = ResourceLoader.load_threaded_get(LOADING_SCENE_PATH)
 			CURRENT_SCENE = sceneres.instantiate()
-			root.add_child(CURRENT_SCENE)
+			get_tree().current_scene.add_child(CURRENT_SCENE)
 			
 			for c in CURRENT_SCENE.get_children():
 				if c is Scene:

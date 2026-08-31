@@ -3,5 +3,5 @@ class_name Interaction
 
 @export var available: bool = true
 
-func interacte() -> void:
+func interacte(_player: CharacterBody3D) -> void:
 	pass

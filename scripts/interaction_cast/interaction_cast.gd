@@ -82,7 +82,7 @@ func _process(_delta: float) -> void:
 	
 	if interactable:
 		if Input.is_action_just_pressed("item_interacte"):
-			interactable.interacte()
+			interactable.interacte(get_parent())
 			if messenger: 
 				messenger.push_message(interactable.MESSAGE, interactable.MESSAGETIME)
 	

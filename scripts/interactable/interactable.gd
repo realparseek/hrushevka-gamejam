@@ -12,14 +12,14 @@ func _ready() -> void:
 		if c is Interaction:
 			interactions[c.name.to_lower()] = c
 
-func interacte(interaction_name: String = "") -> void:
+func interacte(player: CharacterBody3D, interaction_name: String = "") -> void:
 	MESSAGETIME = 0.0
 	if interaction_name.is_empty():
 		for v: Interaction in interactions.values():
 			if not v.available: continue
-			v.interacte()
+			v.interacte(player)
 			return
 	else:
 		var inter: Interaction = interactions[interaction_name.to_lower()]
 		if not inter: return
-		inter.interacte()
+		inter.interacte(player)
