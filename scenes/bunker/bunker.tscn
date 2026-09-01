@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dq1gjei2dgiag" path="res://assets/audio/ambience/room.mp3" id="2_878n7"]
 [ext_resource type="Script" uid="uid://cb88qw06jug5v" path="res://entities/generator/generator.gd" id="2_ys4l0"]
 [ext_resource type="AudioStream" uid="uid://bk3t6ok6a5v1x" path="res://assets/audio/generator/plastic_fall.ogg" id="3_578qv"]
+[ext_resource type="Environment" uid="uid://dj3lt2p7vxtop" path="res://scenes/bunker/environment/debug.tres" id="3_txlqv"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="4_p8jr6"]
 [ext_resource type="AudioStream" uid="uid://cdbtr0n3bnmco" path="res://assets/audio/generator/small_explosion.mp3" id="5_l760p"]
 [ext_resource type="AudioStream" uid="uid://bq8mm5cm4mhvm" path="res://assets/audio/generator/generatoridle.ogg" id="6_878n7"]
@@ -25,21 +26,6 @@
 [ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="23_r4pkr"]
 [ext_resource type="PackedScene" uid="uid://bafmbprcx7u8j" path="res://assets/shaders/gargamel shader test/Kvazimodo.glb" id="25_g4n5i"]
 [ext_resource type="PackedScene" uid="uid://b4tbckmoxcp3s" path="res://assets/shaders/gargamel shader test/гаргамель.glb" id="25_txlqv"]
-
-[sub_resource type="Environment" id="Environment_878n7"]
-background_mode = 1
-background_color = Color(0.33660764, 0.3366076, 0.3366076, 1)
-ambient_light_source = 2
-ambient_light_color = Color(0.05874543, 0.07364527, 0.098990895, 1)
-reflected_light_source = 2
-tonemap_mode = 4
-tonemap_exposure = 1.1
-fog_enabled = true
-fog_mode = 1
-fog_density = 0.0
-fog_depth_curve = 0.73204297
-fog_depth_begin = 0.0
-fog_depth_end = 144.3
 
 [sub_resource type="Curve" id="Curve_gxd77"]
 _data = [Vector2(0.35459182, 0.10674167), 0.0, 0.0, 0, 0, Vector2(0.42091835, 1), 0.0, 0.0, 0, 0, Vector2(0.8137755, 0.32022476), 0.0, 0.0, 0, 0]
@@ -145,7 +131,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="environment" type="WorldEnvironment" parent="." unique_id=268067819]
-environment = SubResource("Environment_878n7")
+environment = ExtResource("3_txlqv")
 
 [node name="lights" type="Node3D" parent="." unique_id=603588395]
 
@@ -281,6 +267,12 @@ flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
+[node name="door11" type="CSGBox3D" parent="mesh/basement" unique_id=1900691594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5290585, -0.39308786, -0.026352406)
+flip_faces = true
+size = Vector3(1, 2, 0.2732315)
+material = ExtResource("1_5qweq")
+
 [node name="door7" type="CSGBox3D" parent="mesh/basement" unique_id=343192929]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.608306, -0.39308786, -6.0293903)
 flip_faces = true
@@ -366,9 +358,27 @@ size = Vector3(4, 2.90979, 5)
 material = ExtResource("1_5qweq")
 
 [node name="basement5" type="CSGBox3D" parent="mesh/basement" unique_id=1494325514]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.140132, 0, -0.0029296875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.140132, 0, -2.2063599)
 flip_faces = true
-size = Vector3(3, 2.90979, 8.577637)
+size = Vector3(5, 2.90979, 4.1707764)
+material = ExtResource("1_5qweq")
+
+[node name="basement11" type="CSGBox3D" parent="mesh/basement" unique_id=509591579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.140132, 0, 2.1697497)
+flip_faces = true
+size = Vector3(3, 2.90979, 4.223633)
+material = ExtResource("1_5qweq")
+
+[node name="basement13" type="CSGBox3D" parent="mesh/basement" unique_id=397545508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.363074, 0, 2.1722045)
+flip_faces = true
+size = Vector3(5, 2.90979, 4.223633)
+material = ExtResource("1_5qweq")
+
+[node name="basement12" type="CSGBox3D" parent="mesh/basement" unique_id=744136577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1527166, -0.2872181, -0.038769245)
+flip_faces = true
+size = Vector3(2.07061, 2.2787895, 0.51841736)
 material = ExtResource("1_5qweq")
 
 [node name="basement7" type="CSGBox3D" parent="mesh/basement" unique_id=1303356179]
@@ -393,6 +403,97 @@ material = ExtResource("1_5qweq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638855, 0.3178711, -1.3607607)
 size = Vector3(3.6837158, 2.6357422, 2.7945604)
 material = ExtResource("1_5qweq")
+
+[node name="shelf" type="CSGBox3D" parent="mesh" unique_id=1871888353]
+transform = Transform3D(0.98742616, 0, -0.15808171, 0, 1, 0, 0.15808171, 0, 0.98742616, -6.116371, 2.3287501, 1.5419991)
+use_collision = true
+size = Vector3(0.6237793, 0.05030469, 1.1542969)
+material = ExtResource("23_r4pkr")
+
+[node name="shelf2" type="CSGBox3D" parent="mesh/shelf" unique_id=1167899067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9572983, 0)
+use_collision = true
+size = Vector3(0.6237793, 0.05030469, 1.1542969)
+material = ExtResource("23_r4pkr")
+
+[node name="shelf3" type="CSGBox3D" parent="mesh/shelf" unique_id=1887943751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9457825, 0)
+use_collision = true
+size = Vector3(0.6237793, 0.05030469, 1.1542969)
+material = ExtResource("23_r4pkr")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="mesh/shelf" unique_id=531006971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28771353, -1.0253012, -0.55416477)
+size = Vector3(0.05, 2.1035156, 0.05)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="mesh/shelf" unique_id=403507679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28771353, -1.0253012, 0.5550988)
+size = Vector3(0.05, 2.1035156, 0.05)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="mesh/shelf" unique_id=1601082504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29023266, -1.0253012, 0.5550988)
+size = Vector3(0.05, 2.1035156, 0.05)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="mesh/shelf" unique_id=1971659833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29023266, -1.0253012, -0.5605285)
+size = Vector3(0.05, 2.1035156, 0.05)
+
+[node name="table" type="CSGBox3D" parent="mesh" unique_id=2029737628]
+transform = Transform3D(-0.9999684, 0, -0.007965179, 0, 1, 0, 0.007965179, 0, -0.9999684, -13.250085, 1.0005325, 3.3102643)
+use_collision = true
+size = Vector3(0.6237793, 0.05030469, 1.1542969)
+material = ExtResource("23_r4pkr")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="mesh/table" unique_id=1829949053]
+transform = Transform3D(1, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 1, -0.28771305, -0.3633139, -0.5541648)
+size = Vector3(0.05, 0.7560272, 0.05)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="mesh/table" unique_id=1950002251]
+transform = Transform3D(1, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 1, -0.2992897, -0.3633139, 0.5540314)
+size = Vector3(0.05, 0.7560272, 0.05)
+
+[node name="bed" type="CSGBox3D" parent="mesh" unique_id=1075841389]
+transform = Transform3D(0.007965208, 0, -0.9999684, 0, 1, 0, 0.9999684, 0, 0.007965208, -11.206554, 1.7048234, 5.8834395)
+size = Vector3(0.1, 2.8912096, 0.1)
+material = ExtResource("23_r4pkr")
+
+[node name="bed" type="CSGBox3D" parent="mesh/bed" unique_id=2018135875]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.46933174, -0.70429087, -1.1282463)
+use_collision = true
+size = Vector3(1.0096893, 0.05030469, 2.342392)
+material = ExtResource("23_r4pkr")
+
+[node name="bed2" type="CSGBox3D" parent="mesh/bed" unique_id=496977211]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.46933174, 0.51976645, -1.1282454)
+use_collision = true
+size = Vector3(1.0096893, 0.05030469, 2.342392)
+material = ExtResource("23_r4pkr")
+
+[node name="bed3" type="CSGBox3D" parent="mesh/bed" unique_id=1740566889]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.51173544, 0.77260077, 0.0385828)
+use_collision = true
+size = Vector3(0.9091606, 0.5487119, 0.017578125)
+material = ExtResource("23_r4pkr")
+
+[node name="bed4" type="CSGBox3D" parent="mesh/bed" unique_id=1673920129]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.51173735, -0.8983518, 0.03858757)
+use_collision = true
+size = Vector3(0.9091606, 1.0931716, 0.017578125)
+material = ExtResource("23_r4pkr")
+
+[node name="bucket" type="CSGCylinder3D" parent="mesh" unique_id=2014035585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.999988, 0.53831977, 0.58953714)
+use_collision = true
+radius = 0.23242188
+height = 0.5647583
+material = ExtResource("23_r4pkr")
+
+[node name="sub" type="CSGCylinder3D" parent="mesh/bucket" unique_id=1390310646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036079407, 0)
+operation = 2
+radius = 0.19873047
+height = 0.5025177
+material = ExtResource("23_r4pkr")
 
 [node name="entities" type="Node3D" parent="." unique_id=441242414]
 
@@ -490,6 +591,12 @@ transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25
 
 [node name="door3" parent="entities" unique_id=1165432989 instance=ExtResource("10_ys4l0")]
 transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, 2.0853584, 1.309154, -4.8389425)
+
+[node name="door4" parent="entities" unique_id=619958560 instance=ExtResource("10_ys4l0")]
+transform = Transform3D(0.9659258, 0, 0.25881922, 0, 1, 0, -0.25881922, 0, 0.9659258, -5.606219, 1.309154, 4.250772)
+
+[node name="door5" parent="entities" unique_id=280802690 instance=ExtResource("10_ys4l0")]
+transform = Transform3D(0.9659258, 0, 0.25881922, 0, 1, 0, -0.25881922, 0, 0.9659258, -5.606219, 1.309154, -0.7487434)
 
 [node name="enter" type="StaticBody3D" parent="entities" unique_id=2059708551]
 transform = Transform3D(-0.25881925, 0, 0.9659257, 0, 1, 0, -0.9659257, 0, -0.25881925, -7.762286, 1.309154, -1.7247114)
@@ -634,7 +741,7 @@ max_delay = 300.0
 volume_db = -20.0
 
 [node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 2.6469612, 1.1267571, -3.247783)
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -8.102755, 1.1267571, -0.8797635)
 
 [node name="Kvazimodo" parent="." unique_id=171566427 instance=ExtResource("25_g4n5i")]
 transform = Transform3D(-0.99408716, 0, 0.10858527, 0, 1, 0, -0.10858527, 0, -0.99408716, 4.689811, 0.28711268, 5.6178446)

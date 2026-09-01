@@ -3,24 +3,10 @@
 [ext_resource type="Script" uid="uid://dwg5jrcv4qtyf" path="res://scripts/scene_loader/scene.gd" id="1_w75rf"]
 [ext_resource type="Material" uid="uid://cqwivw5utrrji" path="res://assets/materials/proto.material" id="1_wjqd4"]
 [ext_resource type="AudioStream" uid="uid://dq1gjei2dgiag" path="res://assets/audio/ambience/room.mp3" id="2_wuaeu"]
+[ext_resource type="Environment" uid="uid://dj3lt2p7vxtop" path="res://scenes/bunker/environment/debug.tres" id="3_olr0t"]
 [ext_resource type="Script" uid="uid://bo4cxk5vpao0h" path="res://scripts/interactable/interactable.gd" id="3_wuaeu"]
 [ext_resource type="Script" uid="uid://c82dmbgc7j7yd" path="res://entities/enter/enter.gd" id="4_olr0t"]
 [ext_resource type="Script" uid="uid://brnmjdghgrqog" path="res://scripts/hoverable/hoverable.gd" id="6_5fs4t"]
-
-[sub_resource type="Environment" id="Environment_wuaeu"]
-background_mode = 1
-background_color = Color(0.33660764, 0.3366076, 0.3366076, 1)
-ambient_light_source = 2
-ambient_light_color = Color(0.05874543, 0.07364527, 0.098990895, 1)
-reflected_light_source = 2
-tonemap_mode = 4
-tonemap_exposure = 1.1
-fog_enabled = true
-fog_mode = 1
-fog_density = 0.0
-fog_depth_curve = 0.73204297
-fog_depth_begin = 0.0
-fog_depth_end = 144.3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_02yi3"]
 size = Vector3(0.5020447, 1.9048462, 0.16235352)
@@ -38,7 +24,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="environment" type="WorldEnvironment" parent="." unique_id=1950050144]
-environment = SubResource("Environment_wuaeu")
+environment = ExtResource("3_olr0t")
 
 [node name="lights" type="Node3D" parent="." unique_id=603588395]
 
