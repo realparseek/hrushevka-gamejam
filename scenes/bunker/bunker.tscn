@@ -439,7 +439,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29023266, -1.0253012, -0.56
 size = Vector3(0.05, 2.1035156, 0.05)
 
 [node name="table" type="CSGBox3D" parent="mesh" unique_id=2029737628]
-transform = Transform3D(-0.9999684, 0, -0.007965179, 0, 1, 0, 0.007965179, 0, -0.9999684, -13.250085, 1.0005325, 3.3102643)
+transform = Transform3D(-0.9984508, 0, 0.05564367, 0, 1, 0, -0.05564367, 0, -0.9984508, -13.499738, 1.0005325, 3.3102643)
 use_collision = true
 size = Vector3(0.6237793, 0.05030469, 1.1542969)
 material = ExtResource("23_r4pkr")
@@ -447,10 +447,22 @@ material = ExtResource("23_r4pkr")
 [node name="CSGBox3D5" type="CSGBox3D" parent="mesh/table" unique_id=1829949053]
 transform = Transform3D(1, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 1, -0.28771305, -0.3633139, -0.5541648)
 size = Vector3(0.05, 0.7560272, 0.05)
+material = ExtResource("23_r4pkr")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="mesh/table" unique_id=1950002251]
 transform = Transform3D(1, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 1, -0.2992897, -0.3633139, 0.5540314)
 size = Vector3(0.05, 0.7560272, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="mesh/table" unique_id=186384469]
+transform = Transform3D(1, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 1, 0.28973198, -0.3633139, -0.55993986)
+size = Vector3(0.05, 0.7560272, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="mesh/table" unique_id=274103264]
+transform = Transform3D(1, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 1, 0.28948307, -0.3633139, 0.55872107)
+size = Vector3(0.05, 0.7560272, 0.05)
+material = ExtResource("23_r4pkr")
 
 [node name="bed" type="CSGBox3D" parent="mesh" unique_id=1075841389]
 transform = Transform3D(0.007965208, 0, -0.9999684, 0, 1, 0, 0.9999684, 0, 0.007965208, -11.206554, 1.7048234, 5.8834395)
