@@ -507,6 +507,33 @@ radius = 0.19873047
 height = 0.5025177
 material = ExtResource("23_r4pkr")
 
+[node name="shelf2" type="CSGBox3D" parent="mesh" unique_id=2023678919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.929156, 1.4734844, 6.583426)
+use_collision = true
+size = Vector3(1.3210449, 2.4379272, 0.53808594)
+material = ExtResource("23_r4pkr")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="mesh/shelf2" unique_id=1419905931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025959015, 0.4850788, -0.11215496)
+operation = 2
+size = Vector3(1.1629295, 1.3195915, 0.51171875)
+material = ExtResource("23_r4pkr")
+
+[node name="computer2" type="CSGBox3D" parent="mesh" unique_id=856532920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.385317, 1.3626481, 3.307689)
+size = Vector3(0.33666992, 0.5302124, 0.6654663)
+material = ExtResource("23_r4pkr")
+
+[node name="computer" type="CSGBox3D" parent="mesh/computer2" unique_id=1348258981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25313854, -0.016330719, 0.0054295063)
+size = Vector3(0.18206787, 0.3491745, 0.3535602)
+material = ExtResource("23_r4pkr")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="mesh/computer2" unique_id=1140574947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10720539, -0.29999745, 0)
+radius = 0.19628906
+height = 0.057037354
+
 [node name="entities" type="Node3D" parent="." unique_id=441242414]
 
 [node name="electric_particles" type="GPUParticles3D" parent="entities" unique_id=782075015]

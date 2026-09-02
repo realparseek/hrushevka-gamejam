@@ -22,7 +22,6 @@ window/size/viewport_height=480
 window/energy_saving/keep_screen_on=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/vsync/vsync_mode=3
 
 [dotnet]
 
