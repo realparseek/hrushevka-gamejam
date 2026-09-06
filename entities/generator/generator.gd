@@ -30,7 +30,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	for s in SWITCHES:
 		if not s.ENABLED: return
-  
 	shutdown()
 
 func shutdown() -> void:
@@ -45,5 +44,5 @@ func shutdown() -> void:
 	WORKING = false
 	sparkles.visible = true
 	electricity_sound.play()
-	fuse_sound.play()
 	explosion_sound.play()
+	fuse_sound.play()

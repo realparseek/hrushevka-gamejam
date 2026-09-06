@@ -58,7 +58,7 @@ func _physics_process(_delta):
 	t = pow(t, volume_curve_power) 
 	var volume = lerp(min_volume, max_volume, t)
 	
-	print("Speed: ", max_impact_speed, "  Volume: ", volume)
+	#print("Speed: ", max_impact_speed, "  Volume: ", volume)
 	_play_sound(stream, volume)
 	_last_play_time = now
 

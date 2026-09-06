@@ -41,7 +41,6 @@ func _process(_delta: float) -> void:
 			LOADING_SCENE_PATH = ""
 			LOAD_REQUESTED = false
 			loading_screen.hide()
-			print("scene loaded")
 		ResourceLoader.ThreadLoadStatus.THREAD_LOAD_FAILED, ResourceLoader.ThreadLoadStatus.THREAD_LOAD_INVALID_RESOURCE:
 			print("failed to load scene")
 

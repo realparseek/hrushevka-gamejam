@@ -92,8 +92,7 @@ func _physics_process(_delta):
 	t = pow(t, volume_curve_power)
 	var volume = lerp(min_volume, max_volume, t)
 
-	if debug:
-		print("Speed: ", effective_speed, "  Volume: ", volume)
+	# if debug: print("Speed: ", effective_speed, "  Volume: ", volume)
 
 	var player_to_use = null
 	for p in _players:

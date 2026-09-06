@@ -66,7 +66,7 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, -0.7933533, 0, 0.6
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("audio")
+tracks/1/path = NodePath("collision/audio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -81,7 +81,7 @@ tracks/1/use_blend = true
 tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("audio2")
+tracks/2/path = NodePath("collision/audio2")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -100,7 +100,7 @@ length = 0.7
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("audio")
+tracks/0/path = NodePath("collision/audio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -115,7 +115,7 @@ tracks/0/use_blend = true
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("audio2")
+tracks/1/path = NodePath("collision/audio2")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -140,7 +140,7 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.7933536, 0, 0.6087614, 1, 1, 0, -
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("audio")
+tracks/1/path = NodePath("collision/audio")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -155,7 +155,7 @@ tracks/1/use_blend = true
 tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("audio2")
+tracks/2/path = NodePath("collision/audio2")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -213,19 +213,19 @@ mesh = SubResource("ArrayMesh_6sqah")
 [node name="icon" type="Node3D" parent="collision" unique_id=1372345849]
 transform = Transform3D(-0.2588194, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.2588194, 0.7737375, 0, -2.536508e-07)
 
+[node name="audio" type="AudioStreamPlayer3D" parent="collision" unique_id=2093912906]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.6786844, 1.0626744, -0.39204803)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("6_kgyc3")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="audio2" type="AudioStreamPlayer3D" parent="collision" unique_id=397789580]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.678685, 1.0626744, 0.3391811)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("6_kgyc3")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
 [node name="anim_player" type="AnimationPlayer" parent="." unique_id=62286207]
 libraries/ = SubResource("AnimationLibrary_uq1c4")
-
-[node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=2093912906]
-transform = Transform3D(1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000001, 0.20303242, 1.0626744, 0.7570288)
-max_distance = 10.0
-area_mask = 3
-script = ExtResource("6_kgyc3")
-metadata/_custom_type_script = "uid://cd26dddinjno8"
-
-[node name="audio2" type="AudioStreamPlayer3D" parent="." unique_id=397789580]
-transform = Transform3D(1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000001, -0.503281, 1.0626744, 0.56777275)
-max_distance = 10.0
-area_mask = 3
-script = ExtResource("6_kgyc3")
-metadata/_custom_type_script = "uid://cd26dddinjno8"
