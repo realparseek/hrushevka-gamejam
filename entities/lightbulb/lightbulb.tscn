@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b63y86g65wdwx"]
+
+[ext_resource type="Script" uid="uid://b3lrx3y411nej" path="res://scripts/light/light_source.gd" id="1_2cmrq"]
+
+[node name="lightbulb" type="OmniLight3D" unique_id=1194000017]
+light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 5.1132946
+
+[node name="light_source" type="Node" parent="." unique_id=879002419 node_paths=PackedStringArray("light")]
+script = ExtResource("1_2cmrq")
+light = NodePath("..")
+color = Color(0.34569103, 0.29600164, 0.14073262, 1)
+metadata/_custom_type_script = "uid://b3lrx3y411nej"

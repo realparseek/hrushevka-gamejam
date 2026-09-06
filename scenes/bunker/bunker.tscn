@@ -6,13 +6,14 @@
 [ext_resource type="Script" uid="uid://cb88qw06jug5v" path="res://entities/generator/generator.gd" id="2_ys4l0"]
 [ext_resource type="AudioStream" uid="uid://bk3t6ok6a5v1x" path="res://assets/audio/generator/plastic_fall.ogg" id="3_578qv"]
 [ext_resource type="Environment" uid="uid://dj3lt2p7vxtop" path="res://scenes/bunker/environment/debug.tres" id="3_txlqv"]
+[ext_resource type="Script" uid="uid://ddesvw5707vdn" path="res://entities/doorlight/doorlight.gd" id="4_jm3eo"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="4_p8jr6"]
+[ext_resource type="Script" uid="uid://b3lrx3y411nej" path="res://scripts/light/light_source.gd" id="4_sl3he"]
 [ext_resource type="AudioStream" uid="uid://cdbtr0n3bnmco" path="res://assets/audio/generator/small_explosion.mp3" id="5_l760p"]
 [ext_resource type="AudioStream" uid="uid://bq8mm5cm4mhvm" path="res://assets/audio/generator/generatoridle.ogg" id="6_878n7"]
 [ext_resource type="AudioStream" uid="uid://carktpvksqyv3" path="res://assets/audio/generator/electricshock.mp3" id="7_6votu"]
 [ext_resource type="PackedScene" uid="uid://bh7oitlyohweq" path="res://entities/switch/switch.tscn" id="8_r4pkr"]
 [ext_resource type="PackedScene" uid="uid://vtmqgy5vxla0" path="res://entities/fuse/fuse.tscn" id="10_txlqv"]
-[ext_resource type="PackedScene" uid="uid://djdixfi5tfxfi" path="res://entities/door/door.tscn" id="10_ys4l0"]
 [ext_resource type="Script" uid="uid://cuj5bfwyx56lf" path="res://scripts/sound_manager/sound_manager.gd" id="11_5q7q2"]
 [ext_resource type="Script" uid="uid://bo4cxk5vpao0h" path="res://scripts/interactable/interactable.gd" id="11_l760p"]
 [ext_resource type="Script" uid="uid://c82dmbgc7j7yd" path="res://entities/enter/enter.gd" id="12_878n7"]
@@ -20,9 +21,15 @@
 [ext_resource type="Script" uid="uid://brnmjdghgrqog" path="res://scripts/hoverable/hoverable.gd" id="13_6votu"]
 [ext_resource type="AudioStream" uid="uid://c1oti4c5n3qw0" path="res://assets/audio/ambience/p3.ogg" id="13_jm3eo"]
 [ext_resource type="AudioStream" uid="uid://cbfxnr0qvves7" path="res://assets/audio/ambience/p7.ogg" id="14_3ygmk"]
+[ext_resource type="Script" uid="uid://drm0nqeu0gtp6" path="res://entities/door/door.gd" id="15_qi1sa"]
 [ext_resource type="Script" uid="uid://cdsgkepujw22i" path="res://scripts/physics/fall.gd" id="15_r6ban"]
 [ext_resource type="AudioStream" uid="uid://cq4fqclgroqub" path="res://assets/audio/interaction/contact2.mp3" id="16_e5ka1"]
+[ext_resource type="Script" uid="uid://bk66uehkk8p2d" path="res://entities/door/open.gd" id="17_5p3oa"]
 [ext_resource type="AudioStream" uid="uid://c80gua0qxpao" path="res://assets/audio/interaction/contact1.mp3" id="17_qi1sa"]
+[ext_resource type="Script" uid="uid://drebsfgujklgk" path="res://entities/door/close.gd" id="18_ap2gx"]
+[ext_resource type="AudioStream" uid="uid://cp4stcmqo2e4o" path="res://assets/audio/door/close.mp3" id="20_ra1mw"]
+[ext_resource type="AudioStream" uid="uid://tfltlt2bqa5t" path="res://assets/audio/door/locked.mp3" id="21_awlkk"]
+[ext_resource type="AudioStream" uid="uid://c0h5t11iwhich" path="res://assets/audio/door/open.mp3" id="22_i8vvi"]
 [ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="23_r4pkr"]
 [ext_resource type="PackedScene" uid="uid://bafmbprcx7u8j" path="res://assets/shaders/gargamel shader test/Kvazimodo.glb" id="25_g4n5i"]
 [ext_resource type="PackedScene" uid="uid://b4tbckmoxcp3s" path="res://assets/shaders/gargamel shader test/гаргамель.glb" id="25_txlqv"]
@@ -91,6 +98,171 @@ _surfaces = [{
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gxd77"]
 data = PackedVector3Array(-0.0787, -0.5, -0.2573, -0.0787, 0.5, -0.2573, -0.0787, -0.5, 0.2573, -0.0787, -0.5, -0.2573, -0.0787, -0.5, 0.2573, 0.0787, -0.5, -0.2573, -0.0787, -0.5, -0.2573, 0.0787, -0.5, -0.2573, -0.0787, 0.5, -0.2573, -0.0787, -0.5, 0.2573, -0.0787, 0.5, -0.2573, -0.0787, 0.5, 0.2573, -0.0787, -0.5, 0.2573, -0.0787, 0.5, 0.2573, 0.0787, 0.5, 0.2573, -0.0787, 0.5, -0.2573, 0.0787, 0.5, 0.2573, -0.0787, 0.5, 0.2573, 0.0787, -0.5, -0.2573, 0.0787, -0.46829998, 0.23529999, 0.0787, -0.46829998, -0.23339999, 0.0787, -0.5, -0.2573, 0.0787, -0.46829998, -0.23339999, 0.0787, 0.5, -0.2573, -0.0787, -0.5, 0.2573, 0.0787, -0.5, 0.2573, 0.0787, -0.5, -0.2573, -0.0787, -0.5, 0.2573, 0.0787, 0.5, 0.2573, 0.0787, -0.5, 0.2573, 0.0787, -0.5, -0.2573, 0.0787, -0.5, 0.2573, 0.0787, -0.46829998, 0.23529999, 0.0787, -0.5, 0.2573, 0.0787, 0.46289998, 0.23529999, 0.0787, -0.46829998, 0.23529999, -0.0787, 0.5, -0.2573, 0.0787, -0.5, -0.2573, 0.0787, 0.5, -0.2573, -0.0787, 0.5, -0.2573, 0.0787, 0.5, -0.2573, 0.0787, 0.5, 0.2573, 0.0787, 0.5, -0.2573, 0.0787, -0.46829998, -0.23339999, 0.0787, 0.46289998, -0.23339999, 0.0787, 0.5, -0.2573, 0.0787, 0.46289998, -0.23339999, 0.0787, 0.5, 0.2573, 0.0787, -0.5, 0.2573, 0.0787, 0.5, 0.2573, 0.0787, 0.46289998, 0.23529999, 0.0787, 0.5, 0.2573, 0.0787, 0.46289998, -0.23339999, 0.0787, 0.46289998, 0.23529999, -0.0022, -0.46829998, -0.23339999, -0.0022, -0.46829998, 0.23529999, -0.0022, 0.46289998, -0.23339999, -0.0022, -0.46829998, 0.23529999, -0.0022, 0.46289998, 0.23529999, -0.0022, 0.46289998, -0.23339999, -0.0022, -0.46829998, -0.23339999, -0.0022, 0.46289998, -0.23339999, 0.0787, -0.46829998, -0.23339999, -0.0022, -0.46829998, -0.23339999, 0.0787, -0.46829998, -0.23339999, 0.0787, -0.46829998, 0.23529999, -0.0022, -0.46829998, -0.23339999, 0.0787, -0.46829998, 0.23529999, -0.0022, -0.46829998, 0.23529999, -0.0022, -0.46829998, 0.23529999, 0.0787, -0.46829998, 0.23529999, 0.0787, 0.46289998, 0.23529999, -0.0022, 0.46289998, -0.23339999, -0.0022, 0.46289998, 0.23529999, 0.0787, 0.46289998, -0.23339999, -0.0022, 0.46289998, -0.23339999, 0.0787, 0.46289998, -0.23339999, 0.0787, -0.46829998, -0.23339999, -0.0022, -0.46829998, 0.23529999, 0.0787, 0.46289998, 0.23529999, -0.0022, 0.46289998, 0.23529999, -0.0022, 0.46289998, 0.23529999, 0.0787, 0.46289998, 0.23529999, 0.0787, 0.46289998, -0.23339999)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dsbe1"]
+points = PackedVector3Array(-4e-05, -1, -0.039101, -4e-05, -1, 0.039100993, -4e-05, 1, -0.039101, 0.99996, -1, -0.039101, 0.99996, -1, 0.039100993, -4e-05, 1, 0.039100993, 0.99996, 1, -0.039101, 0.99996, 1, 0.039100993)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pd22u"]
+_surfaces = [{
+"aabb": AABB(-4e-05, -1, -0.039101, 1, 2, 0.078202),
+"format": 34359742465,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAAABAAIAAgADAAAAAAAEAAEAAgABAAUAAAADAAUABQAEAAAABQABAAMAAgAGAAMAAgABAAYABAAGAAEABAABAAYAAwABAAcABwABAAQAAwAHAAUABQAHAAQAAwAGAAcABwAGAAQA"),
+"name": "Cube",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("rMUnuAAAgD9fKCA9rMUnuAAAgL9fKCA9rMUnuAAAgD9fKCC9Yf1/PwAAgD9fKCC9Yf1/PwAAgL9fKCA9Yf1/PwAAgD9fKCA9rMUnuAAAgL9fKCC9Yf1/PwAAgL9fKCC9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6sqah"]
+_surfaces = [{
+"aabb": AABB(-4e-05, -1, -0.039101, 1, 2, 0.078202),
+"attribute_data": PackedByteArray("AAAgPwAAgD8AAMA+AACAPwAAID8AAEA/AADAPgAAQD8AACA/AABAPwAAwD4AAEA/AAAgPwAAAD8AAMA+AAAAPwAAID8AAAA/AADAPgAAAD8AACA/AACAPgAAwD4AAIA+AAAgPwAAgD4AAMA+AACAPgAAID8AAAAAAADAPgAAAAAAAMA+AAAAPwAAAD4AAAA/AADAPgAAgD4AAAA+AACAPgAAYD8AAAA/AAAgPwAAAD8AAGA/AACAPgAAID8AAIA+AAAgPwAAgD8AAMA+AACAPwAAID8AAEA/AAAgPwAAgD4AACA/AACAPgAAwD4AAIA/AAAgPwAAAD8AACA/AAAAPwAAwD4AAIA/AADAPgAAAD8AAMA+AACAPgAAwD4AAEA/"),
+"format": 34359742487,
+"index_count": 54,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8AEAARABIAEgARABMAFAAVABYAFgAVABcAGAAZABoAGgAZABsAHAAdAB4AHwAgACEAIQAgACIAIgAgACMA"),
+"material": ExtResource("23_r4pkr"),
+"name": "Cube",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("rMUnuAAAgD9fKCA9rMUnuAAAgL9fKCA9rMUnuAAAgD9fKCC9rMUnuAAAgL9fKCC9rMUnuAAAgD9fKCC9rMUnuAAAgL9fKCC9Yf1/PwAAgD9fKCC9Yf1/PwAAgL9fKCC9Yf1/PwAAgD9fKCC9Yf1/PwAAgL9fKCC9Yf1/PwAAgD9fKCA9Yf1/PwAAgL9fKCA9Yf1/PwAAgD9fKCA9Yf1/PwAAgL9fKCA9rMUnuAAAgD9fKCA9rMUnuAAAgL9fKCA9Yf1/PwAAgL9fKCC9rMUnuAAAgL9fKCC9Yf1/PwAAgL9fKCA9rMUnuAAAgL9fKCA9rMUnuAAAgD9fKCC9Yf1/PwAAgD9fKCC9rMUnuAAAgD9fKCA9Yf1/PwAAgD9fKCA9rMUnuAAAgD9fKCA9rMUnuAAAgL9fKCA9rMUnuAAAgD9fKCC9Yf1/PwAAgD9fKCA9Yf1/PwAAgD9fKCA9rMUnuAAAgL9fKCA9Yf1/PwAAgD9fKCC9Yf1/PwAAgD9fKCC9rMUnuAAAgL9fKCA9Yf1/PwAAgL9fKCC9Yf1/PwAAgL9fKCA9rMUnuAAAgL9fKCC9AAD/f/9///8AAP9//3///wAA/3//f///AAD/f/9//////////3//////////f/////////9//////////3///////3//f///////f/9///////9//3///////3//f////3//f/9/////f/9//3////9//3//f////3//f/9/////fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+/AAC19v9///8AALX2aWe98gAAtfZbcqT4AAC19kdnq/IAALX2L630FAAAtfYvrfQUAAC19i+t9BQAALX2/3///wAAtfb/f///AAC19v9///8AALX2////vwAAtfb///+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_pd22u")
+
+[sub_resource type="Animation" id="Animation_dsbe1"]
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.7933538, 0, 0.60876137)
+
+[sub_resource type="Animation" id="Animation_uq1c4"]
+resource_name = "close"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, -0.7933533, 0, 0.6087614)
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collision/audio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("20_ra1mw")
+}],
+"times": PackedFloat32Array(0.6666667)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("collision/audio2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("20_ra1mw")
+}],
+"times": PackedFloat32Array(0.6666667)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_4ul54"]
+resource_name = "locked"
+length = 0.7
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision/audio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("21_awlkk")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collision/audio2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("21_awlkk")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_6sqah"]
+resource_name = "open"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.7933536, 0, 0.6087614, 1, 1, 0, -1.6391276e-07, 0, 1.0000001)
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collision/audio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.25999996,
+"start_offset": 0.0,
+"stream": ExtResource("22_i8vvi")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("collision/audio2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.25999996,
+"start_offset": 0.0,
+"stream": ExtResource("22_i8vvi")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uq1c4"]
+_data = {
+&"RESET": SubResource("Animation_dsbe1"),
+&"close": SubResource("Animation_uq1c4"),
+&"locked": SubResource("Animation_4ul54"),
+&"open": SubResource("Animation_6sqah")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_02yi3"]
 size = Vector3(0.5020447, 1.9048462, 0.16235352)
 
@@ -135,109 +307,141 @@ environment = ExtResource("3_txlqv")
 
 [node name="lights" type="Node3D" parent="." unique_id=603588395]
 
-[node name="OmniLight3D8" type="OmniLight3D" parent="lights" unique_id=398021846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28207922, 2.457212, -1.6544663)
-light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 5.1132946
+[node name="doorlight" type="OmniLight3D" parent="lights" unique_id=772491468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.675714, 2.449399, -0.21579482)
+light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
 
-[node name="OmniLight3D9" type="OmniLight3D" parent="lights" unique_id=1805696500]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21227562, 2.4655879, -1.8504448)
-light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 3.5240576
+[node name="doorlight" type="Node" parent="lights/doorlight" unique_id=1944764674 node_paths=PackedStringArray("door", "light_source")]
+script = ExtResource("4_jm3eo")
+door = NodePath("../../../entities/door5")
+light_source = NodePath("../lightsource")
+working_color = Color(0.10634999, 0.45, 0.09449999, 1)
+locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
+metadata/_custom_type_script = "uid://ddesvw5707vdn"
 
-[node name="OmniLight3D10" type="OmniLight3D" parent="lights" unique_id=720040484]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6712068, 2.4755373, 4.740259)
-light_color = Color(0.2901961, 0, 0, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 3.3767915
+[node name="lightsource" type="Node" parent="lights/doorlight" unique_id=627010884 node_paths=PackedStringArray("light")]
+script = ExtResource("4_sl3he")
+light = NodePath("..")
+metadata/_custom_type_script = "uid://b3lrx3y411nej"
 
-[node name="OmniLight3D11" type="OmniLight3D" parent="lights" unique_id=220977814]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4442486, 2.57521, 4.7542806)
-light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 3.9104002
+[node name="doorlight2" type="OmniLight3D" parent="lights" unique_id=1542811582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5134044, 2.449399, -0.21579482)
+light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
 
-[node name="OmniLight3D12" type="OmniLight3D" parent="lights" unique_id=781680234]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5878663, 2.463019, -4.783325)
-light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 2.3403792
+[node name="doorlight" type="Node" parent="lights/doorlight2" unique_id=2036700402 node_paths=PackedStringArray("door", "light_source")]
+script = ExtResource("4_jm3eo")
+door = NodePath("../../../entities/door5")
+light_source = NodePath("../lightsource")
+working_color = Color(0.10634999, 0.45, 0.09449999, 1)
+locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
+metadata/_custom_type_script = "uid://ddesvw5707vdn"
 
-[node name="OmniLight3D13" type="OmniLight3D" parent="lights" unique_id=190380329]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.703064, 2.447437, -0.24983086)
-light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 3.930395
+[node name="lightsource" type="Node" parent="lights/doorlight2" unique_id=2045015044 node_paths=PackedStringArray("light")]
+script = ExtResource("4_sl3he")
+light = NodePath("..")
+metadata/_custom_type_script = "uid://b3lrx3y411nej"
 
-[node name="OmniLight3D14" type="OmniLight3D" parent="lights" unique_id=1037407122]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7068996, 2.4534595, 4.7028127)
-light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 4.4195876
+[node name="doorlight3" type="OmniLight3D" parent="lights" unique_id=731811632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.675714, 2.449399, 4.8161235)
+light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
 
-[node name="OmniLight3D15" type="OmniLight3D" parent="lights" unique_id=1451564292]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.644375, 2.5948088, -3.4420483)
-light_color = Color(0.5411765, 0.6039216, 0.5254902, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 2.1019855
+[node name="doorlight" type="Node" parent="lights/doorlight3" unique_id=1200626700 node_paths=PackedStringArray("door", "light_source")]
+script = ExtResource("4_jm3eo")
+door = NodePath("../../../entities/door4")
+light_source = NodePath("../lightsource")
+working_color = Color(0.10634999, 0.45, 0.09449999, 1)
+locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
+metadata/_custom_type_script = "uid://ddesvw5707vdn"
 
-[node name="OmniLight3D17" type="OmniLight3D" parent="lights" unique_id=274241464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.199705, 2.5466905, -3.0141363)
-light_color = Color(0.5411765, 0.6039216, 0.5254902, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 2.2704828
+[node name="lightsource" type="Node" parent="lights/doorlight3" unique_id=464068333 node_paths=PackedStringArray("light")]
+script = ExtResource("4_sl3he")
+light = NodePath("..")
+metadata/_custom_type_script = "uid://b3lrx3y411nej"
 
-[node name="OmniLight3D18" type="OmniLight3D" parent="lights" unique_id=695939451]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4893823, 2.652381, 1.1266979)
-light_color = Color(0.5411765, 0.6039216, 0.5254902, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 2.9382904
+[node name="doorlight4" type="OmniLight3D" parent="lights" unique_id=1912333092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5134044, 2.449399, 4.8161235)
+light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
 
-[node name="OmniLight3D19" type="OmniLight3D" parent="lights" unique_id=1539238433]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.48533, 2.4753125, -0.27194712)
-light_color = Color(0.45882353, 0.3764706, 0.22745098, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 2.798831
+[node name="doorlight" type="Node" parent="lights/doorlight4" unique_id=1894275611 node_paths=PackedStringArray("door", "light_source")]
+script = ExtResource("4_jm3eo")
+door = NodePath("../../../entities/door4")
+light_source = NodePath("../lightsource")
+working_color = Color(0.10634999, 0.45, 0.09449999, 1)
+locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
+metadata/_custom_type_script = "uid://ddesvw5707vdn"
 
-[node name="OmniLight3D20" type="OmniLight3D" parent="lights" unique_id=851843151]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3479757, 2.7122235, 4.6759887)
-light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 2.798831
+[node name="lightsource" type="Node" parent="lights/doorlight4" unique_id=702640339 node_paths=PackedStringArray("light")]
+script = ExtResource("4_sl3he")
+light = NodePath("..")
+metadata/_custom_type_script = "uid://b3lrx3y411nej"
 
-[node name="OmniLight3D21" type="OmniLight3D" parent="lights" unique_id=1039139714]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5228243, 2.4603744, -3.4282305)
-light_color = Color(0.4509804, 0.32156864, 0.14901961, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 2.3403792
+[node name="doorlight5" type="OmniLight3D" parent="lights" unique_id=1852951144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4639202, 2.449399, 4.750816)
+light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
 
-[node name="OmniLight3D22" type="OmniLight3D" parent="lights" unique_id=1603708289]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6159103, 2.5466905, -5.0318427)
-light_color = Color(0.6392157, 0.5372549, 0.34901962, 1)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 3.5273235
+[node name="doorlight" type="Node" parent="lights/doorlight5" unique_id=833249684 node_paths=PackedStringArray("door", "light_source")]
+script = ExtResource("4_jm3eo")
+door = NodePath("../../../entities/door")
+light_source = NodePath("../lightsource")
+working_color = Color(0.10634999, 0.45, 0.09449999, 1)
+locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
+metadata/_custom_type_script = "uid://ddesvw5707vdn"
 
-[node name="OmniLight3D23" type="OmniLight3D" parent="lights" unique_id=1755433677]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6159103, 6.1817627, -3.3154593)
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 3.5273235
+[node name="lightsource" type="Node" parent="lights/doorlight5" unique_id=1391920368 node_paths=PackedStringArray("light")]
+script = ExtResource("4_sl3he")
+light = NodePath("..")
+metadata/_custom_type_script = "uid://b3lrx3y411nej"
+
+[node name="doorlight6" type="OmniLight3D" parent="lights" unique_id=1284178026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5917948, 2.449399, 4.750816)
+light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
+
+[node name="doorlight" type="Node" parent="lights/doorlight6" unique_id=435500721 node_paths=PackedStringArray("door", "light_source")]
+script = ExtResource("4_jm3eo")
+door = NodePath("../../../entities/door")
+light_source = NodePath("../lightsource")
+working_color = Color(0.10634999, 0.45, 0.09449999, 1)
+locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
+metadata/_custom_type_script = "uid://ddesvw5707vdn"
+
+[node name="lightsource" type="Node" parent="lights/doorlight6" unique_id=905373212 node_paths=PackedStringArray("light")]
+script = ExtResource("4_sl3he")
+light = NodePath("..")
+metadata/_custom_type_script = "uid://b3lrx3y411nej"
+
+[node name="doorlight7" type="OmniLight3D" parent="lights" unique_id=1607055430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26501563, 2.449399, -1.6995727)
+light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
+
+[node name="doorlight" type="Node" parent="lights/doorlight7" unique_id=838617714 node_paths=PackedStringArray("door", "light_source")]
+script = ExtResource("4_jm3eo")
+door = NodePath("../../../entities/door2")
+light_source = NodePath("../lightsource")
+working_color = Color(0.10634999, 0.45, 0.09449999, 1)
+locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
+metadata/_custom_type_script = "uid://ddesvw5707vdn"
+
+[node name="lightsource" type="Node" parent="lights/doorlight7" unique_id=586060364 node_paths=PackedStringArray("light")]
+script = ExtResource("4_sl3he")
+light = NodePath("..")
+metadata/_custom_type_script = "uid://b3lrx3y411nej"
+
+[node name="doorlight8" type="OmniLight3D" parent="lights" unique_id=1576965759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26501563, 2.449399, -1.8009676)
+light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
+
+[node name="doorlight" type="Node" parent="lights/doorlight8" unique_id=1626904785 node_paths=PackedStringArray("door", "light_source")]
+script = ExtResource("4_jm3eo")
+door = NodePath("../../../entities/door2")
+light_source = NodePath("../lightsource")
+working_color = Color(0.10634999, 0.45, 0.09449999, 1)
+locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
+metadata/_custom_type_script = "uid://ddesvw5707vdn"
+
+[node name="lightsource" type="Node" parent="lights/doorlight8" unique_id=1166914353 node_paths=PackedStringArray("light")]
+script = ExtResource("4_sl3he")
+light = NodePath("..")
+metadata/_custom_type_script = "uid://b3lrx3y411nej"
 
 [node name="mesh" type="Node3D" parent="." unique_id=624987806]
 
@@ -431,6 +635,40 @@ size = Vector3(0.05, 2.1035156, 0.05)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29023266, -1.0253012, -0.5605285)
 size = Vector3(0.05, 2.1035156, 0.05)
 
+[node name="shelf3" type="CSGBox3D" parent="mesh" unique_id=431789522]
+transform = Transform3D(0.98742616, 0, -0.15808171, 0, 1, 0, 0.15808171, 0, 0.98742616, -10.221602, 2.3287501, -0.97159016)
+use_collision = true
+size = Vector3(0.6237793, 0.05030469, 1.1542969)
+material = ExtResource("23_r4pkr")
+
+[node name="shelf2" type="CSGBox3D" parent="mesh/shelf3" unique_id=1843288366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9572983, 0)
+use_collision = true
+size = Vector3(0.6237793, 0.05030469, 1.1542969)
+material = ExtResource("23_r4pkr")
+
+[node name="shelf3" type="CSGBox3D" parent="mesh/shelf3" unique_id=230009284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9457825, 0)
+use_collision = true
+size = Vector3(0.6237793, 0.05030469, 1.1542969)
+material = ExtResource("23_r4pkr")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="mesh/shelf3" unique_id=926064706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28771353, -1.0253012, -0.55416477)
+size = Vector3(0.05, 2.1035156, 0.05)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="mesh/shelf3" unique_id=1665869904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28771353, -1.0253012, 0.5550988)
+size = Vector3(0.05, 2.1035156, 0.05)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="mesh/shelf3" unique_id=1389407470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29023266, -1.0253012, 0.5550988)
+size = Vector3(0.05, 2.1035156, 0.05)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="mesh/shelf3" unique_id=1408971695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29023266, -1.0253012, -0.5605285)
+size = Vector3(0.05, 2.1035156, 0.05)
+
 [node name="table" type="CSGBox3D" parent="mesh" unique_id=2029737628]
 transform = Transform3D(-0.9984508, 0, 0.05564367, 0, 1, 0, -0.05564367, 0, -0.9984508, -13.499738, 1.0005325, 3.3102643)
 use_collision = true
@@ -539,9 +777,8 @@ draw_pass_1 = SubResource("SphereMesh_sq6te")
 [node name="generator" type="StaticBody3D" parent="entities" unique_id=748440623]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3591893, 0.8648763, -4.334182)
 
-[node name="generator" type="Node" parent="entities/generator" unique_id=1770221733 node_paths=PackedStringArray("lights", "switches_bodies", "audio_player", "fuse_sound", "explosion_sound", "electricity_sound", "sparkles")]
+[node name="generator" type="Node" parent="entities/generator" unique_id=1770221733 node_paths=PackedStringArray("switches_bodies", "audio_player", "fuse_sound", "explosion_sound", "electricity_sound", "sparkles")]
 script = ExtResource("2_ys4l0")
-lights = [NodePath("../../../lights/OmniLight3D8"), NodePath("../../../lights/OmniLight3D9"), NodePath("../../../lights/OmniLight3D10"), NodePath("../../../lights/OmniLight3D11"), NodePath("../../../lights/OmniLight3D12"), NodePath("../../../lights/OmniLight3D13"), NodePath("../../../lights/OmniLight3D14"), NodePath("../../../lights/OmniLight3D15"), NodePath("../../../lights/OmniLight3D17"), NodePath("../../../lights/OmniLight3D18"), NodePath("../../../lights/OmniLight3D19"), NodePath("../../../lights/OmniLight3D20"), NodePath("../../../lights/OmniLight3D21"), NodePath("../../../lights/OmniLight3D22"), NodePath("../../../lights/OmniLight3D23")]
 switches_bodies = [NodePath("../../eletric_panel/switch"), NodePath("../../eletric_panel/switch2"), NodePath("../../eletric_panel/switch3"), NodePath("../../eletric_panel/switch4")]
 audio_player = NodePath("../generator_sound")
 fuse_sound = NodePath("../fuse_sound")
@@ -616,20 +853,273 @@ transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.07089
 [node name="switch4" parent="entities/eletric_panel" unique_id=1754541526 instance=ExtResource("8_r4pkr")]
 transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, 0.04169345, 0.06719327, -0.17525673)
 
-[node name="door" parent="entities" unique_id=2026821777 instance=ExtResource("10_ys4l0")]
+[node name="door" type="StaticBody3D" parent="entities" unique_id=2026821777]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 1.537477, 1.309154, 5.24734)
+collision_layer = 3
 
-[node name="door2" parent="entities" unique_id=996318969 instance=ExtResource("10_ys4l0")]
+[node name="door" type="Node" parent="entities/door" unique_id=802647948 node_paths=PackedStringArray("animation_player", "interactable")]
+script = ExtResource("15_qi1sa")
+animation_player = NodePath("../anim_player")
+interactable = NodePath("../interactable")
+
+[node name="interactable" type="Node" parent="entities/door" unique_id=249374583]
+script = ExtResource("11_l760p")
+
+[node name="open" type="Node" parent="entities/door/interactable" unique_id=1770815497 node_paths=PackedStringArray("door", "door_close")]
+script = ExtResource("17_5p3oa")
+door = NodePath("../../door")
+door_close = NodePath("../close")
+
+[node name="close" type="Node" parent="entities/door/interactable" unique_id=2038694831 node_paths=PackedStringArray("door", "door_open")]
+script = ExtResource("18_ap2gx")
+door = NodePath("../../door")
+door_open = NodePath("../open")
+
+[node name="hoverable" type="Node" parent="entities/door" unique_id=791892074 node_paths=PackedStringArray("icon_pos")]
+script = ExtResource("13_6votu")
+icon_pos = NodePath("../collision/icon")
+
+[node name="collision" type="CollisionShape3D" parent="entities/door" unique_id=1549875306]
+transform = Transform3D(-0.25881985, 0, -0.9659261, 0, 1, 0, 0.9659261, 0, -0.25881985, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_dsbe1")
+
+[node name="mesh" type="MeshInstance3D" parent="entities/door/collision" unique_id=917339141]
+mesh = SubResource("ArrayMesh_6sqah")
+
+[node name="icon" type="Node3D" parent="entities/door/collision" unique_id=1372345849]
+transform = Transform3D(-0.2588194, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.2588194, 0.7737375, 0, -2.536508e-07)
+
+[node name="audio" type="AudioStreamPlayer3D" parent="entities/door/collision" unique_id=2093912906]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.6786844, 1.0626744, -0.39204803)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("4_p8jr6")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="audio2" type="AudioStreamPlayer3D" parent="entities/door/collision" unique_id=397789580]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.678685, 1.0626744, 0.3391811)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("4_p8jr6")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="anim_player" type="AnimationPlayer" parent="entities/door" unique_id=62286207]
+libraries/ = SubResource("AnimationLibrary_uq1c4")
+
+[node name="door2" type="StaticBody3D" parent="entities" unique_id=996318969]
 transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, -0.23286116, 1.309154, -1.7518339)
+collision_layer = 3
 
-[node name="door3" parent="entities" unique_id=1165432989 instance=ExtResource("10_ys4l0")]
+[node name="door" type="Node" parent="entities/door2" unique_id=567309554 node_paths=PackedStringArray("animation_player", "interactable")]
+script = ExtResource("15_qi1sa")
+locked = false
+animation_player = NodePath("../anim_player")
+interactable = NodePath("../interactable")
+
+[node name="interactable" type="Node" parent="entities/door2" unique_id=1997889493]
+script = ExtResource("11_l760p")
+
+[node name="open" type="Node" parent="entities/door2/interactable" unique_id=1055056711 node_paths=PackedStringArray("door", "door_close")]
+script = ExtResource("17_5p3oa")
+door = NodePath("../../door")
+door_close = NodePath("../close")
+
+[node name="close" type="Node" parent="entities/door2/interactable" unique_id=8505596 node_paths=PackedStringArray("door", "door_open")]
+script = ExtResource("18_ap2gx")
+door = NodePath("../../door")
+door_open = NodePath("../open")
+
+[node name="hoverable" type="Node" parent="entities/door2" unique_id=899041711 node_paths=PackedStringArray("icon_pos")]
+script = ExtResource("13_6votu")
+icon_pos = NodePath("../collision/icon")
+
+[node name="collision" type="CollisionShape3D" parent="entities/door2" unique_id=1180948676]
+transform = Transform3D(-0.25881985, 0, -0.9659261, 0, 1, 0, 0.9659261, 0, -0.25881985, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_dsbe1")
+
+[node name="mesh" type="MeshInstance3D" parent="entities/door2/collision" unique_id=1711629360]
+mesh = SubResource("ArrayMesh_6sqah")
+
+[node name="icon" type="Node3D" parent="entities/door2/collision" unique_id=1358268487]
+transform = Transform3D(-0.2588194, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.2588194, 0.7737375, 0, -2.536508e-07)
+
+[node name="audio" type="AudioStreamPlayer3D" parent="entities/door2/collision" unique_id=935096533]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.6786844, 1.0626744, -0.39204803)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("4_p8jr6")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="audio2" type="AudioStreamPlayer3D" parent="entities/door2/collision" unique_id=525337062]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.678685, 1.0626744, 0.3391811)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("4_p8jr6")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="anim_player" type="AnimationPlayer" parent="entities/door2" unique_id=1550877831]
+libraries/ = SubResource("AnimationLibrary_uq1c4")
+
+[node name="door3" type="StaticBody3D" parent="entities" unique_id=1165432989]
 transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, 2.0853584, 1.309154, -4.8389425)
+collision_layer = 3
 
-[node name="door4" parent="entities" unique_id=619958560 instance=ExtResource("10_ys4l0")]
+[node name="door" type="Node" parent="entities/door3" unique_id=182581180 node_paths=PackedStringArray("animation_player", "interactable")]
+script = ExtResource("15_qi1sa")
+locked = false
+animation_player = NodePath("../anim_player")
+interactable = NodePath("../interactable")
+
+[node name="interactable" type="Node" parent="entities/door3" unique_id=1134652779]
+script = ExtResource("11_l760p")
+
+[node name="open" type="Node" parent="entities/door3/interactable" unique_id=1307870227 node_paths=PackedStringArray("door", "door_close")]
+script = ExtResource("17_5p3oa")
+door = NodePath("../../door")
+door_close = NodePath("../close")
+
+[node name="close" type="Node" parent="entities/door3/interactable" unique_id=1106977689 node_paths=PackedStringArray("door", "door_open")]
+script = ExtResource("18_ap2gx")
+door = NodePath("../../door")
+door_open = NodePath("../open")
+
+[node name="hoverable" type="Node" parent="entities/door3" unique_id=943119181 node_paths=PackedStringArray("icon_pos")]
+script = ExtResource("13_6votu")
+icon_pos = NodePath("../collision/icon")
+
+[node name="collision" type="CollisionShape3D" parent="entities/door3" unique_id=762635665]
+transform = Transform3D(-0.25881985, 0, -0.9659261, 0, 1, 0, 0.9659261, 0, -0.25881985, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_dsbe1")
+
+[node name="mesh" type="MeshInstance3D" parent="entities/door3/collision" unique_id=151823661]
+mesh = SubResource("ArrayMesh_6sqah")
+
+[node name="icon" type="Node3D" parent="entities/door3/collision" unique_id=717659507]
+transform = Transform3D(-0.2588194, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.2588194, 0.7737375, 0, -2.536508e-07)
+
+[node name="audio" type="AudioStreamPlayer3D" parent="entities/door3/collision" unique_id=998792038]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.6786844, 1.0626744, -0.39204803)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("4_p8jr6")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="audio2" type="AudioStreamPlayer3D" parent="entities/door3/collision" unique_id=1304005962]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.678685, 1.0626744, 0.3391811)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("4_p8jr6")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="anim_player" type="AnimationPlayer" parent="entities/door3" unique_id=777948880]
+libraries/ = SubResource("AnimationLibrary_uq1c4")
+
+[node name="door4" type="StaticBody3D" parent="entities" unique_id=619958560]
 transform = Transform3D(0.9659258, 0, 0.25881922, 0, 1, 0, -0.25881922, 0, 0.9659258, -5.606219, 1.309154, 4.250772)
+collision_layer = 3
 
-[node name="door5" parent="entities" unique_id=280802690 instance=ExtResource("10_ys4l0")]
+[node name="door" type="Node" parent="entities/door4" unique_id=927465816 node_paths=PackedStringArray("animation_player", "interactable")]
+script = ExtResource("15_qi1sa")
+locked = false
+animation_player = NodePath("../anim_player")
+interactable = NodePath("../interactable")
+
+[node name="interactable" type="Node" parent="entities/door4" unique_id=1453192086]
+script = ExtResource("11_l760p")
+
+[node name="open" type="Node" parent="entities/door4/interactable" unique_id=1763756891 node_paths=PackedStringArray("door", "door_close")]
+script = ExtResource("17_5p3oa")
+door = NodePath("../../door")
+door_close = NodePath("../close")
+
+[node name="close" type="Node" parent="entities/door4/interactable" unique_id=1228307228 node_paths=PackedStringArray("door", "door_open")]
+script = ExtResource("18_ap2gx")
+door = NodePath("../../door")
+door_open = NodePath("../open")
+
+[node name="hoverable" type="Node" parent="entities/door4" unique_id=1427187016 node_paths=PackedStringArray("icon_pos")]
+script = ExtResource("13_6votu")
+icon_pos = NodePath("../collision/icon")
+
+[node name="collision" type="CollisionShape3D" parent="entities/door4" unique_id=853648145]
+transform = Transform3D(-0.25881985, 0, -0.9659261, 0, 1, 0, 0.9659261, 0, -0.25881985, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_dsbe1")
+
+[node name="mesh" type="MeshInstance3D" parent="entities/door4/collision" unique_id=1157207798]
+mesh = SubResource("ArrayMesh_6sqah")
+
+[node name="icon" type="Node3D" parent="entities/door4/collision" unique_id=502717994]
+transform = Transform3D(-0.2588194, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.2588194, 0.7737375, 0, -2.536508e-07)
+
+[node name="audio" type="AudioStreamPlayer3D" parent="entities/door4/collision" unique_id=1696494645]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.6786844, 1.0626744, -0.39204803)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("4_p8jr6")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="audio2" type="AudioStreamPlayer3D" parent="entities/door4/collision" unique_id=1430477618]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.678685, 1.0626744, 0.3391811)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("4_p8jr6")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="anim_player" type="AnimationPlayer" parent="entities/door4" unique_id=2007429494]
+libraries/ = SubResource("AnimationLibrary_uq1c4")
+
+[node name="door5" type="StaticBody3D" parent="entities" unique_id=280802690]
 transform = Transform3D(0.9659258, 0, 0.25881922, 0, 1, 0, -0.25881922, 0, 0.9659258, -5.606219, 1.309154, -0.7487434)
+collision_layer = 3
+
+[node name="door" type="Node" parent="entities/door5" unique_id=1571972058 node_paths=PackedStringArray("animation_player", "interactable")]
+script = ExtResource("15_qi1sa")
+animation_player = NodePath("../anim_player")
+interactable = NodePath("../interactable")
+
+[node name="interactable" type="Node" parent="entities/door5" unique_id=312739416]
+script = ExtResource("11_l760p")
+
+[node name="open" type="Node" parent="entities/door5/interactable" unique_id=1339785985 node_paths=PackedStringArray("door", "door_close")]
+script = ExtResource("17_5p3oa")
+door = NodePath("../../door")
+door_close = NodePath("../close")
+
+[node name="close" type="Node" parent="entities/door5/interactable" unique_id=783107289 node_paths=PackedStringArray("door", "door_open")]
+script = ExtResource("18_ap2gx")
+door = NodePath("../../door")
+door_open = NodePath("../open")
+
+[node name="hoverable" type="Node" parent="entities/door5" unique_id=2134553640 node_paths=PackedStringArray("icon_pos")]
+script = ExtResource("13_6votu")
+icon_pos = NodePath("../collision/icon")
+
+[node name="collision" type="CollisionShape3D" parent="entities/door5" unique_id=1553783180]
+transform = Transform3D(-0.25881985, 0, -0.9659261, 0, 1, 0, 0.9659261, 0, -0.25881985, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_dsbe1")
+
+[node name="mesh" type="MeshInstance3D" parent="entities/door5/collision" unique_id=2114314303]
+mesh = SubResource("ArrayMesh_6sqah")
+
+[node name="icon" type="Node3D" parent="entities/door5/collision" unique_id=168810733]
+transform = Transform3D(-0.2588194, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.2588194, 0.7737375, 0, -2.536508e-07)
+
+[node name="audio" type="AudioStreamPlayer3D" parent="entities/door5/collision" unique_id=1335904209]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.6786844, 1.0626744, -0.39204803)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("4_p8jr6")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="audio2" type="AudioStreamPlayer3D" parent="entities/door5/collision" unique_id=2024383276]
+transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.678685, 1.0626744, 0.3391811)
+max_distance = 10.0
+area_mask = 3
+script = ExtResource("4_p8jr6")
+metadata/_custom_type_script = "uid://cd26dddinjno8"
+
+[node name="anim_player" type="AnimationPlayer" parent="entities/door5" unique_id=347152858]
+libraries/ = SubResource("AnimationLibrary_uq1c4")
 
 [node name="enter" type="StaticBody3D" parent="entities" unique_id=2059708551]
 transform = Transform3D(-0.25881925, 0, 0.9659257, 0, 1, 0, -0.9659257, 0, -0.25881925, -7.762286, 1.309154, -1.7247114)
@@ -670,6 +1160,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6144099, 0)
 
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("10_txlqv")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.192194, 0.32610512, -3.787437)
+
+[node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -8.102755, 1.1267571, -0.8797635)
 
 [node name="BoxTest" type="RigidBody3D" parent="entities" unique_id=526282323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.027381, 1.8070855, 4.583782)
@@ -770,9 +1263,6 @@ script = ExtResource("11_5q7q2")
 sound_streams = Array[AudioStream]([ExtResource("12_sl3he"), ExtResource("13_jm3eo"), ExtResource("14_3ygmk")])
 max_delay = 300.0
 volume_db = -20.0
-
-[node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -8.102755, 1.1267571, -0.8797635)
 
 [node name="Kvazimodo" parent="entities" unique_id=171566427 instance=ExtResource("25_g4n5i")]
 transform = Transform3D(-0.99408716, 0, 0.10858527, 0, 1, 0, -0.10858527, 0, -0.99408716, 4.689811, 0.28711268, 5.6178446)

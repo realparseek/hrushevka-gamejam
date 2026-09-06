@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://byhfo3m2xll4o"]
+
+[ext_resource type="Script" uid="uid://ddesvw5707vdn" path="res://entities/doorlight/doorlight.gd" id="1_e4w6j"]
+[ext_resource type="Script" uid="uid://b3lrx3y411nej" path="res://scripts/light/light_source.gd" id="2_1vuwc"]
+
+[node name="doorlight" type="OmniLight3D" unique_id=772491468]
+light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
+
+[node name="doorlight" type="Node" parent="." unique_id=1944764674 node_paths=PackedStringArray("door", "light_source")]
+script = ExtResource("1_e4w6j")
+door = NodePath("")
+light_source = NodePath("../lightsource")
+working_color = Color(0.10634999, 0.45, 0.09449999, 1)
+locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
+metadata/_custom_type_script = "uid://ddesvw5707vdn"
+
+[node name="lightsource" type="Node" parent="." unique_id=627010884 node_paths=PackedStringArray("light")]
+script = ExtResource("2_1vuwc")
+light = NodePath("..")
+metadata/_custom_type_script = "uid://b3lrx3y411nej"
