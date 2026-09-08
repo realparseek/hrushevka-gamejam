@@ -28,14 +28,23 @@ func _ready() -> void:
 				continue
 
 func _process(_delta: float) -> void:
+	var camera: Camera3D = get_viewport().get_camera_3d()
+	var objpos: Vector2 = camera.unproject_position($"../slot".global_position)
+	
+	if not camera.is_position_behind($"../slot".global_position):
+		$"../islot".visible = true
+		$"../islot".position = Vector2(objpos.x - $"../slot".size.x/2.0, objpos.y - $"../slot".size.y/2.0)
+		#$"../islot".size = dotsize
+	else:
+		$"../islot".visible = false
+	
 	for s in SWITCHES:
 		if not s.ENABLED: return
 	shutdown()
 
 func shutdown() -> void:
 	if not WORKING: return
-	for l in lights:
-		l.light_energy = 0.0
+	for l in lights: l.light_energy = 0.0
   
 	if not audio_player: return
 	audio_player.stream = OUTAGE_SOUND

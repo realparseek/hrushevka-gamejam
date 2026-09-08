@@ -23,7 +23,7 @@ func _ready() -> void:
 	if fps: ORIGINAL_MSENSETIVITY = fps.mouse_sensetivity
 
 func _process(_delta: float) -> void:
-	if inventory and inventory.opened(): return
+	if inventory and inventory.VISIBLE: return
 	if pause_menu and pause_menu.PAUSED: return
 	
 	if not Input.is_action_pressed("item_interacte") and PICKED_DRAGGABLE:
@@ -58,7 +58,7 @@ func _process(_delta: float) -> void:
 		hoverable.hover()
 		PICKED_HOVERABLE = hoverable
 		ICON_POS = coll.global_position if not hoverable.icon_pos else hoverable.icon_pos.global_position
-	
+
 	if pickable and inventory:
 		if Input.is_action_just_pressed("item_pickup"):
 			if not inventory.add_pickable(pickable):

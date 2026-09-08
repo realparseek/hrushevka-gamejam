@@ -44,9 +44,6 @@ func open() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	VISIBLE = true
 
-func opened() -> bool:
-	return VISIBLE
-
 func _handle_visibility() -> void:
 	if Input.is_action_just_pressed("ui_inventory") and pause_menu and not pause_menu.PAUSED:
 		if VISIBLE: close()

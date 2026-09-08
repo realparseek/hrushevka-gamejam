@@ -7,6 +7,7 @@
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 color = Color(0.048, 0.048, 0.06, 0.78431374)
 
 [node name="slot" type="Node" parent="." unique_id=1059018792 node_paths=PackedStringArray("icon")]

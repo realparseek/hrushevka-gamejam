@@ -7,8 +7,7 @@ var WORKING: bool = true
 
 var COLOR: 
 	get: return light.light_color if light else Color.BLACK
-	set(value): 
-		if light: light.light_color = value
+	set(value): if light: light.light_color = value
 
 func _ready() -> void:
 	if WORKING: turn_on()
