@@ -33,7 +33,7 @@ func _process(_delta: float) -> void:
 	
 	if not camera.is_position_behind($"../slot".global_position):
 		$"../uslot".visible = true
-		$"../uslot".position = Vector2(objpos.x - $"../slot".size.x/2.0, objpos.y - $"../slot".size.y/2.0)
+		$"../uslot".position = Vector2(objpos.x - $"../uslot".size.x/2.0, objpos.y - $"../uslot".size.y/2.0)
 		#$"../islot".size = dotsize
 	else:
 		$"../uslot".visible = false
