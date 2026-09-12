@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 func add_pickable(pickable: Pickable) -> bool:
 	for c in grid_container.get_children():
 		for cc in c.get_children():
-			if cc is not InventorySlot or not cc.is_null(): continue
+			if cc is not InventorySlot or not cc.is_empty(): continue
 			cc.set_item(pickable)
 			return true
 	return false

@@ -32,11 +32,13 @@ func _process(_delta: float) -> void:
 	var objpos: Vector2 = camera.unproject_position($"../slot".global_position)
 	
 	if not camera.is_position_behind($"../slot".global_position):
-		$"../uslot".visible = true
-		$"../uslot".position = Vector2(objpos.x - $"../uslot".size.x/2.0, objpos.y - $"../uslot".size.y/2.0)
-		#$"../islot".size = dotsize
+		$"../slot/uslot".visible = true
+		$"../slot/uslot".modulate.a = 0.0
+		$"../slot/uslot".position = Vector2(
+			objpos.x - $"../slot/uslot".size.x/2.0, 
+			objpos.y - $"../slot/uslot".size.y/2.0)
 	else:
-		$"../uslot".visible = false
+		$"../slot/uslot".visible = false
 	
 	for s in SWITCHES:
 		if not s.ENABLED: return

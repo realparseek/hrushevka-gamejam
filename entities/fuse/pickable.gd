@@ -1,0 +1,2 @@
+extends Pickable
+class_name FusePickable

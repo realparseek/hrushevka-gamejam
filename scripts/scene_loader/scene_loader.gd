@@ -50,5 +50,5 @@ func load_scene(scene_path: String) -> void:
 	LOADING_SCENE_PATH = scene_path
 	loading_screen.show()
 
-func save_scene(path: String) -> void:
+func save_scene(_path: String) -> void:
 	pass

@@ -13,5 +13,5 @@ func set_item(pickable: Pickable) -> void:
 		PICKABLE = null
 		icon.texture = null
 
-func is_null() -> bool:
+func is_empty() -> bool:
 	return PICKABLE == null

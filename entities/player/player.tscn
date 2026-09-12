@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://br6ht05tumgv5" path="res://scripts/scene_loader/scene_loader.gd" id="1_wq0jh"]
 [ext_resource type="PackedScene" uid="uid://dion0cpxa0v11" path="res://scenes/bunker/bunker.tscn" id="2_gt4e4"]
 [ext_resource type="Script" uid="uid://cjl5jcfutf0af" path="res://scripts/fps_movement/fps_movement.gd" id="3_24ehl"]
+[ext_resource type="Script" uid="uid://5dv62lsjni7e" path="res://scripts/pickable/spawner.gd" id="3_bwdx1"]
 [ext_resource type="AudioStream" uid="uid://dma2pllb2bwnh" path="res://assets/audio/steps/step0.ogg" id="4_bwdx1"]
 [ext_resource type="AudioStream" uid="uid://c4tep4o1k1ci7" path="res://assets/audio/steps/step1.ogg" id="5_vewsg"]
 [ext_resource type="AudioStream" uid="uid://fpm5day7rjcs" path="res://assets/audio/steps/step2.ogg" id="6_2soq1"]
@@ -25,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://cqw6hy3msf12q" path="res://assets/audio/ui/ding.mp3" id="23_ssgi7"]
 [ext_resource type="AudioStream" uid="uid://bxcj8p380ajy7" path="res://assets/audio/ui/move.mp3" id="24_rtlkk"]
 [ext_resource type="FontFile" uid="uid://xdvsp7d7aa7s" path="res://assets/fonts/ibm-vga-8pt.ttf" id="25_a2brg"]
+[ext_resource type="Script" uid="uid://doree6l01vyw1" path="res://scripts/inventory/drop_area.gd" id="25_gt4e4"]
 [ext_resource type="Theme" uid="uid://ca5dkr7ytxhv7" path="res://assets/themes/pause/menu.tres" id="26_arp52"]
 [ext_resource type="AudioStream" uid="uid://c7rs3k73vj5y" path="res://assets/audio/ambience/Menu.ogg" id="27_jjk8f"]
 [ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="28_cnswy"]
@@ -50,7 +52,7 @@ height = 1.8
 render_priority = 0
 shader = ExtResource("21_c112w")
 shader_parameter/color_level = 650.0
-shader_parameter/noise_level = 0.0014999999625
+shader_parameter/noise_level = 0.000999999975
 
 [sub_resource type="QuadMesh" id="QuadMesh_4s8us"]
 material = SubResource("ShaderMaterial_h48ew")
@@ -123,6 +125,10 @@ script = ExtResource("1_wq0jh")
 player = NodePath("..")
 start_scene = ExtResource("2_gt4e4")
 loading_screen = NodePath("../loading_screen")
+
+[node name="entity_spawner" type="Node" parent="." unique_id=243357342 node_paths=PackedStringArray("scene_loader")]
+script = ExtResource("3_bwdx1")
+scene_loader = NodePath("../scene_loader")
 
 [node name="fps_movement" type="Node" parent="." unique_id=962420081 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape")]
 process_mode = 3
@@ -239,6 +245,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="drop_items" type="ColorRect" parent="ui" unique_id=808021172 node_paths=PackedStringArray("entity_spawner", "interaction_cast", "player_body")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.29, 0.29, 0.29, 0)
+script = ExtResource("25_gt4e4")
+entity_spawner = NodePath("../../entity_spawner")
+interaction_cast = NodePath("../../interaction_cast")
+player_body = NodePath("../..")
 
 [node name="inventory" type="GridContainer" parent="ui" unique_id=1754537262]
 layout_mode = 1

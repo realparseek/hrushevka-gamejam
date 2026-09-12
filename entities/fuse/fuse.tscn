@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://vtmqgy5vxla0"]
 
 [ext_resource type="Script" uid="uid://brnmjdghgrqog" path="res://scripts/hoverable/hoverable.gd" id="1_24q71"]
-[ext_resource type="Script" uid="uid://b7x3q0k514reh" path="res://scripts/pickable/pickable.gd" id="2_jau2u"]
 [ext_resource type="Texture2D" uid="uid://byweyw1w2wn1v" path="res://assets/icons/inventory_icons/orb.png" id="3_clfha"]
 [ext_resource type="AudioStream" uid="uid://bk3t6ok6a5v1x" path="res://assets/audio/generator/plastic_fall.ogg" id="4_g3j1t"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="5_a2cd0"]
 [ext_resource type="Script" uid="uid://bxqyi6emetlqp" path="res://entities/fuse/fuse.gd" id="6_ok366"]
+[ext_resource type="Script" uid="uid://dcsssboe2ud4y" path="res://entities/fuse/pickable.gd" id="7_24q71"]
 [ext_resource type="AudioStream" uid="uid://cnly3ndyvwwtw" path="res://assets/audio/generator/fuse2.mp3" id="7_yl5t0"]
 [ext_resource type="AudioStream" uid="uid://dltmt5n5jgq1b" path="res://assets/audio/generator/fuse3.mp3" id="8_c1rhe"]
 [ext_resource type="AudioStream" uid="uid://wh7o3tr1bit1" path="res://assets/audio/generator/fuse4.mp3" id="9_nx1pi"]
@@ -66,9 +66,10 @@ script = ExtResource("1_24q71")
 hover_mesh = NodePath("../outline")
 
 [node name="pickable" type="Node" parent="." unique_id=1910727214]
-script = ExtResource("2_jau2u")
+script = ExtResource("7_24q71")
 icon = ExtResource("3_clfha")
 description = "Если долго смотреть в бездну - бездна начинает........ иди нахуй"
+prefab_id = "fuse"
 
 [node name="audio" type="AudioStreamPlayer3D" parent="." unique_id=2083496643]
 stream = ExtResource("4_g3j1t")
