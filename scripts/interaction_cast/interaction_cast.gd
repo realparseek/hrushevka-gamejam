@@ -86,8 +86,13 @@ func _process(_delta: float) -> void:
 			if messenger: 
 				messenger.push_message(interactable.MESSAGE, interactable.MESSAGETIME)
 	
-	if PICKED_DRAGGABLE: show_drag_icon()
-	else: show_interacte_icon()
+	if PICKED_DRAGGABLE: return
+	if interactable or draggable or pickable: show_interacte_icon()
+	else: 
+		hide_icon()
+		if PICKED_HOVERABLE:
+			PICKED_HOVERABLE.unhover()
+			PICKED_HOVERABLE = null
 
 func show_interacte_icon() -> void:
 	if not icon_sprite: return
