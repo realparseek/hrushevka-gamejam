@@ -194,6 +194,7 @@ current = true
 [node name="interaction_cast" type="RayCast3D" parent="head/camera" unique_id=480169208]
 target_position = Vector3(0, 0, -1.2)
 collision_mask = 3
+hit_back_faces = false
 
 [node name="collision" type="CollisionShape3D" parent="." unique_id=1471520602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09101564, 0)
@@ -246,7 +247,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="drop_items" type="ColorRect" parent="ui" unique_id=808021172 node_paths=PackedStringArray("entity_spawner", "interaction_cast", "player_body")]
+[node name="drop_items" type="ColorRect" parent="ui" unique_id=808021172 node_paths=PackedStringArray("player", "entity_spawner", "interaction_cast", "player_body")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -256,6 +257,7 @@ grow_vertical = 2
 mouse_filter = 1
 color = Color(0.29, 0.29, 0.29, 0)
 script = ExtResource("25_gt4e4")
+player = NodePath("../..")
 entity_spawner = NodePath("../../entity_spawner")
 interaction_cast = NodePath("../../interaction_cast")
 player_body = NodePath("../..")
