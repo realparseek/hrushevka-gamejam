@@ -28,7 +28,7 @@ func _drop_data(_at_pos: Vector2, data: Variant) -> void:
 	else:
 		var ent: RigidBody3D = entity_spawner.spawn(data.PICKABLE.prefab_id)
 		ent.global_position = head.global_position
-		ent.global_position += global_target_pos
+		ent.global_position += global_target_pos * 0.5
 		ent.linear_velocity += global_target_pos * 1.5
 		data.PICKABLE.on_drop(player)
 		data.set_item(null)
