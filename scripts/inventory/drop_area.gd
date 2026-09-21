@@ -18,8 +18,7 @@ func _drop_data(_at_pos: Vector2, data: Variant) -> void:
 	var world3d = (get_tree().root.get_child(0) as Node3D).get_world_3d()
 	var dspace = world3d.direct_space_state
 	if dspace.intersect_ray(check_query).size() != 0: return
-	
-	#if interaction_cast.raycast.get_collider(): return
+
 	var ent: RigidBody3D = entity_spawner.spawn(data.PICKABLE.prefab_id)
 	var global_target: Vector3 = interaction_cast.raycast.target_position
 	global_target = global_target.rotated(Vector3.UP, player_body.global_rotation.y)

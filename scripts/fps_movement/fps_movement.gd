@@ -70,7 +70,7 @@ func _process(delta: float) -> void:
 	_handle_walk()
 	_handle_step_sounds()
 	_handle_headbob(delta)
-	_handle_crouching()
+	_handle_crouching(delta)
 	_handle_collisions()
 
 func _physics_process(_delta: float) -> void:
@@ -110,11 +110,11 @@ func _handle_step_sounds() -> void:
 	if HEADBOB_PREV_DIR > HEADBOB_CUR_DIR and STEP_SOUND_PLAYED:
 		STEP_SOUND_PLAYED = false
 
-func _handle_crouching():
+func _handle_crouching(delta: float):
 	if Input.is_action_just_pressed("move_crouch"):
 		CROUCHED = not CROUCHED
 	var desired_height: float = PLAYER_START_HEIGHT-crouch_size if CROUCHED else PLAYER_START_HEIGHT
-	collision_shape.shape.height = lerp(collision_shape.shape.height, desired_height, crouch_acceleration)
+	collision_shape.shape.height = lerp(collision_shape.shape.height, desired_height, crouch_acceleration*delta)
 
 func _handle_pausing():
 	if not pause_menu: return

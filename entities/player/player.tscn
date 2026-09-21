@@ -139,6 +139,7 @@ head = NodePath("../head")
 steps_player = NodePath("../step_sounds")
 collision_shape = NodePath("../collision")
 step_sounds = Array[AudioStream]([ExtResource("4_bwdx1"), ExtResource("5_vewsg"), ExtResource("6_2soq1"), ExtResource("7_8q4fm"), ExtResource("8_np63p"), ExtResource("9_0eo6o")])
+crouch_acceleration = 4.5
 headbob_tilt = 0.5
 crouch_tilt = 1.0
 
