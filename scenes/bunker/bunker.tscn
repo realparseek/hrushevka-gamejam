@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dq1gjei2dgiag" path="res://assets/audio/ambience/room.mp3" id="2_878n7"]
 [ext_resource type="Script" uid="uid://cb88qw06jug5v" path="res://entities/generator/generator.gd" id="2_ys4l0"]
 [ext_resource type="AudioStream" uid="uid://bk3t6ok6a5v1x" path="res://assets/audio/generator/plastic_fall.ogg" id="3_578qv"]
-[ext_resource type="Environment" uid="uid://bdtp0jrhcj111" path="res://scenes/bunker/environment/main.tres" id="3_ap2gx"]
+[ext_resource type="Environment" uid="uid://dj3lt2p7vxtop" path="res://scenes/bunker/environment/debug.tres" id="3_ap2gx"]
 [ext_resource type="Script" uid="uid://ddesvw5707vdn" path="res://entities/doorlight/doorlight.gd" id="4_jm3eo"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="4_p8jr6"]
 [ext_resource type="Script" uid="uid://b3lrx3y411nej" path="res://scripts/light/light_source.gd" id="4_sl3he"]
@@ -327,7 +327,7 @@ light = NodePath("..")
 metadata/_custom_type_script = "uid://b3lrx3y411nej"
 
 [node name="doorlight2" type="OmniLight3D" parent="lights" unique_id=1542811582]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5134044, 2.449399, -0.21579482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5134044, 2.449399, -0.25774324)
 light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
 
 [node name="doorlight" type="Node" parent="lights/doorlight2" unique_id=2036700402 node_paths=PackedStringArray("door", "light_source")]
@@ -361,7 +361,7 @@ light = NodePath("..")
 metadata/_custom_type_script = "uid://b3lrx3y411nej"
 
 [node name="doorlight4" type="OmniLight3D" parent="lights" unique_id=1912333092]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5134044, 2.449399, 4.8161235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5134044, 2.449399, 4.7308908)
 light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
 
 [node name="doorlight" type="Node" parent="lights/doorlight4" unique_id=1894275611 node_paths=PackedStringArray("door", "light_source")]
@@ -1209,9 +1209,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6144099, 0)
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("10_txlqv")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.192194, 0.32610512, -3.787437)
 
-[node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -0.81181717, 1.1267571, -2.8893478)
-
 [node name="BoxTest" type="RigidBody3D" parent="entities" unique_id=526282323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.027381, 1.8070855, 4.583782)
 mass = 30.0
@@ -1317,3 +1314,6 @@ transform = Transform3D(-0.99408716, 0, 0.10858527, 0, 1, 0, -0.10858527, 0, -0.
 
 [node name="гаргамель" parent="entities" unique_id=1822972340 instance=ExtResource("25_txlqv")]
 transform = Transform3D(0.16026661, 0, -0.9059331, 0, 0.92, 0, 0.9059331, 0, 0.16026661, -2.563337, 0.2544246, -2.2632241)
+
+[node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -0.81181717, 1.1267571, -2.8893478)

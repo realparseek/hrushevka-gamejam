@@ -143,7 +143,7 @@ crouch_acceleration = 4.5
 headbob_tilt = 0.5
 crouch_tilt = 1.0
 
-[node name="interaction_cast" type="Node" parent="." unique_id=729195415 node_paths=PackedStringArray("fps", "messenger", "inventory", "pause_menu", "raycast", "icon_sprite", "pickup_sound", "denied_sound")]
+[node name="interaction_cast" type="Node" parent="." unique_id=729195415 node_paths=PackedStringArray("fps", "messenger", "inventory", "pause_menu", "raycast", "icon_sprite", "crosshair_rect", "pickup_sound", "denied_sound")]
 script = ExtResource("10_ttr27")
 fps = NodePath("../fps_movement")
 messenger = NodePath("../messenger")
@@ -151,6 +151,7 @@ inventory = NodePath("../inventory")
 pause_menu = NodePath("../pause_menu")
 raycast = NodePath("../head/camera/interaction_cast")
 icon_sprite = NodePath("../cursor")
+crosshair_rect = NodePath("../ui/crosshair")
 pickup_sound = NodePath("../pickup_sound")
 denied_sound = NodePath("../denied_sound")
 icon_interacte = ExtResource("11_13wue")
@@ -248,7 +249,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="drop_items" type="ColorRect" parent="ui" unique_id=808021172 node_paths=PackedStringArray("player", "entity_spawner", "interaction_cast", "player_body")]
+[node name="drop_items" type="ColorRect" parent="ui" unique_id=808021172 node_paths=PackedStringArray("entity_spawner", "interaction_cast", "player", "head")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,10 +259,10 @@ grow_vertical = 2
 mouse_filter = 1
 color = Color(0.29, 0.29, 0.29, 0)
 script = ExtResource("25_gt4e4")
-player = NodePath("../..")
 entity_spawner = NodePath("../../entity_spawner")
 interaction_cast = NodePath("../../interaction_cast")
-player_body = NodePath("../..")
+player = NodePath("../..")
+head = NodePath("../../head")
 
 [node name="inventory" type="GridContainer" parent="ui" unique_id=1754537262]
 layout_mode = 1
