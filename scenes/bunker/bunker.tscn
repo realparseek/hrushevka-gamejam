@@ -84,7 +84,7 @@ _surfaces = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_swrb0"]
-size = Vector3(1.9219971, 1.2036133, 0.81781006)
+size = Vector3(1.9219971, 1.1169434, 0.81781006)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gxd77"]
 _surfaces = [{
@@ -447,69 +447,65 @@ metadata/_custom_type_script = "uid://b3lrx3y411nej"
 
 [node name="mesh" type="Node3D" parent="." unique_id=624987806]
 
-[node name="basement" type="CSGBox3D" parent="mesh" unique_id=927945219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.022699, 1.7022009, 2.5764208)
+[node name="basement" type="CSGCombiner3D" parent="mesh" unique_id=1935626166]
 use_collision = true
-flip_faces = true
-size = Vector3(7, 2.90979, 8.571777)
-material = ExtResource("1_5qweq")
 
 [node name="door3" type="CSGBox3D" parent="mesh/basement" unique_id=2127854733]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5245183, -0.39308786, 2.1745644)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5018191, 1.309113, 4.750985)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door4" type="CSGBox3D" parent="mesh/basement" unique_id=2144906113]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.297376, -0.39308786, -4.348173)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2746768, 1.309113, -1.7717524)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door11" type="CSGBox3D" parent="mesh/basement" unique_id=1900691594]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5290585, -0.39308786, -0.026352406)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.551758, 1.309113, 2.5500684)
 flip_faces = true
 size = Vector3(1, 2, 0.2732315)
 material = ExtResource("1_5qweq")
 
 [node name="door7" type="CSGBox3D" parent="mesh/basement" unique_id=343192929]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.608306, -0.39308786, -6.0293903)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5856068, 1.309113, -3.4529696)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door8" type="CSGBox3D" parent="mesh/basement" unique_id=181049946]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.561954, 0.18217242, -5.6799984)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5392549, 1.8843733, -3.1035776)
 flip_faces = true
 size = Vector3(1.8647003, 0.8285599, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door9" type="CSGBox3D" parent="mesh/basement" unique_id=164056335]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34718728, 0.63644457, -7.444956)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3698864, 2.3386455, -4.868535)
 flip_faces = true
 size = Vector3(1.3892517, 1.2492828, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door5" type="CSGBox3D" parent="mesh/basement" unique_id=368455843]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.5375445, -0.39308786, 2.1745644)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.5602436, 1.309113, 4.750985)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door6" type="CSGBox3D" parent="mesh/basement" unique_id=136887005]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.5375445, -0.39308786, -2.8254356)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.5602436, 1.309113, -0.24901485)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door10" type="CSGBox3D" parent="mesh/basement" unique_id=823687828]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.778206, -0.39308786, -4.299862)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.800905, 1.309113, -1.7234411)
 flip_faces = true
 size = Vector3(0.51867676, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="basement4" type="CSGBox3D" parent="mesh/basement" unique_id=701311295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6081285, 0, -3.531311)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5854294, 1.7022009, -0.95489025)
 flip_faces = true
 size = Vector3(2, 2.90979, 7.706421)
 material = ExtResource("1_5qweq")
@@ -521,69 +517,76 @@ size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="basement8" type="CSGBox3D" parent="mesh/basement" unique_id=930681008]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6081285, 0.545105, -8.95069)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5854294, 2.2473059, -6.3742695)
 flip_faces = true
 size = Vector3(2, 4, 3)
 material = ExtResource("1_5qweq")
 
 [node name="basement9" type="CSGBox3D" parent="mesh/basement" unique_id=3863401]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.595831, 2.6064215, -8.990612)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5731318, 4.3086224, -6.4141912)
 flip_faces = true
 size = Vector3(1.18396, 0.22509766, 1.1494141)
 material = ExtResource("1_5qweq")
 
 [node name="basement10" type="CSGBox3D" parent="mesh/basement" unique_id=995582585]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6081285, 3.6991277, -7.9506903)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5854294, 5.4013286, -5.3742695)
 flip_faces = true
 size = Vector3(2, 2, 5)
 material = ExtResource("1_5qweq")
 
 [node name="basement6" type="CSGBox3D" parent="mesh/basement" unique_id=653622698]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.717278, 0, -3.6230164)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.694578, 1.7022009, -1.0465956)
 flip_faces = true
 size = Vector3(6, 2.90979, 7.5230103)
 material = ExtResource("1_5qweq")
 
 [node name="basement3" type="CSGBox3D" parent="mesh/basement" unique_id=919625843]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5.8641567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0226991, 1.7022009, -3.287736)
 flip_faces = true
 size = Vector3(5, 2.90979, 3)
 material = ExtResource("1_5qweq")
 
 [node name="basement2" type="CSGBox3D" parent="mesh/basement" unique_id=1856365767]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6081285, 0, 2.7858887)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5854294, 1.7022009, 5.3623095)
 flip_faces = true
 size = Vector3(4, 2.90979, 5)
 material = ExtResource("1_5qweq")
 
 [node name="basement5" type="CSGBox3D" parent="mesh/basement" unique_id=1494325514]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.140132, 0, -2.2063599)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.162831, 1.7022009, 0.37006092)
 flip_faces = true
 size = Vector3(5, 2.90979, 4.1707764)
 material = ExtResource("1_5qweq")
 
 [node name="basement11" type="CSGBox3D" parent="mesh/basement" unique_id=509591579]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.140132, 0, 2.1697497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1628313, 1.7022009, 4.7461705)
 flip_faces = true
 size = Vector3(3, 2.90979, 4.223633)
 material = ExtResource("1_5qweq")
 
 [node name="basement13" type="CSGBox3D" parent="mesh/basement" unique_id=397545508]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.363074, 0, 2.1722045)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.385774, 1.7022009, 4.7486253)
 flip_faces = true
 size = Vector3(5, 2.90979, 4.223633)
 material = ExtResource("1_5qweq")
 
 [node name="basement12" type="CSGBox3D" parent="mesh/basement" unique_id=744136577]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1527166, -0.2872181, -0.038769245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.175416, 1.4149828, 2.5376515)
 flip_faces = true
 size = Vector3(2.07061, 2.2787895, 0.51841736)
 material = ExtResource("1_5qweq")
 
 [node name="basement7" type="CSGBox3D" parent="mesh/basement" unique_id=1303356179]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.140132, 0, -5.872793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1628313, 1.7022009, -3.2963724)
 flip_faces = true
 size = Vector3(3, 2.90979, 3)
+material = ExtResource("1_5qweq")
+
+[node name="basement" type="CSGBox3D" parent="mesh/basement" unique_id=927945219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.022699, 1.7022009, 2.5764208)
+use_collision = true
+flip_faces = true
+size = Vector3(7, 2.90979, 8.571777)
 material = ExtResource("1_5qweq")
 
 [node name="chamber" type="CSGBox3D" parent="mesh" unique_id=1344209392]
@@ -777,7 +780,7 @@ process_material = SubResource("ParticleProcessMaterial_a1qps")
 draw_pass_1 = SubResource("SphereMesh_sq6te")
 
 [node name="generator" type="StaticBody3D" parent="entities" unique_id=748440623]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3591893, 0.8648763, -4.334182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5557594, 0.7580687, -4.334182)
 
 [node name="generator" type="Node" parent="entities/generator" unique_id=1770221733 node_paths=PackedStringArray("switches_bodies", "audio_player", "fuse_sound", "explosion_sound", "electricity_sound", "sparkles")]
 script = ExtResource("2_ys4l0")
@@ -838,7 +841,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8233634, 0.50521183, 0.4486
 mesh = SubResource("ArrayMesh_ap2gx")
 
 [node name="collision" type="CollisionShape3D" parent="entities/generator" unique_id=822068904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018920898, -0.00024414063, 0.009300232)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018920898, 0.04309082, 0.009300232)
 shape = SubResource("BoxShape3D_swrb0")
 
 [node name="fuse_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1751959203]
