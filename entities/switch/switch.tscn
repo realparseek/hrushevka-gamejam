@@ -94,7 +94,7 @@ size = Vector3(0.41500854, 0.6035156, 0.22268677)
 
 [node name="switch" type="StaticBody3D" unique_id=1599686606]
 transform = Transform3D(-0.25, 0, -3.774895e-08, 0, 0.25, 0, 3.774895e-08, 0, -0.25, 0, 0, 0)
-collision_layer = 3
+collision_layer = 2
 collision_mask = 2
 
 [node name="hoverable" type="Node" parent="." unique_id=628082451 node_paths=PackedStringArray("hover_mesh")]

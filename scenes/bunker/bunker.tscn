@@ -451,13 +451,13 @@ metadata/_custom_type_script = "uid://b3lrx3y411nej"
 use_collision = true
 
 [node name="door3" type="CSGBox3D" parent="mesh/basement" unique_id=2127854733]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5018191, 1.309113, 4.750985)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.5018191, 1.2811221, 4.750985)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door4" type="CSGBox3D" parent="mesh/basement" unique_id=2144906113]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2746768, 1.309113, -1.7717524)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2746768, 1.2811221, -1.7717524)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
@@ -487,13 +487,13 @@ size = Vector3(1.3892517, 1.2492828, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door5" type="CSGBox3D" parent="mesh/basement" unique_id=368455843]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.5602436, 1.309113, 4.750985)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.5602436, 1.2811221, 4.750985)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door6" type="CSGBox3D" parent="mesh/basement" unique_id=136887005]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.5602436, 1.309113, -0.24901485)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.5602436, 1.2811221, -0.24901485)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
@@ -511,7 +511,7 @@ size = Vector3(2, 2.90979, 7.706421)
 material = ExtResource("1_5qweq")
 
 [node name="door10" type="CSGBox3D" parent="mesh/basement/basement4" unique_id=1225786346]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00017738342, -0.39308786, -3.9330096)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00017738342, -0.4210788, -3.9330096)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
@@ -885,6 +885,8 @@ metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="eletric_panel" type="StaticBody3D" parent="entities" unique_id=1561667112]
 transform = Transform3D(-0.705, 0, 1.06452035e-07, 0, 0.705, 0, -1.06452035e-07, 0, -0.705, 1.3891336, 1.7454214, -4.3615675)
+collision_layer = 0
+collision_mask = 0
 
 [node name="mesh" type="MeshInstance3D" parent="entities/eletric_panel" unique_id=1816417859]
 mesh = SubResource("ArrayMesh_gxd77")
@@ -905,7 +907,7 @@ transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.07089
 transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, 0.04169345, 0.06719327, -0.17525673)
 
 [node name="door" type="StaticBody3D" parent="entities" unique_id=2026821777]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 1.537477, 1.309154, 5.24734)
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 1.537477, 1.2811631, 5.24734)
 collision_layer = 3
 
 [node name="door" type="Node" parent="entities/door" unique_id=802647948 node_paths=PackedStringArray("animation_player", "interactable")]
@@ -958,7 +960,7 @@ metadata/_custom_type_script = "uid://cd26dddinjno8"
 libraries/ = SubResource("AnimationLibrary_uq1c4")
 
 [node name="door2" type="StaticBody3D" parent="entities" unique_id=996318969]
-transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, -0.23286116, 1.309154, -1.7518339)
+transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, -0.23286116, 1.2811631, -1.7518339)
 collision_layer = 3
 
 [node name="door" type="Node" parent="entities/door2" unique_id=567309554 node_paths=PackedStringArray("animation_player", "interactable")]
@@ -1012,7 +1014,7 @@ metadata/_custom_type_script = "uid://cd26dddinjno8"
 libraries/ = SubResource("AnimationLibrary_uq1c4")
 
 [node name="door3" type="StaticBody3D" parent="entities" unique_id=1165432989]
-transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, 2.0853584, 1.309154, -4.8389425)
+transform = Transform3D(-0.25881925, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881925, 2.0853584, 1.2811631, -4.8389425)
 collision_layer = 3
 
 [node name="door" type="Node" parent="entities/door3" unique_id=182581180 node_paths=PackedStringArray("animation_player", "interactable")]
@@ -1066,7 +1068,7 @@ metadata/_custom_type_script = "uid://cd26dddinjno8"
 libraries/ = SubResource("AnimationLibrary_uq1c4")
 
 [node name="door4" type="StaticBody3D" parent="entities" unique_id=619958560]
-transform = Transform3D(0.9659258, 0, 0.25881922, 0, 1, 0, -0.25881922, 0, 0.9659258, -5.606219, 1.309154, 4.250772)
+transform = Transform3D(0.9659258, 0, 0.25881922, 0, 1, 0, -0.25881922, 0, 0.9659258, -5.606219, 1.2811631, 4.250772)
 collision_layer = 3
 
 [node name="door" type="Node" parent="entities/door4" unique_id=927465816 node_paths=PackedStringArray("animation_player", "interactable")]
@@ -1120,7 +1122,7 @@ metadata/_custom_type_script = "uid://cd26dddinjno8"
 libraries/ = SubResource("AnimationLibrary_uq1c4")
 
 [node name="door5" type="StaticBody3D" parent="entities" unique_id=280802690]
-transform = Transform3D(0.9659258, 0, 0.25881922, 0, 1, 0, -0.25881922, 0, 0.9659258, -5.606219, 1.309154, -0.7487434)
+transform = Transform3D(0.9659258, 0, 0.25881922, 0, 1, 0, -0.25881922, 0, 0.9659258, -5.606219, 1.2811631, -0.7487434)
 collision_layer = 3
 
 [node name="door" type="Node" parent="entities/door5" unique_id=1571972058 node_paths=PackedStringArray("animation_player", "interactable")]

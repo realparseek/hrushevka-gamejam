@@ -44,9 +44,13 @@ metadata/_custom_type_script = "uid://46y1f2eo6xys"
 [sub_resource type="Compositor" id="Compositor_vpe7l"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_7ba2d")])
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mm0n8"]
-radius = 0.35
-height = 1.8
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_24ehl"]
+height = 1.6
+radius = 0.2890625
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_ofpi7"]
+length = 0.2
+slide_on_slope = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h48ew"]
 render_priority = 0
@@ -73,6 +77,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ui/loading:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_firvq"]
 resource_name = "hide"
@@ -80,10 +96,22 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ui/loading:color")
-tracks/0/interp = 2
+tracks/0/path = NodePath("ui/loading:visible")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ui/loading:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.033333335, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -96,10 +124,22 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ui/loading:color")
-tracks/0/interp = 2
+tracks/0/path = NodePath("ui/loading:visible")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ui/loading:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.033333335, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -118,6 +158,7 @@ font = ExtResource("25_a2brg")
 
 [node name="player" type="CharacterBody3D" unique_id=209289530]
 process_mode = 3
+floor_stop_on_slope = false
 floor_constant_speed = true
 
 [node name="scene_loader" type="Node" parent="." unique_id=1172825491 node_paths=PackedStringArray("player", "loading_screen")]
@@ -130,7 +171,7 @@ loading_screen = NodePath("../loading_screen")
 script = ExtResource("3_bwdx1")
 scene_loader = NodePath("../scene_loader")
 
-[node name="fps_movement" type="Node" parent="." unique_id=962420081 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape")]
+[node name="fps_movement" type="Node" parent="." unique_id=962420081 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape", "separator_ray")]
 process_mode = 3
 script = ExtResource("3_24ehl")
 pause_menu = NodePath("../pause_menu")
@@ -138,6 +179,7 @@ player = NodePath("..")
 head = NodePath("../head")
 steps_player = NodePath("../step_sounds")
 collision_shape = NodePath("../collision")
+separator_ray = NodePath("../floor_separator_ray")
 step_sounds = Array[AudioStream]([ExtResource("4_bwdx1"), ExtResource("5_vewsg"), ExtResource("6_2soq1"), ExtResource("7_8q4fm"), ExtResource("8_np63p"), ExtResource("9_0eo6o")])
 crouch_acceleration = 4.5
 headbob_tilt = 0.5
@@ -186,7 +228,7 @@ label = NodePath("../ui/message")
 message = "sample text"
 
 [node name="head" type="Node3D" parent="." unique_id=82515802]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012596369, 0.7461406, -0.09485489)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6216417, 0)
 
 [node name="camera" type="Camera3D" parent="head" unique_id=141450093]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.094000936)
@@ -199,15 +241,18 @@ collision_mask = 2
 hit_back_faces = false
 
 [node name="collision" type="CollisionShape3D" parent="." unique_id=1471520602]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09101564, 0)
-shape = SubResource("CapsuleShape3D_mm0n8")
+shape = SubResource("CylinderShape3D_24ehl")
+
+[node name="floor_separator_ray" type="CollisionShape3D" parent="." unique_id=1176016772]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.8, 0)
+shape = SubResource("SeparationRayShape3D_ofpi7")
 
 [node name="audio_listener" type="AudioListener3D" parent="." unique_id=1825371062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73364884, 0)
 current = true
 
 [node name="step_sounds" type="AudioStreamPlayer3D" parent="." unique_id=1809848228]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5173645, -0.0011698008)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, -0.001)
 volume_db = -1.5
 script = ExtResource("20_7otdo")
 metadata/_custom_type_script = "uid://cd26dddinjno8"
@@ -282,15 +327,16 @@ columns = 4
 
 [node name="message" type="Label" parent="ui" unique_id=1021794844]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 12
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = -23.0
-offset_right = 221.0
+offset_top = -16.0
+grow_horizontal = 2
 grow_vertical = 0
 text = "Сообщение"
 label_settings = SubResource("LabelSettings_j3ovn")
+horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="crosshair" type="ColorRect" parent="ui" unique_id=1121004323]
@@ -311,6 +357,7 @@ mouse_filter = 2
 
 [node name="pause" type="ColorRect" parent="ui" unique_id=814269920]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -382,3 +429,4 @@ offset_left = 5.0
 offset_top = 4.0
 offset_right = 125.0
 offset_bottom = 80.0
+scale = Vector2(0.65, 0.65)
