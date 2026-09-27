@@ -5,7 +5,7 @@ class_name Inventory
 @export var grid_container: GridContainer
 @export var move_sound: AudioStreamPlayer
 @export var rows: int = 2
-@export_range(0.0, 1.0) var open_acceleration: float
+@export var open_acceleration: float
 
 const ROWHEIGHT: int = 40
 
@@ -24,8 +24,8 @@ func _ready() -> void:
 	VIEWSIZE = get_viewport().get_visible_rect().size
 	STARTPOS = grid_container.position
 	
-func _process(_delta: float) -> void:
-	_handle_visibility()
+func _process(delta: float) -> void:
+	_handle_visibility(delta)
 	_handle_window_resize()
 
 func add_pickable(pickable: Pickable) -> bool:
@@ -44,14 +44,14 @@ func open() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	VISIBLE = true
 
-func _handle_visibility() -> void:
+func _handle_visibility(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_inventory") and pause_menu and not pause_menu.PAUSED:
 		if VISIBLE: close()
 		else: open()
 	
 	var fposy: float = STARTPOS.y - rows * ROWHEIGHT
 	fposy += float(not VISIBLE) * rows * ROWHEIGHT
-	grid_container.position.y = lerp(grid_container.position.y, fposy, open_acceleration)
+	grid_container.position.y = lerp(grid_container.position.y, fposy, open_acceleration*delta)
 
 func _handle_window_resize() -> void:
 	var cur_viewsize: Vector2 = get_viewport().get_visible_rect().size
