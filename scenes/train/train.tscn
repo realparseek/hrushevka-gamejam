@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://cx62lh0nrbwsf"]
+
+[ext_resource type="Script" uid="uid://dwg5jrcv4qtyf" path="res://scripts/scene_loader/scene.gd" id="1_tnona"]
+[ext_resource type="AudioStream" uid="uid://crdruw8rg7imr" path="res://assets/audio/ambience/die_toteninsel.mp3" id="2_0drc4"]
+[ext_resource type="Material" uid="uid://173860m84dp2" path="res://assets/materials/proto_train.tres" id="4_4bqpq"]
+[ext_resource type="PackedScene" uid="uid://dmi0dm8btchr5" path="res://resources/train/terrain/terrain.res" id="4_b0oxr"]
+[ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="6_0drc4"]
+
+[sub_resource type="Environment" id="Environment_v5inl"]
+ambient_light_source = 2
+ambient_light_color = Color(0.25335723, 0.17763251, 0.19700408, 1)
+
+[node name="train" type="Node3D" unique_id=1125562848]
+
+[node name="scene" type="Node" parent="." unique_id=1386034596 node_paths=PackedStringArray("player_spawn")]
+script = ExtResource("1_tnona")
+player_spawn = NodePath("../entities/spawn")
+
+[node name="ambient" type="AudioStreamPlayer" parent="." unique_id=1193130309]
+stream = ExtResource("2_0drc4")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+
+[node name="environment" type="WorldEnvironment" parent="." unique_id=594556376]
+environment = SubResource("Environment_v5inl")
+
+[node name="mesh" type="Node3D" parent="." unique_id=2118646522]
+
+[node name="terrain" parent="mesh" unique_id=1561613855 instance=ExtResource("4_b0oxr")]
+collision_mode = 0
+
+[node name="train" type="CSGBox3D" parent="mesh" unique_id=831032856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0284119, 0.5)
+use_collision = true
+flip_faces = true
+size = Vector3(3, 3, 12)
+material = ExtResource("4_4bqpq")
+
+[node name="window" type="CSGBox3D" parent="mesh/train" unique_id=987115265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5457009, 0.25, 4.5)
+operation = 2
+size = Vector3(0.1, 1.5, 1)
+material = ExtResource("4_4bqpq")
+
+[node name="window2" type="CSGBox3D" parent="mesh/train" unique_id=439429167]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.50399995, 0.25, 6.0447426)
+operation = 2
+size = Vector3(0.1, 1.5, 1)
+material = ExtResource("4_4bqpq")
+
+[node name="window3" type="CSGBox3D" parent="mesh/train" unique_id=950041900]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.49600005, 0.25, 6.0447426)
+operation = 2
+size = Vector3(0.1, 1.5, 1)
+material = ExtResource("4_4bqpq")
+
+[node name="sit" type="CSGBox3D" parent="mesh" unique_id=808887590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1443231, 1.0575461, 5.1500244)
+size = Vector3(0.7, 0.1546582, 0.6999512)
+material = ExtResource("6_0drc4")
+
+[node name="spine" type="CSGBox3D" parent="mesh/sit" unique_id=993925104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31140137, 0.299335)
+size = Vector3(0.7, 0.65893555, 0.10133056)
+material = ExtResource("6_0drc4")
+
+[node name="spine2" type="CSGCylinder3D" parent="mesh/sit" unique_id=688430936]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.3313656, 0.52860975)
+radius = 0.422
+height = 0.7
+sides = 16
+material = ExtResource("6_0drc4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="mesh/sit/spine2" unique_id=1257698543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12592983)
+operation = 2
+size = Vector3(1, 0.7, 0.80810547)
+material = ExtResource("6_0drc4")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="mesh/sit" unique_id=1869632238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030529737, -0.28811276, 0)
+size = Vector3(0.63894045, 0.4236377, 0.5)
+material = ExtResource("6_0drc4")
+
+[node name="entities" type="Node3D" parent="." unique_id=157158465]
+
+[node name="spawn" type="Node3D" parent="entities" unique_id=1211831025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7677711, 1.9318976, 5.7446804)
+
+[node name="lights" type="Node3D" parent="." unique_id=1430820009]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="lights" unique_id=1138084531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4230405, 3.0382748, 4.1622868)
+light_color = Color(1, 0.855, 0.71000004, 1)
+shadow_enabled = true
+omni_range = 3.6000254
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="lights" unique_id=803266073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4230405, 3.0382748, -0.50969744)
+light_color = Color(1, 0.855, 0.71000004, 1)
+shadow_enabled = true
+omni_range = 3.6000254

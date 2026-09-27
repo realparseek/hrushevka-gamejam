@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8ggy8gp55r1e"]
 
 [ext_resource type="Script" uid="uid://br6ht05tumgv5" path="res://scripts/scene_loader/scene_loader.gd" id="1_wq0jh"]
-[ext_resource type="PackedScene" uid="uid://dion0cpxa0v11" path="res://scenes/bunker/bunker.tscn" id="2_gt4e4"]
+[ext_resource type="PackedScene" uid="uid://dion0cpxa0v11" path="res://scenes/bunker/bunker.tscn" id="2_24ehl"]
 [ext_resource type="Script" uid="uid://cjl5jcfutf0af" path="res://scripts/fps_movement/fps_movement.gd" id="3_24ehl"]
 [ext_resource type="Script" uid="uid://5dv62lsjni7e" path="res://scripts/pickable/spawner.gd" id="3_bwdx1"]
 [ext_resource type="AudioStream" uid="uid://dma2pllb2bwnh" path="res://assets/audio/steps/step0.ogg" id="4_bwdx1"]
@@ -164,7 +164,7 @@ floor_constant_speed = true
 [node name="scene_loader" type="Node" parent="." unique_id=1172825491 node_paths=PackedStringArray("player", "loading_screen")]
 script = ExtResource("1_wq0jh")
 player = NodePath("..")
-start_scene = ExtResource("2_gt4e4")
+start_scene = ExtResource("2_24ehl")
 loading_screen = NodePath("../loading_screen")
 
 [node name="entity_spawner" type="Node" parent="." unique_id=243357342 node_paths=PackedStringArray("scene_loader")]
@@ -253,7 +253,7 @@ current = true
 
 [node name="step_sounds" type="AudioStreamPlayer3D" parent="." unique_id=1809848228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, -0.001)
-volume_db = -1.5
+volume_db = -10.0
 script = ExtResource("20_7otdo")
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 

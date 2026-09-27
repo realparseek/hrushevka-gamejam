@@ -31,7 +31,7 @@ project/assembly_name="t1"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/spatial_audio_extended/plugin.cfg")
+enabled=PackedStringArray("res://addons/spatial_audio_extended/plugin.cfg", "res://addons/terrain_3d/plugin.cfg")
 
 [input]
 
