@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d2idba06d7umk"]
+
+[ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="1_fcm7s"]
+
+[node name="sit" type="CSGCombiner3D" unique_id=792656594]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=725461962]
+transform = Transform3D(0.9974784, 0.07097216, 0, -0.07097216, 0.9974784, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(0.7, 0.05, 0.7)
+material = ExtResource("1_fcm7s")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=9573085]
+transform = Transform3D(-0.28401858, 0.9588188, 0, -0.9588188, -0.28401858, 0, 0, 0, 1, 0.42034912, 0.33218288, 0)
+size = Vector3(0.7, 0.05, 0.7)
+material = ExtResource("1_fcm7s")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1139547514]
+transform = Transform3D(0.99073297, -0.13582431, 0, 0.13582431, 0.99073297, 0, 0, 0, 1, 0, -0.31490493, 0)
+size = Vector3(0.3, 0.597, 0.3)
+material = ExtResource("1_fcm7s")

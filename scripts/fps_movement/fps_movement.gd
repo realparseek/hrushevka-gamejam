@@ -7,7 +7,7 @@ class_name FPSMovement
 @export var head: Node3D
 @export var steps_player: SpatialAudioPlayer3D
 @export var collision_shape: CollisionShape3D
-@export var separator_ray: CollisionShape3D
+@export var separator_rays: Array[CollisionShape3D]
 @export var step_sounds: Array[AudioStream]
 
 @export_subgroup("Movement")
@@ -116,8 +116,8 @@ func _handle_crouching(delta: float):
 		CROUCHED = not CROUCHED
 	var desired_height: float = PLAYER_START_HEIGHT-crouch_size if CROUCHED else PLAYER_START_HEIGHT
 	collision_shape.shape.height = lerp(collision_shape.shape.height, desired_height, crouch_acceleration*delta)
-	if separator_ray:
-		separator_ray.position.y = -collision_shape.shape.height/2
+	for sr in separator_rays:
+		sr.position.y = -collision_shape.shape.height/2
 
 func _handle_pausing():
 	if not pause_menu: return
