@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8ggy8gp55r1e"]
 
 [ext_resource type="Script" uid="uid://br6ht05tumgv5" path="res://scripts/scene_loader/scene_loader.gd" id="1_wq0jh"]
-[ext_resource type="PackedScene" uid="uid://dion0cpxa0v11" path="res://scenes/bunker/bunker.tscn" id="2_24ehl"]
+[ext_resource type="PackedScene" uid="uid://cx62lh0nrbwsf" path="res://scenes/train/train.tscn" id="2_24ehl"]
 [ext_resource type="Script" uid="uid://cjl5jcfutf0af" path="res://scripts/fps_movement/fps_movement.gd" id="3_24ehl"]
 [ext_resource type="Script" uid="uid://5dv62lsjni7e" path="res://scripts/pickable/spawner.gd" id="3_bwdx1"]
 [ext_resource type="AudioStream" uid="uid://dma2pllb2bwnh" path="res://assets/audio/steps/step0.ogg" id="4_bwdx1"]
@@ -179,7 +179,7 @@ player = NodePath("..")
 head = NodePath("../head")
 steps_player = NodePath("../step_sounds")
 collision_shape = NodePath("../collision")
-separator_rays = [NodePath("../floor_separator_ray"), NodePath("../floor_separator_ray2"), NodePath("../floor_separator_ray3"), NodePath("../floor_separator_ray4"), NodePath("../floor_separator_ray5")]
+separator_rays = [NodePath("../floor_separator_ray")]
 step_sounds = Array[AudioStream]([ExtResource("4_bwdx1"), ExtResource("5_vewsg"), ExtResource("6_2soq1"), ExtResource("7_8q4fm"), ExtResource("8_np63p"), ExtResource("9_0eo6o")])
 crouch_acceleration = 4.5
 headbob_tilt = 0.5
@@ -245,22 +245,6 @@ shape = SubResource("CylinderShape3D_24ehl")
 
 [node name="floor_separator_ray" type="CollisionShape3D" parent="." unique_id=1176016772]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.8, 0)
-shape = SubResource("SeparationRayShape3D_ofpi7")
-
-[node name="floor_separator_ray2" type="CollisionShape3D" parent="." unique_id=90331193]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.8, -0.28409594)
-shape = SubResource("SeparationRayShape3D_ofpi7")
-
-[node name="floor_separator_ray3" type="CollisionShape3D" parent="." unique_id=538302965]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.8, 0.30042654)
-shape = SubResource("SeparationRayShape3D_ofpi7")
-
-[node name="floor_separator_ray4" type="CollisionShape3D" parent="." unique_id=976974050]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.28184122, -0.8, 0)
-shape = SubResource("SeparationRayShape3D_ofpi7")
-
-[node name="floor_separator_ray5" type="CollisionShape3D" parent="." unique_id=731217122]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.29970422, -0.8, 0)
 shape = SubResource("SeparationRayShape3D_ofpi7")
 
 [node name="audio_listener" type="AudioListener3D" parent="." unique_id=1825371062]
