@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2ilaoqtsmdue"
+uid="uid://co6mrv27cxo80"
 path.s3tc="res://.godot/imported/informatics_10th_grade_russian_classbook_2.png-98d6ee33efb21ce209de0e2a2e3d9d0f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "19e1b5f9e7b8dcc86a1cf4ab0d3e1090"
 }
 
 [deps]

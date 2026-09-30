@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rm8m58j066n4"
+uid="uid://o4efxfloxe3h"
 path.s3tc="res://.godot/imported/old_soviet_sideboard_2.png-312408d7a4593e375faff4a812f2fae3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "90b5d536a7d962b5f23d3a4524e62610"
 }
 
 [deps]

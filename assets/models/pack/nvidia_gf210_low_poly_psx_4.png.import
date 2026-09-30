@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwo7ecs21ms87"
+uid="uid://cdu3mhiulqdss"
 path.s3tc="res://.godot/imported/nvidia_gf210_low_poly_psx_4.png-1e0a17fa8eddcf2c6367c5b1760828e2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "401f9f283f3c91de2765222105711293"
 }
 
 [deps]

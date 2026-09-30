@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc871wc2vuu4e"
+uid="uid://bts4chb1m0ad0"
 path.s3tc="res://.godot/imported/soviet_stand_small_old_5.png-a4ca05b01b781e07e446ed23f230ce8a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "4c5343e0f7b6da272513f1a0fd972a1b"
 }
 
 [deps]

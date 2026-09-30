@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8ggy8gp55r1e"]
 
 [ext_resource type="Script" uid="uid://br6ht05tumgv5" path="res://scripts/scene_loader/scene_loader.gd" id="1_wq0jh"]
-[ext_resource type="PackedScene" uid="uid://cx62lh0nrbwsf" path="res://scenes/train/train.tscn" id="2_24ehl"]
+[ext_resource type="PackedScene" uid="uid://dion0cpxa0v11" path="res://scenes/bunker/bunker.tscn" id="2_24ehl"]
 [ext_resource type="Script" uid="uid://cjl5jcfutf0af" path="res://scripts/fps_movement/fps_movement.gd" id="3_24ehl"]
 [ext_resource type="Script" uid="uid://5dv62lsjni7e" path="res://scripts/pickable/spawner.gd" id="3_bwdx1"]
 [ext_resource type="AudioStream" uid="uid://dma2pllb2bwnh" path="res://assets/audio/steps/step0.ogg" id="4_bwdx1"]

@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds5ncuml3ou56"
+uid="uid://buyikw3lg1xh6"
 path.s3tc="res://.godot/imported/old_soviet_cupboard_2.png-dd1cf784e555d0da8cc4daaad71439e4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "543aa5c8e5b1f093cf9fe960217c1a91"
 }
 
 [deps]
