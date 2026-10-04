@@ -2,15 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://2gapayyk7oxf" path="res://assets/images/proto/diffuse256.png" id="1_3kw3t"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7p5cy"]
-
 [resource]
 albedo_color = Color(1.7935457, 1.9300537, 1.9452213, 1)
 albedo_texture = ExtResource("1_3kw3t")
 metallic = 0.5
-normal_scale = 0.5
-normal_texture = SubResource("CompressedTexture2D_7p5cy")
-clearcoat = 0.05
-clearcoat_roughness = 0.15
 uv1_triplanar = true
 texture_filter = 4
