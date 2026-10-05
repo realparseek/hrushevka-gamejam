@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8ggy8gp55r1e"]
 
 [ext_resource type="Script" uid="uid://br6ht05tumgv5" path="res://scripts/scene_loader/scene_loader.gd" id="1_wq0jh"]
-[ext_resource type="PackedScene" uid="uid://dion0cpxa0v11" path="res://scenes/bunker/bunker.tscn" id="2_24ehl"]
+[ext_resource type="PackedScene" uid="uid://cx62lh0nrbwsf" path="res://scenes/train/train.tscn" id="2_24ehl"]
 [ext_resource type="Script" uid="uid://cjl5jcfutf0af" path="res://scripts/fps_movement/fps_movement.gd" id="3_24ehl"]
 [ext_resource type="Script" uid="uid://5dv62lsjni7e" path="res://scripts/pickable/spawner.gd" id="3_bwdx1"]
 [ext_resource type="AudioStream" uid="uid://dma2pllb2bwnh" path="res://assets/audio/steps/step0.ogg" id="4_bwdx1"]
@@ -162,6 +162,7 @@ font = ExtResource("25_a2brg")
 process_mode = 3
 floor_stop_on_slope = false
 floor_constant_speed = true
+floor_snap_length = 1.0
 
 [node name="scene_loader" type="Node" parent="." unique_id=1172825491 node_paths=PackedStringArray("player", "loading_screen")]
 script = ExtResource("1_wq0jh")
@@ -183,7 +184,7 @@ steps_player = NodePath("../step_sounds")
 collision_shape = NodePath("../collision")
 separator_rays = [NodePath("../floor_separator_ray")]
 step_sounds = Array[AudioStream]([ExtResource("4_bwdx1"), ExtResource("5_vewsg"), ExtResource("6_2soq1"), ExtResource("7_8q4fm"), ExtResource("8_np63p"), ExtResource("9_0eo6o")])
-crouch_acceleration = 4.5
+enable_jump = false
 headbob_tilt = 0.5
 crouch_tilt = 1.0
 

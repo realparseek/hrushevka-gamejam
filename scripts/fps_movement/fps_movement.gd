@@ -15,7 +15,8 @@ class_name FPSMovement
 @export var run_speed: float = 3.0
 @export var move_acceleration: float = 0.2
 @export var crouch_size: float = 1.2
-@export var crouch_acceleration: float = 0.07
+@export var crouch_acceleration: float = 4.5
+@export var enable_jump: bool = true
 @export var jump_force: float = 6.0
 @export var mouse_sensetivity: float = 2.0
 @export var headbob_size: float = 0.04
@@ -82,6 +83,7 @@ func _handle_gravity(delta: float) -> void:
 		player.velocity += player.get_gravity() * 2.0 * delta
 
 func _handle_jump() -> void:
+	if not enable_jump: return
 	if Input.is_action_just_pressed("move_jump") and player.is_on_floor() and not CROUCHED:
 		player.velocity.y = jump_force
 		_play_step_sound()
