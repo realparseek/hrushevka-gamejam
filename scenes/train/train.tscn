@@ -2,24 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dwg5jrcv4qtyf" path="res://scripts/scene_loader/scene.gd" id="1_tnona"]
 [ext_resource type="AudioStream" uid="uid://crdruw8rg7imr" path="res://assets/audio/ambience/die_toteninsel.mp3" id="2_0drc4"]
-[ext_resource type="Texture2D" uid="uid://4itl2arw371m" path="res://assets/images/hdri/sunset.exr" id="3_0drc4"]
+[ext_resource type="Environment" uid="uid://dsprit6j2g0b" path="res://scenes/train/evening.tres" id="3_iuhv6"]
 [ext_resource type="Material" uid="uid://173860m84dp2" path="res://assets/materials/proto_train.tres" id="4_4bqpq"]
 [ext_resource type="PackedScene" uid="uid://bnj621t0m2qpq" path="res://resources/train/terrain.res" id="4_xnb1e"]
-[ext_resource type="Material" uid="uid://cqwivw5utrrji" path="res://assets/materials/proto.material" id="5_iuhv6"]
+[ext_resource type="PackedScene" uid="uid://cs6x806jpdpn6" path="res://scenes/train/sun_evening.tscn" id="5_v58c7"]
 [ext_resource type="Script" uid="uid://bnqwthsok7rhy" path="res://scenes/train/train.gd" id="5_xnb1e"]
 [ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="6_0drc4"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0drc4"]
-panorama = ExtResource("3_0drc4")
-energy_multiplier = 0.25
-
-[sub_resource type="Sky" id="Sky_b0oxr"]
-sky_material = SubResource("PanoramaSkyMaterial_0drc4")
-
-[sub_resource type="Environment" id="Environment_v5inl"]
-background_mode = 2
-sky = SubResource("Sky_b0oxr")
-ambient_light_source = 3
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0drc4"]
 _surfaces = [{
@@ -67,33 +55,16 @@ player_spawn = NodePath("../entities/spawn")
 [node name="ambient" type="AudioStreamPlayer" parent="." unique_id=1193130309]
 stream = ExtResource("2_0drc4")
 volume_db = -20.0
-autoplay = true
 parameters/looping = true
 
 [node name="environment" type="WorldEnvironment" parent="." unique_id=594556376]
-environment = SubResource("Environment_v5inl")
+environment = ExtResource("3_iuhv6")
 
 [node name="terrain" type="Node3D" parent="." unique_id=1164933112]
 
 [node name="terrain" parent="terrain" unique_id=1287776535 instance=ExtResource("4_xnb1e")]
 
-[node name="stop" type="CSGCombiner3D" parent="terrain" unique_id=2043587314]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -135)
-use_collision = true
-
-[node name="floor" type="CSGBox3D" parent="terrain/stop" unique_id=514372768]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 0, 0.02633667)
-size = Vector3(48, 1, 3.4403687)
-material = ExtResource("5_iuhv6")
-
-[node name="stop2" type="CSGCombiner3D" parent="terrain" unique_id=1784928577]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -122)
-use_collision = true
-
-[node name="floor" type="CSGBox3D" parent="terrain/stop2" unique_id=715234801]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 0, 0.02633667)
-size = Vector3(48, 1, 3.4403687)
-material = ExtResource("5_iuhv6")
+[node name="sun" parent="." unique_id=314211557 instance=ExtResource("5_v58c7")]
 
 [node name="mesh" type="Node3D" parent="." unique_id=2118646522]
 
@@ -121,7 +92,7 @@ root_node = NodePath("../../../terrain")
 libraries/ = SubResource("AnimationLibrary_er3av")
 
 [node name="train2" type="StaticBody3D" parent="entities" unique_id=331980871]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 5, -126)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -39, 5, -126)
 
 [node name="train" type="Node" parent="entities/train2" unique_id=253298559]
 script = ExtResource("5_xnb1e")
@@ -137,11 +108,3 @@ shape = SubResource("ConcavePolygonShape3D_xnb1e")
 [node name="anim_player" type="AnimationPlayer" parent="entities/train2" unique_id=495786129]
 root_node = NodePath("../../../terrain")
 libraries/ = SubResource("AnimationLibrary_er3av")
-
-[node name="sun" type="DirectionalLight3D" parent="." unique_id=33049038]
-transform = Transform3D(0.8660254, -0.12940952, 0.48296297, -5.166992e-10, 0.9659259, 0.25881898, -0.50000006, -0.22414382, 0.83651626, -98, 23, -119)
-light_color = Color(1, 0.829, 0.45999998, 1)
-light_bake_mode = 1
-shadow_enabled = true
-directional_shadow_mode = 1
-directional_shadow_max_distance = 200.0

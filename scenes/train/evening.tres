@@ -1,0 +1,16 @@
+[gd_resource type="Environment" format=3 uid="uid://dsprit6j2g0b"]
+
+[ext_resource type="Texture2D" uid="uid://4itl2arw371m" path="res://assets/images/hdri/sunset.exr" id="1_11e4x"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0drc4"]
+panorama = ExtResource("1_11e4x")
+filter = false
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_b0oxr"]
+sky_material = SubResource("PanoramaSkyMaterial_0drc4")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_b0oxr")
+ambient_light_source = 3

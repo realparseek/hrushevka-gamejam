@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wt54gq1xh4lo"
-path.s3tc="res://.godot/imported/nightsky.png-92168f164f5d44a9ac854600fadb98ba.s3tc.ctex"
+uid="uid://dystrohujsg5a"
+path.s3tc="res://.godot/imported/tree.jpg-802c3ea99e1b613e7c84c1bf0d20cf83.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/skybox/nightsky.png"
-dest_files=["res://.godot/imported/nightsky.png-92168f164f5d44a9ac854600fadb98ba.s3tc.ctex"]
+source_file="res://assets/models/trees/tree.jpg"
+dest_files=["res://.godot/imported/tree.jpg-802c3ea99e1b613e7c84c1bf0d20cf83.s3tc.ctex"]
 
 [params]
 
