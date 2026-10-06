@@ -73,7 +73,6 @@ player_spawn = NodePath("../entities/spawn")
 [node name="ambient" type="AudioStreamPlayer" parent="." unique_id=1193130309]
 stream = ExtResource("2_0drc4")
 volume_db = -20.0
-autoplay = true
 parameters/looping = true
 
 [node name="environment" type="WorldEnvironment" parent="." unique_id=594556376]
