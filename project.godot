@@ -106,4 +106,4 @@ common/physics_ticks_per_second=120
 rendering_device/driver=""
 textures/default_filters/use_nearest_mipmap_filter=true
 textures/default_filters/anisotropic_filtering_level=4
-scaling_3d/scale=0.5
+scaling_3d/scale=0.4

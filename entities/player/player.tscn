@@ -55,7 +55,7 @@ slide_on_slope = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h48ew"]
 render_priority = 0
 shader = ExtResource("21_c112w")
-shader_parameter/enable_color_limit = true
+shader_parameter/enable_color_limit = false
 shader_parameter/color_level = 650.0
 shader_parameter/enable_noise = true
 shader_parameter/noise_level = 0.0014999999625
