@@ -13,7 +13,7 @@ class_name FPSMovement
 @export_subgroup("Movement")
 @export var move_speed: float = 2.0
 @export var run_speed: float = 3.0
-@export var move_acceleration: float = 0.2
+@export var move_acceleration: float = 10.0
 @export var crouch_size: float = 1.2
 @export var crouch_acceleration: float = 4.5
 @export var enable_jump: bool = true
@@ -69,7 +69,7 @@ func _process(delta: float) -> void:
 	
 	_handle_gravity(delta)
 	_handle_jump()
-	_handle_walk()
+	_handle_walk(delta)
 	_handle_step_sounds()
 	_handle_headbob(delta)
 	_handle_crouching(delta)
@@ -89,14 +89,14 @@ func _handle_jump() -> void:
 		_play_step_sound()
 		HEADBOB_VAL = 0.0
 	
-func _handle_walk() -> void:
+func _handle_walk(delta: float) -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var speed: float = move_speed
 	if not CROUCHED and Input.is_action_pressed("move_run"):
 		speed = run_speed
-	player.velocity.x = lerp(player.velocity.x, direction.x * speed, move_acceleration)
-	player.velocity.z = lerp(player.velocity.z, direction.z * speed, move_acceleration)
+	player.velocity.x = lerp(player.velocity.x, direction.x * speed, move_acceleration*delta)
+	player.velocity.z = lerp(player.velocity.z, direction.z * speed, move_acceleration*delta)
 
 func _handle_headbob(delta: float) -> void:
 	HEADBOB_VAL += delta * headbob_speed * player.velocity.length()

@@ -6,7 +6,6 @@
 [ext_resource type="Material" uid="uid://173860m84dp2" path="res://assets/materials/proto_train.tres" id="4_4bqpq"]
 [ext_resource type="PackedScene" uid="uid://bnj621t0m2qpq" path="res://resources/train/terrain.res" id="4_xnb1e"]
 [ext_resource type="PackedScene" uid="uid://cs6x806jpdpn6" path="res://scenes/train/sun_evening.tscn" id="5_v58c7"]
-[ext_resource type="Script" uid="uid://bnqwthsok7rhy" path="res://scenes/train/train.gd" id="5_xnb1e"]
 [ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="6_0drc4"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0drc4"]
@@ -94,9 +93,6 @@ transform = Transform3D(-0.50000006, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, -0.
 [node name="train" type="AnimatableBody3D" parent="entities" unique_id=1030196270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 5, -131)
 
-[node name="train" type="Node" parent="entities/train" unique_id=602107441]
-script = ExtResource("5_xnb1e")
-
 [node name="mesh" type="MeshInstance3D" parent="entities/train" unique_id=769378008]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0drc4")
@@ -123,14 +119,12 @@ shape = SubResource("BoxShape3D_n5qjo")
 
 [node name="anim_player" type="AnimationPlayer" parent="entities/train" unique_id=1968822154]
 root_node = NodePath("../../../terrain")
+callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_er3av")
 autoplay = &"riding"
 
 [node name="train2" type="StaticBody3D" parent="entities" unique_id=331980871]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -39, 5, -126)
-
-[node name="train" type="Node" parent="entities/train2" unique_id=253298559]
-script = ExtResource("5_xnb1e")
 
 [node name="mesh" type="MeshInstance3D" parent="entities/train2" unique_id=423864271]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
