@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bnj621t0m2qpq" path="res://resources/train/terrain.res" id="4_xnb1e"]
 [ext_resource type="PackedScene" uid="uid://cs6x806jpdpn6" path="res://scenes/train/sun_evening.tscn" id="5_v58c7"]
 [ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="6_0drc4"]
+[ext_resource type="Script" uid="uid://bnqwthsok7rhy" path="res://scenes/train/train.gd" id="6_iuhv6"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0drc4"]
 _surfaces = [{
@@ -35,6 +36,9 @@ data = PackedVector3Array(-2.1132998, 0.5, -12.639999, -1.2533, 0.5, -13.5, -2.1
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5qjo"]
 size = Vector3(0.36268234, 0.34960938, 4.099121)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ofpi7"]
+size = Vector3(0.6130371, 1.8398438, 3.93161)
+
 [sub_resource type="Animation" id="Animation_iuhv6"]
 length = 0.001
 tracks/0/type = "position_3d"
@@ -47,7 +51,7 @@ tracks/0/keys = PackedFloat32Array(0, 1, -17, 5, -131)
 
 [sub_resource type="Animation" id="Animation_v58c7"]
 resource_name = "riding"
-length = 15.0
+length = 90.0
 loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = false
@@ -55,7 +59,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("../entities/train")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -17, 5, -131, 15, 1, -273, 5, -131)
+tracks/0/keys = PackedFloat32Array(0, 1, -17, 5, -131, 90, 1, -1297, 5, -131)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_er3av"]
 _data = {
@@ -80,6 +84,7 @@ environment = ExtResource("3_iuhv6")
 [node name="terrain" type="Node3D" parent="." unique_id=1164933112]
 
 [node name="terrain" parent="terrain" unique_id=1287776535 instance=ExtResource("4_xnb1e")]
+offset = Vector2i(1, 0)
 
 [node name="sun" parent="." unique_id=314211557 instance=ExtResource("5_v58c7")]
 
@@ -88,10 +93,14 @@ environment = ExtResource("3_iuhv6")
 [node name="entities" type="Node3D" parent="." unique_id=157158465]
 
 [node name="spawn" type="Node3D" parent="entities" unique_id=1211831025]
-transform = Transform3D(-0.50000006, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, -0.50000006, -6.232231, 7.931898, -132.25531)
+transform = Transform3D(-0.50000006, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, -0.50000006, -12.232231, 7.3876343, -130.7171)
 
 [node name="train" type="AnimatableBody3D" parent="entities" unique_id=1030196270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 5, -131)
+sync_to_physics = false
+
+[node name="train" type="Node" parent="entities/train" unique_id=1772526490]
+script = ExtResource("6_iuhv6")
 
 [node name="mesh" type="MeshInstance3D" parent="entities/train" unique_id=769378008]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -117,23 +126,12 @@ shape = SubResource("BoxShape3D_n5qjo")
 transform = Transform3D(-0.8481145, 0.5298128, 8.742278e-08, 0.5298128, 0.8481145, 0, -7.414452e-08, 4.631771e-08, -1, -0.16032028, 0.79133415, 0.0026855469)
 shape = SubResource("BoxShape3D_n5qjo")
 
+[node name="wall" type="CollisionShape3D" parent="entities/train" unique_id=929226299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.179077, 2.9248047, -0.021591187)
+shape = SubResource("BoxShape3D_ofpi7")
+
 [node name="anim_player" type="AnimationPlayer" parent="entities/train" unique_id=1968822154]
 root_node = NodePath("../../../terrain")
 callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_er3av")
 autoplay = &"riding"
-
-[node name="train2" type="StaticBody3D" parent="entities" unique_id=331980871]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -39, 5, -126)
-
-[node name="mesh" type="MeshInstance3D" parent="entities/train2" unique_id=423864271]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("ArrayMesh_0drc4")
-
-[node name="collision" type="CollisionShape3D" parent="entities/train2" unique_id=570413755]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
-shape = SubResource("ConcavePolygonShape3D_xnb1e")
-
-[node name="anim_player" type="AnimationPlayer" parent="entities/train2" unique_id=495786129]
-root_node = NodePath("../../../terrain")
-libraries/ = SubResource("AnimationLibrary_er3av")

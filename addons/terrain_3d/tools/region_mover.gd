@@ -49,4 +49,5 @@ func start_rename(val: bool = false) -> void:
 		print("File: %s renamed to: %s" % [ file_name, new_name ])
 		
 	data_directory = dir_name
-	EditorInterface.get_resource_filesystem().scan()	
+	EditorInterface.get_resource_filesystem().scan()
+		

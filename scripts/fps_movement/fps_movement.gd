@@ -63,10 +63,19 @@ func _ready() -> void:
 	PLAYER_START_HEIGHT = collision_shape.shape.height
 	player.floor_max_angle = 0.7
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_handle_pausing()
 	if pause_menu and pause_menu.PAUSED: return
-	
+	#_handle_gravity(delta)
+	#_handle_jump()
+	#_handle_walk(delta)
+	#_handle_step_sounds()
+	#_handle_headbob(delta)
+	#_handle_crouching(delta)
+	#_handle_collisions()
+
+func _physics_process(delta: float) -> void:
+	if pause_menu and pause_menu.PAUSED: return
 	_handle_gravity(delta)
 	_handle_jump()
 	_handle_walk(delta)
@@ -74,9 +83,6 @@ func _process(delta: float) -> void:
 	_handle_headbob(delta)
 	_handle_crouching(delta)
 	_handle_collisions()
-
-func _physics_process(_delta: float) -> void:
-	pass
 
 func _handle_gravity(delta: float) -> void:
 	if not player.is_on_floor():

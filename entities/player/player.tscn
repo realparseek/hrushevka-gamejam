@@ -160,6 +160,7 @@ font = ExtResource("25_a2brg")
 
 [node name="player" type="CharacterBody3D" unique_id=209289530]
 process_mode = 3
+collision_layer = 5
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_snap_length = 1.0
@@ -184,7 +185,6 @@ steps_player = NodePath("../step_sounds")
 collision_shape = NodePath("../collision")
 separator_rays = [NodePath("../floor_separator_ray")]
 step_sounds = Array[AudioStream]([ExtResource("4_bwdx1"), ExtResource("5_vewsg"), ExtResource("6_2soq1"), ExtResource("7_8q4fm"), ExtResource("8_np63p"), ExtResource("9_0eo6o")])
-enable_jump = false
 headbob_tilt = 0.5
 crouch_tilt = 1.0
 
