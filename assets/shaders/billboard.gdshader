@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode unshaded, cull_disabled;
 
 uniform sampler2D albedo_tex;
 
@@ -13,6 +14,6 @@ void vertex() {
 
 void fragment() {
 	vec4 col = texture(albedo_tex, UV);
-	ALBEDO = col.rgb;
+	ALBEDO = col.rgb * 0.001;
 	ALPHA = col.a;
 }

@@ -86,6 +86,10 @@ environment = ExtResource("3_iuhv6")
 [node name="terrain" parent="terrain" unique_id=1287776535 instance=ExtResource("4_xnb1e")]
 
 [node name="sun" parent="." unique_id=314211557 instance=ExtResource("5_v58c7")]
+directional_shadow_split_1 = 0.205
+directional_shadow_split_2 = 0.285
+directional_shadow_split_3 = 0.38
+directional_shadow_max_distance = 267.4
 
 [node name="mesh" type="Node3D" parent="." unique_id=2118646522]
 

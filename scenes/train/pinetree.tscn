@@ -13,8 +13,9 @@ albedo_color = Color(1.5706233, 1.5706233, 1.5706233, 1)
 albedo_texture = ExtResource("1_jpy1i")
 metallic = 0.83919597
 texture_filter = 2
-distance_fade_min_distance = 64.0
-distance_fade_max_distance = 60.0
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 110.0
 stencil_flags = 2
 metadata/_gltf_primary_texture_coord = 1
 
@@ -60,6 +61,9 @@ cull_mode = 2
 albedo_texture = ExtResource("1_jpy1i")
 metallic = 0.83919597
 texture_filter = 2
+distance_fade_mode = 1
+distance_fade_min_distance = 256.0
+distance_fade_max_distance = 248.0
 metadata/_gltf_primary_texture_coord = 1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_o6cc0"]
