@@ -343,40 +343,6 @@ script = ExtResource("4_sl3he")
 light = NodePath("..")
 metadata/_custom_type_script = "uid://b3lrx3y411nej"
 
-[node name="doorlight3" type="OmniLight3D" parent="lights" unique_id=731811632]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.675714, 2.449399, 4.8161235)
-light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
-
-[node name="doorlight" type="Node" parent="lights/doorlight3" unique_id=1200626700 node_paths=PackedStringArray("door", "light_source")]
-script = ExtResource("4_jm3eo")
-door = NodePath("../../../entities/door4")
-light_source = NodePath("../lightsource")
-working_color = Color(0.10634999, 0.45, 0.09449999, 1)
-locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
-metadata/_custom_type_script = "uid://ddesvw5707vdn"
-
-[node name="lightsource" type="Node" parent="lights/doorlight3" unique_id=464068333 node_paths=PackedStringArray("light")]
-script = ExtResource("4_sl3he")
-light = NodePath("..")
-metadata/_custom_type_script = "uid://b3lrx3y411nej"
-
-[node name="doorlight4" type="OmniLight3D" parent="lights" unique_id=1912333092]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5134044, 2.449399, 4.7308908)
-light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
-
-[node name="doorlight" type="Node" parent="lights/doorlight4" unique_id=1894275611 node_paths=PackedStringArray("door", "light_source")]
-script = ExtResource("4_jm3eo")
-door = NodePath("../../../entities/door4")
-light_source = NodePath("../lightsource")
-working_color = Color(0.10634999, 0.45, 0.09449999, 1)
-locked_color = Color(0.46, 0.07820001, 0.07820001, 1)
-metadata/_custom_type_script = "uid://ddesvw5707vdn"
-
-[node name="lightsource" type="Node" parent="lights/doorlight4" unique_id=702640339 node_paths=PackedStringArray("light")]
-script = ExtResource("4_sl3he")
-light = NodePath("..")
-metadata/_custom_type_script = "uid://b3lrx3y411nej"
-
 [node name="doorlight5" type="OmniLight3D" parent="lights" unique_id=1852951144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4639202, 2.449399, 4.750816)
 light_color = Color(0.105882354, 0.4509804, 0.09411765, 1)
@@ -463,7 +429,19 @@ size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
 
 [node name="door11" type="CSGBox3D" parent="mesh/basement" unique_id=1900691594]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.551758, 1.309113, 2.5500684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.551758, 1.309113, 3.5500684)
+flip_faces = true
+size = Vector3(1, 2, 0.2732315)
+material = ExtResource("1_5qweq")
+
+[node name="door12" type="CSGBox3D" parent="mesh/basement" unique_id=1398009805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1897397, 1.309113, 8.930485)
+flip_faces = true
+size = Vector3(1, 2, 0.2732315)
+material = ExtResource("1_5qweq")
+
+[node name="door13" type="CSGBox3D" parent="mesh/basement" unique_id=1101855805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9811125, 1.309113, 14.043874)
 flip_faces = true
 size = Vector3(1, 2, 0.2732315)
 material = ExtResource("1_5qweq")
@@ -486,14 +464,8 @@ flip_faces = true
 size = Vector3(1.3892517, 1.2492828, 0.24136353)
 material = ExtResource("1_5qweq")
 
-[node name="door5" type="CSGBox3D" parent="mesh/basement" unique_id=368455843]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.5602436, 1.2811221, 4.750985)
-flip_faces = true
-size = Vector3(1, 2, 0.24136353)
-material = ExtResource("1_5qweq")
-
 [node name="door6" type="CSGBox3D" parent="mesh/basement" unique_id=136887005]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.5602436, 1.2811221, -0.24901485)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.6000457, 1.2811221, -0.24901485)
 flip_faces = true
 size = Vector3(1, 2, 0.24136353)
 material = ExtResource("1_5qweq")
@@ -553,25 +525,25 @@ size = Vector3(4, 2.90979, 5)
 material = ExtResource("1_5qweq")
 
 [node name="basement5" type="CSGBox3D" parent="mesh/basement" unique_id=1494325514]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.162831, 1.7022009, 0.37006092)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.795338, 1.7022007, 0.8625009)
 flip_faces = true
-size = Vector3(5, 2.90979, 4.1707764)
+size = Vector3(8.198486, 2.90979, 5.154785)
 material = ExtResource("1_5qweq")
 
 [node name="basement11" type="CSGBox3D" parent="mesh/basement" unique_id=509591579]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1628313, 1.7022009, 4.7461705)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1628313, 1.7022009, 6.2480626)
 flip_faces = true
-size = Vector3(3, 2.90979, 4.223633)
+size = Vector3(3, 2.90979, 5.227417)
 material = ExtResource("1_5qweq")
 
 [node name="basement13" type="CSGBox3D" parent="mesh/basement" unique_id=397545508]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.385774, 1.7022009, 4.7486253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.385336, 1.7022014, 6.1620092)
 flip_faces = true
-size = Vector3(5, 2.90979, 4.223633)
+size = Vector3(5, 2.90979, 5.163574)
 material = ExtResource("1_5qweq")
 
 [node name="basement12" type="CSGBox3D" parent="mesh/basement" unique_id=744136577]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.175416, 1.4149828, 2.5376515)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.175416, 1.4149828, 3.5376515)
 flip_faces = true
 size = Vector3(2.07061, 2.2787895, 0.51841736)
 material = ExtResource("1_5qweq")
@@ -580,6 +552,18 @@ material = ExtResource("1_5qweq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1628313, 1.7022009, -3.2963724)
 flip_faces = true
 size = Vector3(3, 2.90979, 3)
+material = ExtResource("1_5qweq")
+
+[node name="basement14" type="CSGBox3D" parent="mesh/basement" unique_id=1313891817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.758779, 1.7022009, 11.490741)
+flip_faces = true
+size = Vector3(8.191895, 2.90979, 5)
+material = ExtResource("1_5qweq")
+
+[node name="basement15" type="CSGBox3D" parent="mesh/basement" unique_id=238267388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.355153, 1.7022009, 15.57698)
+flip_faces = true
+size = Vector3(2.9991455, 2.90979, 3)
 material = ExtResource("1_5qweq")
 
 [node name="basement" type="CSGBox3D" parent="mesh/basement" unique_id=927945219]
@@ -641,7 +625,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29023266, -1.0253012, -0.56
 size = Vector3(0.05, 2.1035156, 0.05)
 
 [node name="shelf3" type="CSGBox3D" parent="mesh" unique_id=431789522]
-transform = Transform3D(0.98742616, 0, -0.15808171, 0, 1, 0, 0.15808171, 0, 0.98742616, -10.221602, 2.3287501, -0.97159016)
+transform = Transform3D(0.98742616, 0, -0.15808171, 0, 1, 0, 0.15808171, 0, 0.98742616, -13.221602, 2.3287501, -0.97159016)
 use_collision = true
 size = Vector3(0.6237793, 0.05030469, 1.1542969)
 material = ExtResource("23_r4pkr")
@@ -675,7 +659,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29023266, -1.0253012, -0.56
 size = Vector3(0.05, 2.1035156, 0.05)
 
 [node name="table" type="CSGBox3D" parent="mesh" unique_id=2029737628]
-transform = Transform3D(-0.9984508, 0, 0.05564367, 0, 1, 0, -0.05564367, 0, -0.9984508, -13.499738, 1.0005325, 3.3102643)
+transform = Transform3D(-0.9984508, 0, 0.05564367, 0, 1, 0, -0.05564367, 0, -0.9984508, -13.499738, 1.0005325, 5.3102646)
 use_collision = true
 size = Vector3(0.6237793, 0.05030469, 1.1542969)
 material = ExtResource("23_r4pkr")
@@ -701,7 +685,7 @@ size = Vector3(0.05, 0.7560272, 0.05)
 material = ExtResource("23_r4pkr")
 
 [node name="bed" type="CSGBox3D" parent="mesh" unique_id=1075841389]
-transform = Transform3D(0.007965208, 0, -0.9999684, 0, 1, 0, 0.9999684, 0, 0.007965208, -11.206554, 1.7048234, 5.8834395)
+transform = Transform3D(0.007965208, 0, -0.9999684, 0, 1, 0, 0.9999684, 0, 0.007965208, -11.206554, 1.7048234, 7.774924)
 use_collision = true
 size = Vector3(0.1, 2.8912096, 0.1)
 material = ExtResource("23_r4pkr")
@@ -745,7 +729,7 @@ height = 0.5025177
 material = ExtResource("23_r4pkr")
 
 [node name="shelf2" type="CSGBox3D" parent="mesh" unique_id=2023678919]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.929156, 1.4734844, 6.583426)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.929156, 1.4734844, 8.5834255)
 use_collision = true
 size = Vector3(1.3210449, 2.4379272, 0.53808594)
 material = ExtResource("23_r4pkr")
@@ -757,7 +741,7 @@ size = Vector3(1.1629295, 1.3195915, 0.51171875)
 material = ExtResource("23_r4pkr")
 
 [node name="computer2" type="CSGBox3D" parent="mesh" unique_id=856532920]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.385317, 1.3626481, 3.307689)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.385317, 1.3626481, 5.3076887)
 size = Vector3(0.33666992, 0.5302124, 0.6654663)
 material = ExtResource("23_r4pkr")
 
@@ -771,6 +755,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10720539, -0.29999745, 0)
 radius = 0.19628906
 height = 0.057037354
 
+[node name="table" type="CSGBox3D" parent="." unique_id=1637668173]
+transform = Transform3D(0.007965223, 0, -0.9999684, 0, 1, 0, 0.9999684, 0, 0.007965223, -6.577771, 0.75340116, 13.468967)
+use_collision = true
+size = Vector3(1.0096893, 1, 1.8028564)
+material = ExtResource("23_r4pkr")
+
 [node name="entities" type="Node3D" parent="." unique_id=441242414]
 
 [node name="electric_particles" type="GPUParticles3D" parent="entities" unique_id=782075015]
@@ -780,16 +770,15 @@ process_material = SubResource("ParticleProcessMaterial_a1qps")
 draw_pass_1 = SubResource("SphereMesh_sq6te")
 
 [node name="generator" type="StaticBody3D" parent="entities" unique_id=748440623]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5557594, 0.7580687, -4.334182)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12.831303, 0.7580687, 16.69119)
 
-[node name="generator" type="Node" parent="entities/generator" unique_id=1770221733 node_paths=PackedStringArray("switches_bodies", "audio_player", "fuse_sound", "explosion_sound", "electricity_sound", "sparkles")]
+[node name="generator" type="Node" parent="entities/generator" unique_id=1770221733 node_paths=PackedStringArray("switches_bodies", "audio_player", "fuse_sound", "explosion_sound", "electricity_sound")]
 script = ExtResource("2_ys4l0")
 switches_bodies = [NodePath("../../eletric_panel/switch"), NodePath("../../eletric_panel/switch2"), NodePath("../../eletric_panel/switch3"), NodePath("../../eletric_panel/switch4")]
 audio_player = NodePath("../generator_sound")
 fuse_sound = NodePath("../fuse_sound")
 explosion_sound = NodePath("../explosion_sound")
 electricity_sound = NodePath("../electricity_sound")
-sparkles = NodePath("../../electric_particles")
 
 [node name="mesh" type="CSGBox3D" parent="entities/generator" unique_id=849107133]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030822754, 0.048095703, 0.01777649)
@@ -874,7 +863,7 @@ fallback_transmission = 0.059
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="electricity_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1279328378]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7206016, 0.7458414, 0.9177685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3171053, 1.1590654, -0.11025047)
 stream = ExtResource("7_6votu")
 attenuation_model = 3
 pitch_scale = 1.01
@@ -884,7 +873,7 @@ fallback_transmission = 0.059
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="eletric_panel" type="StaticBody3D" parent="entities" unique_id=1561667112]
-transform = Transform3D(-0.705, 0, 1.06452035e-07, 0, 0.705, 0, -1.06452035e-07, 0, -0.705, 1.3891336, 1.7454214, -4.3615675)
+transform = Transform3D(1.3726856e-07, 0, 0.705, 0, 0.705, 0, -0.705, 0, 1.3726856e-07, -11.410039, 1.7454214, 17.016506)
 collision_layer = 0
 collision_mask = 0
 
@@ -1065,60 +1054,6 @@ script = ExtResource("4_p8jr6")
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="anim_player" type="AnimationPlayer" parent="entities/door3" unique_id=777948880]
-libraries/ = SubResource("AnimationLibrary_uq1c4")
-
-[node name="door4" type="StaticBody3D" parent="entities" unique_id=619958560]
-transform = Transform3D(0.9659258, 0, 0.25881922, 0, 1, 0, -0.25881922, 0, 0.9659258, -5.606219, 1.2811631, 4.250772)
-collision_layer = 3
-
-[node name="door" type="Node" parent="entities/door4" unique_id=927465816 node_paths=PackedStringArray("animation_player", "interactable")]
-script = ExtResource("15_qi1sa")
-locked = false
-animation_player = NodePath("../anim_player")
-interactable = NodePath("../interactable")
-
-[node name="interactable" type="Node" parent="entities/door4" unique_id=1453192086]
-script = ExtResource("11_l760p")
-
-[node name="open" type="Node" parent="entities/door4/interactable" unique_id=1763756891 node_paths=PackedStringArray("door", "door_close")]
-script = ExtResource("17_5p3oa")
-door = NodePath("../../door")
-door_close = NodePath("../close")
-
-[node name="close" type="Node" parent="entities/door4/interactable" unique_id=1228307228 node_paths=PackedStringArray("door", "door_open")]
-script = ExtResource("18_ap2gx")
-door = NodePath("../../door")
-door_open = NodePath("../open")
-
-[node name="hoverable" type="Node" parent="entities/door4" unique_id=1427187016 node_paths=PackedStringArray("icon_pos")]
-script = ExtResource("13_6votu")
-icon_pos = NodePath("../collision/icon")
-
-[node name="collision" type="CollisionShape3D" parent="entities/door4" unique_id=853648145]
-transform = Transform3D(-0.25881985, 0, -0.9659261, 0, 1, 0, 0.9659261, 0, -0.25881985, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_dsbe1")
-
-[node name="mesh" type="MeshInstance3D" parent="entities/door4/collision" unique_id=1157207798]
-mesh = SubResource("ArrayMesh_6sqah")
-
-[node name="icon" type="Node3D" parent="entities/door4/collision" unique_id=502717994]
-transform = Transform3D(-0.2588194, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.2588194, 0.7737375, 0, -2.536508e-07)
-
-[node name="audio" type="AudioStreamPlayer3D" parent="entities/door4/collision" unique_id=1696494645]
-transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.6786844, 1.0626744, -0.39204803)
-max_distance = 10.0
-area_mask = 3
-script = ExtResource("4_p8jr6")
-metadata/_custom_type_script = "uid://cd26dddinjno8"
-
-[node name="audio2" type="AudioStreamPlayer3D" parent="entities/door4/collision" unique_id=1430477618]
-transform = Transform3D(-0.25881964, 0, 0.96592516, 0, 1, 0, -0.96592516, 0, -0.25881964, 0.678685, 1.0626744, 0.3391811)
-max_distance = 10.0
-area_mask = 3
-script = ExtResource("4_p8jr6")
-metadata/_custom_type_script = "uid://cd26dddinjno8"
-
-[node name="anim_player" type="AnimationPlayer" parent="entities/door4" unique_id=2007429494]
 libraries/ = SubResource("AnimationLibrary_uq1c4")
 
 [node name="door5" type="StaticBody3D" parent="entities" unique_id=280802690]
@@ -1321,4 +1256,4 @@ transform = Transform3D(-0.99408716, 0, 0.10858527, 0, 1, 0, -0.10858527, 0, -0.
 transform = Transform3D(0.16026661, 0, -0.9059331, 0, 0.92, 0, 0.9059331, 0, 0.16026661, -2.563337, 0.2544246, -2.2632241)
 
 [node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -0.81181717, 1.1267571, -2.8893478)
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -7.811817, 1.1267571, -0.8893478)

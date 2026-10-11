@@ -5,6 +5,7 @@
 [ext_resource type="Environment" uid="uid://dsprit6j2g0b" path="res://scenes/train/evening.tres" id="3_iuhv6"]
 [ext_resource type="Material" uid="uid://173860m84dp2" path="res://assets/materials/proto_train.tres" id="4_4bqpq"]
 [ext_resource type="PackedScene" uid="uid://bnj621t0m2qpq" path="res://resources/train/terrain.res" id="4_xnb1e"]
+[ext_resource type="Script" uid="uid://bngnvtbm6ifkk" path="res://addons/terrain_3d/tools/region_mover.gd" id="5_er3av"]
 [ext_resource type="PackedScene" uid="uid://cs6x806jpdpn6" path="res://scenes/train/sun_evening.tscn" id="5_v58c7"]
 [ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="6_0drc4"]
 [ext_resource type="Script" uid="uid://bnqwthsok7rhy" path="res://scenes/train/train.gd" id="6_iuhv6"]
@@ -84,6 +85,8 @@ environment = ExtResource("3_iuhv6")
 [node name="terrain" type="Node3D" parent="." unique_id=1164933112]
 
 [node name="terrain" parent="terrain" unique_id=1287776535 instance=ExtResource("4_xnb1e")]
+gi_mode = 0
+script = ExtResource("5_er3av")
 
 [node name="sun" parent="." unique_id=314211557 instance=ExtResource("5_v58c7")]
 directional_shadow_split_1 = 0.205

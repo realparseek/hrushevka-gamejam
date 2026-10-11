@@ -7,7 +7,6 @@ class_name Generator
 @export var fuse_sound: SpatialAudioPlayer3D
 @export var explosion_sound: SpatialAudioPlayer3D
 @export var electricity_sound: SpatialAudioPlayer3D
-@export var sparkles: GPUParticles3D
 
 var WORKING: bool = true
 
@@ -53,7 +52,6 @@ func shutdown() -> void:
 	audio_player.set("parameters/looping", false)
 	audio_player.play()
 	WORKING = false
-	sparkles.visible = true
 	electricity_sound.play()
 	explosion_sound.play()
 	fuse_sound.play()
