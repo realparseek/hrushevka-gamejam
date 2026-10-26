@@ -49,7 +49,7 @@ height = 1.6
 radius = 0.2890625
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_ofpi7"]
-length = 0.2
+length = 0.09312122
 slide_on_slope = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h48ew"]
@@ -249,6 +249,11 @@ shape = SubResource("CylinderShape3D_24ehl")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.8, 0)
 shape = SubResource("SeparationRayShape3D_ofpi7")
 
+[node name="light" type="OmniLight3D" parent="." unique_id=1516499429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50934476, 0)
+light_color = Color(0.33097017, 0.34040582, 0.36398563, 1)
+omni_range = 2.631
+
 [node name="audio_listener" type="AudioListener3D" parent="." unique_id=1825371062]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73364884, 0)
 current = true
@@ -412,7 +417,7 @@ alignment = 0
 
 [node name="ambient" type="AudioStreamPlayer" parent="ui/pause" unique_id=2047979984]
 stream = ExtResource("27_jjk8f")
-volume_db = -10.0
+volume_db = -20.0
 parameters/looping = true
 
 [node name="loading" type="ColorRect" parent="ui" unique_id=1486058033]

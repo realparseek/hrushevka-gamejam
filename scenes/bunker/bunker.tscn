@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dq1gjei2dgiag" path="res://assets/audio/ambience/room.mp3" id="2_878n7"]
 [ext_resource type="Script" uid="uid://cb88qw06jug5v" path="res://entities/generator/generator.gd" id="2_ys4l0"]
 [ext_resource type="AudioStream" uid="uid://bk3t6ok6a5v1x" path="res://assets/audio/generator/plastic_fall.ogg" id="3_578qv"]
-[ext_resource type="Environment" uid="uid://dj3lt2p7vxtop" path="res://scenes/bunker/environment/debug.tres" id="3_ap2gx"]
+[ext_resource type="Environment" uid="uid://bdtp0jrhcj111" path="res://scenes/bunker/environment/main.tres" id="3_ap2gx"]
 [ext_resource type="Script" uid="uid://ddesvw5707vdn" path="res://entities/doorlight/doorlight.gd" id="4_jm3eo"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="4_p8jr6"]
 [ext_resource type="Script" uid="uid://b3lrx3y411nej" path="res://scripts/light/light_source.gd" id="4_sl3he"]
@@ -435,13 +435,13 @@ size = Vector3(1, 2, 0.2732315)
 material = ExtResource("1_5qweq")
 
 [node name="door12" type="CSGBox3D" parent="mesh/basement" unique_id=1398009805]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1897397, 1.309113, 8.930485)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1897397, 1.309113, 10.930485)
 flip_faces = true
 size = Vector3(1, 2, 0.2732315)
 material = ExtResource("1_5qweq")
 
 [node name="door13" type="CSGBox3D" parent="mesh/basement" unique_id=1101855805]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9811125, 1.309113, 14.084306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9811125, 1.309113, 16.084305)
 flip_faces = true
 size = Vector3(1, 2, 0.2732315)
 material = ExtResource("1_5qweq")
@@ -531,15 +531,15 @@ size = Vector3(8.198486, 2.90979, 5.154785)
 material = ExtResource("1_5qweq")
 
 [node name="basement11" type="CSGBox3D" parent="mesh/basement" unique_id=509591579]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1628313, 1.7022009, 6.2480626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1628313, 1.7022009, 7.24791)
 flip_faces = true
-size = Vector3(3, 2.90979, 5.227417)
+size = Vector3(3, 2.90979, 7.227112)
 material = ExtResource("1_5qweq")
 
 [node name="basement13" type="CSGBox3D" parent="mesh/basement" unique_id=397545508]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.385336, 1.7022014, 6.1620092)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.385336, 1.7022014, 7.219413)
 flip_faces = true
-size = Vector3(5, 2.90979, 5.163574)
+size = Vector3(7, 2.90979, 7.2783813)
 material = ExtResource("1_5qweq")
 
 [node name="basement12" type="CSGBox3D" parent="mesh/basement" unique_id=744136577]
@@ -555,13 +555,13 @@ size = Vector3(3, 2.90979, 3)
 material = ExtResource("1_5qweq")
 
 [node name="basement14" type="CSGBox3D" parent="mesh/basement" unique_id=1313891817]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.758779, 1.7022009, 11.490741)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.758779, 1.7022009, 13.490741)
 flip_faces = true
 size = Vector3(8.191895, 2.90979, 5)
 material = ExtResource("1_5qweq")
 
 [node name="basement15" type="CSGBox3D" parent="mesh/basement" unique_id=238267388]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.854726, 1.7022009, 15.67805)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.854726, 1.7022009, 17.678051)
 flip_faces = true
 size = Vector3(4, 2.90979, 3)
 material = ExtResource("1_5qweq")
@@ -684,34 +684,70 @@ transform = Transform3D(1, 0, -1.4901161e-08, 0, 1, 0, 1.4901161e-08, 0, 1, 0.28
 size = Vector3(0.05, 0.7560272, 0.05)
 material = ExtResource("23_r4pkr")
 
-[node name="bed" type="CSGBox3D" parent="mesh" unique_id=1075841389]
-transform = Transform3D(0.007965208, 0, -0.9999684, 0, 1, 0, 0.9999684, 0, 0.007965208, -11.206554, 1.7048234, 7.774924)
+[node name="bed" type="CSGCombiner3D" parent="mesh" unique_id=252871237]
+transform = Transform3D(-0.0079651205, 0, 0.9999684, 0, 1, 0, -0.9999684, 0, -0.0079651205, -13.568665, 1.7048234, 10.774923)
+
+[node name="bed" type="CSGBox3D" parent="mesh/bed" unique_id=1075841389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99950886, 0, 0.04773712)
 use_collision = true
-size = Vector3(0.1, 2.8912096, 0.1)
+size = Vector3(0.1, 2.8912096, 0.13496093)
 material = ExtResource("23_r4pkr")
 
-[node name="bed" type="CSGBox3D" parent="mesh/bed" unique_id=2018135875]
+[node name="bed4" type="CSGBox3D" parent="mesh/bed" unique_id=617177490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00045871735, 0, 0.039772034)
+use_collision = true
+size = Vector3(0.1, 2.8912096, 0.13496093)
+material = ExtResource("23_r4pkr")
+
+[node name="bed2" type="CSGBox3D" parent="mesh/bed" unique_id=2018135875]
 transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.46933174, -0.70429087, -1.1282463)
 use_collision = true
 size = Vector3(1.0096893, 0.05030469, 2.342392)
 material = ExtResource("23_r4pkr")
 
-[node name="bed2" type="CSGBox3D" parent="mesh/bed" unique_id=496977211]
-transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.46933174, 0.51976645, -1.1282454)
+[node name="bed3" type="CSGBox3D" parent="mesh/bed" unique_id=496977211]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.46933174, 0.51976645, -1.1282463)
 use_collision = true
 size = Vector3(1.0096893, 0.05030469, 2.342392)
 material = ExtResource("23_r4pkr")
 
-[node name="bed3" type="CSGBox3D" parent="mesh/bed" unique_id=1740566889]
-transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.51173544, 0.77260077, 0.0385828)
+[node name="bed5" type="CSGBox3D" parent="mesh/bed" unique_id=1673920129]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.4630165, -0.0024937391, 0.03859043)
 use_collision = true
-size = Vector3(0.9091606, 0.5487119, 0.017578125)
+size = Vector3(1.006587, 2.8848877, 0.017578125)
 material = ExtResource("23_r4pkr")
 
-[node name="bed4" type="CSGBox3D" parent="mesh/bed" unique_id=1673920129]
-transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.51173735, -0.8983518, 0.03858757)
+[node name="bed2" type="CSGCombiner3D" parent="mesh" unique_id=863383888]
+transform = Transform3D(-0.0079651205, 0, 0.9999684, 0, 1, 0, -0.9999684, 0, -0.0079651205, -13.568665, 1.7048234, 8.363958)
+
+[node name="bed" type="CSGBox3D" parent="mesh/bed2" unique_id=1257084002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99950886, 0, 0.04773712)
 use_collision = true
-size = Vector3(0.9091606, 1.0931716, 0.017578125)
+size = Vector3(0.1, 2.8912096, 0.13496093)
+material = ExtResource("23_r4pkr")
+
+[node name="bed4" type="CSGBox3D" parent="mesh/bed2" unique_id=407776295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0004606247, 0, 0.03977108)
+use_collision = true
+size = Vector3(0.1, 2.8912096, 0.13496093)
+material = ExtResource("23_r4pkr")
+
+[node name="bed2" type="CSGBox3D" parent="mesh/bed2" unique_id=242486368]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.46933174, -0.70429087, -1.1282463)
+use_collision = true
+size = Vector3(1.0096893, 0.05030469, 2.342392)
+material = ExtResource("23_r4pkr")
+
+[node name="bed3" type="CSGBox3D" parent="mesh/bed2" unique_id=1906206696]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.46933174, 0.51976645, -1.1282463)
+use_collision = true
+size = Vector3(1.0096893, 0.05030469, 2.342392)
+material = ExtResource("23_r4pkr")
+
+[node name="bed5" type="CSGBox3D" parent="mesh/bed2" unique_id=1412175766]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 1, 0, -1.4901161e-08, 0, 1, 0.4630165, -0.0024937391, 0.03859043)
+use_collision = true
+size = Vector3(1.006587, 2.8848877, 0.017578125)
 material = ExtResource("23_r4pkr")
 
 [node name="bucket" type="CSGCylinder3D" parent="mesh" unique_id=2014035585]
@@ -729,7 +765,7 @@ height = 0.5025177
 material = ExtResource("23_r4pkr")
 
 [node name="shelf2" type="CSGBox3D" parent="mesh" unique_id=2023678919]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.929156, 1.4734844, 8.5834255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.929156, 1.4734844, 10.5834255)
 use_collision = true
 size = Vector3(1.3210449, 2.4379272, 0.53808594)
 material = ExtResource("23_r4pkr")
@@ -760,19 +796,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 1.4773755, 9.27835)
 use_collision = true
 
 [node name="shelf1" type="CSGBox3D" parent="mesh/closet" unique_id=1302795118]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11453247)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1145325)
 use_collision = true
 size = Vector3(1.3210449, 2.4379272, 0.7671509)
 material = ExtResource("23_r4pkr")
 
 [node name="shelf" type="CSGBox3D" parent="mesh/closet" unique_id=260952799]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.18004417)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1800442)
 operation = 2
 size = Vector3(1.198, 2.29, 0.78926516)
 material = ExtResource("23_r4pkr")
 
 [node name="table" type="CSGBox3D" parent="." unique_id=1637668173]
-transform = Transform3D(0.007965223, 0, -0.9999684, 0, 1, 0, 0.9999684, 0, 0.007965223, -6.577771, 0.75340116, 13.468967)
+transform = Transform3D(0.007965223, 0, -0.9999684, 0, 1, 0, 0.9999684, 0, 0.007965223, -6.577771, 0.75340116, 15.468967)
 use_collision = true
 size = Vector3(1.0096893, 1, 1.8028564)
 material = ExtResource("23_r4pkr")
@@ -797,13 +833,13 @@ explosion_sound = NodePath("../explosion_sound")
 electricity_sound = NodePath("../electricity_sound")
 
 [node name="mesh" type="CSGBox3D" parent="entities/generator" unique_id=849107133]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030822754, 0.048095703, -0.056865692)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030822754, 0.048095703, -2.0568657)
 use_collision = true
 size = Vector3(1.9105835, 1.0961914, 0.7865906)
 material = ExtResource("23_r4pkr")
 
 [node name="slot" type="CSGBox3D" parent="entities/generator" unique_id=2034473397]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8233671, 0.50521183, 0.3739624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8233671, 0.50521183, -1.6260376)
 collision_layer = 0
 collision_mask = 0
 size = Vector3(0.01, 0.01, 0.06416015)
@@ -842,15 +878,15 @@ script = ExtResource("10_ra1mw")
 inventory_slot = NodePath("../slot")
 
 [node name="fuse" type="MeshInstance3D" parent="entities/generator" unique_id=1350748857]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8233671, 0.50521183, 0.3739624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8233671, 0.50521183, -1.6260376)
 mesh = SubResource("ArrayMesh_ap2gx")
 
 [node name="collision" type="CollisionShape3D" parent="entities/generator" unique_id=822068904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018920898, 0.04309082, -0.06534195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018920898, 0.04309082, -2.065342)
 shape = SubResource("BoxShape3D_swrb0")
 
 [node name="fuse_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1751959203]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4428892, -0.23493052, 1.4471292)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4428892, -0.23493052, -0.5528698)
 stream = ExtResource("3_578qv")
 volume_db = -5.0
 max_distance = 7.0
@@ -859,7 +895,7 @@ fallback_transmission = 0.082
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="explosion_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=450557645]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5313015, 0.15107727, 0.575346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5313015, 0.15107727, -1.424654)
 stream = ExtResource("5_l760p")
 volume_db = 10.0
 max_distance = 7.0
@@ -868,7 +904,7 @@ fallback_transmission = 0.082
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="generator_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1189477140]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11170292, 0.1811161, 0.5873928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11170292, 0.1811161, -1.4126072)
 stream = ExtResource("6_878n7")
 attenuation_model = 3
 volume_db = -20.0
@@ -879,7 +915,7 @@ fallback_transmission = 0.059
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="electricity_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1279328378]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3171053, 1.1590654, -0.18489265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3171053, 1.1590654, -2.1848927)
 stream = ExtResource("7_6votu")
 attenuation_model = 3
 pitch_scale = 1.01
@@ -894,24 +930,24 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="mesh" type="MeshInstance3D" parent="entities/eletric_panel" unique_id=1816417859]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105875015, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9427547, 0, 1.9073486e-06)
 mesh = SubResource("ArrayMesh_gxd77")
 
 [node name="collision" type="CollisionShape3D" parent="entities/eletric_panel" unique_id=1595346032]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105875015, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9427547, 0, 1.9073486e-06)
 shape = SubResource("ConcavePolygonShape3D_gxd77")
 
 [node name="switch" parent="entities/eletric_panel" unique_id=1599686606 instance=ExtResource("8_r4pkr")]
-transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -0.06418228, 0.06719327, 0.18269157)
+transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -2.901062, 0.06719327, 0.18269348)
 
 [node name="switch2" parent="entities/eletric_panel" unique_id=520394258 instance=ExtResource("8_r4pkr")]
-transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -0.06418228, 0.06719327, 0.066352844)
+transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -2.901062, 0.06719327, 0.06635475)
 
 [node name="switch3" parent="entities/eletric_panel" unique_id=1118575857 instance=ExtResource("8_r4pkr")]
-transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -0.06418228, 0.06719327, -0.058639526)
+transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -2.901062, 0.06719327, -0.05863762)
 
 [node name="switch4" parent="entities/eletric_panel" unique_id=1754541526 instance=ExtResource("8_r4pkr")]
-transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -0.06418228, 0.06719327, -0.17525673)
+transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -2.901062, 0.06719327, -0.17525482)
 
 [node name="door" type="StaticBody3D" parent="entities" unique_id=2026821777]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 1.537477, 1.2811631, 5.24734)
@@ -1155,7 +1191,7 @@ script = ExtResource("13_6votu")
 icon_pos = NodePath("../collision/icon")
 
 [node name="collision" type="CollisionShape3D" parent="entities/door6" unique_id=1973192116]
-transform = Transform3D(-0.25881985, 0, -0.9659261, 0, 1, 0, 0.9659261, 0, -0.25881985, 0, 0, 0)
+transform = Transform3D(-0.25881988, 0, -0.96592623, 0, 1, 0, 0.96592623, 0, -0.25881988, 1.9318514, 0, 0.51763916)
 shape = SubResource("ConvexPolygonShape3D_dsbe1")
 
 [node name="mesh" type="MeshInstance3D" parent="entities/door6/collision" unique_id=563839379]
