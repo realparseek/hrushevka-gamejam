@@ -24,10 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://c1oti4c5n3qw0" path="res://assets/audio/ambience/p3.ogg" id="13_jm3eo"]
 [ext_resource type="AudioStream" uid="uid://cbfxnr0qvves7" path="res://assets/audio/ambience/p7.ogg" id="14_3ygmk"]
 [ext_resource type="Script" uid="uid://drm0nqeu0gtp6" path="res://entities/door/door.gd" id="15_qi1sa"]
-[ext_resource type="Script" uid="uid://cdsgkepujw22i" path="res://scripts/physics/fall.gd" id="15_r6ban"]
-[ext_resource type="AudioStream" uid="uid://cq4fqclgroqub" path="res://assets/audio/interaction/contact2.mp3" id="16_e5ka1"]
 [ext_resource type="Script" uid="uid://bk66uehkk8p2d" path="res://entities/door/open.gd" id="17_5p3oa"]
-[ext_resource type="AudioStream" uid="uid://c80gua0qxpao" path="res://assets/audio/interaction/contact1.mp3" id="17_qi1sa"]
 [ext_resource type="Script" uid="uid://drebsfgujklgk" path="res://entities/door/close.gd" id="18_ap2gx"]
 [ext_resource type="AudioStream" uid="uid://cp4stcmqo2e4o" path="res://assets/audio/door/close.mp3" id="20_ra1mw"]
 [ext_resource type="AudioStream" uid="uid://tfltlt2bqa5t" path="res://assets/audio/door/locked.mp3" id="21_awlkk"]
@@ -35,42 +32,6 @@
 [ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="23_r4pkr"]
 [ext_resource type="PackedScene" uid="uid://bafmbprcx7u8j" path="res://assets/shaders/gargamel shader test/Kvazimodo.glb" id="25_g4n5i"]
 [ext_resource type="PackedScene" uid="uid://b4tbckmoxcp3s" path="res://assets/shaders/gargamel shader test/гаргамель.glb" id="25_txlqv"]
-
-[sub_resource type="Curve" id="Curve_gxd77"]
-_data = [Vector2(0.35459182, 0.10674167), 0.0, 0.0, 0, 0, Vector2(0.42091835, 1), 0.0, 0.0, 0, 0, Vector2(0.8137755, 0.32022476), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_3nfyn"]
-_data = [Vector2(0, 0.7471911), 0.0, 0.0, 0, 0, Vector2(0.747449, 0.511236), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_7ba2d"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.3089888), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_sq6te"]
-curve_x = SubResource("Curve_gxd77")
-curve_y = SubResource("Curve_3nfyn")
-curve_z = SubResource("Curve_7ba2d")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a1qps"]
-spread = 128.846
-initial_velocity_max = 3.0
-directional_velocity_min = 1.0
-directional_velocity_max = 1.0
-directional_velocity_curve = SubResource("CurveXYZTexture_sq6te")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ba2d"]
-albedo_color = Color(0.6235507, 0.45129478, 0.24918056, 1)
-emission_enabled = true
-emission = Color(0.7364849, 0.45018137, 0.048889592, 1)
-emission_energy_multiplier = 16.0
-billboard_keep_scale = true
-
-[sub_resource type="SphereMesh" id="SphereMesh_sq6te"]
-material = SubResource("StandardMaterial3D_7ba2d")
-radius = 0.002
-height = 0.004
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ap2gx"]
 _surfaces = [{
@@ -268,30 +229,6 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_02yi3"]
 size = Vector3(0.5020447, 1.9048462, 0.16235352)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v5gy4"]
-rough = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_8vrlf"]
-size = Vector3(1.7310181, 1.6420288, 0.15002441)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_acu8t"]
-size = Vector3(1.7144165, 1.6137695, 0.152771)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qbdty"]
-rough = true
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8vrlf"]
-size = Vector3(0.44976807, 0.04309082, 0.46981812)
-
-[sub_resource type="BoxMesh" id="BoxMesh_auskg"]
-size = Vector3(0.44244385, 0.032196045, 0.47387695)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qbdty"]
-size = Vector3(0.024902344, 0.37329102, 0.03466797)
-
-[sub_resource type="BoxMesh" id="BoxMesh_1vivr"]
-size = Vector3(0.029876709, 0.34375, 0.03857422)
-
 [node name="bunker" type="Node3D" unique_id=582073405]
 
 [node name="scene" type="Node" parent="." unique_id=1845090491 node_paths=PackedStringArray("player_spawn")]
@@ -458,12 +395,6 @@ flip_faces = true
 size = Vector3(1.8647003, 0.8285599, 0.24136353)
 material = ExtResource("1_5qweq")
 
-[node name="door9" type="CSGBox3D" parent="mesh/basement" unique_id=164056335]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3698864, 2.3386455, -4.868535)
-flip_faces = true
-size = Vector3(1.3892517, 1.2492828, 0.24136353)
-material = ExtResource("1_5qweq")
-
 [node name="door6" type="CSGBox3D" parent="mesh/basement" unique_id=136887005]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.6000457, 1.2811221, -0.24901485)
 flip_faces = true
@@ -567,10 +498,10 @@ size = Vector3(4, 2.90979, 3)
 material = ExtResource("1_5qweq")
 
 [node name="basement" type="CSGBox3D" parent="mesh/basement" unique_id=927945219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.022699, 1.7022009, 2.5764208)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.022699, 1.7022009, 3.290532)
 use_collision = true
 flip_faces = true
-size = Vector3(7, 2.90979, 8.571777)
+size = Vector3(7, 2.90979, 10)
 material = ExtResource("1_5qweq")
 
 [node name="chamber" type="CSGBox3D" parent="mesh" unique_id=1344209392]
@@ -750,6 +681,126 @@ use_collision = true
 size = Vector3(1.006587, 2.8848877, 0.017578125)
 material = ExtResource("23_r4pkr")
 
+[node name="table3" type="CSGCombiner3D" parent="mesh" unique_id=925935040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6145158, 1.1141881, 7.5390306)
+use_collision = true
+
+[node name="table4" type="CSGBox3D" parent="mesh/table3" unique_id=1094446411]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.039277554, 0.07016981, -0.09455061)
+use_collision = true
+size = Vector3(0.7747803, 0.05030469, 1.5444336)
+material = ExtResource("23_r4pkr")
+
+[node name="handle" type="CSGBox3D" parent="mesh/table3" unique_id=1264873738]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.3935988, -0.38609004, -0.83528185)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle2" type="CSGBox3D" parent="mesh/table3" unique_id=1709195133]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.3935988, -0.38609004, 0.64079237)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle3" type="CSGBox3D" parent="mesh/table3" unique_id=1155619229]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.3164115, -0.38609004, -0.83528185)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle4" type="CSGBox3D" parent="mesh/table3" unique_id=1001020143]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.3164115, -0.38609004, 0.64079237)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="table4" type="CSGCombiner3D" parent="mesh" unique_id=1881764089]
+transform = Transform3D(0.9971096, 0, -0.07597695, 0, 1, 0, 0.07597695, 0, 0.9971096, -3.5842247, 1.1141881, 5.889897)
+use_collision = true
+
+[node name="table4" type="CSGBox3D" parent="mesh/table4" unique_id=75384869]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.039277554, 0.07016981, -0.09455061)
+use_collision = true
+size = Vector3(0.7747803, 0.05030469, 1.5444336)
+material = ExtResource("23_r4pkr")
+
+[node name="handle" type="CSGBox3D" parent="mesh/table4" unique_id=1728096803]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.3935988, -0.38609004, -0.83528185)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle2" type="CSGBox3D" parent="mesh/table4" unique_id=1268748157]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.3935988, -0.38609004, 0.64079237)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle3" type="CSGBox3D" parent="mesh/table4" unique_id=1418455124]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.3164115, -0.38609004, -0.83528185)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle4" type="CSGBox3D" parent="mesh/table4" unique_id=284322027]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.3164115, -0.38609004, 0.64079237)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="table5" type="CSGCombiner3D" parent="mesh" unique_id=891367349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6145158, 1.1141881, 7.5390306)
+use_collision = true
+
+[node name="table4" type="CSGBox3D" parent="mesh/table5" unique_id=1218382490]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.039277554, 0.07016981, -0.09455061)
+use_collision = true
+size = Vector3(0.7747803, 0.05030469, 1.5444336)
+material = ExtResource("23_r4pkr")
+
+[node name="handle" type="CSGBox3D" parent="mesh/table5" unique_id=1219702022]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.3935988, -0.38609004, -0.83528185)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle2" type="CSGBox3D" parent="mesh/table5" unique_id=1926998369]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.3935988, -0.38609004, 0.64079237)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle3" type="CSGBox3D" parent="mesh/table5" unique_id=633977644]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.3164115, -0.38609004, -0.83528185)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle4" type="CSGBox3D" parent="mesh/table5" unique_id=1619730409]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.3164115, -0.38609004, 0.64079237)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="table6" type="CSGCombiner3D" parent="mesh" unique_id=361221900]
+transform = Transform3D(0.9971096, 0, -0.07597695, 0, 1, 0, 0.07597695, 0, 0.9971096, -1.5842247, 1.1141881, 5.889897)
+use_collision = true
+
+[node name="table4" type="CSGBox3D" parent="mesh/table6" unique_id=1958588869]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.039277554, 0.07016981, -0.09455061)
+use_collision = true
+size = Vector3(0.7747803, 0.05030469, 1.5444336)
+material = ExtResource("23_r4pkr")
+
+[node name="handle" type="CSGBox3D" parent="mesh/table6" unique_id=2074538298]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.3935988, -0.38609004, -0.83528185)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle2" type="CSGBox3D" parent="mesh/table6" unique_id=822752022]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.3935988, -0.38609004, 0.64079237)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle3" type="CSGBox3D" parent="mesh/table6" unique_id=714984071]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.3164115, -0.38609004, -0.83528185)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
+[node name="handle4" type="CSGBox3D" parent="mesh/table6" unique_id=1685560729]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -0.3164115, -0.38609004, 0.64079237)
+size = Vector3(0.05, 0.9377861, 0.05)
+material = ExtResource("23_r4pkr")
+
 [node name="bucket" type="CSGCylinder3D" parent="mesh" unique_id=2014035585]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.999988, 0.53831977, 0.58953714)
 use_collision = true
@@ -807,19 +858,13 @@ operation = 2
 size = Vector3(1.198, 2.29, 0.78926516)
 material = ExtResource("23_r4pkr")
 
-[node name="table" type="CSGBox3D" parent="." unique_id=1637668173]
+[node name="table2" type="CSGBox3D" parent="mesh" unique_id=1637668173]
 transform = Transform3D(0.007965223, 0, -0.9999684, 0, 1, 0, 0.9999684, 0, 0.007965223, -6.577771, 0.75340116, 15.468967)
 use_collision = true
 size = Vector3(1.0096893, 1, 1.8028564)
 material = ExtResource("23_r4pkr")
 
 [node name="entities" type="Node3D" parent="." unique_id=441242414]
-
-[node name="electric_particles" type="GPUParticles3D" parent="entities" unique_id=782075015]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5687039, -1.9694035, -20.986725)
-visible = false
-process_material = SubResource("ParticleProcessMaterial_a1qps")
-draw_pass_1 = SubResource("SphereMesh_sq6te")
 
 [node name="generator" type="StaticBody3D" parent="entities" unique_id=748440623]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12.831303, 0.7580687, 16.69119)
@@ -1255,112 +1300,19 @@ metadata/_custom_type_script = "uid://bo4cxk5vpao0h"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6144099, 0)
 
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("10_txlqv")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.192194, 0.32610512, -3.787437)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12.192194, 1.4733146, 18.825064)
 
-[node name="BoxTest" type="RigidBody3D" parent="entities" unique_id=526282323]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.027381, 1.8070855, 4.583782)
-mass = 30.0
-physics_material_override = SubResource("PhysicsMaterial_v5gy4")
-contact_monitor = true
-max_contacts_reported = 6
-
-[node name="Node" type="Node" parent="entities/BoxTest" unique_id=641510130 node_paths=PackedStringArray("audio_player")]
-script = ExtResource("15_r6ban")
-audio_player = NodePath("../SpatialAudioPlayer3D")
-other_hit_sounds = Array[AudioStream]([ExtResource("16_e5ka1"), ExtResource("17_qi1sa")])
-max_speed = 1.0
-volume_curve_power = 1.0
-
-[node name="SpatialAudioPlayer3D" type="AudioStreamPlayer3D" parent="entities/BoxTest" unique_id=531444171]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38984704, 0.79002106, 0.015981674)
-max_distance = 10.0
-script = ExtResource("4_p8jr6")
-metadata/_custom_type_script = "uid://cd26dddinjno8"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="entities/BoxTest" unique_id=1760037071]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36550903, -0.190979, 0)
-mesh = SubResource("BoxMesh_8vrlf")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="entities/BoxTest" unique_id=1401611226]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35720825, -0.18966675, -0.0049743652)
-shape = SubResource("BoxShape3D_acu8t")
-
-[node name="BoxesTest" type="RigidBody3D" parent="entities" unique_id=1646316866]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47952938, 0.8327427, 3.5892467)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_qbdty")
-continuous_cd = true
-contact_monitor = true
-max_contacts_reported = 6
-
-[node name="Node" type="Node" parent="entities/BoxesTest" unique_id=517678515 node_paths=PackedStringArray("audio_player")]
-script = ExtResource("15_r6ban")
-audio_player = NodePath("../SpatialAudioPlayer3D")
-other_hit_sounds = Array[AudioStream]([ExtResource("17_qi1sa"), ExtResource("16_e5ka1")])
-min_volume = -40.0
-max_volume = 10.0
-min_speed = 0.3
-max_speed = 2.0
-cooldown = 0.5
-volume_curve_power = 1.0
-
-[node name="SpatialAudioPlayer3D" type="AudioStreamPlayer3D" parent="entities/BoxesTest" unique_id=1806867047]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060897917, -0.13857532, 0.06337738)
-max_distance = 10.0
-script = ExtResource("4_p8jr6")
-metadata/_custom_type_script = "uid://cd26dddinjno8"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="entities/BoxesTest" unique_id=387289836]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038238525, -0.11846924, 0.053207397)
-shape = SubResource("BoxShape3D_8vrlf")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="entities/BoxesTest" unique_id=1795565542]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050201416, -0.12095189, 0.053588867)
-mesh = SubResource("BoxMesh_auskg")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="entities/BoxesTest" unique_id=1302459498]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05822599, -0.3218994, 0.20275974)
-shape = SubResource("BoxShape3D_qbdty")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="entities/BoxesTest/CollisionShape3D2" unique_id=972192267]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
-mesh = SubResource("BoxMesh_1vivr")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="entities/BoxesTest" unique_id=1795427101]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09591448, -0.3218994, -0.14663887)
-shape = SubResource("BoxShape3D_qbdty")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="entities/BoxesTest/CollisionShape3D3" unique_id=282005288]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
-mesh = SubResource("BoxMesh_1vivr")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="entities/BoxesTest" unique_id=1178367227]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18340605, -0.3218994, 0.20275974)
-shape = SubResource("BoxShape3D_qbdty")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="entities/BoxesTest/CollisionShape3D4" unique_id=957515763]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
-mesh = SubResource("BoxMesh_1vivr")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="entities/BoxesTest" unique_id=1099764871]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19674522, -0.3218994, -0.07056236)
-shape = SubResource("BoxShape3D_qbdty")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="entities/BoxesTest/CollisionShape3D5" unique_id=1823346713]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, -0.0013427734, 0.00024414063)
-mesh = SubResource("BoxMesh_1vivr")
-
-[node name="SoundManager" type="Node3D" parent="entities" unique_id=1794416804]
+[node name="sound_manager" type="Node3D" parent="entities" unique_id=1794416804]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47952938, 3.157154, 17.076145)
 script = ExtResource("11_5q7q2")
 sound_streams = Array[AudioStream]([ExtResource("12_sl3he"), ExtResource("13_jm3eo"), ExtResource("14_3ygmk")])
 max_delay = 300.0
 volume_db = -20.0
 
-[node name="Kvazimodo" parent="entities" unique_id=171566427 instance=ExtResource("25_g4n5i")]
+[node name="kvazimodo" parent="entities" unique_id=171566427 instance=ExtResource("25_g4n5i")]
 transform = Transform3D(-0.99408716, 0, 0.10858527, 0, 1, 0, -0.10858527, 0, -0.99408716, 4.689811, 0.28711268, 5.6178446)
 
-[node name="гаргамель" parent="entities" unique_id=1822972340 instance=ExtResource("25_txlqv")]
+[node name="gargamel" parent="entities" unique_id=1822972340 instance=ExtResource("25_txlqv")]
 transform = Transform3D(0.16026661, 0, -0.9059331, 0, 0.92, 0, 0.9059331, 0, 0.16026661, -2.563337, 0.2544246, -2.2632241)
 
 [node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
