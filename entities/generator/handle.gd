@@ -1,13 +1,14 @@
 extends Draggable
 class_name GeneratorHandle
 
+@export var generator: Generator
 @export var drag_sensetivity: float = 1.0
 @export var snap_distance: float = 0.05
 @export var snap_acceleration: float = 0.05
 @export var handle_sound: SpatialAudioPlayer3D
-@export var handle_mesh: MeshInstance3D
-@export var handle_start_pos: float = -0.163
-@export var handle_end_pos: float = -0.284
+@export var handle_mesh: Node3D
+@export var handle_start_pos: Vector3 = Vector3(-16.019, 1.226, 0.065)
+@export var handle_end_pos: Vector3 = Vector3(-15.874, 1.226, 0.065)
 
 var DRAG_START_VALUE: float = 0.0
 var ENABLED: bool = false
@@ -18,11 +19,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_m_adjust_rot(delta)
-	handle_mesh.position.z = lerp(handle_start_pos, handle_end_pos, drag_value)
+	handle_mesh.position = lerp(handle_start_pos, handle_end_pos, drag_value)
 	if drag_value < 1.0 and ENABLED: ENABLED = false
 	if POWERON_VALUE == 1.0:
 		POWERON_VALUE = 0.0
-		$"../../generator/generator".startup()
+		generator.startup()
 
 func start_dragging() -> void:
 	super()
@@ -34,7 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if (1.0-drag_value) <= snap_distance and DRAG_START_VALUE != 1.0 and IS_DRAGGING:
 			if handle_sound:
 				handle_sound.play()
-				if not $"../../generator/generator".WORKING:
+				if not generator.WORKING:
 					POWERON_VALUE = min(1.0, POWERON_VALUE+0.35)
 			drag_value = 1.0
 			ENABLED = true

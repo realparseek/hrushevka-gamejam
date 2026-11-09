@@ -54,18 +54,6 @@ size = Vector3(1.9219971, 1.1169434, 0.81781006)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lgc6x"]
 size = Vector3(0.15319824, 0.043914795, 0.2119751)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_e5ka1"]
-_surfaces = [{
-"aabb": AABB(-0.24917698, 0.045923233, 0.19947433, 0.14587402, 0.018554688, 0.20034027),
-"attribute_data": PackedByteArray("AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAMVHbPgAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD9nVxI/AAAAAGdXEj8AAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAGdXEj8AAAAAAAAAAAAAgD8AAIA/AACAPwAAAABnVxI/AAAAAGdXEj8AAIA/AACAPwAAAAB6T9s+AACAPwAAgD8AAAAAMVHbPgAAAABDWBI/AAAAAAAAgD8AAIA/AACAPwAAAABDWBI/AAAAAAAAgD96T9s+AACAPwAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAB6T9s+AACAP3pP2z4AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAB6T9s+AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/UPGMPAAAAABQ8Yw8AAAAAAAAAAAAAAAAAACAP3WYez8AAAAAAAAAAAAAgD91mHs/AACAP3WYez8AAAAAAACAPwAAgD8AAAAAUPGMPAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD91mHs/AACAP3WYez8AAAAAAACAPwAAAAAAAAAAAAAAAAAAgD91mHs/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAdZh7PwAAgD91mHs/AAAAAAAAgD91mHs/AAAAAAAAAAAAAAAA"),
-"format": 34359738391,
-"material": ExtResource("1_5qweq"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 84,
-"vertex_data": PackedByteArray("QCh/vgAaPD0AQ0w+QCh/vgANhD0AQ0w+QCh/vgAaPD0AW2k+QCh/vgAaPD0AQ0w+QCh/vgAaPD0AW2k+gJDTvQAaPD0AQ0w+QCh/vgAaPD0AW2k+ACw/vgAaPD0AW2k+gJDTvQAaPD0AQ0w+QCh/vgAaPD0AQ0w+gJDTvQAaPD0AQ0w+QCh/vgANhD0AQ0w+QCh/vgAaPD0AW2k+ACw/vgANhD0AW2k+ACw/vgAaPD0AW2k+QCh/vgAaPD0AW2k+QCh/vgANhD0AQ0w+QCh/vgANhD0AW2k+QCh/vgAaPD0AW2k+QCh/vgANhD0AW2k+ACw/vgANhD0AW2k+QCh/vgANhD0AW2k+QCh/vgANhD0AQ0w+ACw/vgANhD0AW2k+ACw/vgANhD0AW2k+QCh/vgANhD0AQ0w+AMQpvgANhD0AW2k+gJDTvQAaPD0AQ0w+ACw/vgAaPD0AW2k+AMQpvgAaPD0AW2k+gJDTvQAaPD0AW2k+gJDTvQAaPD0AQ0w+AMQpvgAaPD0AW2k+gJDTvQAaPD0AW2k+AMQpvgAaPD0AW2k+gJDTvQANhD0AW2k+gJDTvQAaPD0AQ0w+gJDTvQAaPD0AW2k+gJDTvQANhD0AW2k+QCh/vgANhD0AQ0w+gJDTvQAaPD0AQ0w+gJDTvQANhD0AQ0w+gJDTvQANhD0AW2k+AMQpvgAaPD0AW2k+AMQpvgANhD0AW2k+QCh/vgANhD0AQ0w+gJDTvQANhD0AW2k+AMQpvgANhD0AW2k+QCh/vgANhD0AQ0w+gJDTvQANhD0AQ0w+gJDTvQANhD0AW2k+gJDTvQAaPD0AQ0w+gJDTvQANhD0AW2k+gJDTvQANhD0AQ0w+ACw/vgAaPD2AtMw+ACw/vgAaPD0AW2k+ACw/vgANhD0AW2k+ACw/vgAaPD2AtMw+AMQpvgAaPD2AtMw+ACw/vgAaPD0AW2k+ACw/vgANhD2AtMw+ACw/vgANhD0AW2k+AMQpvgANhD0AW2k+ACw/vgAaPD2AtMw+ACw/vgANhD0AW2k+ACw/vgANhD2AtMw+ACw/vgAaPD2AtMw+ACw/vgANhD2AtMw+AMQpvgANhD2AtMw+AMQpvgAaPD2AtMw+AMQpvgAaPD0AW2k+ACw/vgAaPD0AW2k+AMQpvgAaPD2AtMw+AMQpvgANhD2AtMw+AMQpvgAaPD0AW2k+ACw/vgAaPD2AtMw+AMQpvgANhD2AtMw+AMQpvgAaPD2AtMw+AMQpvgANhD2AtMw+AMQpvgANhD0AW2k+AMQpvgAaPD0AW2k+ACw/vgANhD2AtMw+AMQpvgANhD0AW2k+AMQpvgANhD2AtMw+AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//////AAD/f/////8AAP9//////wAAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAA////f/9//n////9//3/+f////3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//3//////AAD/f/////8AAP9//////wAA")
-}]
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_qi1sa"]
 _surfaces = [{
 "aabb": AABB(-0.25321844, 0.04188178, 0.19543289, 0.15395693, 0.026637588, 0.20842318),
@@ -78,6 +66,18 @@ _surfaces = [{
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 84,
 "vertex_data": PackedByteArray("2aWBvjuMKz2PH0g+2aWBvuJTjD2PH0g+2aWBvjuMKz1xfm0+2aWBvjuMKz2PH0g+2aWBvjuMKz1xfm0+nknLvTuMKz2PH0g+2aWBvjuMKz1xfm0+cU9DvjuMKz1xfm0+nknLvTuMKz2PH0g+2aWBvjuMKz2PH0g+nknLvTuMKz2PH0g+2aWBvuJTjD2PH0g+2aWBvjuMKz1xfm0+cU9DvuJTjD1xfm0+cU9DvjuMKz1xfm0+2aWBvjuMKz1xfm0+2aWBvuJTjD2PH0g+2aWBvuJTjD1xfm0+2aWBvjuMKz1xfm0+2aWBvuJTjD1xfm0+cU9DvuJTjD1xfm0+2aWBvuJTjD1xfm0+2aWBvuJTjD2PH0g+cU9DvuJTjD1xfm0+cU9DvuJTjD1xfm0+2aWBvuJTjD2PH0g+j6AlvuJTjD1xfm0+nknLvTuMKz2PH0g+cU9DvjuMKz1xfm0+j6AlvjuMKz1xfm0+nknLvTuMKz1xfm0+nknLvTuMKz2PH0g+j6AlvjuMKz1xfm0+nknLvTuMKz1xfm0+j6AlvjuMKz1xfm0+nknLveJTjD1xfm0+nknLvTuMKz2PH0g+nknLvTuMKz1xfm0+nknLveJTjD1xfm0+2aWBvuJTjD2PH0g+nknLvTuMKz2PH0g+nknLveJTjD2PH0g+nknLveJTjD1xfm0+j6AlvjuMKz1xfm0+j6AlvuJTjD1xfm0+2aWBvuJTjD2PH0g+nknLveJTjD1xfm0+j6AlvuJTjD1xfm0+2aWBvuJTjD2PH0g+nknLveJTjD2PH0g+nknLveJTjD1xfm0+nknLvTuMKz2PH0g+nknLveJTjD1xfm0+nknLveJTjD2PH0g+cU9DvjuMKz05xs4+cU9DvjuMKz1xfm0+cU9DvuJTjD1xfm0+cU9DvjuMKz05xs4+j6AlvjuMKz05xs4+cU9DvjuMKz1xfm0+cU9DvuJTjD05xs4+cU9DvuJTjD1xfm0+j6AlvuJTjD1xfm0+cU9DvjuMKz05xs4+cU9DvuJTjD1xfm0+cU9DvuJTjD05xs4+cU9DvjuMKz05xs4+cU9DvuJTjD05xs4+j6AlvuJTjD05xs4+j6AlvjuMKz05xs4+j6AlvjuMKz1xfm0+cU9DvjuMKz1xfm0+j6AlvjuMKz05xs4+j6AlvuJTjD05xs4+j6AlvjuMKz1xfm0+cU9DvjuMKz05xs4+j6AlvuJTjD05xs4+j6AlvjuMKz05xs4+j6AlvuJTjD05xs4+j6AlvuJTjD1xfm0+j6AlvjuMKz1xfm0+cU9DvuJTjD05xs4+j6AlvuJTjD1xfm0+j6AlvuJTjD05xs4+AAAAgP9//n8AAACA/3/+fwAAAID/f/5/AIAAAP//AAAAgAAA//8AAACAAAD//wAAAIAAAP//AAAAgAAA//8AAACAAAD//wAA/////wAA/z//////AAD/P/////8AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/AAAAgP9//n8AAACA/3/+fwAAAID/f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8/AID/////AAAAgP////8AAACA/////wAAAID/////AAAAgP////8AAACA/////wAAAIAAAP//AAAAgAAA//8AAACAAAD//wAAAIAAAP//AAAAgAAA//8AAACAAAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8///8AgP9//n///wCA/3/+f///AID/f/5//////wAA/z//////AAD/P/////8AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/AID/////AAAAgP////8AAACA/////wAAAID/////AAAAgP////8AAACA/////wAA//8AgP9//n///wCA/3/+f///AID/f/5/AAAAgP9//n8AAACA/3/+fwAAAID/f/5/AIAAAP//AAAAgAAA//8AAACAAAD//wAAAID/////AAAAgP////8AAACA/////wAAAAAAgP9//n8AAACA/3/+fwAAAID/f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8/AIAAAP//AAAAgAAA//8AAACAAAD//wAA//8AgP9//n///wCA/3/+f///AID/f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8///8AgP9//n///wCA/3/+f///AID/f/5/AID/////AAAAgP////8AAACA/////wAA")
+}]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e5ka1"]
+_surfaces = [{
+"aabb": AABB(-0.24917698, 0.045923233, 0.19947433, 0.14587402, 0.018554688, 0.20034027),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAMVHbPgAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD9nVxI/AAAAAGdXEj8AAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAGdXEj8AAAAAAAAAAAAAgD8AAIA/AACAPwAAAABnVxI/AAAAAGdXEj8AAIA/AACAPwAAAAB6T9s+AACAPwAAgD8AAAAAMVHbPgAAAABDWBI/AAAAAAAAgD8AAIA/AACAPwAAAABDWBI/AAAAAAAAgD96T9s+AACAPwAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAB6T9s+AACAP3pP2z4AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAB6T9s+AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/UPGMPAAAAABQ8Yw8AAAAAAAAAAAAAAAAAACAP3WYez8AAAAAAAAAAAAAgD91mHs/AACAP3WYez8AAAAAAACAPwAAgD8AAAAAUPGMPAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD91mHs/AACAP3WYez8AAAAAAACAPwAAAAAAAAAAAAAAAAAAgD91mHs/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAdZh7PwAAgD91mHs/AAAAAAAAgD91mHs/AAAAAAAAAAAAAAAA"),
+"format": 34359738391,
+"material": ExtResource("1_5qweq"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray("QCh/vgAaPD0AQ0w+QCh/vgANhD0AQ0w+QCh/vgAaPD0AW2k+QCh/vgAaPD0AQ0w+QCh/vgAaPD0AW2k+gJDTvQAaPD0AQ0w+QCh/vgAaPD0AW2k+ACw/vgAaPD0AW2k+gJDTvQAaPD0AQ0w+QCh/vgAaPD0AQ0w+gJDTvQAaPD0AQ0w+QCh/vgANhD0AQ0w+QCh/vgAaPD0AW2k+ACw/vgANhD0AW2k+ACw/vgAaPD0AW2k+QCh/vgAaPD0AW2k+QCh/vgANhD0AQ0w+QCh/vgANhD0AW2k+QCh/vgAaPD0AW2k+QCh/vgANhD0AW2k+ACw/vgANhD0AW2k+QCh/vgANhD0AW2k+QCh/vgANhD0AQ0w+ACw/vgANhD0AW2k+ACw/vgANhD0AW2k+QCh/vgANhD0AQ0w+AMQpvgANhD0AW2k+gJDTvQAaPD0AQ0w+ACw/vgAaPD0AW2k+AMQpvgAaPD0AW2k+gJDTvQAaPD0AW2k+gJDTvQAaPD0AQ0w+AMQpvgAaPD0AW2k+gJDTvQAaPD0AW2k+AMQpvgAaPD0AW2k+gJDTvQANhD0AW2k+gJDTvQAaPD0AQ0w+gJDTvQAaPD0AW2k+gJDTvQANhD0AW2k+QCh/vgANhD0AQ0w+gJDTvQAaPD0AQ0w+gJDTvQANhD0AQ0w+gJDTvQANhD0AW2k+AMQpvgAaPD0AW2k+AMQpvgANhD0AW2k+QCh/vgANhD0AQ0w+gJDTvQANhD0AW2k+AMQpvgANhD0AW2k+QCh/vgANhD0AQ0w+gJDTvQANhD0AQ0w+gJDTvQANhD0AW2k+gJDTvQAaPD0AQ0w+gJDTvQANhD0AW2k+gJDTvQANhD0AQ0w+ACw/vgAaPD2AtMw+ACw/vgAaPD0AW2k+ACw/vgANhD0AW2k+ACw/vgAaPD2AtMw+AMQpvgAaPD2AtMw+ACw/vgAaPD0AW2k+ACw/vgANhD2AtMw+ACw/vgANhD0AW2k+AMQpvgANhD0AW2k+ACw/vgAaPD2AtMw+ACw/vgANhD0AW2k+ACw/vgANhD2AtMw+ACw/vgAaPD2AtMw+ACw/vgANhD2AtMw+AMQpvgANhD2AtMw+AMQpvgAaPD2AtMw+AMQpvgAaPD0AW2k+ACw/vgAaPD0AW2k+AMQpvgAaPD2AtMw+AMQpvgANhD2AtMw+AMQpvgAaPD0AW2k+ACw/vgAaPD2AtMw+AMQpvgANhD2AtMw+AMQpvgAaPD2AtMw+AMQpvgANhD2AtMw+AMQpvgANhD0AW2k+AMQpvgAaPD0AW2k+ACw/vgANhD2AtMw+AMQpvgANhD0AW2k+AMQpvgANhD2AtMw+AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//////AAD/f/////8AAP9//////wAAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAA////f/9//n////9//3/+f////3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//3//////AAD/f/////8AAP9//////wAA")
 }]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_gxd77"]
@@ -388,10 +388,28 @@ shadow_enabled = true
 omni_range = 8.628065
 
 [node name="light2" type="OmniLight3D" parent="lights" unique_id=605933492]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.238544, 2.5678608, 17.884382)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.790066, 2.5678608, 1.0325973)
 light_color = Color(1, 1, 0.6666667, 1)
 shadow_enabled = true
 omni_range = 5.1720185
+
+[node name="light3" type="OmniLight3D" parent="lights" unique_id=1070647582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2385445, 2.5678608, 7.3059053)
+light_color = Color(1, 1, 0.6666667, 1)
+shadow_enabled = true
+omni_range = 6.229682
+
+[node name="light4" type="OmniLight3D" parent="lights" unique_id=875804771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.238544, 2.5678608, 7.3059053)
+light_color = Color(1, 1, 0.6666667, 1)
+shadow_enabled = true
+omni_range = 7.7157125
+
+[node name="light5" type="OmniLight3D" parent="lights" unique_id=963868263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.238544, 2.5678608, 1.3059053)
+light_color = Color(1, 1, 0.6666667, 1)
+shadow_enabled = true
+omni_range = 5.571551
 
 [node name="mesh" type="Node3D" parent="." unique_id=624987806]
 
@@ -423,7 +441,7 @@ size = Vector3(1, 2, 0.2732315)
 material = ExtResource("1_5qweq")
 
 [node name="door13" type="CSGBox3D" parent="mesh/basement" unique_id=1101855805]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9811125, 1.309113, 16.084305)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.989988, 1.309113, 2.2622256)
 flip_faces = true
 size = Vector3(1, 2, 0.2732315)
 material = ExtResource("1_5qweq")
@@ -537,7 +555,7 @@ size = Vector3(8.191895, 2.90979, 5)
 material = ExtResource("1_5qweq")
 
 [node name="basement15" type="CSGBox3D" parent="mesh/basement" unique_id=238267388]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.854726, 1.7022009, 17.678051)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.5837345, 1.7022009, 1.4164169)
 flip_faces = true
 size = Vector3(4, 2.90979, 3)
 material = ExtResource("1_5qweq")
@@ -944,9 +962,10 @@ material = ExtResource("23_r4pkr")
 [node name="generator" type="StaticBody3D" parent="entities" unique_id=748440623]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12.831303, 0.7580687, 16.69119)
 
-[node name="generator" type="Node" parent="entities/generator" unique_id=1770221733 node_paths=PackedStringArray("lights", "switches_bodies", "audio_player", "fuse_sound", "explosion_sound", "electricity_sound")]
+[node name="generator" type="Node" parent="entities/generator" unique_id=1770221733 node_paths=PackedStringArray("lights", "doors", "switches_bodies", "audio_player", "fuse_sound", "explosion_sound", "electricity_sound")]
 script = ExtResource("2_ys4l0")
-lights = [NodePath("../../../lights/light"), NodePath("../../../lights/light2")]
+lights = [NodePath("../../../lights/light"), NodePath("../../../lights/light2"), NodePath("../../../lights/light3"), NodePath("../../../lights/light4"), NodePath("../../../lights/light5")]
+doors = [NodePath("../../door/door"), NodePath("../../door2/door"), NodePath("../../door3/door"), NodePath("../../door5/door")]
 switches_bodies = [NodePath("../../eletric_panel/switch"), NodePath("../../eletric_panel/switch2"), NodePath("../../eletric_panel/switch3"), NodePath("../../eletric_panel/switch4")]
 audio_player = NodePath("../generator_sound")
 fuse_sound = NodePath("../fuse_sound")
@@ -956,13 +975,13 @@ working_sound = ExtResource("6_878n7")
 outage_sound = ExtResource("10_awlkk")
 
 [node name="mesh" type="CSGBox3D" parent="entities/generator" unique_id=849107133]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030822754, 0.048095703, -2.0568657)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 3.8224392, 0.048095703, 16.248274)
 use_collision = true
 size = Vector3(1.9105835, 1.0961914, 0.7865906)
 material = ExtResource("23_r4pkr")
 
 [node name="slot" type="CSGBox3D" parent="entities/generator" unique_id=2034473397]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8233671, 0.50521183, -1.6260376)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 3.391611, 0.50521183, 17.074724)
 collision_layer = 0
 collision_mask = 0
 size = Vector3(0.01, 0.01, 0.06416015)
@@ -1001,24 +1020,25 @@ script = ExtResource("10_ra1mw")
 inventory_slot = NodePath("../slot")
 
 [node name="fuse" type="MeshInstance3D" parent="entities/generator" unique_id=1350748857]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8233671, 0.50521183, -1.6260376)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 3.391611, 0.50521183, 17.074724)
 mesh = SubResource("ArrayMesh_ap2gx")
 
 [node name="collision" type="CollisionShape3D" parent="entities/generator" unique_id=822068904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018920898, 0.04309082, -2.065342)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 3.8309155, 0.04309082, 16.249464)
 shape = SubResource("BoxShape3D_swrb0")
 
 [node name="fuse_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1751959203]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4428892, -0.23493052, -0.5528698)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 2.3184452, -0.23493052, 16.694244)
 stream = ExtResource("3_578qv")
 volume_db = -5.0
 max_distance = 7.0
 script = ExtResource("4_p8jr6")
 fallback_transmission = 0.082
+falloff_distance = 38.29
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="explosion_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=450557645]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5313015, 0.15107727, -1.424654)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 3.1902256, 0.15107727, 16.782656)
 stream = ExtResource("5_l760p")
 volume_db = 10.0
 max_distance = 7.0
@@ -1027,7 +1047,7 @@ fallback_transmission = 0.082
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="generator_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1189477140]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11170292, 0.1811161, -1.4126072)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 3.1781788, 0.1811161, 16.363056)
 stream = ExtResource("6_878n7")
 attenuation_model = 3
 volume_db = -20.0
@@ -1038,7 +1058,7 @@ fallback_transmission = 0.059
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="electricity_sound" type="AudioStreamPlayer3D" parent="entities/generator" unique_id=1279328378]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3171053, 1.1590654, -2.1848927)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 3.950468, 1.1590654, 14.93425)
 stream = ExtResource("7_6votu")
 attenuation_model = 3
 pitch_scale = 1.01
@@ -1048,40 +1068,42 @@ fallback_transmission = 0.059
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="generator_handle" type="StaticBody3D" parent="entities" unique_id=1512037021]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.191603, 1.2951757, 18.263268)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.019, 1.226, 0.065)
 collision_layer = 2
 collision_mask = 2
 
-[node name="generator_handle" type="Node" parent="entities/generator_handle" unique_id=420252703 node_paths=PackedStringArray("handle_sound", "handle_mesh", "hoverable")]
+[node name="generator_handle" type="Node" parent="entities/generator_handle" unique_id=420252703 node_paths=PackedStringArray("generator", "handle_sound", "handle_mesh", "hoverable")]
 script = ExtResource("16_ap2gx")
+generator = NodePath("../../generator/generator")
 handle_sound = NodePath("../switch_sound")
-handle_mesh = NodePath("../mesh")
+handle_mesh = NodePath("..")
 hoverable = NodePath("../hoverable")
 metadata/_custom_type_script = "uid://c2i4ox81fyu6v"
 
 [node name="hoverable" type="Node" parent="entities/generator_handle" unique_id=295773601 node_paths=PackedStringArray("hover_mesh", "icon_pos")]
 script = ExtResource("13_6votu")
-hover_mesh = NodePath("../mesh/outline")
-icon_pos = NodePath("../icon_pos")
+hover_mesh = NodePath("../collision/outline")
+icon_pos = NodePath("../collision/icon_pos")
 metadata/_custom_type_script = "uid://brnmjdghgrqog"
 
 [node name="collision" type="CollisionShape3D" parent="entities/generator_handle" unique_id=1552151579]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016859055, -0.020695686, 0.13821411)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17538156, 0.055731893, 0.30217934)
 shape = SubResource("BoxShape3D_lgc6x")
 
-[node name="mesh" type="MeshInstance3D" parent="entities/generator_handle" unique_id=1367230426]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1916027, -0.07283497, -0.16296387)
-mesh = SubResource("ArrayMesh_e5ka1")
-
-[node name="outline" type="MeshInstance3D" parent="entities/generator_handle/mesh" unique_id=660907221]
+[node name="outline" type="MeshInstance3D" parent="entities/generator_handle/collision" unique_id=660907221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17538156, -0.055731893, -0.30217934)
 visible = false
 mesh = SubResource("ArrayMesh_qi1sa")
 
-[node name="icon_pos" type="Node3D" parent="entities/generator_handle" unique_id=51982225]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011343956, -0.0034128428, -0.0028266907)
+[node name="mesh" type="MeshInstance3D" parent="entities/generator_handle/collision" unique_id=1367230426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17538156, -0.055731893, -0.30217934)
+mesh = SubResource("ArrayMesh_e5ka1")
+
+[node name="icon_pos" type="Node3D" parent="entities/generator_handle/collision" unique_id=51982225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00035441667, 0.0028877258, -0.12263489)
 
 [node name="switch_sound" type="AudioStreamPlayer3D" parent="entities/generator_handle" unique_id=1954302124]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.37932947, 0.060721815, 5.727716e-08)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.15846214, 0.13171887, 0.20886803)
 stream = ExtResource("19_ap2gx")
 pitch_scale = 0.85
 script = ExtResource("4_p8jr6")
@@ -1093,27 +1115,27 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="mesh" type="MeshInstance3D" parent="entities/eletric_panel" unique_id=1816417859]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9427547, 0, 1.9073486e-06)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 21.497028, 0, -7.92453)
 mesh = SubResource("ArrayMesh_gxd77")
 
 [node name="collision" type="CollisionShape3D" parent="entities/eletric_panel" unique_id=1595346032]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9427547, 0, 1.9073486e-06)
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 21.497028, 0, -7.92453)
 shape = SubResource("ConcavePolygonShape3D_gxd77")
 
 [node name="switch" parent="entities/eletric_panel" unique_id=1599686606 instance=ExtResource("8_r4pkr")]
-transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -2.901062, 0.06719327, 0.18269348)
+transform = Transform3D(9.158872e-08, 0, -0.35460994, 0, 0.35460994, 0, 0.35460994, 0, 9.158872e-08, 21.314327, 0.06719327, -7.882839)
 
 [node name="switch2" parent="entities/eletric_panel" unique_id=520394258 instance=ExtResource("8_r4pkr")]
-transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -2.901062, 0.06719327, 0.06635475)
+transform = Transform3D(9.158872e-08, 0, -0.35460994, 0, 0.35460994, 0, 0.35460994, 0, 9.158872e-08, 21.43067, 0.06719327, -7.882839)
 
 [node name="switch3" parent="entities/eletric_panel" unique_id=1118575857 instance=ExtResource("8_r4pkr")]
-transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -2.901062, 0.06719327, -0.05863762)
+transform = Transform3D(9.158872e-08, 0, -0.35460994, 0, 0.35460994, 0, 0.35460994, 0, 9.158872e-08, 21.555664, 0.06719327, -7.882839)
 
 [node name="switch4" parent="entities/eletric_panel" unique_id=1754541526 instance=ExtResource("8_r4pkr")]
-transform = Transform3D(0.35460994, 0, 1.0708922e-07, 0, 0.35460994, 0, -1.0708922e-07, 0, 0.35460994, -2.901062, 0.06719327, -0.17525482)
+transform = Transform3D(9.158872e-08, 0, -0.35460994, 0, 0.35460994, 0, 0.35460994, 0, 9.158872e-08, 21.672276, 0.06719327, -7.882839)
 
 [node name="door" type="StaticBody3D" parent="entities" unique_id=2026821777]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 1.537477, 1.2811631, 5.24734)
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 1.537477, 1.2811631, 4.24734)
 collision_layer = 3
 
 [node name="door" type="Node" parent="entities/door" unique_id=802647948 node_paths=PackedStringArray("animation_player", "interactable")]
@@ -1327,7 +1349,7 @@ metadata/_custom_type_script = "uid://cd26dddinjno8"
 libraries/ = SubResource("AnimationLibrary_uq1c4")
 
 [node name="door6" type="StaticBody3D" parent="entities" unique_id=1907316089]
-transform = Transform3D(0.2588192, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.2588192, -12.482707, 1.3121754, 14.090769)
+transform = Transform3D(-0.9659258, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.9659258, -13.9902115, 1.3121754, 2.760632)
 collision_layer = 3
 
 [node name="door" type="Node" parent="entities/door6" unique_id=1973808271 node_paths=PackedStringArray("animation_player", "interactable")]
@@ -1354,24 +1376,24 @@ script = ExtResource("13_6votu")
 icon_pos = NodePath("../collision/icon")
 
 [node name="collision" type="CollisionShape3D" parent="entities/door6" unique_id=1973192116]
-transform = Transform3D(-0.25881988, 0, -0.96592623, 0, 1, 0, 0.96592623, 0, -0.25881988, 1.9318514, 0, 0.51763916)
+transform = Transform3D(-0.25881997, 0, -0.9659265, 0, 1, 0, 0.9659265, 0, -0.25881997, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_dsbe1")
 
 [node name="mesh" type="MeshInstance3D" parent="entities/door6/collision" unique_id=563839379]
 mesh = SubResource("ArrayMesh_6sqah")
 
 [node name="icon" type="Node3D" parent="entities/door6/collision" unique_id=2073808728]
-transform = Transform3D(-0.2588194, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.2588194, 0.7737375, 0, -2.536508e-07)
+transform = Transform3D(-0.2588194, 0, 0.9659259, 0, 1, 0, -0.9659259, 0, -0.2588194, 0.7737379, 0, 0)
 
 [node name="audio" type="AudioStreamPlayer3D" parent="entities/door6/collision" unique_id=314226126]
-transform = Transform3D(-0.25881967, 0, 0.9659252, 0, 1, 0, -0.9659252, 0, -0.25881967, 0.6786804, 1.0626744, -0.30299568)
+transform = Transform3D(-0.25881964, 0, 0.9659251, 0, 1, 0, -0.9659251, 0, -0.25881964, 0.6786814, 1.0626744, -0.30299568)
 max_distance = 10.0
 area_mask = 3
 script = ExtResource("4_p8jr6")
 metadata/_custom_type_script = "uid://cd26dddinjno8"
 
 [node name="audio2" type="AudioStreamPlayer3D" parent="entities/door6/collision" unique_id=1821840387]
-transform = Transform3D(-0.25881967, 0, 0.9659252, 0, 1, 0, -0.9659252, 0, -0.25881967, 0.67868423, 1.0626744, 0.23160648)
+transform = Transform3D(-0.25881964, 0, 0.9659251, 0, 1, 0, -0.9659251, 0, -0.25881964, 0.6786852, 1.0626744, 0.23160744)
 max_distance = 10.0
 area_mask = 3
 script = ExtResource("4_p8jr6")
@@ -1418,7 +1440,7 @@ metadata/_custom_type_script = "uid://bo4cxk5vpao0h"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6144099, 0)
 
 [node name="fuse" parent="entities" unique_id=369460855 instance=ExtResource("10_txlqv")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12.192194, 1.4733146, 18.825064)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -16.730747, 1.4733146, 1.0789478)
 
 [node name="sound_manager" type="Node3D" parent="entities" unique_id=1794416804]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47952938, 3.157154, 17.076145)
@@ -1434,4 +1456,4 @@ transform = Transform3D(-0.99408716, 0, 0.10858527, 0, 1, 0, -0.10858527, 0, -0.
 transform = Transform3D(0.16026661, 0, -0.9059331, 0, 0.92, 0, 0.9059331, 0, 0.16026661, -2.563337, 0.2544246, -2.2632241)
 
 [node name="spawn" type="Node3D" parent="entities" unique_id=165248011]
-transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -12.811817, 1.1267571, 15.110652)
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -7.811817, 1.1267571, -0.88934803)

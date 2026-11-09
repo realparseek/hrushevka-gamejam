@@ -2,6 +2,7 @@ extends Node
 class_name Generator
 
 @export var lights: Array[OmniLight3D]
+@export var doors: Array[Door]
 @export var switches_bodies: Array[StaticBody3D]
 @export var audio_player: SpatialAudioPlayer3D
 @export var fuse_sound: SpatialAudioPlayer3D
@@ -46,6 +47,7 @@ func _process(_delta: float) -> void:
 func shutdown() -> void:
 	if not WORKING: return
 	for l in lights: l.light_energy = 0.0
+	for d in doors: d.locked = true
   
 	if outage_sound and audio_player:
 		audio_player.stream = outage_sound
@@ -59,6 +61,7 @@ func shutdown() -> void:
 func startup() -> void:
 	if WORKING: return
 	for l in lights: l.light_energy = 1.0
+	for d in doors: d.locked = false
 
 	if working_sound and audio_player:
 		audio_player.stream = working_sound
