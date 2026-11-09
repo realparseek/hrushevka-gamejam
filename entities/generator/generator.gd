@@ -7,24 +7,24 @@ class_name Generator
 @export var fuse_sound: SpatialAudioPlayer3D
 @export var explosion_sound: SpatialAudioPlayer3D
 @export var electricity_sound: SpatialAudioPlayer3D
+@export var working_sound: AudioStream
+@export var outage_sound: AudioStream
 
 var WORKING: bool = true
-
 var SWITCHES: Array[ElectricSwitch]
 
-var WORKING_SOUND: AudioStream = preload("res://assets/audio/generator/generatoridle.ogg")
-var OUTAGE_SOUND: AudioStream = preload("res://assets/audio/generator/powerout.mp3")
-
 func _ready() -> void:
-	audio_player.stream = WORKING_SOUND
-	audio_player.set("parameters/looping", true)
-	audio_player.play()
+	if working_sound and audio_player:
+		audio_player.stream = working_sound
+		audio_player.set("parameters/looping", true)
+		audio_player.play()
 
 	for sb in switches_bodies:
 		for c in sb.get_children():
 			if c is ElectricSwitch:
 				SWITCHES.append(c)
 				continue
+	shutdown()
 
 func _process(_delta: float) -> void:
 	var camera: Camera3D = get_viewport().get_camera_3d()
@@ -47,11 +47,22 @@ func shutdown() -> void:
 	if not WORKING: return
 	for l in lights: l.light_energy = 0.0
   
-	if not audio_player: return
-	audio_player.stream = OUTAGE_SOUND
-	audio_player.set("parameters/looping", false)
-	audio_player.play()
+	if outage_sound and audio_player:
+		audio_player.stream = outage_sound
+		audio_player.set("parameters/looping", false)
+		audio_player.play()
 	WORKING = false
 	electricity_sound.play()
-	explosion_sound.play()
-	fuse_sound.play()
+	#explosion_sound.play()
+	#fuse_sound.play()
+
+func startup() -> void:
+	if WORKING: return
+	for l in lights: l.light_energy = 1.0
+
+	if working_sound and audio_player:
+		audio_player.stream = working_sound
+		audio_player.set("parameters/looping", true)
+		audio_player.play()
+	WORKING = false
+	electricity_sound.play()

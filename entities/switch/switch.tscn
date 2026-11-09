@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bh7oitlyohweq"]
 
 [ext_resource type="Script" uid="uid://brnmjdghgrqog" path="res://scripts/hoverable/hoverable.gd" id="1_277vg"]
-[ext_resource type="Script" uid="uid://bq8jsqi5xcrgn" path="res://entities/switch/dragable.gd" id="1_ce26a"]
+[ext_resource type="Script" uid="uid://bq8jsqi5xcrgn" path="res://entities/switch/draggable.gd" id="1_ce26a"]
 [ext_resource type="Material" uid="uid://chqm468gixvba" path="res://assets/materials/outline.material" id="2_mstk6"]
 [ext_resource type="AudioStream" uid="uid://cqtoxem8wg2pa" path="res://assets/audio/switch/switch.mp3" id="3_8opld"]
 [ext_resource type="Script" uid="uid://cd26dddinjno8" path="res://addons/spatial_audio_extended/spatial_audio_player_3d.gd" id="3_mstk6"]
@@ -101,7 +101,7 @@ collision_mask = 2
 script = ExtResource("1_277vg")
 hover_mesh = NodePath("../outline")
 
-[node name="dragable" type="Node" parent="." unique_id=1513855215 node_paths=PackedStringArray("switch_sound", "switch_mesh")]
+[node name="draggable" type="Node" parent="." unique_id=1513855215 node_paths=PackedStringArray("switch_sound", "switch_mesh")]
 script = ExtResource("1_ce26a")
 drag_sensetivity = 0.007
 switch_sound = NodePath("../switch_sound")
