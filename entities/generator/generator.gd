@@ -64,5 +64,5 @@ func startup() -> void:
 		audio_player.stream = working_sound
 		audio_player.set("parameters/looping", true)
 		audio_player.play()
-	WORKING = false
+	WORKING = true
 	electricity_sound.play()

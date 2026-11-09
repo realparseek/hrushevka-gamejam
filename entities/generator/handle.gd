@@ -34,7 +34,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if (1.0-drag_value) <= snap_distance and DRAG_START_VALUE != 1.0 and IS_DRAGGING:
 			if handle_sound:
 				handle_sound.play()
-				POWERON_VALUE = min(1.0, POWERON_VALUE+0.35)
+				if not $"../../generator/generator".WORKING:
+					POWERON_VALUE = min(1.0, POWERON_VALUE+0.35)
 			drag_value = 1.0
 			ENABLED = true
 			stop_dragging()
