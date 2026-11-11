@@ -36,6 +36,21 @@ func add_pickable(pickable: Pickable) -> bool:
 			return true
 	return false
 
+func get_slots() -> Array[InventorySlot]:
+	var out: Array[InventorySlot] = []
+	for c in grid_container.get_children():
+		var s: InventorySlot = c.get_node_or_null("slot") as InventorySlot
+		if s:
+			out.append(s)
+	return out
+
+func get_pickables() -> Array[Pickable]:
+	var out: Array[Pickable] = []
+	for s in get_slots():
+		if not s.is_empty():
+			out.append(s.PICKABLE)
+	return out
+
 func close() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	VISIBLE = false

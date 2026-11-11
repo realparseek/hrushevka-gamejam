@@ -24,10 +24,6 @@ func _process(_delta: float) -> void:
 	match result:
 		ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
 			if CURRENT_SCENE: 
-				#for c in CURRENT_SCENE.get_children():
-					#if c is Scene:
-						#c.save_data("res://resources/save.tres")
-						#break
 				CURRENT_SCENE.queue_free()
 			
 			var sceneres = ResourceLoader.load_threaded_get(LOADING_SCENE_PATH)
@@ -37,8 +33,6 @@ func _process(_delta: float) -> void:
 			for c in CURRENT_SCENE.get_children():
 				if c is Scene:
 					player.global_transform = c.player_spawn.global_transform
-					#get_tree().current_scene.move_child(CURRENT_SCENE, 0)
-					#c.load_data("res://resources/save.tres")
 			LOADING_SCENE_PATH = ""
 			LOAD_REQUESTED = false
 			loading_screen.hide()

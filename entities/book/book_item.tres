@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/items/item_data.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/icons/inventory_icons/book_icon.png" id="2"]
+[ext_resource type="ArrayMesh" path="res://entities/book/книга.glb::ArrayMesh_4r80n" id="mesh_res"]
+[ext_resource type="PackedScene" path="res://entities/book/book_hand.tscn" id="hand_scene_res"]
+
+[resource]
+script = ExtResource("1")
+id = "book"
+display_name = "Книга"
+description = "Старая книга"
+icon = ExtResource("2")
+prefab_id = "book"
+world_scene_path = "res://entities/book/book.tscn"
+hand_scene = ExtResource("hand_scene_res")
+hold_rotation_deg = Vector3(0.0, -30.0, 8.0)
+hold_scale = 1.0

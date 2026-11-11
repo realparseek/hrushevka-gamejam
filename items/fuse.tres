@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/items/item_data.gd" id="1_itemdata"]
+[ext_resource type="Texture2D" uid="uid://byweyw1w2wn1v" path="res://assets/icons/inventory_icons/orb.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_itemdata")
+id = "fuse"
+display_name = "Предохранитель"
+description = "Если долго смотреть в бездну - бездна начинает........ иди нахуй"
+icon = ExtResource("2_icon")
+prefab_id = "fuse"
+world_scene_path = "res://entities/fuse/fuse.tscn"
+hold_scale = 1.0

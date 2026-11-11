@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/items/item_data.gd" id="1_itemdata"]
+[ext_resource type="Texture2D" uid="uid://byweyw1w2wn1v" path="res://assets/icons/inventory_icons/orb.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_itemdata")
+id = "orb"
+display_name = "Шар"
+description = "просто белый шар че доебался"
+icon = ExtResource("2_icon")
+prefab_id = "orb"
+world_scene_path = "res://entities/orb/orb.tscn"
+hold_position = Vector3(0.3, -0.22, -0.5)
+hold_rotation_deg = Vector3(0, -30, 8)
+hold_scale = 1.0

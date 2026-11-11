@@ -1,6 +1,9 @@
 extends Node
 class_name FPSMovement
 
+signal stepped()
+signal landed(impact: float)
+
 @export_subgroup("Player")
 @export var pause_menu: PauseMenu
 @export var player: CharacterBody3D
@@ -21,17 +24,18 @@ class_name FPSMovement
 @export var mouse_sensetivity: float = 2.0
 @export var headbob_size: float = 0.04
 @export var headbob_speed: float = 3.5
+@export var breathing: Breathing = null
 
 @export_subgroup("Physics")
 @export var headbob_tilt: float = 0.7
 @export var crouch_tilt: float = 2.0
-@export var push_force_walk: float = 8.0
-@export var push_force_run: float = 15.0
-@export var max_push_impulse: float = 50.0
+@export var push_force_walk: float = 45.0
+@export var push_force_run: float = 75.0
+@export var max_push_impulse: float = 400.0
 @export var push_mass_scale: float = 0.8
 @export var max_ball_horizontal_speed: float = 5.0
 @export var ball_damping: float = 0.98
-@export var side_push_strength: float = 8.0
+@export var push_recoil: float = 6.0
 @export var ball_side_scale: float = 0.5
 @export var max_side_push_speed: float = 2.0
 @export var heavy_push_threshold: float = 5.0
@@ -66,13 +70,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	_handle_pausing()
 	if pause_menu and pause_menu.PAUSED: return
-	#_handle_gravity(delta)
-	#_handle_jump()
-	#_handle_walk(delta)
-	#_handle_step_sounds()
-	#_handle_headbob(delta)
-	#_handle_crouching(delta)
-	#_handle_collisions()
 
 func _physics_process(delta: float) -> void:
 	if pause_menu and pause_menu.PAUSED: return
@@ -82,7 +79,7 @@ func _physics_process(delta: float) -> void:
 	_handle_step_sounds()
 	_handle_headbob(delta)
 	_handle_crouching(delta)
-	_handle_collisions()
+	_handle_collisions(delta)
 
 func _handle_gravity(delta: float) -> void:
 	if not player.is_on_floor():
@@ -99,7 +96,10 @@ func _handle_walk(delta: float) -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	var speed: float = move_speed
-	if not CROUCHED and Input.is_action_pressed("move_run"):
+	var can_sprint_now: bool = true
+	if breathing != null:
+		can_sprint_now = breathing.can_sprint()
+	if not CROUCHED and Input.is_action_pressed("move_run") and can_sprint_now:
 		speed = run_speed
 	player.velocity.x = lerp(player.velocity.x, direction.x * speed, move_acceleration*delta)
 	player.velocity.z = lerp(player.velocity.z, direction.z * speed, move_acceleration*delta)
@@ -116,6 +116,7 @@ func _handle_step_sounds() -> void:
 	if HEADBOB_PREV_DIR < HEADBOB_CUR_DIR and not STEP_SOUND_PLAYED and player.is_on_floor():
 		_play_step_sound()
 		STEP_SOUND_PLAYED = true
+		stepped.emit()
 	if HEADBOB_PREV_DIR > HEADBOB_CUR_DIR and STEP_SOUND_PLAYED:
 		STEP_SOUND_PLAYED = false
 
@@ -140,9 +141,13 @@ func _play_step_sound() -> void:
 	steps_player.play()
 	NEXT_STEP_SOUND = wrap(NEXT_STEP_SOUND+1, 0, step_sounds.size())
 
-func _handle_collisions() -> void:
+func _handle_collisions(delta: float) -> void:
+	var fall_speed: float = absf(player.velocity.y)
 	_was_on_floor = player.is_on_floor()
 	player.move_and_slide()
+
+	if player.is_on_floor() and not _was_on_floor:
+		landed.emit(fall_speed)
 	
 	var floor_col = player.get_last_slide_collision()
 	if floor_col and player.is_on_floor() and floor_col.get_normal().y > 0.9:
@@ -152,7 +157,7 @@ func _handle_collisions() -> void:
 	
 	if player.is_on_floor():
 		_update_frozen_objects()
-		_process_rigidbody_collisions()
+		_process_rigidbody_collisions(delta)
 	else:
 		for rb in _frozen_objects.duplicate():
 			if not rb: continue
@@ -162,7 +167,7 @@ func _handle_collisions() -> void:
 	if player.is_on_floor() and player.velocity.y > 0:
 		player.velocity.y = 0
 
-func _process_rigidbody_collisions() -> void:
+func _process_rigidbody_collisions(delta: float) -> void:
 	var processed = []
 	for i in player.get_slide_collision_count():
 		var collision = player.get_slide_collision(i)
@@ -185,7 +190,6 @@ func _process_rigidbody_collisions() -> void:
 		var is_long = rb.is_in_group("long_object")
 		var mass = rb.mass
 		
-		# Бег недоступен при приседании
 		var is_running = Input.is_action_pressed("move_run") and not CROUCHED
 		var can_push = false
 		if is_ball or is_long:
@@ -216,29 +220,27 @@ func _process_rigidbody_collisions() -> void:
 				push_dir = (move_dir + normal_horiz * 0.3).normalized()
 			
 			var mass_factor = 1.0 / pow(1.0 + mass * push_mass_scale, push_mass_exponent)
-			var impulse_magnitude = side_push_strength * mass_factor
+			
+			var push_accel: float = push_force_run if is_running else push_force_walk
 			if is_ball:
-				impulse_magnitude *= ball_side_scale
+				push_accel *= ball_side_scale
+			var push_force: float = minf(mass * push_accel * mass_factor, max_push_impulse)
 			
 			var contact_point = collision.get_position()
 			var offset = contact_point - rb.global_position
-			rb.apply_impulse(push_dir * impulse_magnitude, offset)
+			rb.apply_force(push_dir * push_force, offset)
 			
 			if not is_long:
+				var max_h: float = max_ball_horizontal_speed if is_ball else max_side_push_speed
 				var horiz_vel = Vector2(rb.linear_velocity.x, rb.linear_velocity.z)
-				if horiz_vel.length() > max_side_push_speed:
-					horiz_vel = horiz_vel.normalized() * max_side_push_speed
+				if horiz_vel.length() > max_h:
+					horiz_vel = horiz_vel.normalized() * max_h
 					rb.linear_velocity.x = horiz_vel.x
 					rb.linear_velocity.z = horiz_vel.y
 			
-			var player_push = -normal_horiz * 0.2
-			player.velocity.x += player_push.x
-			player.velocity.z += player_push.z
-			
-			if not is_ball and mass > heavy_push_threshold and not is_long:
-				var slowdown = clamp(mass / heavy_push_max_mass, 0.0, 1.0) * push_slowdown_factor * 0.5
-				player.velocity.x = lerp(player.velocity.x, player.velocity.x * (1.0 - slowdown), 0.5)
-				player.velocity.z = lerp(player.velocity.z, player.velocity.z * (1.0 - slowdown), 0.5)
+			var mass_ratio: float = clampf(mass / heavy_push_max_mass, 0.0, 1.0)
+			var recoil: float = push_recoil * (1.0 + mass_ratio * push_slowdown_factor * 10.0)
+			player.velocity += -normal_horiz * recoil * delta
 
 func _update_frozen_objects() -> void:
 	if not player:

@@ -2,7 +2,6 @@
 extends CompositorEffect
 class_name AccumulativeBlurEffect
 
-## Controls how much of the previous frame's blurred image to blend in. 0 = no blur, 1 = full blur (but full blur is not recommended as it will cause the image to persist indefinitely).
 @export_range(0.0, 1.0, 0.001) var alpha: float = 0.0
 
 var rd: RenderingDevice
@@ -52,8 +51,6 @@ func _render_callback(_effect_callback_type: int, render_data: RenderData) -> vo
 	if size.x == 0 or size.y == 0:
 		return
 
-	# Create (or retrieve existing) persistent previous-frame texture.
-	# create_texture returns the cached RID if it already exists with this name.
 	var usage_bits := (
 		RenderingDevice.TEXTURE_USAGE_SAMPLING_BIT
 		| RenderingDevice.TEXTURE_USAGE_STORAGE_BIT
@@ -79,13 +76,11 @@ func _render_callback(_effect_callback_type: int, render_data: RenderData) -> vo
 			&"accum_blur", &"prev_frame", view, 0, 1, 1
 		)
 
-		# Uniform for color buffer (binding 0)
 		var color_uniform := RDUniform.new()
 		color_uniform.uniform_type = RenderingDevice.UNIFORM_TYPE_IMAGE
 		color_uniform.binding = 0
 		color_uniform.add_id(color_image)
 
-		# Uniform for previous frame buffer (binding 1)
 		var prev_uniform := RDUniform.new()
 		prev_uniform.uniform_type = RenderingDevice.UNIFORM_TYPE_IMAGE
 		prev_uniform.binding = 1

@@ -55,8 +55,6 @@ func shutdown() -> void:
 		audio_player.play()
 	WORKING = false
 	electricity_sound.play()
-	#explosion_sound.play()
-	#fuse_sound.play()
 
 func startup() -> void:
 	if WORKING: return

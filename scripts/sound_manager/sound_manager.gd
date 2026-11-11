@@ -1,16 +1,12 @@
 extends Node3D
 
 @export var sound_streams: Array[AudioStream] = []
-#Минимальная и максимальная задержка между воспроизведениями (секунды)
 @export var min_delay: float = 5.0
 @export var max_delay: float = 15.0
-#Радиус разброса источника звука по горизонтали (XZ)
 @export var radius: float = 8.0
-#Разброс по высоте (Y)
 @export var height_offset: float = 2.0
 @export var volume_db: float = 0.0
 @export var target_node: Node3D = null
-#Это для конкретных точек
 @export var fixed_spawn_points: Array[Vector3] = []
 @export var active: bool = true
 

@@ -4,6 +4,12 @@
 [ext_resource type="Script" uid="uid://b7x3q0k514reh" path="res://scripts/pickable/pickable.gd" id="2_b6827"]
 [ext_resource type="Texture2D" uid="uid://byweyw1w2wn1v" path="res://assets/icons/inventory_icons/orb.png" id="3_b6827"]
 [ext_resource type="Material" uid="uid://chqm468gixvba" path="res://assets/materials/outline.material" id="5_bip55"]
+[ext_resource type="Resource" path="res://items/orb.tres" id="4_itemdata"]
+[ext_resource type="Script" path="res://scripts/physics/physics_object.gd" id="6_phys"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_orb"]
+friction = 0.6
+bounce = 0.35
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hrtr2"]
 _surfaces = [{
@@ -33,9 +39,16 @@ _surfaces = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_j3ovn"]
 radius = 0.084389076
 
-[node name="orb" type="StaticBody3D" unique_id=1712574766]
+[node name="orb" type="RigidBody3D" unique_id=1712574766]
 collision_layer = 3
-collision_mask = 2
+collision_mask = 3
+mass = 0.6
+physics_material_override = SubResource("PhysicsMaterial_orb")
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 8
+script = ExtResource("6_phys")
+kind = 1
 
 [node name="hoverable" type="Node" parent="." unique_id=149128384 node_paths=PackedStringArray("hover_mesh")]
 script = ExtResource("1_ljrly")
@@ -45,6 +58,8 @@ hover_mesh = NodePath("../outline")
 script = ExtResource("2_b6827")
 icon = ExtResource("3_b6827")
 description = "просто белый шар че доебался"
+prefab_id = "orb"
+item = ExtResource("4_itemdata")
 
 [node name="mesh" type="MeshInstance3D" parent="." unique_id=1143175468]
 mesh = SubResource("ArrayMesh_hrtr2")

@@ -48,12 +48,6 @@ func _render_callback(_effect_type: int, render_data: RenderData) -> void:
 	var x_groups = ceili(float(size.x) / 8.0)
 	var y_groups = ceili(float(size.y) / 8.0)
 
-	# uniform vec2 custom_viewport_size = vec2(640.0, 360.0);
-	# uniform vec2 virtual_resolution = vec2(640.0, 360.0);
-	# uniform float shadow_smoothness = 0.6;
-	# uniform float dither_strength = 0.01;
-	# uniform float color_depth = 64;
-	# uniform float _padding;
 
 	var constants = PackedFloat32Array([640.0*3.0, 360.0*3.0, 640.0, 360.0, 0.6, 0.005, 64.0, 0.0])
 

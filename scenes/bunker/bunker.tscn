@@ -36,6 +36,7 @@
 [ext_resource type="Material" uid="uid://dd35gp60m5w3w" path="res://assets/materials/proto_white.material" id="23_r4pkr"]
 [ext_resource type="PackedScene" uid="uid://bafmbprcx7u8j" path="res://assets/shaders/gargamel shader test/Kvazimodo.glb" id="25_g4n5i"]
 [ext_resource type="PackedScene" uid="uid://b4tbckmoxcp3s" path="res://assets/shaders/gargamel shader test/гаргамель.glb" id="25_txlqv"]
+[ext_resource type="PackedScene" uid="uid://book000000001" path="res://entities/book/book.tscn" id="book_scene"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ap2gx"]
 _surfaces = [{
@@ -959,6 +960,9 @@ material = ExtResource("23_r4pkr")
 
 [node name="entities" type="Node3D" parent="." unique_id=441242414]
 
+[node name="book" parent="entities" unique_id=1854021328 instance=ExtResource("book_scene")]
+transform = Transform3D(0.7569811, 0, -0.65343684, 0, 1, 0, 0.65343684, 0, 0.7569811, -6.189884, 1.4217602, 1.5996588)
+
 [node name="generator" type="StaticBody3D" parent="entities" unique_id=748440623]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12.831303, 0.7580687, 16.69119)
 
@@ -1376,7 +1380,7 @@ script = ExtResource("13_6votu")
 icon_pos = NodePath("../collision/icon")
 
 [node name="collision" type="CollisionShape3D" parent="entities/door6" unique_id=1973192116]
-transform = Transform3D(-0.25881997, 0, -0.9659265, 0, 1, 0, 0.9659265, 0, -0.25881997, 0, 0, 0)
+transform = Transform3D(-0.25881994, 0, -0.96592647, 0, 1, 0, 0.96592647, 0, -0.25881994, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_dsbe1")
 
 [node name="mesh" type="MeshInstance3D" parent="entities/door6/collision" unique_id=563839379]

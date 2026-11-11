@@ -1,0 +1,9 @@
+[gd_scene format=4 uid="uid://bookhand001"]
+
+[ext_resource type="ArrayMesh" path="res://entities/book/книга.glb::ArrayMesh_4r80n" id="mesh_res"]
+
+[node name="book_hand" type="Node3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("mesh_res")
+transform = Transform3D(0.2, 0, 0, 0, 0.36, 0, 0, 0, 0.04, 0, 0, 0)

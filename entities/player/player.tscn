@@ -30,6 +30,32 @@
 [ext_resource type="Theme" uid="uid://ca5dkr7ytxhv7" path="res://assets/themes/pause/menu.tres" id="26_arp52"]
 [ext_resource type="AudioStream" uid="uid://c7rs3k73vj5y" path="res://assets/audio/ambience/Menu.ogg" id="27_jjk8f"]
 [ext_resource type="PackedScene" uid="uid://d3ykkyhv1t4wx" path="res://entities/windows/fps/fpswindow.tscn" id="28_cnswy"]
+[ext_resource type="Script" path="res://scripts/bodycam/bodycam.gd" id="29_bdcam"]
+[ext_resource type="Script" path="res://scripts/items/held_item.gd" id="30_held"]
+[ext_resource type="Script" path="res://scripts/bodycam/bodycam_atmosphere.gd" id="31_atmo"]
+[ext_resource type="Script" path="res://scripts/breathing/breathing.gd" id="32_breath"]
+[ext_resource type="Shader" path="res://assets/shaders/bodycam_overlay.gdshader" id="33_overlay"]
+[ext_resource type="AudioStream" path="res://assets/generated/audio/breath_calm.mp3" id="34_bcalm"]
+[ext_resource type="AudioStream" path="res://assets/generated/audio/breath_sprint.mp3" id="35_bsprint"]
+[ext_resource type="AudioStream" path="res://assets/generated/audio/breath_recover.mp3" id="36_brecover"]
+[ext_resource type="AudioStream" path="res://assets/generated/audio/breath_gasp.mp3" id="37_bgasp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcoverlay"]
+shader = ExtResource("33_overlay")
+shader_parameter/enable_vignette = true
+shader_parameter/vignette_strength = 0.45
+shader_parameter/vignette_softness = 0.45
+shader_parameter/enable_grain = true
+shader_parameter/grain_amount = 0.02
+shader_parameter/enable_chromatic = true
+shader_parameter/chromatic_amount = 0.0016
+shader_parameter/enable_distortion = true
+shader_parameter/distortion_amount = -0.1
+shader_parameter/enable_flicker = true
+shader_parameter/flicker_amount = 0.02
+shader_parameter/enable_scanlines = false
+shader_parameter/scanline_amount = 0.05
+shader_parameter/uv_wobble = 0.0
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_7ba2d"]
 resource_local_to_scene = false
@@ -158,6 +184,44 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_j3ovn"]
 font = ExtResource("25_a2brg")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_win95"]
+bg_color = Color(0.752941, 0.752941, 0.752941, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 3
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_titlebar"]
+bg_color = Color(0, 0, 0.5, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 0
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_track"]
+bg_color = Color(0.5, 0.5, 0.5, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
 [node name="player" type="CharacterBody3D" unique_id=209289530]
 process_mode = 3
 collision_layer = 5
@@ -174,7 +238,7 @@ loading_screen = NodePath("../loading_screen")
 script = ExtResource("3_bwdx1")
 scene_loader = NodePath("../scene_loader")
 
-[node name="fps_movement" type="Node" parent="." unique_id=962420081 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape", "separator_rays")]
+[node name="fps_movement" type="Node" parent="." unique_id=962420081 node_paths=PackedStringArray("pause_menu", "player", "head", "steps_player", "collision_shape", "separator_rays", "breathing")]
 process_mode = 3
 script = ExtResource("3_24ehl")
 pause_menu = NodePath("../pause_menu")
@@ -183,6 +247,7 @@ head = NodePath("../head")
 steps_player = NodePath("../step_sounds")
 collision_shape = NodePath("../collision")
 separator_rays = [NodePath("../floor_separator_ray")]
+breathing = NodePath("../breathing")
 step_sounds = Array[AudioStream]([ExtResource("4_bwdx1"), ExtResource("5_vewsg"), ExtResource("6_2soq1"), ExtResource("7_8q4fm"), ExtResource("8_np63p"), ExtResource("9_0eo6o")])
 headbob_tilt = 0.5
 crouch_tilt = 1.0
@@ -213,12 +278,33 @@ open_acceleration = 12.0
 script = ExtResource("15_r633c")
 camera = NodePath("../head/camera")
 
-[node name="pause_menu" type="Node" parent="." unique_id=476985872 node_paths=PackedStringArray("menu", "resume_button", "exit_button", "ambient")]
+[node name="breathing" type="Node" parent="." node_paths=PackedStringArray("player", "fps_movement", "pause_menu", "audio")]
+script = ExtResource("32_breath")
+player = NodePath("..")
+fps_movement = NodePath("../fps_movement")
+pause_menu = NodePath("../pause_menu")
+audio = NodePath("audio")
+calm_stream = ExtResource("34_bcalm")
+sprint_stream = ExtResource("35_bsprint")
+recover_stream = ExtResource("36_brecover")
+gasp_stream = ExtResource("37_bgasp")
+
+[node name="audio" type="AudioStreamPlayer" parent="breathing"]
+
+[node name="pause_menu" type="Node" parent="." unique_id=476985872 node_paths=PackedStringArray("menu", "menu_container", "resume_button", "settings_button", "exit_button", "ambient", "settings_panel", "fps_slider", "fps_value_label", "volume_slider", "volume_value_label", "back_button")]
 script = ExtResource("16_pacje")
 menu = NodePath("../ui/pause")
+menu_container = NodePath("../ui/pause/menu")
 resume_button = NodePath("../ui/pause/menu/resume")
+settings_button = NodePath("../ui/pause/menu/settings")
 exit_button = NodePath("../ui/pause/menu/exit")
 ambient = NodePath("../ui/pause/ambient")
+settings_panel = NodePath("../ui/pause/settings_panel")
+fps_slider = NodePath("../ui/pause/settings_panel/vbox/fps_row/fps_slider")
+fps_value_label = NodePath("../ui/pause/settings_panel/vbox/fps_row/fps_value")
+volume_slider = NodePath("../ui/pause/settings_panel/vbox/volume_row/volume_slider")
+volume_value_label = NodePath("../ui/pause/settings_panel/vbox/volume_row/volume_value")
+back_button = NodePath("../ui/pause/settings_panel/vbox/back_button")
 
 [node name="loading_screen" type="Node" parent="." unique_id=827039144 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("17_2h0qb")
@@ -232,15 +318,29 @@ message = "sample text"
 [node name="head" type="Node3D" parent="." unique_id=82515802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6216417, 0)
 
-[node name="camera" type="Camera3D" parent="head" unique_id=141450093]
+[node name="camera" type="Camera3D" parent="head" unique_id=141450093 node_paths=PackedStringArray("player", "head", "fps_movement", "pause_menu", "breathing")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.094000936)
 compositor = SubResource("Compositor_vpe7l")
 current = true
+script = ExtResource("29_bdcam")
+player = NodePath("../..")
+head = NodePath("..")
+fps_movement = NodePath("../../fps_movement")
+pause_menu = NodePath("../../pause_menu")
+breathing = NodePath("../../breathing")
 
 [node name="interaction_cast" type="RayCast3D" parent="head/camera" unique_id=480169208]
 target_position = Vector3(0, 0, -1.2)
 collision_mask = 2
 hit_back_faces = false
+
+[node name="hand" type="Node3D" parent="head/camera" node_paths=PackedStringArray("camera", "player", "inventory", "pause_menu", "spawner")]
+script = ExtResource("30_held")
+camera = NodePath("..")
+player = NodePath("../../..")
+inventory = NodePath("../../../inventory")
+pause_menu = NodePath("../../../pause_menu")
+spawner = NodePath("../../../entity_spawner")
 
 [node name="collision" type="CollisionShape3D" parent="." unique_id=1471520602]
 shape = SubResource("CylinderShape3D_24ehl")
@@ -300,6 +400,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="bodycam_overlay" type="ColorRect" parent="ui" node_paths=PackedStringArray("player", "head", "fps_movement", "breathing", "pause_menu")]
+material = SubResource("ShaderMaterial_bcoverlay")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+script = ExtResource("31_atmo")
+player = NodePath("../..")
+head = NodePath("../../head")
+fps_movement = NodePath("../../fps_movement")
+breathing = NodePath("../../breathing")
+pause_menu = NodePath("../../pause_menu")
 
 [node name="drop_items" type="ColorRect" parent="ui" unique_id=808021172 node_paths=PackedStringArray("entity_spawner", "interaction_cast", "player", "head")]
 layout_mode = 1
@@ -397,6 +514,7 @@ flat = true
 alignment = 0
 
 [node name="settings" type="Button" parent="ui/pause/menu" unique_id=1703697992]
+process_mode = 3
 layout_mode = 2
 theme = ExtResource("26_arp52")
 theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
@@ -419,6 +537,94 @@ alignment = 0
 stream = ExtResource("27_jjk8f")
 volume_db = -20.0
 parameters/looping = true
+
+[node name="settings_panel" type="Panel" parent="ui/pause" unique_id=999900001]
+process_mode = 3
+visible = false
+theme = ExtResource("26_arp52")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_win95")
+
+[node name="vbox" type="VBoxContainer" parent="ui/pause/settings_panel" unique_id=999900002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="ui/pause/settings_panel/vbox" unique_id=999900003]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_titlebar")
+
+[node name="fps_row" type="HBoxContainer" parent="ui/pause/settings_panel/vbox" unique_id=999900004]
+layout_mode = 2
+
+[node name="fps_label" type="Label" parent="ui/pause/settings_panel/vbox/fps_row" unique_id=999900005]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
+text = "FPS Limit"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="fps_slider" type="HSlider" parent="ui/pause/settings_panel/vbox/fps_row" unique_id=999900006]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 60.0
+max_value = 360.0
+step = 1.0
+value = 240.0
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider_track")
+
+[node name="fps_value" type="Label" parent="ui/pause/settings_panel/vbox/fps_row" unique_id=999900012]
+layout_mode = 2
+text = "240"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="volume_row" type="HBoxContainer" parent="ui/pause/settings_panel/vbox" unique_id=999900007]
+layout_mode = 2
+
+[node name="volume_label" type="Label" parent="ui/pause/settings_panel/vbox/volume_row" unique_id=999900008]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
+text = "Volume"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="volume_slider" type="HSlider" parent="ui/pause/settings_panel/vbox/volume_row" unique_id=999900009]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 100.0
+value = 100.0
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider_track")
+
+[node name="volume_value" type="Label" parent="ui/pause/settings_panel/vbox/volume_row" unique_id=999900010]
+layout_mode = 2
+text = "100%"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="back_button" type="Button" parent="ui/pause/settings_panel/vbox" unique_id=999900011]
+process_mode = 3
+layout_mode = 2
+text = "Back"
 
 [node name="loading" type="ColorRect" parent="ui" unique_id=1486058033]
 layout_mode = 1

@@ -31,8 +31,11 @@ func _process(_delta: float) -> void:
 		PICKED_DRAGGABLE.stop_dragging()
 		PICKED_DRAGGABLE = null
 	
-	#var coll: StaticBody3D = raycast.get_collider()
 	var coll = raycast.get_collider()
+	if not coll or not _has_interactive(coll):
+		var nearby = _find_nearby_interactive()
+		if nearby:
+			coll = nearby
 	if not coll and not PICKED_DRAGGABLE:
 		if PICKED_HOVERABLE:
 			PICKED_HOVERABLE.unhover()
@@ -96,19 +99,47 @@ func _process(_delta: float) -> void:
 
 func show_interacte_icon() -> void:
 	if not icon_sprite: return
-	if crosshair_rect: crosshair_rect.visible = false
 	icon_sprite.global_position = ICON_POS
 	icon_sprite.texture = icon_interacte
 	icon_sprite.visible = true
+	if crosshair_rect: crosshair_rect.visible = true
 
 func show_drag_icon() -> void:
 	if not icon_sprite: return
-	if crosshair_rect: crosshair_rect.visible = false
 	icon_sprite.global_position = ICON_POS
 	icon_sprite.texture = icon_drag
 	icon_sprite.visible = true
+	if crosshair_rect: crosshair_rect.visible = true
+
+func _has_interactive(node: Node) -> bool:
+	if not node:
+		return false
+	for c in node.get_children():
+		if c is Hoverable or c is Pickable or c is Draggable or c is Interactable:
+			return true
+	return false
+
+func _find_nearby_interactive() -> Node:
+	var space_state = raycast.get_world_3d().direct_space_state if raycast else null
+	if not space_state:
+		return null
+	var origin: Vector3 = raycast.global_position
+	var direction: Vector3 = -raycast.global_transform.basis.z
+	var center: Vector3 = origin + direction * 1.0
+	var sphere := SphereShape3D.new()
+	sphere.radius = 0.45
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = sphere
+	query.transform = Transform3D(Basis.IDENTITY, center)
+	query.collision_mask = 0xFFFFFFFF
+	var results: Array = space_state.intersect_shape(query)
+	for r in results:
+		var collider = r.collider
+		if collider and _has_interactive(collider):
+			return collider
+	return null
 
 func hide_icon() -> void:
 	if not icon_sprite: return
-	if crosshair_rect: crosshair_rect.visible = true
+	if crosshair_rect: crosshair_rect.visible = false
 	icon_sprite.visible = false
