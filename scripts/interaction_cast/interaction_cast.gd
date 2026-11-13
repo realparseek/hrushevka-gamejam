@@ -14,6 +14,8 @@ class_name InteractionCast
 @export var icon_drag: Texture2D
 @export var icon_enter: Texture2D
 
+@export_range(0.0, 1.0, 0.05) var nearby_radius: float = 0.18
+
 var ORIGINAL_MSENSETIVITY: float = 0.0
 var PICKED_HOVERABLE: Hoverable = null
 var PICKED_DRAGGABLE: Draggable = null
@@ -127,7 +129,7 @@ func _find_nearby_interactive() -> Node:
 	var direction: Vector3 = -raycast.global_transform.basis.z
 	var center: Vector3 = origin + direction * 1.0
 	var sphere := SphereShape3D.new()
-	sphere.radius = 0.45
+	sphere.radius = nearby_radius
 	var query := PhysicsShapeQueryParameters3D.new()
 	query.shape = sphere
 	query.transform = Transform3D(Basis.IDENTITY, center)

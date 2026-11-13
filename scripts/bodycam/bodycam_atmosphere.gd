@@ -82,8 +82,9 @@ func _process(delta: float) -> void:
 
 	var pant: float = breathing.PANT if breathing else 0.0
 	var crouched: bool = fps_movement != null and fps_movement.CROUCHED
+	var run_held: bool = Input.is_action_pressed("move_run") if fps_movement == null else fps_movement.RUNNING
 	var sprinting: float = 0.0
-	if Input.is_action_pressed("move_run") and not crouched and speed > 2.0:
+	if run_held and not crouched and speed > 2.0:
 		sprinting = clampf(speed - 2.0, 0.0, 1.0)
 
 	_breath_time += delta * (1.0 + pant * 1.5)

@@ -18,12 +18,14 @@ signal landed(impact: float)
 @export var run_speed: float = 3.0
 @export var move_acceleration: float = 10.0
 @export var crouch_size: float = 1.2
+@export_range(0.1, 1.0, 0.05) var crouch_move_scale: float = 0.5
 @export var crouch_acceleration: float = 4.5
 @export var enable_jump: bool = true
 @export var jump_force: float = 6.0
 @export var mouse_sensetivity: float = 2.0
-@export var headbob_size: float = 0.04
-@export var headbob_speed: float = 3.5
+@export var headbob_size: float = 0.03
+@export var headbob_speed: float = 4.0
+@export_range(0.1, 2.0, 0.05) var walk_gait_scale: float = 0.65
 @export var breathing: Breathing = null
 
 @export_subgroup("Physics")
@@ -52,10 +54,11 @@ var HEADBOB_START_ROT_Z: float = 0.0
 var HEADBOB_VAL: float = 0.0
 var HEADBOB_PREV_DIR: float = 0.0
 var HEADBOB_CUR_DIR: float = 0.0
+var STEP_SOUND_PLAYED: bool = false
 var HEAD_PITCH: float = 0.0
 var PLAYER_START_HEIGHT: float = 0.0
-var STEP_SOUND_PLAYED: bool = false
 var NEXT_STEP_SOUND: int = 0
+var RUNNING: bool = false
 var CROUCHED: bool = false
 var _floor_collider: Node = null
 var _was_on_floor: bool = false
@@ -66,6 +69,7 @@ func _ready() -> void:
 	HEADBOB_START_ROT_Z = head.rotation.z
 	PLAYER_START_HEIGHT = collision_shape.shape.height
 	player.floor_max_angle = 0.7
+	STEP_SOUND_PLAYED = false  
 
 func _process(_delta: float) -> void:
 	_handle_pausing()
@@ -73,6 +77,7 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if pause_menu and pause_menu.PAUSED: return
+	_update_running()
 	_handle_gravity(delta)
 	_handle_jump()
 	_handle_walk(delta)
@@ -99,34 +104,42 @@ func _handle_walk(delta: float) -> void:
 	var can_sprint_now: bool = true
 	if breathing != null:
 		can_sprint_now = breathing.can_sprint()
-	if not CROUCHED and Input.is_action_pressed("move_run") and can_sprint_now:
+	if CROUCHED:
+		speed *= crouch_move_scale  
+	elif RUNNING and can_sprint_now:
 		speed = run_speed
 	player.velocity.x = lerp(player.velocity.x, direction.x * speed, move_acceleration*delta)
 	player.velocity.z = lerp(player.velocity.z, direction.z * speed, move_acceleration*delta)
 
-func _handle_headbob(delta: float) -> void:
-	HEADBOB_VAL += delta * headbob_speed * player.velocity.length()
-	HEADBOB_PREV_DIR = HEADBOB_CUR_DIR
-	HEADBOB_CUR_DIR = sin(HEADBOB_VAL) * headbob_size
-	head.position.y = HEADBOB_START_Y + HEADBOB_CUR_DIR
-	var tilt: float = deg_to_rad(headbob_tilt) if not CROUCHED else deg_to_rad(crouch_tilt)
-	head.rotation.z = HEADBOB_START_ROT_Z + tilt * (cos(HEADBOB_VAL/2))
-
 func _handle_step_sounds() -> void:
-	if HEADBOB_PREV_DIR < HEADBOB_CUR_DIR and not STEP_SOUND_PLAYED and player.is_on_floor():
-		_play_step_sound()
-		STEP_SOUND_PLAYED = true
-		stepped.emit()
-	if HEADBOB_PREV_DIR > HEADBOB_CUR_DIR and STEP_SOUND_PLAYED:
-		STEP_SOUND_PLAYED = false
+	var speed: float = player.velocity.length()
+	
+	if speed > 0.1 and player.is_on_floor() and step_sounds.size() > 0:
+		var planar_velocity = Vector2(player.velocity.x, player.velocity.z).length()
+		
+		if planar_velocity > 1.0 and HEADBOB_PREV_DIR * HEADBOB_CUR_DIR < 0.0:
+			_play_step_sound()
+			stepped.emit()
+	elif not player.is_on_floor():
+		if STEP_SOUND_PLAYED:
+			STEP_SOUND_PLAYED = false
 
-func _handle_crouching(delta: float):
-	if Input.is_action_just_pressed("move_crouch"):
-		CROUCHED = not CROUCHED
-	var desired_height: float = PLAYER_START_HEIGHT-crouch_size if CROUCHED else PLAYER_START_HEIGHT
-	collision_shape.shape.height = lerp(collision_shape.shape.height, desired_height, crouch_acceleration*delta)
-	for sr in separator_rays:
-		sr.position.y = -collision_shape.shape.height/2
+
+
+func _update_running() -> void:
+	if Input.is_action_just_pressed("move_run"):
+		RUNNING = true
+	elif Input.is_action_just_released("move_run"):
+		RUNNING = false
+
+func _notification(what: int) -> void:
+	if what == Node.NOTIFICATION_APPLICATION_FOCUS_IN:
+		Input.action_release("move_run")
+		Input.action_release("move_forward")
+		Input.action_release("move_backward")
+		Input.action_release("move_left")
+		Input.action_release("move_right")
+		RUNNING = false
 
 func _handle_pausing():
 	if not pause_menu: return
@@ -190,7 +203,7 @@ func _process_rigidbody_collisions(delta: float) -> void:
 		var is_long = rb.is_in_group("long_object")
 		var mass = rb.mass
 		
-		var is_running = Input.is_action_pressed("move_run") and not CROUCHED
+		var is_running: bool = RUNNING and not CROUCHED
 		var can_push = false
 		if is_ball or is_long:
 			can_push = true
@@ -290,7 +303,7 @@ func _update_frozen_objects() -> void:
 						continue
 						
 					found_heavy.append(rb)
-					var is_running = Input.is_action_pressed("move_run") and not CROUCHED
+					var is_running: bool = RUNNING and not CROUCHED
 					var should_freeze = (mass > heavy_push_max_mass) or (not is_running)
 					if should_freeze:
 						if not rb.freeze:
@@ -312,6 +325,52 @@ func _update_frozen_objects() -> void:
 			if not rb: continue
 			rb.freeze = false
 			_frozen_objects.erase(rb)
+
+func _handle_headbob(delta: float) -> void:
+	var speed: float = player.velocity.length()
+	
+	if speed > 0.1: 
+		var planar_speed: float = Vector2(player.velocity.x, player.velocity.z).length()
+		var is_running_gait: bool = planar_speed >= (move_speed + run_speed) * 0.5
+		var gait_scale: float = 1.0 if is_running_gait else walk_gait_scale
+		HEADBOB_VAL += delta * headbob_speed * speed * gait_scale
+		
+		var lateral_movement: float = sin(HEADBOB_VAL) * headbob_size * 0.7
+		var vertical_movement: float = cos(HEADBOB_VAL * 0.5) * headbob_size * 0.3
+		
+		var bob_amount: float = speed / 4.0
+		var tilt_factor: float = clampf(speed / 2.0, 0.0, 1.0)
+		
+		head.position.y = HEADBOB_START_Y + lateral_movement + vertical_movement
+		
+		var tilt: float = deg_to_rad(headbob_tilt) * tilt_factor if not CROUCHED else deg_to_rad(crouch_tilt)
+		head.rotation.z = HEADBOB_START_ROT_Z + tilt * (sin(HEADBOB_VAL/2) * 0.5)
+		
+		var rotation_y: float = sin(HEADBOB_VAL * 1.5) * headbob_size * 0.3
+		head.rotation.y = rotation_y
+		
+		HEADBOB_PREV_DIR = HEADBOB_CUR_DIR
+		HEADBOB_CUR_DIR = lateral_movement
+		
+		if speed > 2.0:
+			var direction_change: float = abs(HEADBOB_CUR_DIR - lateral_movement) / delta
+			if direction_change > 1.0:
+				head.rotation.z += sin(direction_change * 0.5) * 0.01
+				
+	else:
+		if abs(head.position.y - HEADBOB_START_Y) > 0.001:
+			head.position.y = lerp(head.position.y, HEADBOB_START_Y, delta * 5.0)
+		
+		head.rotation.z = lerpf(head.rotation.z, HEADBOB_START_ROT_Z, delta * 3.0)
+		head.rotation.y = lerpf(head.rotation.y, 0.0, delta * 2.0)
+
+func _handle_crouching(delta: float) -> void:
+	if Input.is_action_just_pressed("move_crouch"):
+		CROUCHED = not CROUCHED
+		if CROUCHED:
+			collision_shape.shape.height = crouch_size
+		else:
+			collision_shape.shape.height = PLAYER_START_HEIGHT
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

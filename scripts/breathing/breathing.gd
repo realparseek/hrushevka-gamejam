@@ -26,11 +26,11 @@ const SILENT_DB: float = -80.0
 @export var gasp_volume_db: float = -8.0
 
 @export_subgroup("Выносливость")
-@export var drain_rate: float = 0.30
-@export var recover_rate: float = 0.17
+@export var drain_rate: float = 0.30  # Стамина
+@export var recover_rate: float = 0.255  # Рекавер стамины
 @export var sprint_min_speed: float = 1.6
-@export var exhausted_threshold: float = 0.25
-@export var recovered_threshold: float = 0.85
+@export var exhausted_threshold: float = 0.125
+@export var recovered_threshold: float = 0.425 
 
 @export_subgroup("Переходы")
 @export var crossfade_time: float = 1.5
@@ -97,7 +97,8 @@ func _process(delta: float) -> void:
 
 	var planar_speed: float = Vector2(player.velocity.x, player.velocity.z).length()
 	var crouched: bool = fps_movement != null and fps_movement.CROUCHED
-	var wants_sprint: bool = Input.is_action_pressed("move_run") and not crouched \
+	var run_held: bool = Input.is_action_pressed("move_run") if fps_movement == null else fps_movement.RUNNING
+	var wants_sprint: bool = run_held and not crouched \
 		and planar_speed >= sprint_min_speed and player.is_on_floor()
 
 	if _sprint_blocked and STAMINA >= recovered_threshold:
@@ -105,7 +106,14 @@ func _process(delta: float) -> void:
 		_was_exhausted = false
 
 	SPRINTING = wants_sprint and not _sprint_blocked and STAMINA > exhausted_threshold
-	_just_stopped_sprinting = _was_sprinting and not SPRINTING
+	
+	var should_stop_sprinting: bool = (not wants_sprint or STAMINA <= 0.0) and SPRINTING
+	if should_stop_sprinting:
+		SPRINTING = false
+		_just_stopped_sprinting = true
+	elif wants_sprint and not _was_sprinting and STAMINA > exhausted_threshold:
+		_just_stopped_sprinting = false
+
 	_was_sprinting = SPRINTING
 
 	if SPRINTING and STAMINA > 0.0:
