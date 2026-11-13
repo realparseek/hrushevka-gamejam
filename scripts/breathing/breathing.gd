@@ -26,7 +26,7 @@ const SILENT_DB: float = -80.0
 @export var gasp_volume_db: float = -8.0
 
 @export_subgroup("Выносливость")
-@export var drain_rate: float = 0.30  # Стамина
+@export var drain_rate: float = 0.30  # Стамина расход
 @export var recover_rate: float = 0.255  # Рекавер стамины
 @export var sprint_min_speed: float = 1.6
 @export var exhausted_threshold: float = 0.125

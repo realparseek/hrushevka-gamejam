@@ -28,42 +28,52 @@ func _ready() -> void:
 	shutdown()
 
 func _process(_delta: float) -> void:
+	var slot := get_node_or_null("../slot") as Node
+	if slot == null: return
+	var uslot := slot.get_node_or_null("uslot") as Control
+	if uslot == null: return
+
 	var camera: Camera3D = get_viewport().get_camera_3d()
-	var objpos: Vector2 = camera.unproject_position($"../slot".global_position)
-	
-	if not camera.is_position_behind($"../slot".global_position):
-		$"../slot/uslot".visible = true
-		$"../slot/uslot".modulate.a = 0.0
-		$"../slot/uslot".position = Vector2(
-			objpos.x - $"../slot/uslot".size.x/2.0, 
-			objpos.y - $"../slot/uslot".size.y/2.0)
+	if camera == null: return
+	var objpos: Vector2 = camera.unproject_position(slot.global_position)
+
+	if not camera.is_position_behind(slot.global_position):
+		uslot.visible = true
+		uslot.modulate.a = 0.0
+		uslot.position = Vector2(
+			objpos.x - uslot.size.x/2.0, 
+			objpos.y - uslot.size.y/2.0)
 	else:
-		$"../slot/uslot".visible = false
-	
+		uslot.visible = false
+
 	for s in SWITCHES:
 		if not s.ENABLED: return
 	shutdown()
 
 func shutdown() -> void:
 	if not WORKING: return
-	for l in lights: l.light_energy = 0.0
-	for d in doors: d.locked = true
-  
+	for l in lights:
+		if l: l.light_energy = 0.0
+	for d in doors:
+		if d: d.locked = true
+
 	if outage_sound and audio_player:
 		audio_player.stream = outage_sound
 		audio_player.set("parameters/looping", false)
 		audio_player.play()
 	WORKING = false
-	electricity_sound.play()
+	if electricity_sound: electricity_sound.play()
 
 func startup() -> void:
 	if WORKING: return
-	for l in lights: l.light_energy = 1.0
-	for d in doors: d.locked = false
+	for l in lights:
+		if l: l.light_energy = 1.0
+	for d in doors:
+		if d: d.locked = false
 
 	if working_sound and audio_player:
 		audio_player.stream = working_sound
 		audio_player.set("parameters/looping", true)
 		audio_player.play()
 	WORKING = true
-	electricity_sound.play()
+	if electricity_sound: electricity_sound.play()

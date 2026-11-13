@@ -291,7 +291,7 @@ gasp_stream = ExtResource("37_bgasp")
 
 [node name="audio" type="AudioStreamPlayer" parent="breathing"]
 
-[node name="pause_menu" type="Node" parent="." unique_id=476985872 node_paths=PackedStringArray("menu", "menu_container", "resume_button", "settings_button", "exit_button", "ambient", "settings_panel", "fps_slider", "fps_value_label", "volume_slider", "volume_value_label", "back_button")]
+[node name="pause_menu" type="Node" parent="." unique_id=476985872 node_paths=PackedStringArray("menu", "menu_container", "resume_button", "settings_button", "exit_button", "ambient", "settings_panel", "fps_slider", "fps_value_label", "volume_slider", "volume_value_label", "back_button", "save_button", "load_button", "reset_button", "scene_loader", "inventory")]
 script = ExtResource("16_pacje")
 menu = NodePath("../ui/pause")
 menu_container = NodePath("../ui/pause/menu")
@@ -305,6 +305,11 @@ fps_value_label = NodePath("../ui/pause/settings_panel/vbox/fps_row/fps_value")
 volume_slider = NodePath("../ui/pause/settings_panel/vbox/volume_row/volume_slider")
 volume_value_label = NodePath("../ui/pause/settings_panel/vbox/volume_row/volume_value")
 back_button = NodePath("../ui/pause/settings_panel/vbox/back_button")
+save_button = NodePath("../ui/pause/menu/save")
+load_button = NodePath("../ui/pause/menu/load")
+reset_button = NodePath("../ui/pause/menu/reset")
+scene_loader = NodePath("../scene_loader")
+inventory = NodePath("../inventory")
 
 [node name="loading_screen" type="Node" parent="." unique_id=827039144 node_paths=PackedStringArray("animation_player")]
 script = ExtResource("17_2h0qb")
@@ -521,6 +526,33 @@ theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 
 theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
 text = "Settings
 "
+flat = true
+alignment = 0
+
+[node name="save" type="Button" parent="ui/pause/menu" unique_id=191018817]
+layout_mode = 2
+theme = ExtResource("26_arp52")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+text = "Save"
+flat = true
+alignment = 0
+
+[node name="load" type="Button" parent="ui/pause/menu" unique_id=191018818]
+layout_mode = 2
+theme = ExtResource("26_arp52")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+text = "Load"
+flat = true
+alignment = 0
+
+[node name="reset" type="Button" parent="ui/pause/menu" unique_id=191018819]
+layout_mode = 2
+theme = ExtResource("26_arp52")
+theme_override_colors/font_hover_color = Color(0.47788, 0.47788012, 0.47788113, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.47843137, 0.47843137, 1)
+text = "Reset"
 flat = true
 alignment = 0
 
